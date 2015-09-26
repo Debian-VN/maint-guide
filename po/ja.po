@@ -2759,7 +2759,7 @@ msgstr ""
 " 普通のプログラムインストールとDebian パッケージ作成というこれら二つの違いに"
 "は、<systemitem role=\"package\">debhelper</systemitem> パッケージの "
 "<command>dh_auto_configure</command> と <command>dh_auto_install</command> の"
-"コマンドを使うことで得に意識せずに対応できます:"
+"コマンドを使うことで特に意識せずに対応できます:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
@@ -2782,7 +2782,7 @@ msgstr ""
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "The source must follow the Filesystem Hierarchy Standard (FHS)."
 msgstr ""
-"ソースは Filesystem Hierarchy Standard (FHS)  に準拠してる必要があります。"
+"ソースは Filesystem Hierarchy Standard (FHS)  に準拠している必要があります。"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -2874,8 +2874,8 @@ msgstr ""
 "パッケージの作成時は、あなたのプログラムは <filename>debian/"
 "<replaceable>package</replaceable></filename> にインストールされますが、"
 "<filename>.deb</filename> パッケージからルートディレクトリー下にインストール"
-"された場合も正しく動作する必要があることを覚えておいてください。こうするのた"
-"めは、ビルドシステムがパッケージファイルの中のファイル中に <literal>/home/me/"
+"された場合も正しく動作する必要があることを覚えておいてください。こうするため"
+"には、ビルドシステムがパッケージファイルの中のファイル中に <literal>/home/me/"
 "deb/<replaceable>package</replaceable>-<replaceable>version</replaceable>/"
 "usr/share/<replaceable>package</replaceable></literal> といった文字列をハード"
 "コードしないようにしなければなりません。"
@@ -2926,9 +2926,9 @@ msgid ""
 "local use on Debian, so change those paths to:"
 msgstr ""
 "ファイルが <filename>/usr/local</filename> 以下にインストールされるようになっ"
-"ていることがわかります。 上記説明ににあるように、そのディレクトリーヒエラル"
-"キーは Debian 上のローカルユーザー向けに予約されているので、これらのパスを以"
-"下のように変更してください:"
+"ていることがわかります。 上記説明にあるように、そのディレクトリーヒエラルキー"
+"は Debian 上のローカルユーザー向けに予約されているので、これらのパスを以下の"
+"ように変更してください:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -3006,7 +3006,7 @@ msgid ""
 "with <literal>usr/lib</literal>.  This can be done automatically as follows:"
 msgstr ""
 "それらのファイルを編集し、該当行の <literal>usr/local/lib</literal> を "
-"<literal>usr/lib</literal> に置き換えてください。これは以下の様にすると自動可"
+"<literal>usr/lib</literal> に置き換えてください。これは以下の様にすると自動化"
 "出来ます:"
 
 #. type: Content of: <book><chapter><section><screen>
