@@ -1234,8 +1234,8 @@ msgid ""
 "the <ulink url=\"&packages-qa-do;\">Debian Package Tracking System</ulink> "
 "web page"
 msgstr ""
-"<ulink url=\"&packages-qa-do;\">Debian Package Tracking System</ulink> ウエッ"
-"ブページ"
+"<ulink url=\"&packages-qa-do;\">Debian Package Tracking System</ulink> ウェブ"
+"ページ"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -2015,7 +2015,7 @@ msgid ""
 "systemitem> package.  See <xref linkend=\"customrules\"/>."
 msgstr ""
 "<systemitem role=\"package\">dh-autoreconf</systemitem> パッケージを用いると"
-"これが自動か出来ます。<xref linkend=\"customrules\"/> を参照下さい。"
+"これが自動化出来ます。<xref linkend=\"customrules\"/> を参照下さい。"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
