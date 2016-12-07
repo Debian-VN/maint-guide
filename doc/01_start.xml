@@ -218,7 +218,7 @@ but similar packages such as
 </para>
 <para>
 The new <systemitem role="package">debmake</systemitem> may be used as the alternative to the standard <systemitem role="package">dh-make</systemitem>.
-It does more and comes with HTML documentation with extensive packaging examples.
+It does more and comes with HTML documentation with extensive packaging examples in <systemitem role="package">debmake-doc</systemitem>.
 </para>
 </listitem>
 <listitem>

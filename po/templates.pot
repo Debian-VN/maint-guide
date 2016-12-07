@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-06-09 21:17+0900\n"
+"POT-Creation-Date: 2016-12-07 23:40+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -402,7 +402,7 @@ msgid ""
 "The new <systemitem role=\"package\">debmake</systemitem> may be used as the "
 "alternative to the standard <systemitem role=\"package\">dh-make</"
 "systemitem>.  It does more and comes with HTML documentation with extensive "
-"packaging examples."
+"packaging examples in <systemitem role=\"package\">debmake-doc</systemitem>."
 msgstr ""
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
