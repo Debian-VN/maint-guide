@@ -1,3 +1,10 @@
+maint-guide (1.2.37) unstable; urgency=medium
+
+  * Update to mention debmake-doc.
+  * Update zh-* and others. 
+
+ -- Osamu Aoki <osamu@debian.org>  Wed, 07 Dec 2016 23:44:57 +0900
+
 maint-guide (1.2.36) unstable; urgency=medium
 
   * Update zh-* by lumin.  Closes: #769745, #770253, #776932

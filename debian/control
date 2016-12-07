@@ -25,9 +25,9 @@ Build-Depends-Indep: dblatex,
                      w3m,
                      xsltproc,
                      zip
-Standards-Version: 3.9.6
-Vcs-Git: git://anonscm.debian.org/ddp/maint-guide.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=ddp/maint-guide.git
+Standards-Version: 3.9.8
+Vcs-Git: https://anonscm.debian.org/git/ddp/maint-guide.git
+Vcs-Browser: https://anonscm.debian.org/cgit/dp/maint-guide.git
 Homepage: http://www.debian.org/doc/devel-manuals#maint-guide
 
 Package: maint-guide
