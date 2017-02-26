@@ -8046,7 +8046,7 @@ msgstr ""
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
-"The <command>dbuild</command> command executes the <command>lintian</"
+"The <command>debuild</command> command executes the <command>lintian</"
 "command> command to make the static check after building the Debian "
 "package.  The <command>lintian</command> command can be customized with the "
 "following in the <filename>~/.devscripts</filename>:"

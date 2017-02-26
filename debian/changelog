@@ -1,3 +1,11 @@
+maint-guide (1.2.38) unstable; urgency=medium
+
+  * Fix "Link to Lintian User's Manual".  Closes: #819346, #821117
+  * Fix s/dbuild/debuild/ typo and update its translations.
+    Closes: #814593, #822260
+
+ -- Osamu Aoki <osamu@debian.org>  Sun, 26 Feb 2017 13:03:57 +0900
+
 maint-guide (1.2.37) unstable; urgency=medium
 
   * Update to mention debmake-doc.
