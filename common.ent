@@ -109,7 +109,7 @@ Remember, the *first* definition of an entity wins.
 <!ENTITY launchpad-build-depends-indep "https://bugs.launchpad.net/launchpad-buildd/+bug/238141">
 <!ENTITY library "http://en.wikipedia.org/wiki/Library_(computing)">
 <!ENTITY libtool "http://en.wikipedia.org/wiki/GNU_Libtool">
-<!ENTITY lintian-doc "/usr/share/doc/lintian/lintian.html/index.html">
+<!ENTITY lintian-doc "https://lintian.debian.org/manual/index.html">
 <!ENTITY listdevel "https://lists.debian.org/devel.html">
 <!ENTITY listusers "https://lists.debian.org/users.html">
 <!ENTITY logiciellibre "http://upsilon.cc/~zack/talks/2011/20110321-taipei.pdf">
