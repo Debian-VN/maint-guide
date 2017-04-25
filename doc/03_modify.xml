@@ -16,7 +16,7 @@ shell completion feature of the <command>quilt</command> command to the
 </para>
 <screen>
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
-complete -F _quilt_completion $_quilt_complete_opt dquilt
+complete -F _quilt_completion -o filenames dquilt
 </screen>
 <para>
 Then let's create <filename>~/.quiltrc-dpkg</filename> as follows:
