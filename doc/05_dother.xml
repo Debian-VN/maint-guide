@@ -593,63 +593,6 @@ To install <filename>docs/gentoo.1</filename> as a manpage for the <systemitem r
 docs/gentoo.1
 </screen>
 </section>
-<section id="menu"><title><filename>menu</filename></title>
-<para>
-X Window System users usually have a window manager with a menu that can be
-customized to launch programs.  If they have installed the Debian <systemitem role="package">menu</systemitem> package, a set of menus for every program on
-the system will be created for them.
-</para>
-<para>
-Here's the default <filename>menu.ex</filename> file that
-<command>dh_make</command> created:
-</para>
-<screen>
-?package(gentoo):needs=X11|text|vc|wm \
-        section=Applications/see-menu-manual\
-        title=gentoo command=/usr/bin/gentoo
-</screen>
-<para>
-The first field after the colon character is <literal>needs</literal>, and it
-specifies what kind of interface the program needs.  Change this to one of the
-listed alternatives, e.g.  <literal>text</literal> or <literal>X11</literal>.
-</para>
-<para>
-The next is the <literal>section</literal> that the menu and submenu entry
-should appear in.
-<footnote><para> The current list of sections is in
-<ulink url="&menu-structure;">The Debian Menu sub-policy, 2.1 "Preferred menu structure"</ulink>.
-There was a major reorganization of menu structure for <literal>squeeze</literal>.
-</para> </footnote>
-</para>
-<para>
-The <literal>title</literal> field is the name of the program.  You can start
-this one in uppercase if you like.  Just keep it short.
-</para>
-<para>
-Finally, the <literal>command</literal> field is the command that runs the
-program.
-</para>
-<para>
-Let's change the file name to <filename>menu</filename> and change the menu
-entry to this:
-</para>
-<screen>
-?package(gentoo): needs=X11 \
-        section=Applications/Tools \
-        title=Gentoo command=gentoo
-</screen>
-<para>
-You can also add other fields like <literal>longtitle</literal>,
-<literal>icon</literal>, <literal>hints</literal> etc.  See <citerefentry>
-<refentrytitle>dh_installmenu</refentrytitle> <manvolnum>1</manvolnum>
-</citerefentry>, <citerefentry> <refentrytitle>menufile</refentrytitle>
-<manvolnum>5</manvolnum> </citerefentry>, <citerefentry>
-<refentrytitle>update-menus</refentrytitle> <manvolnum>1</manvolnum>
-</citerefentry>, and
-<ulink url="&policy-menu;">The Debian Menu sub-policy</ulink> for more
-information.
-</para>
-</section>
 <section id="news"><title><filename>NEWS</filename></title>
 <para>
 The <citerefentry> <refentrytitle>dh_installchangelogs</refentrytitle>
