@@ -3,6 +3,7 @@ maint-guide (1.2.39) UNRELEASED; urgency=medium
   * Fix dquilt bash completion.  Closes: #861084
   * Fix VCS-Browser. Closes: #861144
   * Drop menu section.  Closes: #861146 
+  * Update translation: de
 
  -- Osamu Aoki <osamu@debian.org>  Wed, 26 Apr 2017 07:56:50 +0900
 
