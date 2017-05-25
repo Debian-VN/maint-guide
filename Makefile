@@ -9,7 +9,7 @@ MANUAL	:=	maint-guide
 # languages translated with PO files
 LANGPO	:=	ca de es fr it ja ru zh-cn zh-tw
 # languages to skip generation of PDF files
-NOPDF	:=	ja zh-cn zh-tw
+NOPDF	:=	
 # languages to build document
 LANGALL	=	en $(LANGPO)
 
