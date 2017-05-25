@@ -1,0 +1,73 @@
+#! /bin/sh -e
+# vim: set sts=4 expandtab:
+# $1: en fr pt zh-cn ...
+#
+DPO="po"
+DBIN="bin"
+DCC="/usr/share/opencc"
+MANUAL="maint-guide"
+# The threshold should be 80 if translation is completed.
+THRESHOLD="0"
+TRANSLATE="po4a-translate -M utf-8 --format docbook --keep ${THRESHOLD} -v"
+MSGCAT="msgcat"
+OPENCC="opencc"
+
+# Generate XML (en)
+gen_xml_en () {
+    echo "!!! Should not be here !!!" >&2
+    false
+}
+
+# Generate XML (other)
+gen_xml_other () {
+    if [ -f ${DPO}/${1}.add ]; then
+        ${TRANSLATE} -m ${MANUAL}.en.xml -a ${DPO}/${1}.add -p ${DPO}/${1}.po -l ${MANUAL}.${1}.xml
+    else
+        ${TRANSLATE} -m ${MANUAL}.en.xml -p ${DPO}/${1}.po -l ${MANUAL}.${1}.xml
+    fi
+}
+
+# Generate XML (zh-cn)
+gen_xml_zh_CN () {
+    if which opencc >/dev/null ; then
+        ${MSGCAT} --no-wrap ${DPO}/zh-cn.po |\
+        ${OPENCC} -c ${DCC}/tw2sp.json -o ${DPO}/zh-cn.po-opencc
+        ${MSGCAT} -o ${DPO}/zh-cn.po-best --use-first ${DPO}/zh-cn.po ${DPO}/zh-cn.po-opencc
+        ${DBIN}/fuzzypo ${DPO}/zh-cn.po-best >>fuzzy.log
+    else
+        ln -f ${DPO}/zh-cn.po ${DPO}/zh-cn.po-best
+    fi
+    if [ -f ${DPO}/zh-cn.add ]; then
+        ${TRANSLATE} -m ${MANUAL}.en.xml -a ${DPO}/zh-cn.add -p ${DPO}/zh-cn.po-best -l ${MANUAL}.zh-cn.xml
+    else
+        ${TRANSLATE} -m ${MANUAL}.en.xml -p ${DPO}/zh-cn.po-best -l ${MANUAL}.zh-cn.xml
+    fi
+    #rm -f ${DPO}/zh-cn.po-best
+}
+
+# Generate XML (zh-tw)
+gen_xml_zh_TW () {
+    if which opencc >/dev/null ; then
+        ${MSGCAT} --no-wrap ${DPO}/zh-cn.po |\
+        ${OPENCC} -c ${DCC}/s2twp.json -o ${DPO}/zh-tw.po-opencc
+        ${MSGCAT} -o ${DPO}/zh-tw.po-best --use-first ${DPO}/zh-tw.po ${DPO}/zh-tw.po-opencc
+        ${DBIN}/fuzzypo ${DPO}/zh-tw.po-best >>fuzzy.log
+    else
+        ln -f ${DPO}/zh-tw.po ${DPO}/zh-tw.po-best
+    fi
+    if [ -f ${DPO}/zh-tw.add ]; then
+        ${TRANSLATE} -m ${MANUAL}.en.xml -a ${DPO}/zh-tw.add -p ${DPO}/zh-tw.po-best -l ${MANUAL}.zh-tw.xml
+    else
+        ${TRANSLATE} -m ${MANUAL}.en.xml -p ${DPO}/zh-tw.po-best -l ${MANUAL}.zh-tw.xml
+    fi
+    #rm -f ${DPO}/zh-tw.po-best
+}
+
+# Main routine
+case "$1" in
+    "zh-tw")    gen_xml_zh_TW;;
+    "zh-cn")    gen_xml_zh_CN;;
+    "en")       gen_xml_en;;
+    *)          gen_xml_other "$1";;
+esac
+

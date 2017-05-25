@@ -1,0 +1,11 @@
+#! /bin/sh -e
+# vim: set sts=4 expandtab:
+# $1: es.po fr.po pt.po zh-cn.po zh-cn.po-best ...
+#
+DPO="po"
+MSGATTR="msgattrib"
+#
+echo "no-obsolete  $1  `${MSGATTR} --no-obsolete  $1 |grep ^msgid |sed 1d|wc -l`"
+echo "untranslated $1  `${MSGATTR} --untranslated $1 |grep ^msgid |sed 1d|wc -l`"
+echo "fuzzy        $1  `${MSGATTR} --fuzzy        $1 |grep ^msgid |sed 1d|wc -l`"
+echo

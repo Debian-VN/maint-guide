@@ -190,11 +190,7 @@ $(MANUAL).en.xml: $(DOCS)
 $(MANUAL).%.xml: $(DPO)/%.po $(MANUAL).en.xml
 	@$(call check-command, po4a-translate, po4a)
 	@$(call check-command, msgcat, gettext)
-	if [ -f $(DPO)/$*.add ]; then \
-	$(TRANSLATE) -m $(MANUAL).en.xml -a $(DPO)/$*.add -p $(DPO)/$*.po -l $(MANUAL).$*.xml ;\
-	else \
-	$(TRANSLATE) -m $(MANUAL).en.xml -p $(DPO)/$*.po -l $(MANUAL).$*.xml ;\
-	fi
+	$(DBIN)/genxml $*
 	sed -i -e 's/$(DPO)\/en\.ent/$(DPO)\/$*.ent/' $@
 
 #######################################################################

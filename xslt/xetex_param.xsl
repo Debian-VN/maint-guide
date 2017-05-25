@@ -3,58 +3,114 @@
 <!-- vim: set sts=2 ai expandtab: -->
 
 <!--############################################################################
-    XSLT Stylesheet DocBook -> LaTeX 
+    XSLT Stylesheet DocBook -> LaTeX  (XeTeX focused)
     ############################################################################ -->
 
   <xsl:param name="xetex.font">
-    <!-- Western centric Adobe PostScript looks-alike: gsfonts: missing some odd codes, mono is thin
+    <!-- Set Western font: XeTeX default seems Latin Modern (LM) Family of Fonts -->
+      <!-- Depends: lmodern, tipa -->
+
+    <!-- Nimbus: Original Adobe PostScript looks-alike -->
+      <!-- Origin:  URW++  -->
+      <!-- Depends: gsfonts -->
+      <!-- Note:    missing some odd codes, mono is thin -->
+    <!--
     <xsl:text>\setmainfont{Nimbus Roman No9 L}&#10;</xsl:text>
     <xsl:text>\setsansfont{Nimbus Sans L}&#10;</xsl:text>
     <xsl:text>\setmonofont{Nimbus Mono L}&#10;</xsl:text>
     -->
 
-    <!-- Western centric Bitstream Vera Fonts extended: DejaVu: too big and spaced
+    <!-- DejaVu: Extended coverage Bitstream Vera Fonts -->
+      <!-- Origin:  GNOME, https://dejavu-fonts.github.io/  -->
+      <!-- Depends: fonts-dejavu -->
+      <!-- Note:    mainly for computer screens, too big and spaced -->
+    <!--
     <xsl:text>\setmainfont{DejaVu Serif}&#10;</xsl:text>
     <xsl:text>\setsansfont{DejaVu Sans}&#10;</xsl:text>
     <xsl:text>\setmonofont{DejaVu Sans Mono}&#10;</xsl:text>
     -->
 
-    <!-- Western centric MS (monotype) fonts looks-alike: Liberation : Best looking --> 
+    <!-- Liberation: Extended coverage MS (monotype) fonts looks-alike -->
+      <!-- Origin:  Red Hat, https://pagure.io/liberation-fonts -->
+      <!-- Depends: fonts-liberation2  -->
+      <!-- License: SIL -->
+      <!-- Note:    Best looking -->
     <xsl:text>\setmainfont{Liberation Serif}&#10;</xsl:text>
     <xsl:text>\setsansfont{Liberation Sans}&#10;</xsl:text>
     <xsl:text>\setmonofont{Liberation Mono}&#10;</xsl:text>
 
+    <!-- GNU FreeFont: Extended coverage Adobe PostScript looks-alike -->
+      <!-- Origin:  GNU, https://www.gnu.org/software/freefont -->
+      <!-- Depends: fonts-freefont-otf  -->
+      <!-- License: GPL3+ font_exception -->
+      <!-- Note:    Best looking -->
+    <!--
+    <xsl:text>\setmainfont{FreeSerif}&#10;</xsl:text>
+    <xsl:text>\setsansfont{FreeSans}&#10;</xsl:text>
+    <xsl:text>\setmonofont{FreeMono}&#10;</xsl:text>
+    -->
+
+    <!-- Only non-latin chars seem to use \setCJK*font settings -->
+    <xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
     <xsl:choose>
       <xsl:when test="$lingua = 'zh-cn'">
-	<!-- zh_CN centric: ttf-arphic-gbsn00lp, ttf-wqy-zenhei -->
-        <xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
+	<!-- zh_CN centric: main=Serif CJK Arphic+文泉-->
+          <!-- Depends: fonts-arphic-gbsn00lp -->
+          <!-- Depends: fonts-wqy-zenhei -->
+        <!--
         <xsl:text>\setCJKmainfont{AR PL SungtiL GB}&#10;</xsl:text>
         <xsl:text>\setCJKsansfont{WenQuanYi Zen Hei}&#10;</xsl:text>
         <xsl:text>\setCJKmonofont{WenQuanYi Zen Hei Mono}&#10;</xsl:text>
+        -->
+	<!-- zh_CN centric: main=Sans CJK, Google Droid derivative--> 
+          <!-- Depends: fonts-wqy-microhei -->
+	<xsl:text>\setCJKmainfont{WenQuanYi Micro Hei}&#10;</xsl:text>
+	<xsl:text>\setCJKsansfont{WenQuanYi Micro Hei}&#10;</xsl:text>
+	<xsl:text>\setCJKmonofont{WenQuanYi Micro Hei Mono}&#10;</xsl:text>
       </xsl:when>
       <xsl:when test="$lingua = 'zh-tw'">
-        <!-- zh_TW centric: ttf-arphic-bsmi00lp, ttf-wqy-zenhei -->
-        <xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
+        <!-- zh_TW centric:  main=Serif CJK Arphic+文泉 -->
+          <!-- Depends: fonts-arphic-bsmi00lp -->
+          <!-- Depends: fonts-wqy-zenhei -->
+        <!--
         <xsl:text>\setCJKmainfont{AR PL Mingti2L Big5}&#10;</xsl:text>
         <xsl:text>\setCJKsansfont{WenQuanYi Zen Hei}&#10;</xsl:text>
         <xsl:text>\setCJKmonofont{WenQuanYi Zen Hei Mono}&#10;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$lingua = 'ja'">
-        <!-- ja centric: otf-ipafont-mincho otf-ipafont-gothic -->
-        <xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
-        <xsl:text>\setCJKmainfont{IPAMincho}&#10;</xsl:text>
-        <xsl:text>\setCJKsansfont{IPAPGothic}&#10;</xsl:text>
-        <xsl:text>\setCJKmonofont{IPAGothic}&#10;</xsl:text>
+        -->
+	<!-- zh_TW centric: main=Sans CJK, Google Droid derivative--> 
+          <!-- Depends: fonts-wqy-microhei -->
+	<xsl:text>\setCJKmainfont{WenQuanYi Micro Hei}&#10;</xsl:text>
+	<xsl:text>\setCJKsansfont{WenQuanYi Micro Hei}&#10;</xsl:text>
+	<xsl:text>\setCJKmonofont{WenQuanYi Micro Hei Mono}&#10;</xsl:text>
       </xsl:when>
       <xsl:when test="$lingua = 'ko'">
-        <!-- ko centric: ttf-unfonts-core -->
-        <xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
+        <!-- ko centric:  -->
+          <!-- Depends: fonts-unfonts-core -->
         <xsl:text>\setCJKmainfont{UnBatang}&#10;</xsl:text>
         <xsl:text>\setCJKsansfont{UnDotum}&#10;</xsl:text>
         <xsl:text>\setCJKmonofont{UnDotum}&#10;</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <!-- set none -->
+        <!-- This includes English etc. (English original text has my name in Japanese -->
+        <!-- ja centric: Older IPA, main=serif --> 
+          <!-- Depends: fonts-ipafont -->
+        <!--
+        <xsl:text>\setCJKmainfont{IPAPMincho}&#10;</xsl:text>
+        <xsl:text>\setCJKsansfont{IPAPGothic}&#10;</xsl:text>
+        <xsl:text>\setCJKmonofont{IPAGothic}&#10;</xsl:text>
+        -->
+        <!-- ja centric: Newer IPA, main=serif --> 
+          <!-- Depends: fonts-ipaexfont -->
+        <!--
+        <xsl:text>\setCJKmainfont{IPAexMincho}&#10;</xsl:text>
+        <xsl:text>\setCJKsansfont{IPAexGothic}&#10;</xsl:text>
+        <xsl:text>\setCJKmonofont{IPAexGothic}&#10;</xsl:text>
+        -->
+        <!-- ja centric:  main=sans -->
+          <!-- Depends: fonts-vlgothic -->
+	<xsl:text>\setCJKmainfont{VL PGothic}&#10;</xsl:text>
+	<xsl:text>\setCJKsansfont{VL PGothic}&#10;</xsl:text>
+	<xsl:text>\setCJKmonofont{VL Gothic}&#10;</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>
@@ -64,7 +120,7 @@
 <!--
 = Asian font basics =
 
-Use xCJK only for CJK http://bugs.debian.org/666569
+NOTE: This is slightly outdated
 
 == Sanserif ==
   simplified Chinese: 黑体 hēi tǐ

@@ -1,12 +1,16 @@
-maint-guide (1.2.39) UNRELEASED; urgency=medium
+maint-guide (1.2.39) unstable; urgency=medium
 
   * Fix dquilt bash completion.  Closes: #861084
   * Fix VCS-Browser. Closes: #861144
   * Drop menu section.  Closes: #861146 
   * Update translation: de
-  * Update translation: zh_CN Closes: #645969
+  * Update translation: zh_CN.  Closes: #645969
+  * Trivial update translation: all
+  * Use opencc as the backup PO string generator for Chinese
+    translation.
+  * Add PDF for zh-cn, zh-tw, and jp. Closes: #850523
 
- -- Osamu Aoki <osamu@debian.org>  Wed, 26 Apr 2017 07:56:50 +0900
+ -- Osamu Aoki <osamu@debian.org>  Thu, 25 May 2017 23:17:12 +0900
 
 maint-guide (1.2.38) unstable; urgency=medium
 
