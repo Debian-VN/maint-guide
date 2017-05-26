@@ -1,0 +1,20 @@
+<!--
+This is UTF-8 file.
+Remember, the *first* definition of an entity wins.
+-->
+
+<!ENTITY othercredit '
+<othercredit role="translator"><personname>Giap Tran</personname><email>txgvnn@gmail.com</email><contrib>dịch bởi</contrib></othercredit>
+'>
+
+<!ENTITY autoconf "http://wikipedia.org/wiki/Autoconf">
+<!ENTITY automake "http://wikipedia.org/wiki/Automake">
+<!ENTITY cmake "http://wikipedia.org/wiki/CMake">
+<!ENTITY c-program "http://wikipedia.org/wiki/Llenguatge_C">
+<!ENTITY cxx "http://wikipedia.org/wiki/C++">
+<!ENTITY gettext "http://wikipedia.org/wiki/Gettext">
+<!ENTITY gnu-build-system "http://wikipedia.org/wiki/Autotools">
+<!ENTITY libtool "http://wikipedia.org/wiki/GNU_Libtool">
+<!ENTITY elf "http://wikipedia.org/wiki/Executable_and_Linkable_Format">
+<!ENTITY library "http://wikipedia.org/wiki/Llibreria_informàtica">
+<!ENTITY utf8 "http://wikipedia.org/wiki/UTF-8">

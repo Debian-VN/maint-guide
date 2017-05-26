@@ -7,7 +7,7 @@
 # base file name excluding file extension
 MANUAL	:=	maint-guide
 # languages translated with PO files
-LANGPO	:=	ca de es fr it ja ru zh-cn zh-tw
+LANGPO	:=	ca de es fr it ja ru zh-cn zh-tw vi
 # languages to skip generation of PDF files
 NOPDF	:=	
 # languages to build document
