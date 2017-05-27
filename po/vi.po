@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-05-25 23:42+0900\n"
-"PO-Revision-Date: 2017-05-26 22:35+0700\n"
+"PO-Revision-Date: 2017-05-27 17:14+0700\n"
 "Last-Translator: Giap Tran <txgvnn@gmail.com>\n"
 "Language-Team: Debian-VN <debian-l10n-vietnamese@lists.debian.org>\n"
 "Language: vi_VN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #. type: Attribute 'lang' of: <book>
 msgid "en"
@@ -5125,75 +5125,84 @@ msgstr ""
 
 #. type: Content of: <book><chapter><title>
 msgid "Building the package"
-msgstr ""
+msgstr "Biên dịch gói"
 
 #. type: Content of: <book><chapter><para>
 msgid "We should now be ready to build the package."
-msgstr ""
+msgstr "Bây giờ chúng ta xem như đã sẵn sàng để biên dịch gói."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Complete (re)build"
-msgstr ""
+msgstr "(Tái) biên dịch toàn bộ"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "In order to perform a complete (re)build of a package properly, you need to make sure "
 "you have installed"
 msgstr ""
+"Để có thể (tái) biên dịch toàn bộ gói một cách đúng đắn, bạn cần phải đảm bảo là bạn đã "
+"cài đặt"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "the <systemitem role=\"package\">build-essential</systemitem> package,"
-msgstr ""
+msgstr "gói <systemitem role=\"package\">build-essential</systemitem>,"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "packages listed in the <literal>Build-Depends</literal> field (see <xref linkend="
 "\"control\"/>), and"
 msgstr ""
+"các gói liệt kê ở trong mục <literal>Build-Depends</literal> (xem <xref linkend="
+"\"control\"/>), và"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "packages listed in the <literal>Build-Depends-indep</literal> field (see <xref linkend="
 "\"control\"/>)."
 msgstr ""
+"các gói được liệt kê trong mục <literal>Build-Depends-indep</literal> (see <xref "
+"linkend=\"control\"/>)."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "Then you issue the following command in the source directory:"
-msgstr ""
+msgstr "Sau đó bạn thực thi lệnh sau ở trong thư mục nguồn:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "$ dpkg-buildpackage -us -uc\n"
-msgstr ""
+msgstr "$ dpkg-buildpackage -us -uc\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "This will do everything to make full binary and source packages for you.  It will:"
 msgstr ""
+"Lệnh này sẽ làm hết tất cả những thứ cần thiết để tạo gói nhị phân và nguồn hoàn chỉnh "
+"cho bạn.  Nó sẽ"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "clean the source tree (<literal>debian/rules clean</literal>)"
-msgstr ""
+msgstr "xóa sạch cây thư mục nguồn (<literal>debian/rules clean</literal>)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "build the source package (<literal>dpkg-source -b</literal>)"
-msgstr ""
+msgstr "biên dịch gói nguồn (<literal>dpkg-source -b</literal>)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "build the program (<literal>debian/rules build</literal>)"
-msgstr ""
+msgstr "biên dịch chương trình (<literal>debian/rules build</literal>)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "build binary packages (<literal>fakeroot debian/rules binary</literal>)"
-msgstr ""
+msgstr "biên dịch gói nhị phân (<literal>fakeroot debian/rules binary</literal>)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "make the <filename>.dsc</filename> file"
-msgstr ""
+msgstr "tạo tập tin <filename>.dsc</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "make the <filename>.changes</filename> file, using <command>dpkg-genchanges</command>"
 msgstr ""
+"tạo tập tin <filename>.changes</filename>, dùng lệnh <command>dpkg-genchanges</command>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -5203,6 +5212,11 @@ msgid ""
 "\"&keycreate;\">Creating a new GPG key</ulink> and <ulink url=\"&keysigning; \">Debian "
 "Wiki on Keysigning</ulink>."
 msgstr ""
+"Mã GPG này phải được ký tên bởi một nhà phát triển Debian để có thể được kết nối được "
+"tới mạng lưới uy tín và phải được đăng ký vào <ulink url=\"&keyring;\">tập hợp mã tin "
+"cậy của Debian</ulink>. Điều này cho phép các gói bạn tải lên được chấp nhận vào kho "
+"của Debian.  Xem <ulink url=\"&keycreate;\">Tạo một mã GPG mới</ulink> và <ulink url="
+"\"&keysigning; \">Debian Wiki về Ký tên lên mã</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5211,6 +5225,10 @@ msgid ""
 "<command>debsign</command> command.  You need to enter your secret pass phrase, twice.  "
 "<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Nếu kết quả biên dịch đạt mức thỏa mãn yêu cầu, kí tên các tập tin <filename>.dsc</"
+"filename> và <filename>.changes</filename> dùng mã GPG riêng tư của bạn bằng lệnh "
+"<command>debsign</command>.  Bạn cần phải nhập mật mã, hai lần.  <placeholder type="
+"\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5218,10 +5236,13 @@ msgid ""
 "systemitem>, you will see the following files in the parent directory (<filename>~/"
 "gentoo</filename>) after building packages:"
 msgstr ""
+"Đối với một gói không đến từ Debian, ví dụ như <systemitem role=\"package\">gentoo</"
+"systemitem>, bạn sẽ thấy những tập tin sau trong thư mục cấp trên (<filename>~/gentoo</"
+"filename>) sau khi biên dịch các gói xong:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<filename>gentoo_0.9.12.orig.tar.gz</filename>"
-msgstr ""
+msgstr "<filename>gentoo_0.9.12.orig.tar.gz</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""

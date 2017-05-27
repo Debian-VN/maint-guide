@@ -11,3 +11,5 @@ Chi tiết tại `README.source`
 ### Thành viên nhận dịch
 *Cập nhật tại đây nếu bạn muốn tham gia*
 - [Giap Tran](https://github.com/TxGVNN)
+- [Khang Nguyen](https://github.com/ngtrongkhang)
+  - Nhận dịch chương 6,7,8,9 và phụ lục A
