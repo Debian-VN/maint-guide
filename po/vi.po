@@ -1,12 +1,13 @@
 # Copyright (C) 2017 Free Software Foundation, Inc.
 # This file is distributed under the same license as the maint-guide package.
-# Giap Tran <txgvnn@gmail.coom>, 2017.
+# Giap Tran <txgvnn@gmail.com>, 2017.
+# Khang Nguyen <khang.social@gmail.com>, 2017
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-05-25 23:42+0900\n"
-"PO-Revision-Date: 2017-05-27 17:14+0700\n"
+"PO-Revision-Date: 2017-05-28 21:56+0700\n"
 "Last-Translator: Giap Tran <txgvnn@gmail.com>\n"
 "Language-Team: Debian-VN <debian-l10n-vietnamese@lists.debian.org>\n"
 "Language: vi_VN\n"
@@ -5250,10 +5251,13 @@ msgid ""
 "it adheres to the Debian standard.  Note that this was created initially by the "
 "<literal>dh_make -f ../gentoo-0.9.12.tar.gz</literal>."
 msgstr ""
+"Đây là tập tin nén chứa mã nguồn nguyên gốc từ các nhà phát triển, chỉ được đổi tên về "
+"tên như trên để tuân thủ theo quy định của Debian. Chú ý rằng tập tin trên được tạo "
+"trước tiên bởi lệnh <literal>dh_make -f ../gentoo-0.9.12.tar.gz</literal>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<filename>gentoo_0.9.12-1.dsc</filename>"
-msgstr ""
+msgstr "<filename>gentoo_0.9.12-1.dsc</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5262,10 +5266,14 @@ msgid ""
 "<citerefentry> <refentrytitle>dpkg-source</refentrytitle> <manvolnum>1</manvolnum> </"
 "citerefentry>."
 msgstr ""
+"Đây là tóm tắt nội dung của mã nguồn. Tập tin này được tạo ra từ tập tin "
+"<filename>control</filename>, và nó được sử dung khi giải nén mã nguồn bằng lệnh "
+"<citerefentry> <refentrytitle>dpkg-source</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<filename>gentoo_0.9.12-1.debian.tar.gz</filename>"
-msgstr ""
+msgstr "<filename>gentoo_0.9.12-1.debian.tar.gz</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5273,6 +5281,9 @@ msgid ""
 "Each and every addition you made to the original source code is stored as a "
 "<command>quilt</command> patch in <filename>debian/patches</filename>."
 msgstr ""
+"Tập tin nén này chứa các nội dung trong thư mục <filename>debian</filename>. Mỗi điều "
+"chỉnh bạn thêm vào mã nguồn ban đầu được lưu ở dạng một bản vá <command>quilt</command> "
+"trong <filename>debian/patches</filename>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
@@ -5281,6 +5292,10 @@ msgid ""
 "literal> option.  Alternatively, you can run <literal>dquilt pop -a</literal> after "
 "normal operation."
 msgstr ""
+"Bạn có thể tránh việc áp dung các bản vá <command>quilt</command> dưới định dạng nguồn "
+"<literal>3.0 (quilt)</literal> tại phần cuối của lựa chọn <literal>--skip-patches</"
+"literal>.  Một lựa chọn khác là bạn có thể chạy lệnh <literal>dquilt pop -a</literal> "
+"sau khi thực hiện lệnh bình thường."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5289,20 +5304,26 @@ msgid ""
 "files somewhere else and run <literal>dpkg-source -x gentoo_0.9.12-1.dsc</literal>.  "
 "<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Nếu bất cứ ai muốn tự tạo gói từ đầu, họ có thể làm thế bằng việc sử dung ba tập tin "
+"phía trên.  Quy trình giải nén thì khá dễ dàng: chỉ cần sao chép ba tập tin đến một nơi "
+"khác và chạy lệnh <literal>dpkg-source -x gentoo_0.9.12-1.dsc</literal>.  <placeholder "
+"type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<filename>gentoo_0.9.12-1_i386.deb</filename>"
-msgstr ""
+msgstr "<filename>gentoo_0.9.12-1_i386.deb</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "This is your completed binary package.  You can use <command>dpkg</command> to install "
 "and remove this just like any other package."
 msgstr ""
+"Đây là gói nhị phân hoàn chỉnh của bạn.  Bạn có thể dùng lệnh <command>dpkg</command> "
+"để cài đặt và tháo gỡ gói nhị phân này như những gói khác."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<filename>gentoo_0.9.12-1_i386.changes</filename>"
-msgstr ""
+msgstr "<filename>gentoo_0.9.12-1_i386.changes</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5311,6 +5332,10 @@ msgid ""
 "It is partly generated from the <filename>changelog</filename> file and the <filename>."
 "dsc</filename> file."
 msgstr ""
+"Tập tin này mô tả tất cả những thay đổi trong phiên bản hiện thời của gói; nó được dùng "
+"bởi các chương trình bảo trì kho FTP của Debian để cài đặt các gói nhị phân và gói "
+"nguồn.  Nó một phần được tạo ra từ tập tin  <filename>changelog</filename> và tập tin "
+"<filename>.dsc</filename>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5320,6 +5345,11 @@ msgid ""
 "to the <ulink url=\"&debian-devel-changes-ldo;\">debian-devel-changes@lists.debian.org</"
 "ulink> mailing list."
 msgstr ""
+"Trong lúc bạn làm việc với gói, biểu hiện của gói sẽ thay đổi và những tính năng mới sẽ "
+"được thêm vào.  Những người tải gói của bạn về có thể nhìn vào tập tin này và nhìn sơ "
+"nhanh được có những gì đã thay đổi.  Các chương trình bảo trì kho Debian sẽ đăng các "
+"nội dung của tập tin này lên bó thư<ulink url=\"&debian-devel-changes-ldo;\">debian-"
+"devel-changes@lists.debian.org</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5329,6 +5359,11 @@ msgid ""
 "uploading them to the Debian FTP archive. The GPG signature provides the proof that "
 "these files are really yours using your public GPG key."
 msgstr ""
+"Các tập tin <filename>gentoo_0.9.12-1.dsc</filename> và <filename>gentoo_0.9.12-1_i386."
+"changes</filename> phải được ký tên bằng lệnh <command>debsign</command> với mã GPG "
+"riêng tư của bạn trong thư mục <filename>~/.gnupg/</filename>, trước khi tải chúng lên "
+"kho FTP của Debian. Chữ ký GPG chứng minh những tập tin này là thật sự của bạn bằng mã "
+"GPG công cộng của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5336,11 +5371,14 @@ msgid ""
 "GPG key ID (good for sponsoring packages) with the following in the <filename>~/."
 "devscripts</filename>:"
 msgstr ""
+"Lệnh <command>debsign</command> có thể được dùng để ký tên với mã nhận dạng của khóa "
+"GPG bí mật của bạn (tốt cho việc tài trợ các gói) được chỉ ra trong dòng sau trong tập "
+"tin <filename>~/.devscripts</filename>:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "DEBSIGN_KEYID=Your_GPG_keyID\n"
-msgstr ""
+msgstr "DEBSIGN_KEYID=Your_GPG_keyID\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5351,6 +5389,13 @@ msgid ""
 "refentrytitle> <manvolnum>1</manvolnum> </citerefentry> and if the numbers don't match, "
 "they'll know the file is corrupt or has been tampered with."
 msgstr ""
+"Những chuỗi số dài trong các tập tin <filename>.dsc</filename> và <filename>.changes</"
+"filename> là mã băm SHA1/SHA256 cho những tập tin đã được đề cập.  Bất kỳ ai tải xuống "
+"các tập tin của bạn có thể sử dung và kiểm tra chúng bằng lệnh <citerefentry> "
+"<refentrytitle>sha1sum</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> hoặc "
+"<citerefentry> <refentrytitle>sha256sum</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> và nếu các số không khớp, họ sẽ biết ngay là tập tin đã bị lỗi hoặc đã bị "
+"chỉnh sửa."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Autobuilder"
