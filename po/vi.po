@@ -486,7 +486,7 @@ msgid ""
 "alternative to the standard <systemitem role=\"package\">dh-make</systemitem>.  It does "
 "more and comes with HTML documentation with extensive packaging examples in <systemitem "
 "role=\"package\">debmake-doc</systemitem>."
-msgstr ""
+msgstr "Công cụ mới <systemitem role=\"package\">debmake</systemitem> có thể sử dụng thay thế cho tiêu chuẩn <systemitem role=\"package\">dh-make</systemitem>.  Nó làm nhiều hơn và đi kèm thêm tài liệu HTML với các mẫu ví dụ đóng gói thêm trong <systemitem role=\"package\">debmake-doc</systemitem>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -494,14 +494,18 @@ msgid ""
 "useful scripts that can be helpful for maintainers, but they are also not necessary for "
 "building packages.  Packages recommended and suggested by this package are worth "
 "looking into.  (See <filename>&devscripts-readme;</filename>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\"> devscripts </systemitem> - gói này chứa một số "
+"kịch bản hữu ích có thể giúp ích cho người bảo trì, nhưng chúng cũng không cần thiết cho việc "
+" xây dựng các gói. Các gói đề nghị và đề xuất bởi gói này rất đáng để xem xét.  (Xem <filename>&devscripts-readme;</filename>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<systemitem role=\"package\">fakeroot</systemitem> - this utility lets you emulate "
 "being root which is necessary for some parts of the build process.  (See <citerefentry> "
 "<refentrytitle>fakeroot</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\">fakeroot</systemitem> - công cụ tiện ích này cho phép bạn "
+" giả lập root khi cần thiết cho một số phần của quá trình xây dựng.  (Xem <citerefentry> "
+"<refentrytitle>fakeroot</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -509,13 +513,14 @@ msgid ""
 "type a file is.  (See <citerefentry> <refentrytitle>file</refentrytitle> <manvolnum>1</"
 "manvolnum> </citerefentry>.)"
 msgstr ""
+"<systemitem role=\"package\">file</systemitem> - chương trình tiện ích này có thể xác định loại tập tin là gì.  (Xem <citerefentry> <refentrytitle>file</refentrytitle> <manvolnum>1</manvolnum></citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<systemitem role=\"package\">gfortran</systemitem> - the GNU Fortran 95 compiler, "
 "necessary if your program is written in Fortran.  (See <citerefentry> "
 "<refentrytitle>gfortran</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\">gfortran</systemitem> - trình biên dịch GNU Fortran 95, sẽ là cần thiết nếu chương trình của bạn được viết bằng Fortran.  (Xem <citerefentry> <refentrytitle>gfortran</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -524,7 +529,7 @@ msgid ""
 "used for many high profile open source projects, most notably the Linux kernel.  (See "
 "<citerefentry> <refentrytitle>git</refentrytitle> <manvolnum>1</manvolnum> </"
 "citerefentry>, git Manual (<filename>&git-doc;</filename>).)"
-msgstr ""
+msgstr "<systemitem role=\"package\">git</systemitem> - gói này cung cấp một hệ thống quản lý phiên bản phổ biến được thiết kế để xử lý các dự án rất lớn với tốc độ và hiệu quả;  Nó được sử dụng cho nhiều dự án mã nguồn mở lớn, nhất là nhân Linux.  (Xem <citerefentry> <refentrytitle>git</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, Tài liệu git (<filename>&git-doc;</filename>).)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -533,7 +538,7 @@ msgid ""
 "distribute it to other people, and you will certainly be doing that when your work gets "
 "included in the Debian distribution.  (See <citerefentry> <refentrytitle>gpg</"
 "refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\">gnupg</systemitem> - một công cụ cho phép bạn dùng chữ ký số để <emphasis>ký</emphasis> gói.  Điều này đặc biệt quan trọng nếu bạn muốn phân phối nó cho người khác, và chắc chắn bạn sẽ làm điều đó khi tác phẩm của bạn được đưa vào phân phối Debian.  (Xem <citerefentry> <refentrytitle>gpg</refentrytitle> <manvolnum>1</manvolnum></citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -543,7 +548,8 @@ msgid ""
 "task.  (See <citerefentry> <refentrytitle>gpc</refentrytitle> <manvolnum>1</manvolnum> "
 "</citerefentry>, <citerefentry> <refentrytitle>ppc386</refentrytitle> <manvolnum>1</"
 "manvolnum> </citerefentry>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\"> gpc </systemitem> - trình biên dịch Pascal GNU, cần thiết "
+"nếu chương trình của bạn được viết bằng Pascal.  Đáng lưu ý ở đây là <systemitem role=\"package\">fp-compiler</systemitem>, Free Pascal Compiler, cũng tốt trong nhiệm vụ này.  (Xem <citerefentry> <refentrytitle>gpc</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, <citerefentry> <refentrytitle>ppc386</refentrytitle><manvolnum>1</manvolnum></citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -552,7 +558,7 @@ msgid ""
 "the errors found.  (See <citerefentry> <refentrytitle>lintian</refentrytitle> "
 "<manvolnum>1</manvolnum> </citerefentry>, <ulink url=\"&lintian-doc;\">Lintian User's "
 "Manual</ulink>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\">lintian</systemitem> - đây là trình kiểm tra gói Debian, có thể cho bạn biết về bất kỳ lỗi phổ biến nào sau khi bạn xây dựng gói và giải thích các lỗi được tìm thấy.  (Xem <citerefentry> <refentrytitle>lintian</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, <ulink url=\"&lintian-doc;\"> Hướng dẫn sử dụng Lintian </ulink>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -560,14 +566,15 @@ msgid ""
 "file containing a difference listing (produced by the <command>diff</command> program) "
 "and apply it to the original file, producing a patched version.  (See <citerefentry> "
 "<refentrytitle>patch</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\"> patch </systemitem> - tiện ích hữu ích này sẽ lấy một tệp có chứa sự thay đổi (được sản sinh bởi chương trình <command>diff</command>) và áp dụng nó vào tệp gốc, tạo ra  một phiên bản vá.  (Xem <citerefentry> <refentrytitle>patch</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<systemitem role=\"package\">patchutils</systemitem> - this package contains some "
 "utilities to work with patches such as the <command>lsdiff</command>, "
 "<command>interdiff</command> and <command>filterdiff</command> commands."
-msgstr ""
+msgstr "<systemitem role=\"package\">patchutils</systemitem> - gói này chứa một số tiện ích "
+" để làm việc với các bản vá như <command>lsdiff</command>, <command>interdiff</command> và lệnh <command>filterdiff </command>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -578,7 +585,7 @@ msgid ""
 "<citerefentry> <refentrytitle>pbuilder</refentrytitle> <manvolnum>8</manvolnum> </"
 "citerefentry> and <citerefentry> <refentrytitle>pdebuild</refentrytitle> <manvolnum>1</"
 "manvolnum> </citerefentry>)"
-msgstr ""
+msgstr "<systemitem role=\"package\">pbuilder</systemitem> - gói này chứa các chương trình được sử dụng để tạo và duy trì môi trường <command>chroot</command>.  Xây dựng gói Debian trong môi trường <command>chroot </command> này sẽ kiểm tra sự phụ thuộc thư viện phù hợp và tránh lỗi FTBFS (Fails To Build From Source).  (Xem <citerefentry><refentrytitle>pbuilder </refentrytitle><manvolnum> 8</manvolnum></citerefentry> và <citerefentry> <refentrytitle>pdebuild </refentrytitle> <manvolnum> 1 </manvolnum> </citerefentry>)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -587,6 +594,7 @@ msgid ""
 "Unix's Swiss Army Chainsaw. (See <citerefentry> <refentrytitle>perl</refentrytitle> "
 "<manvolnum>1</manvolnum> </citerefentry>.)"
 msgstr ""
+"<systemitem role=\"package\">perl</systemitem> - Perl là một trong những ngôn ngữ lập trình được sử dụng phổ biến nhất trên các hệ thống Unix ngày nay, thường được gọi là Unix's Swiss Army Chainsaw.  (Xem <citerefentry> <refentrytitle>perl</refentrytitle> <manvolnum>1</manvolnum></citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -594,7 +602,7 @@ msgid ""
 "interpreted scripting languages on the Debian system, combining remarkable power with "
 "very clear syntax. (See <citerefentry> <refentrytitle>python</refentrytitle> "
 "<manvolnum>1</manvolnum> </citerefentry>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\">python</systemitem> - Python là một trong những ngôn ngữ kịch bản thông dịch được sử dụng nhiều nhất trên hệ thống Debian, kết hợp sức mạnh vượt trội với cú pháp rất rõ ràng.  (Xem <citerefentry> <refentrytitle>python</refentrytitle> <manvolnum> 1 </manvolnum> </citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -603,7 +611,7 @@ msgid ""
 "be applied, un-applied, refreshed, and more.  (See <citerefentry> <refentrytitle>quilt</"
 "refentrytitle> <manvolnum>1</manvolnum></citerefentry>, and <filename>&quilt-pdf;</"
 "filename>.)"
-msgstr ""
+msgstr "<systemitem role=\"package\"> quilt </systemitem> - gói này giúp bạn quản lý một số lượng lớn các bản vá lỗi bằng cách theo dõi những thay đổi mà mỗi bản vá lỗi tạo ra.  Các bản vá lỗi có thể được áp dụng, không áp dụng, làm mới và nhiều hơn nữa.  (Xem <citerefentry> <refentrytitle>quilt</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> và <filename>&quilt-pdf;</filename> .)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -613,6 +621,10 @@ msgid ""
 "<manvolnum>1</manvolnum> </citerefentry>, <citerefentry> <refentrytitle>xmkmf</"
 "refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
 msgstr ""
+"<systemitem role=\"package\">xutils-dev</systemitem> - một vài chương trình, thường xây dựng cho X11, "
+"sử dụng chương trình này để tạo ra các tệp tin <filename>Makefile</filename> từ các cài đặt của các hàm macro. (Xem <citerefentry> <refentrytitle>imake</refentrytitle> "
+"<manvolnum>1</manvolnum> </citerefentry>, <citerefentry> <refentrytitle>xmkmf</"
+"refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -622,7 +634,12 @@ msgid ""
 "command>, at least, for the standard usage.  It may seem like heavy going now, but "
 "later on you'll be <emphasis>very</emphasis> glad you read it.  If you have specific "
 "questions later, I would suggest re-reading the documents mentioned above."
-msgstr ""
+msgstr "Các mô tả ngắn được đưa ra ở trên chỉ phục vụ để giới thiệu cho bạn những gì mỗi gói "
+"thực hiện. Trước khi tiếp tục, hãy đọc tài liệu của mỗi chương trình có liên quan, bao gồm cả "
+"những chương trình được cài đặt thông qua sự phụ thuộc gói như <command>make</command>, ít "
+"nhất, cho việc sử dụng tiêu chuẩn.  Có vẻ như bây giờ kiến thức khá nặng, nhưng sau đó bạn sẽ "
+"<emphasis>rất</emphasis> vui vì bạn đã đọc nó.  Nếu bạn có câu hỏi cụ thể sau này, tôi sẽ đề "
+"nghị đọc lại các tài liệu đã đề cập ở trên."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Documentation needed for development"

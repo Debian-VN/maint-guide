@@ -5,6 +5,7 @@ Remember, the *first* definition of an entity wins.
 
 <!ENTITY othercredit '
 <othercredit role="translator"><personname>Giap Tran</personname><email>txgvnn@gmail.com</email><contrib>dịch bởi</contrib></othercredit>
+<othercredit role="translator"><personname>Khang Nguyen</personname><email>khang.social@gmail.com</email><contrib>dịch bởi</contrib></othercredit>
 '>
 
 <!ENTITY autoconf "http://wikipedia.org/wiki/Autoconf">
