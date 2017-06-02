@@ -643,13 +643,15 @@ msgstr "Các mô tả ngắn được đưa ra ở trên chỉ phục vụ để
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Documentation needed for development"
-msgstr ""
+msgstr "Tài liệu cần thiết cho sự phát triển"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "The following is the <emphasis>very important</emphasis> documentation which you should "
 "read along with this document:"
 msgstr ""
+"Sau đây là tài liệu <emphasis>rất quan trọng</emphasis> mà bạn nên đọc cùng "
+"với tài liệu này:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -661,6 +663,13 @@ msgid ""
 "that each package must satisfy to be included in the distribution. (See the local "
 "copies of <filename>&policy-pdf;</filename> and <filename>&fhs-pdf;</filename>.)"
 msgstr ""
+"<systemitem role=\"package\">debian-policy</systemitem> - <ulink url=\"&debian-policy;\">Debian Policy Manual</ulink> bao gồm các giải thích về "
+"cấu trúc và nội dung của kho lưu trữ Debian, một số vấn đề thiết kế hệ điều "
+"hành, <ulink url=\"&fhs;\">Filesystem Hierarchy Standard</ulink> (FHS, nơi "
+"mà mỗi tập tin và thư mục phải là),vv .Đối với bạn, điều quan trọng nhất là "
+"nó mô tả các yêu cầu mà mỗi gói phải đáp ứng để được đưa vào trong phân "
+"phối.  (Xem bản sao địa phương của <filename>&policy-pdf;</filename> and "
+"<filename>&fhs-pdf;</filename>.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -671,12 +680,21 @@ msgid ""
 "best packaging practices, when and where to upload etc.  (See the local copy of "
 "<filename>&developers-refpdf;</filename>.)"
 msgstr ""
+"<systemitem role=\"package\">developer-reference</systemitem> - <ulink url="
+"\"&developers-reference;\">Debian Developer's Refrence</ulink> mô tả tất cả "
+"các vấn đề không cụ thể về các chi tiết kỹ thuật của gói, như cấu trúc của "
+"kho lưu trữ, cách đổi tên, mồ côi, hoặc nhận các gói, làm thế nào để làm "
+"NMUs, làm thế nào để quản lý lỗi, cách thức đóng gói tốt nhất, khi nào và ở "
+"đâu để tải lên vv (Xem bản sao của địa phương của <filename>&developers-"
+"refpdf;</filename>.)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "The following is the <emphasis>important</emphasis> documentation which you should read "
 "along with this document:"
 msgstr ""
+"Sau đây là tài liệu <emphasis>quan trọng</emphasis> mà bạn nên đọc cùng với "
+"tài liệu này:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -685,6 +703,10 @@ msgid ""
 "Autotools</ulink> whose most important components are Autoconf, Automake, Libtool, and "
 "gettext."
 msgstr ""
+"<ulink url=\"&autotools-tutorial;\">Autotools Tutorial</ulink> cung cấp một "
+"huớng dẫn rất tốt cho <ulink url=\"&gnu-build-system;\">GNU Build System "
+"được biết như là GNU Autotools</ulink> là thành phần quan trọng nhất cho "
+"Autoconf, Automake, Libtool, and gettext."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -695,6 +717,13 @@ msgid ""
 "still helpful as guidelines and common sense.  (See the local copies of <filename>&gnu-"
 "standard-pdf;</filename> and <filename>&gnu-maintainer-pdf;</filename>.)"
 msgstr ""
+"<systemitem role=\"package\">gnu-standards</systemitem> - gói này chứa hai "
+"phần tài liệu từ dự án GNU: <ulink url=\"&gnu-standard;\">GNU Coding "
+"Standards</ulink>, và <ulink url=\"&gnu-maintainer;\">Information for "
+"Maintainers of GNU Software</ulink>.  Mặc dù Debian không yêu cầu những điều "
+"này được tuân theo, những điều này vẫn còn hữu ích như các hướng dẫn và "
+"thông thường.  (Xem bản sao địa phương của <filename> &gnu-standard-pdf;</"
+"filename> và <filename>&gnu-maintainer-pdf;</filename>.)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -702,62 +731,83 @@ msgid ""
 "Please file a bug report on the <systemitem role=\"package\">maint-guide</systemitem> "
 "package using <command>reportbug</command>."
 msgstr ""
+"Nếu tài liệu này mâu thuẫn với bất kỳ tài liệu nào được đề cập ở trên, nếu chúng "
+"là đúng. Vui lòng gửi một báo cáo lỗi trên <systemitem role=\"package"
+"\">maint-guide</systemitem> gói bằng cách sử dụng <command>reportbug</"
+"command>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "The following is an alternative tutorial documentation which you may read along with "
 "this document:"
 msgstr ""
+"Sau đây là một tài liệu hướng dẫn thay thế mà bạn có thể đọc cùng với tài "
+"liệu này:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<ulink url=\"&debpkg-tutorial0;\">Debian Packaging Tutorial</ulink>"
-msgstr ""
+msgstr "<ulink url=\"&debpkg-tutorial0;\">Debian Packaging Tutorial</ulink>"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Where to ask for help"
-msgstr ""
+msgstr "Nơi để yêu cầu trợ giúp"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Before you decide to ask your question in some public place, please read the fine "
 "documentation:"
 msgstr ""
+"Trước khi bạn quyết định đặt câu hỏi của mình ở nơi công cộng, vui lòng đọc "
+"tài liệu tốt"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "files in <filename>/usr/share/doc/<replaceable>package</replaceable></filename> for all "
 "pertinent packages"
 msgstr ""
+"Các tệp trong gói <filename>/usr/share/doc/<replaceable>package</"
+"replaceable></filename> cho tất cả các gói phù hợp"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "contents of <literal><command>man</command> <replaceable>command</replaceable></"
 "literal> for all pertinent commands"
 msgstr ""
+"Nội dung của lệnh <literal><command>man</command> <replaceable>command</"
+"replaceable> </literal> cho tất cả các lệnh thích hợp"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "contents of <literal><command>info</command> <replaceable>command</replaceable></"
 "literal> for all pertinent commands"
 msgstr ""
+"Nội dung của lệnh <literal> <command>info</command> <replaceable>command</"
+"replaceable> </literal> cho tất cả các lệnh thích hợp"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "contents of <ulink url=\"&debian-mentors-ldo;\">debian-mentors@lists.debian.org mailing "
 "list archive</ulink>"
 msgstr ""
+"các nội dung tại <ulink url=\"&debian-mentors-ldo;\">debian-mentors@lists.debian.org mailing "
+"list archive</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "contents of <ulink url=\"&debian-devel-ldo;\">debian-devel@lists.debian.org mailing "
 "list archive</ulink>"
 msgstr ""
+"các nội dung tại <ulink url=\"&debian-devel-ldo;\">debian-devel@lists.debian."
+"org mailing list archive</ulink>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "You can use web search engines more effectively by including search strings such as "
 "<literal>site:lists.debian.org</literal> to limit the domain."
 msgstr ""
+"Bạn có thể sử dụng công cụ tìm kiếm web hiệu quả hơn bằng cách bao gồm các "
+"chuỗi tìm kiếm như <literal>site:lists.debian.org</literal> để hạn chế tên "
+"miền."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -765,35 +815,48 @@ msgid ""
 "existing well maintained packages is the best way to learn how other people make "
 "packages."
 msgstr ""
+"Làm một gói thử nghiệm nhỏ là một cách hay để tìm hiểu chi tiết về đóng "
+"gói.  Kiểm tra các gói đã được duy trì tốt hiện tại là cách tốt nhất để tìm "
+"hiểu làm thế nào người khác đóng các gói"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If you still have questions about packaging that you couldn't find answers to in the "
 "available documentation and web resources, you can ask them interactively:"
 msgstr ""
+"Nếu bạn vẫn có câu hỏi về đóng gói mà bạn không thể tìm thấy câu trả lời "
+"trong tài liệu sẵn có và tài nguyên web, bạn có thể nhờ họ tương tác:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<ulink url=\"&debian-mentors-ldo;\">debian-mentors@lists.debian.org mailing list</"
 "ulink>. (This mailing list is for the novice.)"
 msgstr ""
+"<ulink url=\"&debian-mentors-ldo;\">debian-mentors@lists.debian.org mailing "
+"list</ulink>. (Danh sách gửi thư này dành cho người mới bắt đầu.)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<ulink url=\"&debian-devel-ldo;\">debian-devel@lists.debian.org mailing list</ulink>. "
 "(This mailing list is for the expert.)"
 msgstr ""
+"<ulink url=\"&debian-devel-ldo;\">debian-devel@lists.debian.org mailing "
+"list</ulink>. (Danh sách gửi thư dành cho chuyên gia)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<ulink url=\"&irc-debian;\">IRC</ulink> such as <literal>#debian-mentors</literal>."
 msgstr ""
+"<ulink url=\"&irc-debian;\">IRC</ulink> ví dụ như <literal>#debian-mentors</"
+"literal>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "Teams focusing on a specific set of packages. (Full list at <ulink url=\"&wikiteams;"
 "\">https://wiki.debian.org/Teams</ulink>)"
 msgstr ""
+"Các đội tập trung vào một bộ gói cụ thể.  (Danh sách đầy đủ tại <ulink url="
+"\"&wikiteams;\">https://wiki.debian.org/Teams</ulink>)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -802,12 +865,19 @@ msgid ""
 "\"&listdevel;\">https://lists.debian.org/devel.html</ulink> and <ulink url=\"&listusers;"
 "\">https://lists.debian.org/users.html</ulink>)"
 msgstr ""
+"Danh sách gửi thư cụ thể theo ngôn ngữ ví dụ như debian-devel-{french,"
+"italian,portuguese,spanish}@lists.debian.org hoặc debian-devel@debian.or.jp. "
+"(Danh sách đầy đủ tại <ulink url=\"&listdevel;\">https://lists.debian.org/"
+"devel.html</ulink> và <ulink url=\"&listusers;\">https://lists.debian.org/"
+"users.html</ulink>)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "The more experienced Debian developers will gladly help you, if you ask properly after "
 "making your required efforts."
 msgstr ""
+"Các nhà phát triển giàu kinh nghiệm của Debian sẽ sẵn sàng giúp bạn, nếu bạn "
+"hỏi đúng cách sau khi thực hiện những nỗ lực bắt buộc của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -817,6 +887,11 @@ msgid ""
 "highly recommend reading the <ulink url=\"&devref-bug-handling;\">Debian Developer's "
 "Reference, 5.8.  \"Handling bugs\"</ulink>."
 msgstr ""
+"Khi bạn nhận được báo cáo lỗi (vâng, lỗi thực sự!), Bạn sẽ biết rằng đã đến "
+"lúc bạn phải khai thác vào <ulink url=\"&bts;\">Debian Bug Tracking System</"
+"ulink> và đọc tài liệu ở đó, để được có khả năng giải quyết các báo cáo hiệu "
+"quả. Tôi rất khuyên bạn nên đọc <ulink url=\"&devref-bug-handling;\">Debian "
+"Developer's Reference, 5.8.  \"Handling bugs\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -825,6 +900,11 @@ msgid ""
 "you made some critical error you'll get mailbombed by numerous angry Debian users...  "
 "Just kidding.  :-)"
 msgstr ""
+"Ngay cả khi tất cả đều hoạt động tốt, đó là thời gian để bắt đầu cầu "
+"nguyện.  Tại sao?  Bởi vì chỉ trong vài giờ (hoặc ngày) người dùng từ khắp "
+"nơi trên thế giới sẽ bắt đầu sử dụng gói của bạn và nếu bạn mắc một số lỗi "
+"nghiêm trọng, bạn sẽ nhận được mailbombed bởi nhiều người dùng Debian tức "
+"giận... Đùa thôi :-)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -833,6 +913,10 @@ msgid ""
 "guidelines (once again, read the <emphasis>real documentation</emphasis> for details).  "
 "Good luck!"
 msgstr ""
+"Hãy thư giãn và sẵn sàng cho các báo cáo lỗi, vì còn rất nhiều việc phải làm "
+"trước khi gói của bạn hoàn toàn phù hợp với các chính sách của Debian và các "
+"hướng dẫn thực hành tốt nhất của nó (một lần nữa đọc <emphasis>tài liệu</"
+"emphasis> thật chi tiết).  Chúc may mắn!"
 
 #. type: Content of: <book><chapter><title>
 msgid "First steps"
