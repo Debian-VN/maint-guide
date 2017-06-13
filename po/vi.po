@@ -920,32 +920,33 @@ msgstr ""
 
 #. type: Content of: <book><chapter><title>
 msgid "First steps"
-msgstr ""
+msgstr "Những bước đầu tiên"
 
 #. type: Content of: <book><chapter><para>
 msgid ""
 "Let's start by creating a package of your own (or, even better, adopting an existing "
 "one)."
 msgstr ""
+"Hãy bắt đầu bằng cách tạo một gói riêng của bạn (hoặc, thậm chí tốt hơn, chấp nhận một cái hiện tại)."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Debian package building workflow"
-msgstr ""
+msgstr "Luồng làm việc tạo ra gói Debian"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If you are making a Debian package with an upstream program, the typical workflow of "
 "Debian package building involves generating several specifically named files for each "
 "step as follows:"
-msgstr ""
+msgstr "Nếu bạn đang tạo ra một gói Debian từ một chương trình thượng nguồn, quy trình làm việc điển hình của việc xây dựng gói Debian liên quan đến việc tạo ra một số tệp được đặt tên cụ thể cho từng bước như sau:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Get a copy of the upstream software, usually in a compressed tar format."
-msgstr ""
+msgstr "Lấy một bản sao của phần mềm thượng nguồn, thường ở dạng nén tar."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><literal>
 msgid "<replaceable>package</replaceable>-<replaceable>version</replaceable>.tar.gz"
-msgstr ""
+msgstr "<replaceable>package</replaceable>-<replaceable>version</replaceable>.tar.gz"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -954,16 +955,19 @@ msgid ""
 "the set of input files used for Debian package building) in <literal>3.0 (quilt)</"
 "literal> format."
 msgstr ""
+"Thêm các sửa đổi đóng gói cụ thể của Debian vào chương trình thượng nguồn trong thư mục <filename>debian</filename> và tạo một gói mã nguồn mới (non-native) (tức là bộ tập tin đầu vào sử dụng cho việc xây dựng gói Debian) với định dạng <literal>3.0 (quilt)</literal>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><literal>
 msgid "<replaceable>package</replaceable>_<replaceable>version</replaceable>.orig.tar.gz"
-msgstr ""
+msgstr "<replaceable>package</replaceable>_<replaceable>version</replaceable>.orig.tar.gz"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><literal>
 msgid ""
 "<replaceable>package</replaceable>_<replaceable>version</replaceable>-"
 "<replaceable>revision</replaceable>.debian.tar.gz"
 msgstr ""
+"<replaceable>package</replaceable>_<replaceable>version</replaceable>-"
+"<replaceable>revision</replaceable>.debian.tar.gz"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><footnote><para>
 msgid ""
@@ -971,12 +975,16 @@ msgid ""
 "format, <literal><replaceable>package</replaceable>_<replaceable>version</replaceable>-"
 "<replaceable>revision</replaceable>.diff.gz</literal> is used instead."
 msgstr ""
+"Đối với các gói mã nguồn Debian kiểu cũ với định dạng <literal>1.0</literal>, <literal><replaceable>package</replaceable>_<replaceable>version</replaceable>-"
+"<replaceable>revision</replaceable>.diff.gz</literal> được sử dụng để thay thế."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><literal>
 msgid ""
 "<replaceable>package</replaceable>_<replaceable>version</replaceable>-"
 "<replaceable>revision</replaceable>.dsc"
 msgstr ""
+"<replaceable>package</replaceable>_<replaceable>version</replaceable>-"
+"<replaceable>revision</replaceable>.dsc"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -984,12 +992,17 @@ msgid ""
 "deb</literal> format (or <literal>.udeb</literal> format, used by the Debian Installer) "
 "from the Debian source package."
 msgstr ""
+"Xây dựng các gói nhị phân Debian, là những gói có thể cài đặt bình thường trong định dạng "
+"<literal>.deb </literal> (hoặc định dạng <literal>.udeb</literal>, được sử dụng bởi "
+"Trình cài đặt Debian) từ gói nguồn Debian."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><literal>
 msgid ""
 "<replaceable>package</replaceable>_<replaceable>version</replaceable>-"
 "<replaceable>revision</replaceable>_<replaceable>arch</replaceable>.deb"
 msgstr ""
+"<replaceable>package</replaceable>_<replaceable>version</replaceable>-"
+"<replaceable>revision</replaceable>_<replaceable>arch</replaceable>.deb"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -998,6 +1011,10 @@ msgid ""
 "<literal>-</literal> (hyphen) in the tarball name to <literal>_</literal> (underscore) "
 "in the Debian package filenames."
 msgstr ""
+"Xin lưu ý rằng ký tự phân tách <literal><replaceable>package</replaceable></literal>"
+" và <literal><replaceable>version</replaceable></literal> đã thay đổi từ "
+"<literal>-</literal> (dấu trừ) trong tên tệp nén thành  <literal>_</literal> (gạch dưới) "
+" ở trong tên của gói Debian"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1007,6 +1024,11 @@ msgid ""
 "follows the <ulink url=\"&policy-architecture;\">Debian Policy Manual, 5.6.8 "
 "\"Architecture\"</ulink> and is automatically assigned by the package build process."
 msgstr ""
+"Xem <ulink url=\"&policy-source;\">5.6.1 \"Source\"</ulink>, <ulink url=\"&policy-"
+"package;\">5.6.7 \"Package\"</ulink>, và <ulink url=\"&policy-version;\">5.6.12 "
+"\"Version\"</ulink>.<emphasis role=\"strong\">kiến trúc gói</emphasis> "
+"theo <ulink url=\"&policy-architecture;\">Debian Policy Manual, 5.6.8 "
+"\"Architecture\"</ulink> và đuợc tự động ký bởi tiến trình xây dựng gói."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1019,10 +1041,18 @@ msgid ""
 "<emphasis role=\"strong\">package architecture</emphasis>, as defined in the Debian "
 "Policy Manual.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Trong tên tệp ở trên, hãy thay thế <literal><replaceable>package</replaceable></"
+"literal> bằng <emphasis role=\"strong\">package name</emphasis>, tên "
+"<literal><replaceable>version</replaceable></literal> bằng <emphasis role="
+"\"strong\">upstream version</emphasis>, <literal><replaceable>revision</"
+"replaceable></literal> thành <emphasis role=\"strong\">Debian revision</"
+"emphasis>, và <literal><replaceable>arch</replaceable></literal> thành "
+"<emphasis role=\"strong\">package architecture</emphasis>, như đã định nghĩa trong "
+"Debian Policy Manual.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "Each step of this outline is explained with detailed examples in later sections."
-msgstr ""
+msgstr "Mỗi bước của phác thảo này được giải thích với các ví dụ chi tiết trong các phần sau."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Choose your program"
