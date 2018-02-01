@@ -7061,7 +7061,7 @@ msgid ""
 "<replaceable>foo</replaceable>.diff.gz &gt; big.diff</literal> to your <command>quilt</"
 "command> system, if needed.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
-"Nếu bạn có một gói phần mềm nguồn với định dạng <literal>1.0</literal> mà không có tập tin <filename><replaceable>foo</replaceable>.diff.gz</filename>, bạn có thể cập nhật nó lên định dạng nguồn <literal>3.0 (native)</literal> mới hơn bằng việc tạo tập tin <filename>debian/source/format</filename> chứa dòng <literal>3.0 (native)</literal>.  Các tập tin <filename>debian/*</filename> còn lại có thể được sao chép sang."
+"Nếu bạn có một gói phần mềm nguồn với định dạng <literal>1.0</literal> mà không có tập tin <filename><replaceable>foo</replaceable>.diff.gz</filename>, bạn có thể cập nhật nó lên định dạng nguồn <literal>3.0 (native)</literal> mới hơn bằng việc tạo tập tin <filename>debian/source/format</filename> chứa dòng <literal>3.0 (native)</literal>.  Các tập tin <filename>debian/*</filename> còn lại có thể được sao chép sang.  Nhập tập tin <filename>big.diff</filename> được tạo ra bởi lệnh <literal>filterdiff -z -x '*/debian/*' <replaceable>foo</replaceable>.diff.gz &gt; big.diff</literal> vào hệ thống <command>quilt</command> của bạn, nếu cần thiết.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -7524,7 +7524,7 @@ msgid ""
 "Alternatively: <literal>readelf -d lib<replaceable>foo</replaceable>.so.<replaceable>1</"
 "replaceable> | grep SONAME</literal>"
 msgstr ""
-"Ngoài ra: <literal>readelf -d lib<replaceable>foo</replaceable>.so.<replaceable>1</replaceable> | grep SONAME</litera"
+"Ngoài ra: <literal>readelf -d lib<replaceable>foo</replaceable>.so.<replaceable>1</replaceable> | grep SONAME</literal>"
 
 #. type: Content of: <book><appendix><section><itemizedlist><listitem><para>
 msgid ""
