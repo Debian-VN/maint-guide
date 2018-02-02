@@ -2052,7 +2052,6 @@ msgstr ""
 "$DEBFULLNAME</literal> để các công cụ bảo trì Debian nhận biết địa chỉ email "
 "và tên của bạn cho việc sử dụng cho các gói .<placeholder type=\"footnote\" id=\"0\"/>"
 
-
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid ""
@@ -2122,7 +2121,6 @@ msgstr ""
 "Tất nhiên, hãy thay tên tệp bằng tên của bản lưu trữ gốc của bạn. <placeholder "
 "type=\"footnote\" id=\"0\"/> Xem <citerefentry> <refentrytitle>dh_make</refentrytitle> "
 "<manvolnum>8</manvolnum> </citerefentry> để biết chi tiết."
-
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -6117,7 +6115,6 @@ msgstr ""
 "$ sudo pbuilder --update\n"
 "$ sudo pbuilder --build <replaceable>foo_version</replaceable>.dsc\n"
 
-
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "The newly built packages without the GPG signatures will be located in <filename>/var/"
@@ -6210,7 +6207,6 @@ msgstr ""
 "# use this version if you don't want lintian to fail the build\n"
 "#su -c \"lintian -i -I --show-overrides /tmp/buildd/*.changes; :\" - pbuilder\n"
 "echo \"+++ end of lintian output +++\"\n"
-
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -7465,7 +7461,6 @@ msgstr ""
 "LC_ALL=en_US.UTF-8 w3m -o display_charset=UTF-8 \\\n"
 "        -cols 70 -dump -no-graph -T text/html \\\n"
 "        &lt; <replaceable>foo_in.html</replaceable> &gt; <replaceable>foo_out.txt</replaceable>\n"
-
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Reminders for updating packages"
