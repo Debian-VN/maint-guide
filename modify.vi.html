@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Chương 3. Modifying the source</title>
+    <title>Chương 3. Sửa đổi mã nguồn</title>
     <link rel="stylesheet" type="text/css" href="debian.css"/>
     <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -15,7 +15,7 @@
     <div class="navheader">
       <table width="100%" summary="Navigation header">
         <tr>
-          <th colspan="3" align="center">Chương 3. Modifying the source</th>
+          <th colspan="3" align="center">Chương 3. Sửa đổi mã nguồn</th>
         </tr>
         <tr>
           <td align="left"><a accesskey="p" href="first.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
@@ -29,7 +29,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h1 class="title"><a id="modify"/>Chương 3. Modifying the source</h1>
+            <h1 class="title"><a id="modify"/>Chương 3. Sửa đổi mã nguồn</h1>
           </div>
         </div>
       </div>
@@ -40,54 +40,55 @@
         <dl class="toc">
           <dt>
             <span class="section">
-              <a href="modify.vi.html#quiltrc">3.1. Setting up <span class="command"><strong>quilt</strong></span></a>
+              <a href="modify.vi.html#quiltrc">3.1. Cài đặt <span class="command"><strong>quilt</strong></span></a>
             </span>
           </dt>
           <dt>
             <span class="section">
-              <a href="modify.vi.html#fixupstream">3.2. Fixing upstream bugs</a>
+              <a href="modify.vi.html#fixupstream">3.2. Sửa lỗi ở thượng nguồn</a>
             </span>
           </dt>
           <dt>
             <span class="section">
-              <a href="modify.vi.html#destdir">3.3. Installation of files to their destination</a>
+              <a href="modify.vi.html#destdir">3.3. Cài đặt các tệp tin đến đích của chúng</a>
             </span>
           </dt>
           <dt>
             <span class="section">
-              <a href="modify.vi.html#difflibs">3.4. Differing libraries</a>
+              <a href="modify.vi.html#difflibs">3.4. Thư viện khác</a>
             </span>
           </dt>
         </dl>
       </div>
       <p>
-Please note that there isn't space here to go into <span class="emphasis"><em>all</em></span>
-the details of fixing upstream sources, but here are some basic steps and
-problems people often run across.
+Xin lưu ý rằng không có khoảng trống nào để đi vào <span class="emphasis"><em>tất
+cả</em></span> các chi tiết về cách khắc phục các mã nguồn thượng nguồn,
+nhưng đây là một số bước cơ bản và vài vấn đề mà mọi người thường xuyên gặp
+phải.
 </p>
       <div class="section">
         <div class="titlepage">
           <div>
             <div>
-              <h2 class="title"><a id="quiltrc"/>3.1. Setting up <span class="command"><strong>quilt</strong></span></h2>
+              <h2 class="title"><a id="quiltrc"/>3.1. Cài đặt <span class="command"><strong>quilt</strong></span></h2>
             </div>
           </div>
         </div>
         <p>
-The program <span class="command"><strong>quilt</strong></span> offers a basic method for recording
-modifications to the upstream source for Debian packaging.  It's useful to
-have a slightly customized default, so let's create an alias
-<span class="command"><strong>dquilt</strong></span> for Debian packaging by adding the following lines
-to <code class="filename">~/.bashrc</code>.  The second line provides the same shell
-completion feature of the <span class="command"><strong>quilt</strong></span> command to the
-<span class="command"><strong>dquilt</strong></span> command:
+Chương trình <span class="command"><strong>quilt</strong></span> cung cấp phương pháp cơ bản để ghi lại
+các sửa đổi đối với mã nguồn thượng nguồn cho gói Debian. Rất hữu ích khi có
+một mặc định hơi tùy chỉnh, vì vậy hãy tạo một alias
+<span class="command"><strong>dquilt</strong></span> cho gói Debian bằng cách thêm các dòng sau vào
+<code class="filename">~/.bashrc</code>. Dòng thứ hai là tính năng bash-completion
+gợi ý của của lệnh <span class="command"><strong>quilt</strong></span> vào lệnh
+<span class="command"><strong>dquilt</strong></span>:
 </p>
         <pre class="screen">
 alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
 complete -F _quilt_completion -o filenames dquilt
 </pre>
         <p>
-Then let's create <code class="filename">~/.quiltrc-dpkg</code> as follows:
+Sau đó hãy tạo tệp <code class="filename">~/.quiltrc-dpkg</code> như sau:
 </p>
         <pre class="screen">
 d=. ; while [ ! -d $d/debian -a `readlink -e $d` != / ]; do d=$d/..; done
@@ -110,14 +111,14 @@ See <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span
         <div class="titlepage">
           <div>
             <div>
-              <h2 class="title"><a id="fixupstream"/>3.2. Fixing upstream bugs</h2>
+              <h2 class="title"><a id="fixupstream"/>3.2. Sửa lỗi ở thượng nguồn</h2>
             </div>
           </div>
         </div>
         <p>
-Let's assume you find an error in the upstream <code class="filename">Makefile</code>
-as follows where <code class="literal">install: gentoo</code> should have been
-<code class="literal">install: gentoo-target</code>.
+Hãy giả sử bạn đã tìm thấy một lỗi trong thượng nguồn
+<code class="filename">Makefile</code> là <code class="literal">install: gentoo</code> nó nên
+được sửa lại thành <code class="literal">install: gentoo-target</code>.
 </p>
         <pre class="screen">
 install: gentoo
@@ -126,7 +127,7 @@ install: gentoo
         install gentoorc-example $(HOME)/.gentoorc
 </pre>
         <p>
-Let's fix this and record it with the <span class="command"><strong>dquilt</strong></span> command as
+Hãy sửa và ghi lại nó bằng lệnh <span class="command"><strong>dquilt</strong></span> với bản vá mới là
 <code class="filename">fix-gentoo-target.patch</code>: <a href="#ftn.idm974" class="footnote" id="idm974"><sup class="footnote">[22]</sup></a>
 </p>
         <pre class="screen">
@@ -135,7 +136,7 @@ $ dquilt new fix-gentoo-target.patch
 $ dquilt add Makefile
 </pre>
         <p>
-You change the <code class="filename">Makefile</code> file as follows:
+Bạn thay đổi tệp tin <code class="filename">Makefile</code> như sau
 </p>
         <pre class="screen">
 install: gentoo-target
@@ -144,101 +145,96 @@ install: gentoo-target
         install gentoorc-example $(HOME)/.gentoorc
 </pre>
         <p>
-Ask <span class="command"><strong>dquilt</strong></span> to generate the patch to create
-<code class="filename">debian/patches/fix-gentoo-target.patch</code> and add its
-description following <a class="ulink" href="http://dep.debian.net/deps/dep3/">DEP-3: Patch Tagging
-Guidelines</a>:
+Lệnh <span class="command"><strong>dquilt</strong></span> sẽ tạo ra bản vá
+<code class="filename">debian/patches/fix-gentoo-target.patch</code> và thêm mô tả
+của nó như sau <a class="ulink" href="http://dep.debian.net/deps/dep3/">DEP-3: Patch Tagging Guidelines</a>:
 </p>
         <pre class="screen">
 $ dquilt refresh
 $ dquilt header -e
-... describe patch
+... mô tả bản vá
 </pre>
       </div>
       <div class="section">
         <div class="titlepage">
           <div>
             <div>
-              <h2 class="title"><a id="destdir"/>3.3. Installation of files to their destination</h2>
+              <h2 class="title"><a id="destdir"/>3.3. Cài đặt các tệp tin đến đích của chúng</h2>
             </div>
           </div>
         </div>
         <p>
-Most third-party software installs itself in the
-<code class="filename">/usr/local</code> directory hierarchy.  On Debian this is
-reserved for private use by the system administrator, so packages must not
-use directories such as <code class="filename">/usr/local/bin</code> but should
-instead use system directories such as <code class="filename">/usr/bin</code>,
-obeying the <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/fhs/fhs-2.3.html">Filesystem Hierarchy Standard</a> (FHS).
+Hầu hết các phần mềm của bên thứ ba cài đặt chính nó vào hệ thống phân cấp
+thư mục <code class="filename">/usr/local</code>. Với Debian, người quản trị hệ thống
+nên dành riêng cho việc sử dụng cá nhân, vì vậy các gói không được sử dụng
+các thư mục như <code class="filename">/usr/local/bin</code> nhưng nên sử dụng thư
+mục hệ thống như <code class="filename">/usr/bin</code>, tuân theo <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/fhs/fhs-2.3.html">Tiêu chuẩn Phân cấp Hệ thống Tập tin(Filesystem Hierarchy
+Standard)</a> (FHS).
 </p>
         <p>
-Normally, <span class="citerefentry"><span class="refentrytitle">make</span>(1)</span> is used to automate building the
-program, and executing <code class="literal">make install</code> installs programs
-directly to the desired destination (following the
-<code class="literal">install</code> target in the <code class="filename">Makefile</code>).  In
-order for Debian to provide pre-built installable packages, it modifies the
-build system to install programs into a file tree image created under a
-temporary directory instead of the actual destination.
+Thông thường, <span class="citerefentry"><span class="refentrytitle">make</span>(1)</span> được sử dụng để tự động xây dựng
+chương trình và thực hiện <code class="literal">make install</code> để cài đặt các
+chương trình trực tiếp tới đích mong muốn (sau phần
+<code class="literal">install</code> là target trong
+<code class="filename">Makefile</code>). Để Debian tạo ra các gói trước khi cài đặt,
+nó sẽ sửa đổi hệ thống xây dựng để cài đặt các chương trình vào cây thư mục
+giả định dưới một thư mục tạm thay vì một đích thực.
 </p>
         <p>
-These two differences between normal program installation on one hand and
-the Debian packaging system on the other can be transparently addressed by
-the <code class="systemitem">debhelper</code> package through the
-<span class="command"><strong>dh_auto_configure</strong></span> and <span class="command"><strong>dh_auto_install</strong></span>
-commands if the following conditions are met:
+Hai khác biệt giữa cài đặt chương trình bình thường và hệ thống đóng gói
+Debian  có thể được hiểu rõ bởi gói <code class="systemitem">debhelper</code>qua lệnh
+<span class="command"><strong>dh_auto_configure</strong></span> và <span class="command"><strong>dh_auto_install</strong></span>
+nếu đáp ứng các điều kiện sau:
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
             <li class="listitem">
               <p>
-The <code class="filename">Makefile</code> must follow GNU conventions and support
-the <code class="literal">$(DESTDIR)</code> variable.  <a href="#ftn.idm1010" class="footnote" id="idm1010"><sup class="footnote">[23]</sup></a>
+Tệp <code class="filename">Makefile</code> phải tuân theo các quy ước GNU và hỗ trợ
+biến <code class="literal">$(DESTDIR)</code> .  <a href="#ftn.idm1010" class="footnote" id="idm1010"><sup class="footnote">[23]</sup></a>
 </p>
             </li>
             <li class="listitem">
               <p>
-The source must follow the Filesystem Hierarchy Standard (FHS).
+Mã nguồn phải tuân theo Filesystem Hierarchy Standard (FHS)
 </p>
             </li>
           </ul>
         </div>
         <p>
-Programs that use GNU <span class="command"><strong>autoconf</strong></span> follow the GNU conventions
-automatically, so they can be trivial to package.  On the basis of this and
-other heuristics, it is estimated that the <code class="systemitem">debhelper</code> package will work for about 90% of
-packages without making any intrusive changes to their build system.  So
-packaging is not as complicated as it may seem.
+Các chương trình sử dụng GNU <span class="command"><strong>autoconf</strong></span> tuân theo các quy
+ước của GNU một cách tự động, do đó chúng rất dễ đóng gói. Trên cơ sở điều
+này cùng các phương pháp chẩn đoán khác, người ta ước tính rằng <code class="systemitem">debhelper</code> sẽ hoạt động với khoảng 90% gói mà
+không làm thay đổi gì đối hệ thống xây dựng của thượng nguồn. Vì vậy, việc
+đóng gói không phải là phức tạp như bạn thấy
 </p>
         <p>
-If you need to make changes in the <code class="filename">Makefile</code>, you should
-be careful to support the <code class="literal">$(DESTDIR)</code> variable.  Although
-it is unset by default, the <code class="literal">$(DESTDIR)</code> variable is
-prepended to each file path used for the program installation.  The
-packaging script will set <code class="literal">$(DESTDIR)</code> to the temporary
-directory. 
+Nếu bạn cần thực hiện thay đổi tệp <code class="filename">Makefile</code>, bạn nên
+cẩn thận hỗ trợ biến <code class="literal">$(DESTDIR)</code>. Mặc dù nó bị bỏ bởi mặc
+định, biến <code class="literal">$(DESTDIR)</code> được thêm vào cho mỗi đường dẫn tập
+tin dể cài đặt chương trình. Kịch bản đóng gói sẽ đặt
+<code class="literal">$(DESTDIR)</code> là thư mục tạm thời. 
 </p>
         <p>
-For a source package generating a single binary package, the temporary
-directory used by the <span class="command"><strong>dh_auto_install</strong></span> command will be set
-to <code class="filename">debian/<em class="replaceable"><code>package</code></em></code>.
-<a href="#ftn.idm1027" class="footnote" id="idm1027"><sup class="footnote">[24]</sup></a> Everything that is contained in the
-temporary directory will be installed on users' systems when they install
-your package; the only difference is that <span class="command"><strong>dpkg</strong></span> will be
-installing the files to paths relative to the root directory rather than
-your working directory.
+Đối với một gói nguồn tạo ra một gói nhị phân duy nhất, thư mục tạm thời
+được sử dụng bởi lệnh <span class="command"><strong>dh_auto_install</strong></span> sẽ được cài đặt vào
+<code class="filename">debian/<em class="replaceable"><code>package</code></em></code>.
+<a href="#ftn.idm1027" class="footnote" id="idm1027"><sup class="footnote">[24]</sup></a> Tất cả mọi thứ có trong thư mục tạm
+thời sẽ được cài đặt trên hệ thống của người dùng khi họ cài đặt gói của
+bạn;  Khác biệt duy nhất là <span class="command"><strong>dpkg</strong></span> sẽ cài đặt các tập tin
+vào đường dẫn liên quan đến thư mục gốc thay vì thư mục làm việc của bạn.
 </p>
         <p>
-Bear in mind that even though your program installs in
-<code class="filename">debian/<em class="replaceable"><code>package</code></em></code>, it still
-needs to behave correctly when installed from the <code class="filename">.deb</code>
-package under the root directory.  So you must not allow the build system to
-hardcode strings like
+Lưu ý rằng ngay cả khi chương trình của bạn cài đặt trong
+<code class="filename">debian/<em class="replaceable"><code>package</code></em></code>, nó vẫn cần
+phải hoạt động chính xác khi cài đặt từ tệp <code class="filename">.deb</code> vào
+thư mục gốc. Vì vâỵ bạn không được tạo hệ thống xây dựng cài đặt vào như
+đường dẫn tuyệt đối như
 <code class="literal">/home/me/deb/<em class="replaceable"><code>package</code></em>-<em class="replaceable"><code>version</code></em>/usr/share/<em class="replaceable"><code>package</code></em></code>
-into files in the package.
+ở các tệp tin trong gói.
 </p>
         <p>
-Here's the relevant part of <code class="systemitem">gentoo</code>'s
-<code class="filename">Makefile</code><a href="#ftn.idm1057" class="footnote" id="idm1057"><sup class="footnote">[25]</sup></a>:
+Đây là một phần  tệp tin <code class="filename">Makefile</code> của <code class="systemitem">gentoo</code><a href="#ftn.idm1057" class="footnote" id="idm1057"><sup class="footnote">[25]</sup></a>:
 </p>
         <pre class="screen">
 # Where to put executable commands on 'make install'?
@@ -247,9 +243,10 @@ BIN     = /usr/local/bin
 ICONS   = /usr/local/share/gentoo
 </pre>
         <p>
-We see that the files are set to install under
-<code class="filename">/usr/local</code>.  As explained above, that directory
-hierarchy is reserved for local use on Debian, so change those paths to:
+Chúng ta thấy rằng các tệp được cài đặt vào
+<code class="filename">/usr/local</code>. Như đã giải thích ở trên, cây thư mục đó
+được dành riêng cho việc sử dụng cục bộ trên Debian, do đó nên thay đổi
+những đường dẫn đó:
 </p>
         <pre class="screen">
 # Where to put executable commands on 'make install'?
@@ -258,44 +255,44 @@ BIN     = $(DESTDIR)/usr/bin
 ICONS   = $(DESTDIR)/usr/share/gentoo
 </pre>
         <p>
-The exact locations that should be used for binaries, icons, documentation,
-etc. are specified in the Filesystem Hierarchy Standard (FHS).  You should
-browse through it and read the sections relevant to your package.
+Vị trí chính xác cần được sử dụng cho các tệp nhị phân, icons, tài liệu,
+v.v. được xác định trong Filesystem Hierarchy Standard (FHS). Bạn nên đọc
+qua nó và các phần có liên quan đến gói của bạn.
 </p>
         <p>
-So, we should install executable commands in <code class="filename">/usr/bin</code>
-instead of <code class="filename">/usr/local/bin</code>, the manual page in
-<code class="filename">/usr/share/man/man1</code> instead of
-<code class="filename">/usr/local/man/man1</code>, and so on.  Notice how there's no
-manual page mentioned in <code class="systemitem">gentoo</code>'s
-<code class="filename">Makefile</code>, but since Debian Policy requires that every
-program has one, we'll make one later and install it in
+Vậy, chúng ta nên cài đặt chương trình vào <code class="filename">/usr/bin</code>
+thay vì <code class="filename">/usr/local/bin</code>, trang hướng dẫn vào
+<code class="filename">/usr/share/man/man1</code> thay vì
+<code class="filename">/usr/local/man/man1</code>, và vân vân.  Chú ý là không có
+trang hướng dẫn trong <code class="filename">Makefile</code> của <code class="systemitem">gentoo</code>, nhưng vì Debian Policy đòi hỏi mọi
+chương trình phải có, chúng ta sẽ làm sau và sẽ cài đặt nó trong
 <code class="filename">/usr/share/man/man1</code>.
 </p>
         <p>
-Some programs don't use <code class="filename">Makefile</code> variables to define
-paths such as these.  This means you might have to edit some real C sources
-in order to fix them to use the right locations.  But where to search, and
-exactly what for? You can find this out by issuing:
+Một số chương trình không sử dụng biến trong <code class="filename">Makefile</code>
+để xác định các đường dẫn như vậy. Điều này có nghĩa là bạn có thể phải
+chỉnh sửa một số mã nguồn C để khắc phục chúng giúp sử dụng đúng vị
+trí. Nhưng tìm kiếm ở đâu, và chính xác những gì? Bạn có thể tìm ra điều này
+bằng cách thực hiện:
 </p>
         <pre class="screen">
 $ grep -nr --include='*.[c|h]' -e 'usr/local/lib' .
 </pre>
         <p>
-<span class="command"><strong>grep</strong></span> will run recursively through the source tree and
-tell you the filename and the line number for all matches.
+lệnh <span class="command"><strong>grep</strong></span> này sẽ tìm đệ quy trong cây mã nguồn và cho bạn
+tên tập tin và vị trí dòng chứa cụm từ <code class="literal">usr/local/lib</code>.
 </p>
         <p>
-Edit those files and in those lines replace <code class="literal">usr/local/lib</code>
-with <code class="literal">usr/lib</code>.  This can be done automatically as follows:
+Sửa đổi các tệp và thay thế <code class="literal">usr/local/lib</code> bằng
+<code class="literal">usr/lib</code>.  Điều này có thể thực hiện tự động như sau:
 </p>
         <pre class="screen">
 $ sed -i -e 's#usr/local/lib#usr/lib#g' \
         $(find . -type f -name '*.[c|h]')
 </pre>
         <p>
-If you want to confirm each substitution instead, this can be done
-interactively as follows:
+Nếu bạn muốn xác nhận của mỗi lần thay thế thay, điều này có thể được thực
+hiện như sau:
 </p>
         <pre class="screen">
 $ vim '+argdo %s#usr/local/lib#usr/lib#gce|update' +q \
@@ -308,8 +305,10 @@ rename all references to directories other than ones defined at the top of
 the <code class="filename">Makefile</code>.
 </p>
         <p>
-Originally, <code class="systemitem">gentoo</code>'s
-<code class="literal">install</code> target said:
+Tiếp theo, bạn nên tìm mục <code class="literal">install</code> (tìm kiếm dòng bắt đầu
+bằng <code class="literal">install:</code> thường sẽ có) và đổi tên tất cả các tham
+chiếu tới các thư mục khác. Được xác định ở trên cùng của
+<code class="filename">Makefile</code>.
 </p>
         <pre class="screen">
 install: gentoo-target
@@ -318,15 +317,16 @@ install: gentoo-target
         install gentoorc-example $(HOME)/.gentoorc
 </pre>
         <p>
-Let's fix this upstream bug and record it with the <span class="command"><strong>dquilt</strong></span>
-command as <code class="filename">debian/patches/install.patch</code>.
+Hãy sửa lỗi thượng nguồn này và ghi lại nó bằng lệnh
+<span class="command"><strong>dquilt</strong></span> dưới dạng
+<code class="filename">debian/patches/install.patch</code>.
 </p>
         <pre class="screen">
 $ dquilt new install.patch
 $ dquilt add Makefile
 </pre>
         <p>
-In your editor, change this for the Debian package as follows:
+Trong trình soạn thảo của bạn, thay đổi này cho gói Debian như sau:
 </p>
         <pre class="screen">
 install: gentoo-target
@@ -336,35 +336,33 @@ install: gentoo-target
         install -m644 gentoorc-example $(DESTDIR)/etc/gentoorc
 </pre>
         <p>
-You'll have noticed that there's now an <code class="literal">install -d</code>
-command before the other commands in the rule.  The original
-<code class="filename">Makefile</code> didn't have it because usually
-<code class="literal">/usr/local/bin</code> and other directories already exist on the
-system where you are running <code class="literal">make install</code>.  However,
-since we will be installing into a newly created private directory tree, we
-will have to create each and every one of those directories.
+Bạn sẽ nhận thấy rằng hiện có một lệnh <code class="literal">install -d</code> trước
+các lệnh khác trong quy tắc.  Tệp <code class="filename">Makefile</code> ban đầu
+không có nó bởi vì thường thư mục <code class="literal">/usr/local/bin</code> và các
+thư mục khác đã tồn tại trên hệ thống mà bạn đang chạy  <code class="literal">make
+install</code>. Tuy nhiên, khi chúng ta sẽ cài đặt vào một cây thư mục cá
+nhân mới, chúng ta sẽ phải tạo ra một trong những thư mục đó.
 </p>
         <p>
-We can also add in other things at the end of the rule, like the
-installation of additional documentation that the upstream authors sometimes
-omit:
+Chúng ta cũng có thể thêm vào những thứ khác ở cuối quy tắc, như việc cài
+đặt các tài liệu bổ sung mà các tác giả thượng nguồn đôi khi bỏ qua:
 </p>
         <pre class="screen">
         install -d $(DESTDIR)/usr/share/doc/gentoo/html
         cp -a docs/* $(DESTDIR)/usr/share/doc/gentoo/html
 </pre>
         <p>
-Check carefully, and if everything is okay, ask <span class="command"><strong>dquilt</strong></span> to
-generate the patch to create
-<code class="filename">debian/patches/install.patch</code> and add its description:
+Kiểm tra cẩn thận, và nếu mọi thứ đều ổn, hãy yêu cầu
+<span class="command"><strong>dquilt</strong></span> tạo ra bản vá vào
+<code class="filename">debian/patches/install.patch</code> và thêm mô tả cho nó:
 </p>
         <pre class="screen">
 $ dquilt refresh
 $ dquilt header -e
-... describe patch
+... mô tả bản vá
 </pre>
         <p>
-Now you have a series of patches.
+Bây giờ bạn có một loạt các bản vá.
 </p>
         <div class="orderedlist">
           <ol class="orderedlist">
@@ -383,46 +381,47 @@ Debian specific packaging modification:
           </ol>
         </div>
         <p>
-Whenever you make changes that are not specific to the Debian package such
-as <code class="filename">debian/patches/fix-gentoo-target.patch</code>, be sure to
-send them to the upstream maintainer so they can be included in the next
-version of the program and be useful to everyone else.  Also remember to
-avoid making your fixes specific to Debian or Linux - or even Unix! Make
-them portable.  This will make your fixes much easier to apply.
+Bất cứ khi nào bạn thực hiện các thay đổi không phải đặc trưng cho gói
+Debian như <code class="filename">debian/patches/fix-gentoo-target.patch</code>, hãy
+chắc chắn gửi chúng đến người bảo trì thượng nguồn để có thể được áp dụng
+vào trong phiên bản kế tiếp của chương trình, sẽ là hữu ích cho mọi người
+khác. Đồng thời nhớ tránh tạo các bản sửa lỗi cụ thể cứng nhắc cho Debian
+hoặc Linux - hoặc thậm chí là Unix! Hãy làm cho chúng di động. Điều này sẽ
+làm cho các bản sửa lỗi của bạn dễ dàng hơn để áp dụng.
 </p>
         <p>
-Note that you don't have to send the <code class="filename">debian/*</code> files
-upstream.
+Nhớ rằng bạn không phải gửi toàn bộ tệp <code class="filename">debian/*</code> tới
+thượng nguồn.
 </p>
       </div>
       <div class="section">
         <div class="titlepage">
           <div>
             <div>
-              <h2 class="title"><a id="difflibs"/>3.4. Differing libraries</h2>
+              <h2 class="title"><a id="difflibs"/>3.4. Thư viện khác</h2>
             </div>
           </div>
         </div>
         <p>
-There is one other common problem: libraries are often different from
-platform to platform.  For example, a <code class="filename">Makefile</code> can
-contain a reference to a library which doesn't exist on the Debian system.
-In that case, we need to change it to a library which does exist in Debian,
-and serves the same purpose.
+Có một vấn đề phổ biến khác: các thư viện thường khác nhau từ nền tảng này
+đến nền tảng khác. Ví dụ, một tệp <code class="filename">Makefile</code> có thể chứa
+một tham chiếu đến thư viện không tồn tại trên hệ thống Debian. Trong trường
+hợp đó, chúng ta cần thay đổi nó thành một thư viện tồn tại trong Debian
+nhưng phục vụ cùng một mục đích.
 </p>
         <p>
-Let's assume a line in your program's <code class="filename">Makefile</code> (or
-<code class="filename">Makefile.in</code>) as the following.
+Hãy giả sử một dòng trong  <code class="filename">Makefile</code> của chương trình
+của bạn (hoặc <code class="filename">Makefile.in</code>) như sau.
 </p>
         <pre class="screen">
 LIBS = -lfoo -lbar
 </pre>
         <p>
-If your program doesn't compile since the <code class="literal">foo</code> library
-doesn't exist and its equivalent is provided by the <code class="literal">foo2</code>
-library on the Debian system, you can fix this build problem as
-<code class="filename">debian/patches/foo2.patch</code> by changing
-<code class="literal">foo</code> into <code class="literal">foo2</code>:<a href="#ftn.idm1141" class="footnote" id="idm1141"><sup class="footnote">[26]</sup></a>
+Nếu chương trình không biên dịch được khi thư viện <code class="literal">foo</code>
+không tồn tại và nó tương đương với thư viện <code class="literal">foo2</code> được
+cung cấp trên hệ thống Debian , bạn có thể sửa vấn đề này với
+<code class="filename">debian/patches/foo2.patch</code> bằng cách thay đổi từ
+<code class="literal">foo</code> sang <code class="literal">foo2</code>:<a href="#ftn.idm1143" class="footnote" id="idm1143"><sup class="footnote">[26]</sup></a>
 </p>
         <pre class="screen">
 $ dquilt new foo2.patch
@@ -430,49 +429,46 @@ $ dquilt add Makefile
 $ sed -i -e 's/-lfoo/-lfoo2/g' Makefile
 $ dquilt refresh
 $ dquilt header -e
-... describe patch
+... mô tả bản vá
 </pre>
       </div>
       <div class="footnotes">
         <br/>
         <hr/>
         <div id="ftn.idm974" class="footnote">
-          <p><a href="#idm974" class="para"><sup class="para">[22] </sup></a> The <code class="filename">debian/patches</code> directory should exist now if you
-ran <span class="command"><strong>dh_make</strong></span> as described before.  This example operation
-creates it just in case you are updating an existing package.  </p>
+          <p><a href="#idm974" class="para"><sup class="para">[22] </sup></a> Thư mục <code class="filename">debian/patches</code> sẽ tồn tại nếu bạn đã chạy
+<span class="command"><strong>dh_make</strong></span> như đã mô tả trước. Thao tác ví dụ này cũng tạo
+ra nhưng chỉ trong trường hợp bạn đang cập nhật một gói hiện có.  </p>
         </div>
         <div id="ftn.idm1010" class="footnote">
-          <p><a href="#idm1010" class="para"><sup class="para">[23] </sup></a> See <a class="ulink" href="http://www.gnu.org/prep/standards/html_node/DESTDIR.html#DESTDIR">GNU Coding Standards: 7.2.4 DESTDIR: Support
+          <p><a href="#idm1010" class="para"><sup class="para">[23] </sup></a> Xem <a class="ulink" href="http://www.gnu.org/prep/standards/html_node/DESTDIR.html#DESTDIR">GNU Coding Standards: 7.2.4 DESTDIR: Support
 for Staged Installs</a>.</p>
         </div>
         <div id="ftn.idm1027" class="footnote">
-          <p><a href="#idm1027" class="para"><sup class="para">[24] </sup></a> For a source package generating multiple binary packages, the
-<span class="command"><strong>dh_auto_install</strong></span> command uses
-<code class="filename">debian/tmp</code> as the temporary directory while the
-<span class="command"><strong>dh_install</strong></span> command with the help of
-<code class="filename">debian/<em class="replaceable"><code>package-1</code></em>.install</code> and
-<code class="filename">debian/<em class="replaceable"><code>package-2</code></em>.install</code>
-files will split the contents of <code class="filename">debian/tmp</code> into
-<code class="filename">debian/<em class="replaceable"><code>package-1</code></em></code> and
-<code class="filename">debian/<em class="replaceable"><code>package-2</code></em></code> temporary
-directories, to create
-<code class="filename"><em class="replaceable"><code>package-1</code></em>_*.deb</code> and
-<code class="filename"><em class="replaceable"><code>package-2</code></em>_*.deb</code> binary
-packages.
+          <p><a href="#idm1027" class="para"><sup class="para">[24] </sup></a> Với một gói mã nguồn tạo ra nhiều gói nhị phân, lệnh
+<span class="command"><strong>dh_auto_install</strong></span> sử dụng thư mục
+<code class="filename">debian/tmp</code> như là thư mục tạm thời trong khi lệnh
+<span class="command"><strong>dh_install</strong></span> sẽ tạo ra các kịch bản
+<code class="filename">debian/<em class="replaceable"><code>package-1</code></em>.install</code> và
+<code class="filename">debian/<em class="replaceable"><code>package-2</code></em>.install</code> sẽ
+chia nội dung của <code class="filename">debian/tmp</code> vào thư mục tạm thời là
+<code class="filename">debian/<em class="replaceable"><code>package-1</code></em></code> và
+<code class="filename">debian/<em class="replaceable"><code>package-2</code></em></code>, để tạo gói
+nhị phân <code class="filename"><em class="replaceable"><code>package-1</code></em>_*.deb</code> và
+<code class="filename"><em class="replaceable"><code>package-2</code></em>_*.deb</code>.
 </p>
         </div>
         <div id="ftn.idm1057" class="footnote">
-          <p><a href="#idm1057" class="para"><sup class="para">[25] </sup></a> This is just an example to show what a <code class="filename">Makefile</code> should
-look like.  If the <code class="filename">Makefile</code> is created by the
-<span class="command"><strong>./configure</strong></span> command, the correct way to fix this kind of
-<code class="filename">Makefile</code> is to execute <span class="command"><strong>./configure</strong></span>
-from the <span class="command"><strong>dh_auto_configure</strong></span> command with default options
-including <code class="literal">--prefix=/usr</code>.  </p>
+          <p><a href="#idm1057" class="para"><sup class="para">[25] </sup></a> Đây chỉ là một ví dụ để xem <code class="filename">Makefile</code> trông như thế
+nào. Nếu <code class="filename">Makefile</code> được tạo bởi lệnh
+<span class="command"><strong>./configure</strong></span>, cách chính xác để sửa lỗi trên
+<code class="filename">Makefile </code> là thực thi <span class="command"><strong>./configure</strong></span> từ
+lệnh <span class="command"><strong>dh_auto_configure</strong></span> với các tùy chọn mặc định bao gồm
+<code class="literal">--prefix =/usr </code>.  </p>
         </div>
-        <div id="ftn.idm1141" class="footnote">
-          <p><a href="#idm1141" class="para"><sup class="para">[26] </sup></a>If there are API changes from the <code class="literal">foo</code> library to the
-<code class="literal">foo2</code> library, required changes to the source code need to
-be made to match the new API.</p>
+        <div id="ftn.idm1143" class="footnote">
+          <p><a href="#idm1143" class="para"><sup class="para">[26] </sup></a>Nếu có sự thay đổi API từ thư viện <code class="literal">foo</code> sang thư viện
+<code class="literal">foo2</code>, yêu cầu thay đổi mã nguồn để khớp với API mới.</p>
         </div>
       </div>
     </div>

@@ -198,7 +198,7 @@ configuration files under the <code class="filename">debian</code> directory.  M
 of them come with filenames suffixed by <code class="literal">.ex</code>.  Some of
 them come with filenames prefixed by the binary package name such as
 <code class="literal"><em class="replaceable"><code>package</code></em></code>.  Take a look at all
-of them.  <a href="#ftn.idm2008" class="footnote" id="idm2008"><sup class="footnote">[54]</sup></a>
+of them.  <a href="#ftn.idm2010" class="footnote" id="idm2010"><sup class="footnote">[54]</sup></a>
 </p>
       <p>
 Some template configuration files for <code class="systemitem">debhelper</code> may not be created by the
@@ -309,7 +309,7 @@ $ echo 9 &gt; debian/compat
 One of the most annoying things about software is when you spend a great
 deal of time and effort customizing a program, only to have an upgrade stomp
 all over your changes.  Debian solves this problem by marking such
-configuration files as conffiles.  <a href="#ftn.idm2069" class="footnote" id="idm2069"><sup class="footnote">[55]</sup></a>
+configuration files as conffiles.  <a href="#ftn.idm2071" class="footnote" id="idm2071"><sup class="footnote">[55]</sup></a>
 When you upgrade a package, you'll be asked whether you want to keep your
 old configuration files or not.
 </p>
@@ -482,7 +482,7 @@ For information on the file format, see <span class="citerefentry"><span class="
 <code class="filename">/usr/share/doc/doc-base/doc-base.html/index.html</code> provided by the <code class="systemitem">doc-base</code> package.
 </p>
         <p>
-For more details on installing additional documentation, look in <a class="xref" href="modify.vi.html#destdir" title="3.3. Installation of files to their destination">Phần 3.3, “Installation of files to their destination”</a>.
+For more details on installing additional documentation, look in <a class="xref" href="modify.vi.html#destdir" title="3.3. Cài đặt các tệp tin đến đích của chúng">Phần 3.3, “Cài đặt các tệp tin đến đích của chúng”</a>.
 </p>
       </div>
       <div class="section">
@@ -614,7 +614,7 @@ If you don't need this, remove the files.
 If there are files that need to be installed into your package but your
 standard <code class="literal">make install</code> won't do it, put the filenames and
 destinations into this <code class="filename">install</code> file.  They are
-installed by <span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2265" class="footnote" id="idm2265"><sup class="footnote">[56]</sup></a> You should first check there is not a more specific tool to use.
+installed by <span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2267" class="footnote" id="idm2267"><sup class="footnote">[56]</sup></a> You should first check there is not a more specific tool to use.
 For example, documents should be in the <code class="filename">docs</code> file and
 not in this one.
 </p>
@@ -814,7 +814,7 @@ example and from the upstream docs.
           <p>
 You can use the <span class="command"><strong>help2man</strong></span> command to generate a man page
 out of the <code class="literal">--help</code> and <code class="literal">--version</code> output
-of each program, too.  <a href="#ftn.idm2413" class="footnote" id="idm2413"><sup class="footnote">[57]</sup></a>
+of each program, too.  <a href="#ftn.idm2415" class="footnote" id="idm2415"><sup class="footnote">[57]</sup></a>
 </p>
         </div>
         <div class="section">
@@ -962,7 +962,7 @@ The <span class="citerefentry"><span class="refentrytitle">dh_installchangelogs<
         <p>
 These <code class="filename">postinst</code>, <code class="filename">preinst</code>,
 <code class="filename">postrm</code>, and <code class="filename">prerm</code> files
-<a href="#ftn.idm2496" class="footnote" id="idm2496"><sup class="footnote">[58]</sup></a> are called <span class="emphasis"><em>maintainer
+<a href="#ftn.idm2498" class="footnote" id="idm2498"><sup class="footnote">[58]</sup></a> are called <span class="emphasis"><em>maintainer
 scripts</em></span>.  They are scripts which are put in the control area of
 the package and run by <span class="command"><strong>dpkg</strong></span> when your package is
 installed, upgraded, or removed.
@@ -1115,11 +1115,11 @@ single line indicating the desired format for the source package (check
 The newer <code class="literal">3.0 (quilt)</code> source format records modifications
 in a <span class="command"><strong>quilt</strong></span> patch series within
 <code class="filename">debian/patches</code>.  Those changes are then automatically
-applied during extraction of the source package.  <a href="#ftn.idm2597" class="footnote" id="idm2597"><sup class="footnote">[59]</sup></a> The Debian modifications are simply stored in a
+applied during extraction of the source package.  <a href="#ftn.idm2599" class="footnote" id="idm2599"><sup class="footnote">[59]</sup></a> The Debian modifications are simply stored in a
 <code class="filename">debian.tar.gz</code> archive containing all files under the
 <code class="filename">debian</code> directory.  This new format supports inclusion
 of binary files such as PNG icons by the package maintainer without
-requiring tricks.  <a href="#ftn.idm2604" class="footnote" id="idm2604"><sup class="footnote">[60]</sup></a>
+requiring tricks.  <a href="#ftn.idm2606" class="footnote" id="idm2606"><sup class="footnote">[60]</sup></a>
 </p>
         <p>
 When <span class="command"><strong>dpkg-source</strong></span> extracts a source package in
@@ -1216,7 +1216,7 @@ packaged as the <code class="filename">debian.tar.gz</code> file.  Since the
 <span class="command"><strong>dpkg-source</strong></span> command can handle <span class="command"><strong>quilt</strong></span>
 formatted patch data in the <code class="literal">3.0 (quilt)</code> source without
 the <code class="systemitem">quilt</code> package, it does not need
-a <code class="literal">Build-Depends</code> on <code class="systemitem">quilt</code>.  <a href="#ftn.idm2665" class="footnote" id="idm2665"><sup class="footnote">[61]</sup></a>
+a <code class="literal">Build-Depends</code> on <code class="systemitem">quilt</code>.  <a href="#ftn.idm2667" class="footnote" id="idm2667"><sup class="footnote">[61]</sup></a>
 </p>
         <p>
 The <span class="command"><strong>quilt</strong></span> command is explained in <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span>.  It records modifications to the source as a stack of
@@ -1225,16 +1225,16 @@ The <span class="command"><strong>quilt</strong></span> command is explained in 
 untouched outside of the <code class="filename">debian</code> directory.  The order
 of these patches is recorded in the
 <code class="filename">debian/patches/series</code> file.  You can apply (=push),
-un-apply (=pop), and refresh patches easily.  <a href="#ftn.idm2681" class="footnote" id="idm2681"><sup class="footnote">[62]</sup></a>
+un-apply (=pop), and refresh patches easily.  <a href="#ftn.idm2683" class="footnote" id="idm2683"><sup class="footnote">[62]</sup></a>
 </p>
         <p>
-For <a class="xref" href="modify.vi.html" title="Chương 3. Modifying the source">Chương 3, <em>Modifying the source</em></a>, we created three patches in
+For <a class="xref" href="modify.vi.html" title="Chương 3. Sửa đổi mã nguồn">Chương 3, <em>Sửa đổi mã nguồn</em></a>, we created three patches in
 <code class="filename">debian/patches</code>.
 </p>
         <p>
 Since Debian patches are located in <code class="filename">debian/patches</code>,
 please make sure to set up the <span class="command"><strong>dquilt</strong></span> command properly as
-described in <a class="xref" href="modify.vi.html#quiltrc" title="3.1. Setting up quilt">Phần 3.1, “Setting up <span class="command"><strong>quilt</strong></span>”</a>.
+described in <a class="xref" href="modify.vi.html#quiltrc" title="3.1. Cài đặt quilt">Phần 3.1, “Cài đặt <span class="command"><strong>quilt</strong></span>”</a>.
 </p>
         <p>
 When anyone (including yourself) provides a patch
@@ -1261,51 +1261,51 @@ done</code>.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm2008" class="footnote">
-          <p><a href="#idm2008" class="para"><sup class="para">[54] </sup></a>
+        <div id="ftn.idm2010" class="footnote">
+          <p><a href="#idm2010" class="para"><sup class="para">[54] </sup></a>
 In this chapter, files in the <code class="filename">debian</code> directory are
 referred to without the leading <code class="filename">debian/</code> for simplicity
 whenever the meaning is obvious.
 </p>
         </div>
-        <div id="ftn.idm2069" class="footnote">
-          <p><a href="#idm2069" class="para"><sup class="para">[55] </sup></a>See <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> and <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
+        <div id="ftn.idm2071" class="footnote">
+          <p><a href="#idm2071" class="para"><sup class="para">[55] </sup></a>See <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> and <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
 </p>
         </div>
-        <div id="ftn.idm2265" class="footnote">
-          <p><a href="#idm2265" class="para"><sup class="para">[56] </sup></a> This replaces the deprecated <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> command which is configured by the
+        <div id="ftn.idm2267" class="footnote">
+          <p><a href="#idm2267" class="para"><sup class="para">[56] </sup></a> This replaces the deprecated <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> command which is configured by the
 <code class="filename">files</code> file.  </p>
         </div>
-        <div id="ftn.idm2413" class="footnote">
-          <p><a href="#idm2413" class="para"><sup class="para">[57] </sup></a> Note that <span class="command"><strong>help2man</strong></span>'s placeholder man page will claim that
+        <div id="ftn.idm2415" class="footnote">
+          <p><a href="#idm2415" class="para"><sup class="para">[57] </sup></a> Note that <span class="command"><strong>help2man</strong></span>'s placeholder man page will claim that
 more detailed documentation is available in the info system. If the command
 is missing an <span class="command"><strong>info</strong></span> page, you should manually edit the man
 page created by the <span class="command"><strong>help2man</strong></span> command.  </p>
         </div>
-        <div id="ftn.idm2496" class="footnote">
-          <p><a href="#idm2496" class="para"><sup class="para">[58] </sup></a> Despite this use of the <span class="command"><strong>bash</strong></span> shorthand expression
+        <div id="ftn.idm2498" class="footnote">
+          <p><a href="#idm2498" class="para"><sup class="para">[58] </sup></a> Despite this use of the <span class="command"><strong>bash</strong></span> shorthand expression
 <code class="filename">{pre,post}{inst,rm}</code> to indicate these filenames, you
 should use pure POSIX syntax for these maintainer scripts for compatibility
 with <span class="command"><strong>dash</strong></span> as the system shell.  </p>
         </div>
-        <div id="ftn.idm2597" class="footnote">
-          <p><a href="#idm2597" class="para"><sup class="para">[59] </sup></a> See <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> for a summary on the switch to
+        <div id="ftn.idm2599" class="footnote">
+          <p><a href="#idm2599" class="para"><sup class="para">[59] </sup></a> See <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> for a summary on the switch to
 the new <code class="literal">3.0 (quilt)</code> and <code class="literal">3.0 (native)</code>
 source formats.  </p>
         </div>
-        <div id="ftn.idm2604" class="footnote">
-          <p><a href="#idm2604" class="para"><sup class="para">[60] </sup></a>Actually, this new format also supports multiple upstream tarballs and more
+        <div id="ftn.idm2606" class="footnote">
+          <p><a href="#idm2606" class="para"><sup class="para">[60] </sup></a>Actually, this new format also supports multiple upstream tarballs and more
 compression methods.  These are beyond the scope of this document.</p>
         </div>
-        <div id="ftn.idm2665" class="footnote">
-          <p><a href="#idm2665" class="para"><sup class="para">[61] </sup></a> Several methods of patch set maintenance have been proposed and are in use
+        <div id="ftn.idm2667" class="footnote">
+          <p><a href="#idm2667" class="para"><sup class="para">[61] </sup></a> Several methods of patch set maintenance have been proposed and are in use
 for Debian packages.  The <span class="command"><strong>quilt</strong></span> system is the preferred
 maintenance system in use.  Others include <span class="command"><strong>dpatch</strong></span>,
 <span class="command"><strong>dbs</strong></span>, and <span class="command"><strong>cdbs</strong></span>.  Many of these keep
 such patches as <code class="filename">debian/patches/*</code> files.  </p>
         </div>
-        <div id="ftn.idm2681" class="footnote">
-          <p><a href="#idm2681" class="para"><sup class="para">[62] </sup></a> If you are asking a sponsor to upload your package, this kind of clear
+        <div id="ftn.idm2683" class="footnote">
+          <p><a href="#idm2683" class="para"><sup class="para">[62] </sup></a> If you are asking a sponsor to upload your package, this kind of clear
 separation and documentation of your changes is very important to expedite
 the package review by your sponsor.  </p>
         </div>

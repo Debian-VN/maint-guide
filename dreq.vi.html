@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
     <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
-    <link rel="prev" href="modify.vi.html" title="Chương 3. Modifying the source"/>
+    <link rel="prev" href="modify.vi.html" title="Chương 3. Sửa đổi mã nguồn"/>
     <link rel="next" href="dother.vi.html" title="Chương 5. Other files under the debian directory"/>
   </head>
   <body>
@@ -86,7 +86,7 @@ that we should edit in order to customize the behavior of the package.  The
 most important of them are <code class="filename">control</code>,
 <code class="filename">changelog</code>, <code class="filename">copyright</code>, and
 <code class="filename">rules</code>, which are required for all packages.
-<a href="#ftn.idm1155" class="footnote" id="idm1155"><sup class="footnote">[27]</sup></a>
+<a href="#ftn.idm1157" class="footnote" id="idm1157"><sup class="footnote">[27]</sup></a>
 </p>
       <div class="section">
         <div class="titlepage">
@@ -147,7 +147,7 @@ that classify packages into rough categories.  So we have
 documentation, <code class="literal">libs</code> for libraries,
 <code class="literal">mail</code> for email readers and daemons,
 <code class="literal">net</code> for network apps and daemons, <code class="literal">x11</code>
-for X11 programs that don't fit anywhere else, and many more.  <a href="#ftn.idm1188" class="footnote" id="idm1188"><sup class="footnote">[28]</sup></a>
+for X11 programs that don't fit anywhere else, and many more.  <a href="#ftn.idm1190" class="footnote" id="idm1190"><sup class="footnote">[28]</sup></a>
 </p>
         <p>
 Let's change it then to x11.  (A <code class="literal">main/</code> prefix is implied
@@ -155,7 +155,7 @@ so we can omit it.)
 </p>
         <p>
 Line 3 describes how important it is that the user installs this package.
-<a href="#ftn.idm1196" class="footnote" id="idm1196"><sup class="footnote">[29]</sup></a>
+<a href="#ftn.idm1198" class="footnote" id="idm1198"><sup class="footnote">[29]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -194,7 +194,7 @@ you.  Avoid using commas, ampersands, or parentheses.
 Line 5 includes the list of packages required to build your package as the
 <code class="literal">Build-Depends</code> field.  You can also have the
 <code class="literal">Build-Depends-Indep</code> field as an additional line, here.
-<a href="#ftn.idm1219" class="footnote" id="idm1219"><sup class="footnote">[30]</sup></a> Some packages like <code class="systemitem">gcc</code> and <code class="systemitem">make</code> which are required by the <code class="systemitem">build-essential</code> package are implied.  If you
+<a href="#ftn.idm1221" class="footnote" id="idm1221"><sup class="footnote">[30]</sup></a> Some packages like <code class="systemitem">gcc</code> and <code class="systemitem">make</code> which are required by the <code class="systemitem">build-essential</code> package are implied.  If you
 need to have other tools to build your package, you should add them to these
 fields.  Multiple entries are separated with commas; read on for the
 explanation of binary package dependencies to find out more about the syntax
@@ -235,7 +235,7 @@ requirement for the <code class="literal">clean</code> target.
         </div>
         <p>
 If you are not sure which one should be used, use the
-<code class="literal">Build-Depends</code> field to be on the safe side.  <a href="#ftn.idm1249" class="footnote" id="idm1249"><sup class="footnote">[31]</sup></a>
+<code class="literal">Build-Depends</code> field to be on the safe side.  <a href="#ftn.idm1251" class="footnote" id="idm1251"><sup class="footnote">[31]</sup></a>
 </p>
         <p>
 To find out what packages your package needs to be built run the command:
@@ -282,7 +282,7 @@ name of the source package, but it doesn't necessarily have to be that way.
         <p>
 Line 10 describes the architectures the binary package can be compiled for.
 This value is usually one of the following depending on the type of the
-binary package: <a href="#ftn.idm1281" class="footnote" id="idm1281"><sup class="footnote">[32]</sup></a>
+binary package: <a href="#ftn.idm1283" class="footnote" id="idm1283"><sup class="footnote">[32]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -342,7 +342,7 @@ these relations; if not, it will be explained.  (See <span class="citerefentry">
 <span class="citerefentry"><span class="refentrytitle">aptitude</span>(1)</span>, etc.)
 </p>
         <p>
-Here is a simplified description of package relationships: <a href="#ftn.idm1329" class="footnote" id="idm1329"><sup class="footnote">[33]</sup></a>
+Here is a simplified description of package relationships: <a href="#ftn.idm1331" class="footnote" id="idm1331"><sup class="footnote">[33]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -509,11 +509,11 @@ Line 13 is where the long description goes.  This should be a paragraph
 which gives more details about the package.  Column 1 of each line should be
 empty.  There must be no blank lines, but you can put a single
 <code class="literal">.</code> (dot) in a column to simulate that.  Also, there must
-be no more than one blank line after the long description. <a href="#ftn.idm1426" class="footnote" id="idm1426"><sup class="footnote">[34]</sup></a>
+be no more than one blank line after the long description. <a href="#ftn.idm1428" class="footnote" id="idm1428"><sup class="footnote">[34]</sup></a>
 </p>
         <p>
 We can insert <code class="literal">Vcs-*</code> fields to document the Version
-Control System (VCS) location between lines 6 and 7.  <a href="#ftn.idm1431" class="footnote" id="idm1431"><sup class="footnote">[35]</sup></a> Let's assume that the <code class="systemitem">gentoo</code> package has its VCS located in the Debian
+Control System (VCS) location between lines 6 and 7.  <a href="#ftn.idm1433" class="footnote" id="idm1433"><sup class="footnote">[35]</sup></a> Let's assume that the <code class="systemitem">gentoo</code> package has its VCS located in the Debian
 Alioth Git Service at
 <code class="literal">git://git.debian.org/git/collab-maint/gentoo.git</code>.
 </p>
@@ -710,7 +710,7 @@ Once you are satisfied with all the changes and documented them in
 <code class="filename">changelog</code>, you should change the distribution value
 from <code class="literal">UNRELEASED</code> to the target distribution value
 <code class="literal">unstable</code> (or even <code class="literal">experimental</code>).
-<a href="#ftn.idm1495" class="footnote" id="idm1495"><sup class="footnote">[36]</sup></a>
+<a href="#ftn.idm1497" class="footnote" id="idm1497"><sup class="footnote">[36]</sup></a>
 </p>
         <p>
 You can read more about updating the <code class="filename">changelog</code> file
@@ -742,11 +742,11 @@ this one is marked as executable.
           <p>
 Every <code class="filename">rules</code> file, like any other
 <code class="filename">Makefile</code>, consists of several rules, each of which
-defines a target and how it is carried out.  <a href="#ftn.idm1517" class="footnote" id="idm1517"><sup class="footnote">[37]</sup></a> A new rule begins with its target declaration in the first column.
+defines a target and how it is carried out.  <a href="#ftn.idm1519" class="footnote" id="idm1519"><sup class="footnote">[37]</sup></a> A new rule begins with its target declaration in the first column.
 The following lines beginning with the TAB code (ASCII 9) specify the recipe
 for carrying out that target.  Empty lines and lines beginning with
 <code class="literal">#</code> (hash) are treated as comments and ignored.
-<a href="#ftn.idm1525" class="footnote" id="idm1525"><sup class="footnote">[38]</sup></a>
+<a href="#ftn.idm1527" class="footnote" id="idm1527"><sup class="footnote">[38]</sup></a>
 </p>
           <p>
 A rule that you want to execute is invoked by its target name as a command
@@ -797,21 +797,21 @@ target.  (Optional)
                 <p>
 <code class="literal">binary</code> target: to create all binary packages (effectively
 a combination of <code class="literal">binary-arch</code> and
-<code class="literal">binary-indep</code> targets).  (Required)<a href="#ftn.idm1561" class="footnote" id="idm1561"><sup class="footnote">[39]</sup></a>
+<code class="literal">binary-indep</code> targets).  (Required)<a href="#ftn.idm1563" class="footnote" id="idm1563"><sup class="footnote">[39]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
 <code class="literal">binary-arch</code> target: to create arch-dependent
 (<code class="literal">Architecture: any</code>) binary packages in the parent
-directory.  (Required)<a href="#ftn.idm1569" class="footnote" id="idm1569"><sup class="footnote">[40]</sup></a>
+directory.  (Required)<a href="#ftn.idm1571" class="footnote" id="idm1571"><sup class="footnote">[40]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
 <code class="literal">binary-indep</code> target: to create arch-independent
 (<code class="literal">Architecture: all</code>) binary packages in the parent
-directory.  (Required)<a href="#ftn.idm1577" class="footnote" id="idm1577"><sup class="footnote">[41]</sup></a>
+directory.  (Required)<a href="#ftn.idm1579" class="footnote" id="idm1579"><sup class="footnote">[41]</sup></a>
 </p>
               </li>
               <li class="listitem">
@@ -887,9 +887,9 @@ you.
           <p>
 Lines 20 and 21 are where all the work is done with an implicit rule using
 the pattern rule.  The percent sign means "any targets", which then call a
-single program, <span class="command"><strong>dh</strong></span>, with the target name.  <a href="#ftn.idm1609" class="footnote" id="idm1609"><sup class="footnote">[42]</sup></a> The <span class="command"><strong>dh</strong></span> command is a wrapper
+single program, <span class="command"><strong>dh</strong></span>, with the target name.  <a href="#ftn.idm1611" class="footnote" id="idm1611"><sup class="footnote">[42]</sup></a> The <span class="command"><strong>dh</strong></span> command is a wrapper
 script which runs appropriate sequences of <span class="command"><strong>dh_*</strong></span> programs
-depending on its argument.  <a href="#ftn.idm1625" class="footnote" id="idm1625"><sup class="footnote">[43]</sup></a>
+depending on its argument.  <a href="#ftn.idm1627" class="footnote" id="idm1627"><sup class="footnote">[43]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
@@ -919,7 +919,7 @@ dh_auto_test
               <li class="listitem">
                 <p>
 <code class="literal">fakeroot debian/rules binary</code> runs <code class="literal">fakeroot dh
-binary</code>; which in turn runs the following<a href="#ftn.idm1649" class="footnote" id="idm1649"><sup class="footnote">[44]</sup></a>:
+binary</code>; which in turn runs the following<a href="#ftn.idm1651" class="footnote" id="idm1651"><sup class="footnote">[44]</sup></a>:
 </p>
                 <pre class="screen">
 dh_testroot
@@ -988,10 +988,10 @@ appended for each remaining command.
           </div>
           <p>
 The functions of <span class="command"><strong>dh_*</strong></span> commands are largely self-evident
-from their names.  <a href="#ftn.idm1670" class="footnote" id="idm1670"><sup class="footnote">[45]</sup></a> There are a few
+from their names.  <a href="#ftn.idm1672" class="footnote" id="idm1672"><sup class="footnote">[45]</sup></a> There are a few
 notable ones that are worth giving (over)simplified explanations here
 assuming a typical build environment based on a
-<code class="filename">Makefile</code>: <a href="#ftn.idm1675" class="footnote" id="idm1675"><sup class="footnote">[46]</sup></a>
+<code class="filename">Makefile</code>: <a href="#ftn.idm1677" class="footnote" id="idm1677"><sup class="footnote">[46]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
@@ -999,7 +999,7 @@ assuming a typical build environment based on a
                 <p>
 <span class="command"><strong>dh_auto_clean</strong></span> usually executes the following if a
 <code class="filename">Makefile</code> exists with the <code class="literal">distclean</code>
-target.  <a href="#ftn.idm1685" class="footnote" id="idm1685"><sup class="footnote">[47]</sup></a>
+target.  <a href="#ftn.idm1687" class="footnote" id="idm1687"><sup class="footnote">[47]</sup></a>
 </p>
                 <pre class="screen">
 make distclean
@@ -1028,7 +1028,7 @@ make
                 <p>
 <span class="command"><strong>dh_auto_test</strong></span> usually executes the following if a
 <code class="filename">Makefile</code> exists with the <code class="literal">test</code>
-target.  <a href="#ftn.idm1707" class="footnote" id="idm1707"><sup class="footnote">[48]</sup></a>
+target.  <a href="#ftn.idm1709" class="footnote" id="idm1709"><sup class="footnote">[48]</sup></a>
 </p>
                 <pre class="screen">
 make test
@@ -1079,14 +1079,14 @@ with the new <span class="command"><strong>dh</strong></span> command.
 </p>
           <p>
 The <code class="literal">dh $@</code> command can be customized as follows:
-<a href="#ftn.idm1743" class="footnote" id="idm1743"><sup class="footnote">[49]</sup></a>
+<a href="#ftn.idm1745" class="footnote" id="idm1745"><sup class="footnote">[49]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
 Add support for the <span class="command"><strong>dh_python2</strong></span> command.  (The best choice
-for Python.) <a href="#ftn.idm1753" class="footnote" id="idm1753"><sup class="footnote">[50]</sup></a>
+for Python.) <a href="#ftn.idm1755" class="footnote" id="idm1755"><sup class="footnote">[50]</sup></a>
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
@@ -1372,7 +1372,7 @@ its rule in the <code class="filename">rules</code> file defining an
 <code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> target for the
 <span class="command"><strong>dh_<em class="replaceable"><code>foo</code></em></strong></span> command you want to
 change.  It basically says <span class="emphasis"><em>run me instead</em></span>.
-<a href="#ftn.idm1922" class="footnote" id="idm1922"><sup class="footnote">[51]</sup></a>
+<a href="#ftn.idm1924" class="footnote" id="idm1924"><sup class="footnote">[51]</sup></a>
 </p>
           <p>
 Please note that the <span class="command"><strong>dh_auto_*</strong></span> commands tend to do more
@@ -1404,7 +1404,7 @@ benign arguments to the <span class="command"><strong>./configure</strong></span
 </p>
           <p>
 If the <code class="filename">Makefile</code> in the source for <code class="systemitem">gentoo</code> requires you to specify
-<code class="literal">build</code> as its target to build it <a href="#ftn.idm1950" class="footnote" id="idm1950"><sup class="footnote">[52]</sup></a>, you create an
+<code class="literal">build</code> as its target to build it <a href="#ftn.idm1952" class="footnote" id="idm1952"><sup class="footnote">[52]</sup></a>, you create an
 <code class="literal">override_dh_auto_build</code> target to enable this.
 </p>
           <pre class="screen">
@@ -1440,7 +1440,7 @@ If <code class="systemitem">gentoo</code> has an unusual upstream
 changelog file called <code class="filename">FIXES</code>,
 <span class="command"><strong>dh_installchangelogs</strong></span> will not install that file by
 default.  The <span class="command"><strong>dh_installchangelogs</strong></span> command requires
-<code class="filename">FIXES</code> as its argument to install it.  <a href="#ftn.idm1980" class="footnote" id="idm1980"><sup class="footnote">[53]</sup></a>
+<code class="filename">FIXES</code> as its argument to install it.  <a href="#ftn.idm1982" class="footnote" id="idm1982"><sup class="footnote">[53]</sup></a>
 </p>
           <pre class="screen">
 override_dh_installchangelogs:
@@ -1459,85 +1459,85 @@ possible.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm1155" class="footnote">
-          <p><a href="#idm1155" class="para"><sup class="para">[27] </sup></a>
+        <div id="ftn.idm1157" class="footnote">
+          <p><a href="#idm1157" class="para"><sup class="para">[27] </sup></a>
 In this chapter, files in the <code class="filename">debian</code> directory are
 referred to without the leading <code class="filename">debian/</code> for simplicity
 whenever the meaning is obvious.
 </p>
         </div>
-        <div id="ftn.idm1188" class="footnote">
-          <p><a href="#idm1188" class="para"><sup class="para">[28] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections">Debian Policy Manual, 2.4
+        <div id="ftn.idm1190" class="footnote">
+          <p><a href="#idm1190" class="para"><sup class="para">[28] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections">Debian Policy Manual, 2.4
 "Sections"</a> and <a class="ulink" href="http://packages.debian.org/unstable/">List of sections in
 <code class="literal">sid</code></a>.</p>
         </div>
-        <div id="ftn.idm1196" class="footnote">
-          <p><a href="#idm1196" class="para"><sup class="para">[29] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities">Debian Policy Manual, 2.5
+        <div id="ftn.idm1198" class="footnote">
+          <p><a href="#idm1198" class="para"><sup class="para">[29] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities">Debian Policy Manual, 2.5
 "Priorities"</a>.
 </p>
         </div>
-        <div id="ftn.idm1219" class="footnote">
-          <p><a href="#idm1219" class="para"><sup class="para">[30] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html#s-sourcebinarydeps">Debian Policy
+        <div id="ftn.idm1221" class="footnote">
+          <p><a href="#idm1221" class="para"><sup class="para">[30] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html#s-sourcebinarydeps">Debian Policy
 Manual, 7.7 "Relationships between source and binary packages -
 Build-Depends, Build-Depends-Indep, Build-Conflicts,
 Build-Conflicts-Indep"</a>.</p>
         </div>
-        <div id="ftn.idm1249" class="footnote">
-          <p><a href="#idm1249" class="para"><sup class="para">[31] </sup></a> This somewhat strange situation is a feature well documented in the <a class="ulink" href="http://www.debian.org/doc/debian-policy/footnotes.html#f55">Debian Policy Manual, Footnotes
+        <div id="ftn.idm1251" class="footnote">
+          <p><a href="#idm1251" class="para"><sup class="para">[31] </sup></a> This somewhat strange situation is a feature well documented in the <a class="ulink" href="http://www.debian.org/doc/debian-policy/footnotes.html#f55">Debian Policy Manual, Footnotes
 55</a>.  This is not due to the use of the <span class="command"><strong>dh</strong></span> command
 in the <code class="filename">debian/rules</code> file but due to how the
 <span class="command"><strong>dpkg-buildpackage</strong></span> works.  The same situation applies to
 the <a class="ulink" href="https://bugs.launchpad.net/launchpad-buildd/+bug/238141">auto build
 system for Ubuntu</a>.  </p>
         </div>
-        <div id="ftn.idm1281" class="footnote">
-          <p><a href="#idm1281" class="para"><sup class="para">[32] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy Manual, 5.6.8
+        <div id="ftn.idm1283" class="footnote">
+          <p><a href="#idm1283" class="para"><sup class="para">[32] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy Manual, 5.6.8
 "Architecture"</a> for exact details.
 </p>
         </div>
-        <div id="ftn.idm1329" class="footnote">
-          <p><a href="#idm1329" class="para"><sup class="para">[33] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html">Debian Policy Manual, 7 "Declaring
+        <div id="ftn.idm1331" class="footnote">
+          <p><a href="#idm1331" class="para"><sup class="para">[33] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html">Debian Policy Manual, 7 "Declaring
 relationships between packages"</a>.
 </p>
         </div>
-        <div id="ftn.idm1426" class="footnote">
-          <p><a href="#idm1426" class="para"><sup class="para">[34] </sup></a>These descriptions are in English.  Translations of these descriptions are
+        <div id="ftn.idm1428" class="footnote">
+          <p><a href="#idm1428" class="para"><sup class="para">[34] </sup></a>These descriptions are in English.  Translations of these descriptions are
 provided by <a class="ulink" href="http://www.debian.org/intl/l10n/ddtp">The Debian Description Translation Project -
 DDTP</a>.</p>
         </div>
-        <div id="ftn.idm1431" class="footnote">
-          <p><a href="#idm1431" class="para"><sup class="para">[35] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/best-pkging-practices.html#bpp-vcs">Debian Developer's Reference,
+        <div id="ftn.idm1433" class="footnote">
+          <p><a href="#idm1433" class="para"><sup class="para">[35] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/best-pkging-practices.html#bpp-vcs">Debian Developer's Reference,
 6.2.5. "Version Control System location"</a>.
 </p>
         </div>
-        <div id="ftn.idm1495" class="footnote">
-          <p><a href="#idm1495" class="para"><sup class="para">[36] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
+        <div id="ftn.idm1497" class="footnote">
+          <p><a href="#idm1497" class="para"><sup class="para">[36] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
 please make sure to save the <code class="filename">changelog</code> file explicitly
 by the editor.</p>
         </div>
-        <div id="ftn.idm1517" class="footnote">
-          <p><a href="#idm1517" class="para"><sup class="para">[37] </sup></a>You can start learning how to write <code class="filename">Makefile</code> from
+        <div id="ftn.idm1519" class="footnote">
+          <p><a href="#idm1519" class="para"><sup class="para">[37] </sup></a>You can start learning how to write <code class="filename">Makefile</code> from
 <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch12#_make">Debian Reference, 12.2. "Make"</a>.  The full
 documentation is available as <a class="ulink" href="http://www.gnu.org/software/make/manual/html_node/index.html">http://www.gnu.org/software/make/manual/html_node/index.html</a> or as the
 <code class="systemitem">make-doc</code> package in the
 <code class="literal">non-free</code> archive area.
 </p>
         </div>
-        <div id="ftn.idm1525" class="footnote">
-          <p><a href="#idm1525" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
+        <div id="ftn.idm1527" class="footnote">
+          <p><a href="#idm1527" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
 script: debian/rules"</a> explains the details.</p>
         </div>
-        <div id="ftn.idm1561" class="footnote">
-          <p><a href="#idm1561" class="para"><sup class="para">[39] </sup></a> This target is used by <code class="literal">dpkg-buildpackage</code> as in <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
+        <div id="ftn.idm1563" class="footnote">
+          <p><a href="#idm1563" class="para"><sup class="para">[39] </sup></a> This target is used by <code class="literal">dpkg-buildpackage</code> as in <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
         </div>
-        <div id="ftn.idm1569" class="footnote">
-          <p><a href="#idm1569" class="para"><sup class="para">[40] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -B</code> as in <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
+        <div id="ftn.idm1571" class="footnote">
+          <p><a href="#idm1571" class="para"><sup class="para">[40] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -B</code> as in <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
         </div>
-        <div id="ftn.idm1577" class="footnote">
-          <p><a href="#idm1577" class="para"><sup class="para">[41] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -A</code>.  </p>
+        <div id="ftn.idm1579" class="footnote">
+          <p><a href="#idm1579" class="para"><sup class="para">[41] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -A</code>.  </p>
         </div>
-        <div id="ftn.idm1609" class="footnote">
-          <p><a href="#idm1609" class="para"><sup class="para">[42] </sup></a> This uses the new <code class="systemitem">debhelper</code> v7+
+        <div id="ftn.idm1611" class="footnote">
+          <p><a href="#idm1611" class="para"><sup class="para">[42] </sup></a> This uses the new <code class="systemitem">debhelper</code> v7+
 features.  Its design concepts are explained in <a class="ulink" href="http://joey.kitenet.net/talks/debhelper/debhelper-slides.pdf">Not Your Grandpa's Debhelper</a> presented at
 DebConf9 by the <code class="systemitem">debhelper</code> upstream.
 Under <code class="literal">lenny</code>, <span class="command"><strong>dh_make</strong></span> created a much
@@ -1550,65 +1550,65 @@ still have full power to customize the process with
 package building process as the <code class="systemitem">cdbs</code>
 package tends to.  </p>
         </div>
-        <div id="ftn.idm1625" class="footnote">
-          <p><a href="#idm1625" class="para"><sup class="para">[43] </sup></a> You can verify the actual sequences of <span class="command"><strong>dh_*</strong></span> programs
+        <div id="ftn.idm1627" class="footnote">
+          <p><a href="#idm1627" class="para"><sup class="para">[43] </sup></a> You can verify the actual sequences of <span class="command"><strong>dh_*</strong></span> programs
 invoked for a given <code class="literal"><em class="replaceable"><code>target</code></em></code>
 without really running them by invoking <code class="literal">dh --no-act
 <em class="replaceable"><code>target</code></em></code> or <code class="literal">debian/rules --
 '--no-act <em class="replaceable"><code>target</code></em>'</code>.  </p>
         </div>
-        <div id="ftn.idm1649" class="footnote">
-          <p><a href="#idm1649" class="para"><sup class="para">[44] </sup></a>The following example assumes your <code class="filename">debian/compat</code> has a
+        <div id="ftn.idm1651" class="footnote">
+          <p><a href="#idm1651" class="para"><sup class="para">[44] </sup></a>The following example assumes your <code class="filename">debian/compat</code> has a
 value equal or more than 9 to avoid invoking any python support commands
 automatically.
 </p>
         </div>
-        <div id="ftn.idm1670" class="footnote">
-          <p><a href="#idm1670" class="para"><sup class="para">[45] </sup></a> For complete information on what all these <span class="command"><strong>dh_*</strong></span> scripts
+        <div id="ftn.idm1672" class="footnote">
+          <p><a href="#idm1672" class="para"><sup class="para">[45] </sup></a> For complete information on what all these <span class="command"><strong>dh_*</strong></span> scripts
 do exactly, and what their other options are, please read their respective
 manual pages and the <code class="systemitem">debhelper</code>
 documentation.  </p>
         </div>
-        <div id="ftn.idm1675" class="footnote">
-          <p><a href="#idm1675" class="para"><sup class="para">[46] </sup></a> These commands support other build environments such as
+        <div id="ftn.idm1677" class="footnote">
+          <p><a href="#idm1677" class="para"><sup class="para">[46] </sup></a> These commands support other build environments such as
 <code class="filename">setup.py</code> which can be listed by executing
 <code class="literal">dh_auto_build --list</code> in a package source directory.  </p>
         </div>
-        <div id="ftn.idm1685" class="footnote">
-          <p><a href="#idm1685" class="para"><sup class="para">[47] </sup></a> It actually looks for the first available target in the
+        <div id="ftn.idm1687" class="footnote">
+          <p><a href="#idm1687" class="para"><sup class="para">[47] </sup></a> It actually looks for the first available target in the
 <code class="filename">Makefile</code> out of <code class="literal">distclean</code>,
 <code class="literal">realclean</code>, or <code class="literal">clean</code>, and executes
 that.
 </p>
         </div>
-        <div id="ftn.idm1707" class="footnote">
-          <p><a href="#idm1707" class="para"><sup class="para">[48] </sup></a> It actually looks for the first available target in the
+        <div id="ftn.idm1709" class="footnote">
+          <p><a href="#idm1709" class="para"><sup class="para">[48] </sup></a> It actually looks for the first available target in the
 <code class="filename">Makefile</code> out of <code class="literal">test</code> or
 <code class="literal">check</code>, and executes that.</p>
         </div>
-        <div id="ftn.idm1743" class="footnote">
-          <p><a href="#idm1743" class="para"><sup class="para">[49] </sup></a> If a package installs the
+        <div id="ftn.idm1745" class="footnote">
+          <p><a href="#idm1745" class="para"><sup class="para">[49] </sup></a> If a package installs the
 <code class="filename">/usr/share/perl5/Debian/Debhelper/Sequence/<em class="replaceable"><code>custom_name</code></em>.pm</code>
 file, you should activate its customization function by <code class="literal">dh $@
 --with <em class="replaceable"><code>custom-name</code></em></code>.  </p>
         </div>
-        <div id="ftn.idm1753" class="footnote">
-          <p><a href="#idm1753" class="para"><sup class="para">[50] </sup></a> Use of the <span class="command"><strong>dh_python2</strong></span> command is preferred over use of
+        <div id="ftn.idm1755" class="footnote">
+          <p><a href="#idm1755" class="para"><sup class="para">[50] </sup></a> Use of the <span class="command"><strong>dh_python2</strong></span> command is preferred over use of
 <span class="command"><strong>dh_pysupport</strong></span> or <span class="command"><strong>dh_pycentral</strong></span>
 commands.  Do not use the <span class="command"><strong>dh_python</strong></span> command.  </p>
         </div>
-        <div id="ftn.idm1922" class="footnote">
-          <p><a href="#idm1922" class="para"><sup class="para">[51] </sup></a> Under <code class="literal">lenny</code>, if you wanted to change the behavior of a
+        <div id="ftn.idm1924" class="footnote">
+          <p><a href="#idm1924" class="para"><sup class="para">[51] </sup></a> Under <code class="literal">lenny</code>, if you wanted to change the behavior of a
 <span class="command"><strong>dh_*</strong></span> script you found the relevant line in the
 <code class="filename">rules</code> file and adjusted it.  </p>
         </div>
-        <div id="ftn.idm1950" class="footnote">
-          <p><a href="#idm1950" class="para"><sup class="para">[52] </sup></a>
+        <div id="ftn.idm1952" class="footnote">
+          <p><a href="#idm1952" class="para"><sup class="para">[52] </sup></a>
 <span class="command"><strong>dh_auto_build</strong></span> without any arguments will execute the
 first target in the <code class="filename">Makefile</code>.  </p>
         </div>
-        <div id="ftn.idm1980" class="footnote">
-          <p><a href="#idm1980" class="para"><sup class="para">[53] </sup></a> The <code class="filename">debian/changelog</code> and
+        <div id="ftn.idm1982" class="footnote">
+          <p><a href="#idm1982" class="para"><sup class="para">[53] </sup></a> The <code class="filename">debian/changelog</code> and
 <code class="filename">debian/NEWS</code> files are always automatically installed.
 The upstream changelog is found by converting filenames to lower case and
 matching them against <code class="filename">changelog</code>,
@@ -1627,7 +1627,7 @@ matching them against <code class="filename">changelog</code>,
           <td align="right"> <a accesskey="n" href="dother.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
         </tr>
         <tr>
-          <td align="left" valign="top">Chương 3. Modifying the source </td>
+          <td align="left" valign="top">Chương 3. Sửa đổi mã nguồn </td>
           <td align="center">
             <a accesskey="h" href="index.vi.html">
               <img src="images/home.png" alt="Đầu"/>
