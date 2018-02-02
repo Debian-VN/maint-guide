@@ -1,4 +1,6 @@
 ## Dịch Debian New Maintainers' Guide
+
+#### Xem trực tiếp [bản dịch bằng html](https://rawgit.com/Debian-VN/maint-guide/html/index.vi.html)
 Sách được cung cấp tại trang chủ [Debian#main-guide](http://www.debian.org/doc/devel-manuals#maint-guide)
 
 Chi tiết tại `README.source`
