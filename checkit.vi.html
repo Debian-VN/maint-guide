@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 7. Kiểm tra gói để tìm lỗi</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="build.vi.html" title="Chương 6. Biên dịch gói"/>
+    <link rel="next" href="update.vi.html" title="Chương 8. Cập nhật gói phần mềm"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 7. Kiểm tra gói để tìm lỗi</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="build.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="update.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="checkit"/>Chương 7. Kiểm tra gói để tìm lỗi</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#inadvent">7.1. Những thay đổi đáng nghi</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#pinstall">7.2. Kiểm tra việc cài đặt của gói phần mềm</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#pmaintscripts">7.3. Kiểm tra các kịch bản bảo trì của một gói phần mềm</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#lintians">7.4. Sử dụng <code class="systemitem">lintian</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#debc">7.5. Lệnh <span class="command"><strong>debc</strong></span></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#debdiff">7.6. Lệnh <span class="command"><strong>debdiff</strong></span></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#interdiff">7.7. Lệnh <span class="command"><strong>interdiff</strong></span></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="checkit.vi.html#mc">7.8. Lệnh <span class="command"><strong>mc</strong></span></a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Có vài phương pháp bạn nên biết để dò tìm lỗi trong một gói phần mềm trước
+khi tải nó lên kho phần mềm công cộng.
+</p>
+      <p>
+Thực hiện việc kiểm tra trên một máy khác không phải của bạn cũng là một ý
+hay.  Ban phải quan sát kỹ bất kỳ cảnh báo hoặc lỗi cho tất cả các bài kiểm
+tra được mô tả ở đây.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="inadvent"/>7.1. Những thay đổi đáng nghi</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu bạn tìm thấy một tập tin vá mới được tự động tạo ra như là
+<code class="filename">debian-changes-*</code> trong thư mục
+<code class="filename">debian/patches</code> sau khi biên dịch gói phần mềm Debian
+không dựa trên nền tảng máy bạn dưới định dạng <code class="literal">3.0
+(quilt)</code>, rất có thể bạn đã thay đổi vài tập tin vô ý hoặc kịch bản
+biên dịch đã thay đổi mã nguồn của thượng nguồn.  Nếu đây là lỗi của bạn,
+hãy sửa nó.  Nếu đây là lỗi gây ra bởi kịch bản biên dịch, sửa nguyên nhân
+gốc với lệnh <span class="command"><strong>dh-autoreconf</strong></span> như trong <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Customization of rules file">Phần 4.4.3, “Customization of <code class="filename">rules</code> file”</a> hoặc đi vòng qua nó với tập tin
+<code class="filename">source/options</code> như trong <a class="xref" href="dother.vi.html#sourceopt" title="5.24. source/options">Phần 5.24, “<code class="filename">source/options</code>”</a>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="pinstall"/>7.2. Kiểm tra việc cài đặt của gói phần mềm</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Bạn phải kiểm tra gói phần mềm của bạn xem có lỗi trong quá trình cài đặt
+hay không.  Lệnh <span class="citerefentry"><span class="refentrytitle">debi</span>(1)</span> giúp bạn kiểm tra việc cài đặt của
+tất cả các gói phần mềm nhị phân được tạo ra.
+</p>
+        <pre class="screen">
+$ sudo debi gentoo_0.9.12-1_i386.changes
+</pre>
+        <p>
+Để tránh vấn đề cài đặt trên các hệ thống khác nhau, bạn phải chắc chắn rằng
+không có xung đột về tên tập tin với các gói phần mềm khác đang hiện hữu,
+dùng tập tin <code class="filename">Contents-<em class="replaceable"><code>i386</code></em></code>
+tải về từ kho Debian.  Lệnh <span class="command"><strong>apt-file</strong></span> có thể rất tiện cho
+công việc này.  Nếu có xung đột, xin hãy hành động để tránh vấn đề thực tế
+này, dù cho bằng cách thay đổi tên tập tin, bằng cách di chuyển một tập tin
+chung qua một gói phần mềm khác mà nhiều gói phần mềm có thể dựa trên, bằng
+các phương pháp thay thế (xem
+<span class="citerefentry"><span class="refentrytitle">update-alternatives</span>(1)</span>) phối hợp với các nhà bảo trì của
+các gói phần mềm bị ảnh hưởng khác, hoặc khai báo một mối quan hệ
+<code class="literal">Conflicts</code> trong tập tin
+<code class="filename">debian/control</code>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="pmaintscripts"/>7.3. Kiểm tra các kịch bản bảo trì của một gói phần mềm</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Tất cả các kịch bản bảo trì (đó là, các tập tin
+<code class="filename">preinst</code>, <code class="filename">prerm</code>,
+<code class="filename">postinst</code>, and <code class="filename">postrm</code>) rất khó để
+viết đúng cách trừ khi chúng được tạo ra tự động bởi các chương trình
+<code class="systemitem">debhelper</code>.  Vì thể đừng sử dụng
+chúng nếu bạn là một người bảo trì mới vào nghề (xem <a class="xref" href="dother.vi.html#maintscripts" title="5.18. {pre,post}{inst,rm}">Phần 5.18, “<code class="filename">{pre,post}{inst,rm}</code>”</a>).
+</p>
+        <p>
+Nếu gói phần mềm tận dụng các kịch bản bảo trì phức tạp này, hãy chắc chắn
+rằng bạn kiểm tra không chỉ quá trình cài đặt mà cả công đoạn tháo gỡ phần
+mềm, xóa hoàn toàn phần mềm, và nâng cấp.  Nhiều lỗi kịch bản bảo trì hiện
+ra khi các phần đã được tháo gỡ hoặc xóa bỏ.  Sử dụng lệnh
+<span class="command"><strong>dpkg</strong></span> như sau để kiểm tra:
+</p>
+        <pre class="screen">
+$ sudo dpkg -r gentoo
+$ sudo dpkg -P gentoo
+$ sudo dpkg -i gentoo_<em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em>_<em class="replaceable"><code>i386</code></em>.deb
+</pre>
+        <p>
+Lệnh đó nên được chạy theo các chuỗi như sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+cài đặt phiên bản trước đó (nếu cần thiết).
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+nâng cấp nó từ phiên bản trước.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+giảm cấp nó xuống phiên bản thấp hơn (không bắt buộc).
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+xóa bỏ hoàn toàn nó.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+cài đặt gói phần mềm mới
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+tháo gỡ nó.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+cài đặt nó lại.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+xóa bỏ hoàn toàn nó.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nếu đây là gói phần mềm đầu tiên của bạn, bạn nên tạo các gói phần mềm giả
+với các phiên bản khác nhau để kiểm tra gói của bạn trước để tránh các vấn
+đề trong tương lai.
+</p>
+        <p>
+Hãy nhớ rằng nếu gói phần mềm của bạn đã được tung ra trước đây trong
+Debian, mọi người sẽ thông thường nâng cấp nó lên gói phần mềm của bạn từ
+phiên bản vốn nằm trong bản phân phối Debian trước.  Hãy nhớ kiểm tra việc
+nâng cấp từ phiên bản đó.
+</p>
+        <p>
+Mặc dù giảm cấp không được hỗ trợ chính thức, hỗ trợ nó là một cử chỉ thân
+thiện.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="lintians"/>7.4. Sử dụng <code class="systemitem">lintian</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Chạy <span class="citerefentry"><span class="refentrytitle">lintian</span>(1)</span> qua tập tin
+<code class="filename">.changes</code> của bạn.  Lệnh <span class="command"><strong>lintian</strong></span> chạy
+nhiều kịch bản kiểm tra các lỗi đóng gói thường gặp.  <a href="#ftn.idm3206" class="footnote" id="idm3206"><sup class="footnote">[76]</sup></a>
+</p>
+        <pre class="screen">
+$ lintian -i -I --show-overrides gentoo_0.9.12-1_i386.changes
+</pre>
+        <p>
+Tất nhiên, thay thế tên tập tin với tên của tập tin
+<code class="filename">.changes</code> được tạo ra cho gói phần mềm của bạn.  Kết quả
+của lệnh <span class="command"><strong>lintian</strong></span> sử dụng các cờ sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="literal">E:</code> cho lỗi; một lỗi đóng gói hoặc một vi phạm chắc chắn
+về chính sách.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="literal">W:</code> cho cảnh báo; một lỗi đóng gói hoặc một vi phạm có thể
+liên quan đến chính sách.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="literal">I:</code> cho thông tin; thông tin về một số mặt của việc đóng
+gói.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="literal">N:</code> cho ghi chú; a thông điệp chi tiết để hỗ trợ tìm lỗi.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="literal">O:</code> cho đè lên ngầm định; một thông điệp bị đè lên bởi các
+tập tin <code class="filename">lintian-overrides</code> nhưng hiện ra bởi tham số
+<code class="literal">--show-overrides</code>.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Khi bạn thấy các cảnh báo, tùy chỉnh gói phần mềm để tránh chúng hoặc kiểm
+tra để chắc rang các cảnh báo đó là cảnh báo nhầm.  Nếu là nhầm, hãy thiết
+đặt các tập tin <code class="filename">lintian-overrides</code> như mô tả trong <a class="xref" href="dother.vi.html#lintian" title="5.14. {package.,source/}lintian-overrides">Phần 5.14, “<code class="filename">{<em class="replaceable"><code>package</code></em>.,source/}lintian-overrides</code>”</a>.
+</p>
+        <p>
+Ghi chú rằng bạn có thể biên dịch gói phần mềm với
+<span class="command"><strong>dpkg-buildpackage</strong></span> và chạy <span class="command"><strong>lintian</strong></span> trên
+nó trong một dòng lệnh, nếu bạn sử dụng <span class="citerefentry"><span class="refentrytitle">debuild</span>(1)</span> hay <span class="citerefentry"><span class="refentrytitle">pdebuild</span>(1)</span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="debc"/>7.5. Lệnh <span class="command"><strong>debc</strong></span></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Bạn có thể liệt kê các tập tin trong gói phần mềm Debian nhị phân với lệnh
+<span class="citerefentry"><span class="refentrytitle">debc</span>(1)</span>.
+</p>
+        <pre class="screen">
+$ debc <em class="replaceable"><code>package</code></em>.changes
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="debdiff"/>7.6. Lệnh <span class="command"><strong>debdiff</strong></span></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Bạn có thể so sánh nội dung tập tin của hai gói phần mềm Debian chứa mã
+nguồn với lệnh <span class="citerefentry"><span class="refentrytitle">debdiff</span>(1)</span>.
+</p>
+        <pre class="screen">
+$ debdiff <em class="replaceable"><code>old-package</code></em>.dsc <em class="replaceable"><code>new-package</code></em>.dsc
+</pre>
+        <p>
+Bạn có thể so sánh danh sách tập tin trong hai gói phần mềm Debian nhị phân
+với lệnh <span class="citerefentry"><span class="refentrytitle">debdiff</span>(1)</span>.
+</p>
+        <pre class="screen">
+$ debdiff <em class="replaceable"><code>old-package</code></em>.changes <em class="replaceable"><code>new-package</code></em>.changes
+</pre>
+        <p>
+Những lệnh này rất hữu dụng để phát hiện cái gì đã thay đổi trong gói phần
+mềm nguồn và để tìm ra những thay đổi vô ý tạo ra trong khi cập nhật các gói
+phần mềm nhị phân, như vô ý đặt tập tin sai địa điểm hoặc vô ý xóa tập tin.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="interdiff"/>7.7. Lệnh <span class="command"><strong>interdiff</strong></span></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Bạn có thể so sánh hai tập tin <code class="filename">diff.gz</code> với lệnh
+<span class="citerefentry"><span class="refentrytitle">interdiff</span>(1)</span>.  Lệnh này rất hữu dụng để chắc
+chắn rằng không có thay đổi vô ý nào được tạo ra trong mã nguồn bởi người
+bảo trì trong quá trình tạo các gói phần mềm dưới định dạng nguồn cũ
+<code class="literal">1.0</code>.
+</p>
+        <pre class="screen">
+$ interdiff -z <em class="replaceable"><code>old-package</code></em>.diff.gz <em class="replaceable"><code>new-package</code></em>.diff.gz
+</pre>
+        <p>
+Định dạng nguồn mới <code class="literal">3.0</code> lưu trữ những thay đổi trong
+nhiều tập tin vá như mô tả ở <a class="xref" href="dother.vi.html#patches" title="5.25. patches/*">Phần 5.25, “<code class="filename">patches/*</code>”</a>.  Bạn cũng có thể
+theo dõi những thay đổi của tập tin <code class="filename">debian/patches/*</code>
+dùng lệnh <span class="command"><strong>interdiff</strong></span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="mc"/>7.8. Lệnh <span class="command"><strong>mc</strong></span></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Rất nhiều thao tác kiểm soát tập tin này có thể được gộp chung vào một quá
+trình trực quan bởi một trình quản lý tập tin như <span class="citerefentry"><span class="refentrytitle">mc</span>(1)</span>
+với khả năng cho phép bạn duyệt không chỉ nội dung của các tập tin gói phần
+mềm <code class="filename">*.deb</code> mà cả các tập tin
+<code class="filename">*.udeb</code>, <code class="filename">*.debian.tar.gz</code>,
+<code class="filename">*.diff.gz</code>, and <code class="filename">*.orig.tar.gz</code>.
+</p>
+        <p>
+Hãy quan sát cả những tập tin bổ sung không cần thiết và những tập tin không
+có nội dung, trong cả gói phần mềm nhị phân và nguồn.  Thông thường những
+phần thừa không được dọn dẹp sạch sẽ; thay đổi tập tin
+<code class="filename">rules</code> của bạn để bù lại điều này.
+</p>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm3206" class="footnote">
+          <p><a href="#idm3206" class="para"><sup class="para">[76] </sup></a> Bạn không cần phải cung cấp <span class="command"><strong>lintian</strong></span> tham số <code class="literal">-i
+-I --show-overrides</code> nếu bạn tùy chỉnh
+<code class="filename">/etc/devscripts.conf</code> hoặc
+<code class="filename">~/.devscripts</code> như mô tả trong <a class="xref" href="build.vi.html#debuild" title="6.3. debuild command">Phần 6.3, “<span class="command"><strong>debuild</strong></span> command”</a>.
+</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="build.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="update.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 6. Biên dịch gói </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 8. Cập nhật gói phần mềm</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

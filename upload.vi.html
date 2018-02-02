@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 9. Tải gói phần mềm lên</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="update.vi.html" title="Chương 8. Cập nhật gói phần mềm"/>
+    <link rel="next" href="advanced.vi.html" title="Phụ lục A. Đóng gói nâng cao"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 9. Tải gói phần mềm lên</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="update.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="advanced.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="upload"/>Chương 9. Tải gói phần mềm lên</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="upload.vi.html#upload-debian">9.1. Tải nó lên kho lưu trữ Debian</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="upload.vi.html#option-sa">9.2. Đính kèm <code class="filename">orig.tar.gz</code> cho việc tải lên</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="upload.vi.html#skipped-uploads">9.3. Những lần tải lên bị bỏ qua</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Giờ bạn đã kiểm tra gói phần mềm mới của bạn kỹ càng, bạn muốn phát hành nó
+trên kho công cộng để chia sẻ nó.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="upload-debian"/>9.1. Tải nó lên kho lưu trữ Debian</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Khi bạn trở thành một nhà phát triển chính thức, <a href="#ftn.idm3696" class="footnote" id="idm3696"><sup class="footnote">[83]</sup></a> bạn có thể tải gói phần mềm lên kho lưu trữ
+Debian.  <a href="#ftn.idm3699" class="footnote" id="idm3699"><sup class="footnote">[84]</sup></a> Bạn có thể làm điều này bằng
+tay, nhưng sẽ dễ hơn nếu bạn sử dụng các công cụ tự động sẵn có như
+<span class="citerefentry"><span class="refentrytitle">dupload</span>(1)</span> hay <span class="citerefentry"><span class="refentrytitle">dput</span>(1)</span>.  Chúng tôi sẽ mô tả công việc sẽ được thực hiện ra sao với
+<span class="command"><strong>dupload</strong></span>.  <a href="#ftn.idm3710" class="footnote" id="idm3710"><sup class="footnote">[85]</sup></a>
+</p>
+        <p>
+Đầu tiên bạn phải tạo tập tin cấu hình của <span class="command"><strong>dupload</strong></span>.  Bạn
+có thể chọn sửa tập tin cấu hình tầm hệ thống
+<code class="filename">/etc/dupload.conf</code>, hoặc tạo tập tin
+<code class="filename">~/.dupload.conf</code> riêng của bạn vượt quyền cấp trên ở
+những cài đặt bạn muốn thay đổi.
+</p>
+        <p>
+Bạn có thể đọc trang tham khảo <span class="citerefentry"><span class="refentrytitle">dupload.conf</span>(5)</span> để hiểu ý nghĩa của từng tham số ở đây.
+</p>
+        <p>
+Tham số <code class="literal">$default_host</code> quyết định hàng đợi tải lên nào sẽ
+được sử dụng ngầm định.  <code class="literal">anonymous-ftp-master</code> là hàng đợi
+chính, nhưng có thể bạn sẽ muốn sử dụng một hàng đợi khác.  <a href="#ftn.idm3727" class="footnote" id="idm3727"><sup class="footnote">[86]</sup></a>
+</p>
+        <p>
+Khi được kết nối tới Internet, bạn có thể tải gói phần mềm của bạn lên như
+sau:
+</p>
+        <pre class="screen">
+$ dupload gentoo_0.9.12-1_i386.changes
+</pre>
+        <p>
+<span class="command"><strong>dupload</strong></span> kiểm tra rằng các mã tập tin SHA1/SHA256 khớp với
+các mã được liệt kê trong tập tin <code class="filename">.changes</code>.  Nếu chúng
+không khớp, nó sẽ cảnh báo bạn để tái biên dịch như mô tả ở <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a> để nó có thể được tải lên đúng cách.
+</p>
+        <p>
+Nếu bạn gặp phải một vấn đề tải lên tại <a class="ulink" href="ftp://ftp.upload.debian.org/pub/UploadQueue/">ftp://ftp.upload.debian.org/pub/UploadQueue/</a>, bạn có
+thể sửa nó bằng việc tải lên bằng tay một tập tin
+<code class="filename">*.commands</code> ký theo kiểu GPG với
+<span class="command"><strong>ftp</strong></span>.  <a href="#ftn.idm3740" class="footnote" id="idm3740"><sup class="footnote">[87]</sup></a> Ví dụ, dùng
+<code class="filename">hello.commands</code>:
+</p>
+        <pre class="screen">
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+Uploader: Foo Bar &lt;Foo.Bar@example.org&gt;
+Commands: 
+ rm hello_1.0-1_i386.deb
+ mv hello_1.0-1.dsx hello_1.0-1.dsc
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+[...]
+-----END PGP SIGNATURE-----
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="option-sa"/>9.2. Đính kèm <code class="filename">orig.tar.gz</code> cho việc tải lên</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Khi bạn tải gói phần mềm lên kho lưu trữ lần đầu tiên, bạn cũng cần đính kèm
+tập tin nguồn nguyên gốc <code class="filename">orig.tar.gz</code>.  Nếu mã phiên bản
+Debian của gói phần mềm này không phải là <code class="literal">1</code> hay
+<code class="literal">0</code>, bạn phải cung cấp tham số <code class="literal">-sa</code> của
+dòng lệnh <span class="command"><strong>dpkg-buildpackage</strong></span>.
+</p>
+        <p>
+Đối với dòng lệnh <span class="command"><strong>dpkg-buildpackage</strong></span>:
+</p>
+        <pre class="screen">
+$ dpkg-buildpackage -sa
+</pre>
+        <p>
+Đối với dòng lệnh <span class="command"><strong>debuild</strong></span>:
+</p>
+        <pre class="screen">
+$ debuild -sa
+</pre>
+        <p>
+For the <span class="command"><strong>pdebuild</strong></span> command:
+</p>
+        <pre class="screen">
+$ pdebuild --debbuildopts -sa
+</pre>
+        <p>
+Ngược lại, tham số <code class="literal">-sd</code> sẽ buộc việc loại trừ tập tin
+nguồn nguyên gốc <code class="filename">orig.tar.gz</code>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="skipped-uploads"/>9.3. Những lần tải lên bị bỏ qua</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu bạn tạo quá nhiều mục trong tập tin
+<code class="filename">debian/changelog</code> bắng việc bỏ qua các lần tải lên, bạn
+phải tạo một tập tin đúng quy định <code class="filename">*_.changes</code> bao gồm
+tất cả những thay đổi từ lần tải lên cuối cùng.  Điều này có thể được thực
+hiện bằng việc đặt giá trị phiên bản cho tham số <code class="literal">-v</code> của
+lệnh <span class="command"><strong>dpkg-buildpackage</strong></span>, ví dụ,
+<code class="literal"><em class="replaceable"><code>1.2</code></em></code>.
+</p>
+        <p>
+Đối với dòng lệnh <span class="command"><strong>dpkg-buildpackage</strong></span>:
+</p>
+        <pre class="screen">
+$ dpkg-buildpackage -v<em class="replaceable"><code>1.2</code></em>
+</pre>
+        <p>
+Đối với dòng lệnh <span class="command"><strong>debuild</strong></span>:
+</p>
+        <pre class="screen">
+$ debuild -v<em class="replaceable"><code>1.2</code></em>
+</pre>
+        <p>
+For the <span class="command"><strong>pdebuild</strong></span> command:
+</p>
+        <pre class="screen">
+$ pdebuild --debbuildopts "-v<em class="replaceable"><code>1.2</code></em>"
+</pre>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm3696" class="footnote">
+          <p><a href="#idm3696" class="para"><sup class="para">[83] </sup></a>
+Xem <a class="xref" href="start.vi.html#socialdynamics" title="1.1. Động lực xã hội của Debian">Phần 1.1, “Động lực xã hội của Debian”</a>.
+</p>
+        </div>
+        <div id="ftn.idm3699" class="footnote">
+          <p><a href="#idm3699" class="para"><sup class="para">[84] </sup></a>
+Có các kho lưu trữ truy cập công cộng như là <a class="ulink" href="http://mentors.debian.net/">http://mentors.debian.net/</a> vốn
+hoạt động gần như không khác gì với kho lưu trữ Debian và cung cấp một khu
+vực tải lên cho những người không phải DD(nhà phát triển Debian).  Bạn có
+thể tự tạo một kho tương tự sử dụng các công cụ tại <a class="ulink" href="http://wiki.debian.org/HowToSetupADebianRepository">http://wiki.debian.org/HowToSetupADebianRepository</a>.  Vì thể phần này cũng sẽ hữu dụng cho những người
+không phải DD.
+</p>
+        </div>
+        <div id="ftn.idm3710" class="footnote">
+          <p><a href="#idm3710" class="para"><sup class="para">[85] </sup></a>
+Gói phần mềm <code class="systemitem">dput</code> có vẻ đến với
+nhiều tính năng và có vẻ đang trở nên thông dụng hơn gói phần mềm
+<code class="systemitem">dupload</code>.  Nó sử dụng tập tin
+<code class="filename">/etc/dput</code> cho việc cấu hình mọi nơi của nó và tập tin
+<code class="filename">~/.dput.cf</code> cho việc cấu hình từng người dùng.  Nó cũng
+hỗ trợ đầy đủ các dịch vụ liên quan đến Ubuntu.  </p>
+        </div>
+        <div id="ftn.idm3727" class="footnote">
+          <p><a href="#idm3727" class="para"><sup class="para">[86] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/pkgs.html#upload">Debian Developer's Reference
+5.6. "Uploading a package"</a>.</p>
+        </div>
+        <div id="ftn.idm3740" class="footnote">
+          <p><a href="#idm3740" class="para"><sup class="para">[87] </sup></a> Xem <a class="ulink" href="ftp://ftp.upload.debian.org/pub/UploadQueue/README">ftp://ftp.upload.debian.org/pub/UploadQueue/README</a>.  Ngoài ra, bạn có thể dùng lệnh
+<span class="command"><strong>dcut</strong></span> từ gói phần mềm <code class="systemitem">dput</code>.  </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="update.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="advanced.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 8. Cập nhật gói phần mềm </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Phụ lục A. Đóng gói nâng cao</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

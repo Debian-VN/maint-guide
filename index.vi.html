@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Debian New Maintainers' Guide</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="next" href="start.vi.html" title="Chương 1. Bắt đầu Đúng cách"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Debian New Maintainers' Guide</th>
+        </tr>
+        <tr>
+          <td align="left"> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="start.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div xml:lang="vi" class="book">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="idm1"/>Debian New Maintainers' Guide</h1>
+          </div>
+          <div>
+            <div class="authorgroup">
+              <div class="author"><h3 class="author">Josip Rodin</h3><span class="contrib">nội dung ban đầu</span> <code class="email">&lt;<a class="email" href="mailto:joy-mg@debian.org">joy-mg@debian.org</a>&gt;</code></div>
+              <div class="author"><h3 class="author">Osamu Aoki</h3><span class="contrib">nội dung cập nhật</span> <code class="email">&lt;<a class="email" href="mailto:osamu@debian.org">osamu@debian.org</a>&gt;</code></div>
+              <div class="othercredit"><h3 class="othercredit">Giap Tran</h3><span class="contrib">dịch bởi</span> <code class="email">&lt;<a class="email" href="mailto:txgvnn@gmail.com">txgvnn@gmail.com</a>&gt;</code></div>
+              <div class="othercredit"><h3 class="othercredit">Khang Nguyen</h3><span class="contrib">dịch bởi</span> <code class="email">&lt;<a class="email" href="mailto:khang.social@gmail.com">khang.social@gmail.com</a>&gt;</code></div>
+            </div>
+          </div>
+          <div>
+            <p class="releaseinfo">phiên bản GIT: 2017-05-26 13:49:01 UTC</p>
+          </div>
+          <div>
+            <p class="copyright">Bản quyền © 1998-2002 Josip Rodin</p>
+          </div>
+          <div>
+            <p class="copyright">Bản quyền © 2005-2015 Osamu Aoki</p>
+          </div>
+          <div>
+            <p class="copyright">Bản quyền © 2010 Craig Small</p>
+          </div>
+          <div>
+            <p class="copyright">Bản quyền © 2010 Raphaël Hertzog</p>
+          </div>
+          <div>
+            <div class="legalnotice">
+              <a id="idm35"/>
+              <p>
+Tài liệu này có thể được sử dụng theo các điều khoản Giấy phép Công cộng
+GNUphiên bản 2 trở lên.
+</p>
+              <p>
+Tài liệu này được sử dụng hai tài liệu này làm ví dụ:
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Making a Debian Package (còn gọi Debmake Manual), bản quyền © 1997 Jaldhar
+Vyas.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+The New-Maintainer's Debian Packaging Howto, bản quyền © 1997 Will Lowe.
+</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="pubdate">2017-05-26 13:49:01 UTC</p>
+          </div>
+        </div>
+        <hr/>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="chapter">
+              <a href="start.vi.html">1. Bắt đầu Đúng cách</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="start.vi.html#socialdynamics">1.1. Động lực xã hội của Debian</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="start.vi.html#needprogs">1.2. Các chương trình cần thiết cho sự phát triển</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="start.vi.html#needdocs">1.3. Tài liệu cần thiết cho sự phát triển</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="start.vi.html#helpme">1.4. Nơi để yêu cầu trợ giúp</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="first.vi.html">2. Những bước đầu tiên</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#workflow">2.1. Luồng làm việc tạo ra gói Debian</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#choose">2.2. Chọn chương trình của bạn</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#getit">2.3. Lấy chương trình, và hãy thử nó</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#simplemake">2.4. Xây dựng hệ thống đơn giản</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#portable">2.5. Xây dựng hệ thống phổ biến</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#namever">2.6. Tên và phiên bản gói</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#dh-make">2.7. Thiết lập <span class="command"><strong>dh_make</strong></span></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="first.vi.html#non-native-dh-make">2.8. Khởi tạo gói Debian mới</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="modify.vi.html">3. Modifying the source</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="modify.vi.html#quiltrc">3.1. Setting up <span class="command"><strong>quilt</strong></span></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="modify.vi.html#fixupstream">3.2. Fixing upstream bugs</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="modify.vi.html#destdir">3.3. Installation of files to their destination</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="modify.vi.html#difflibs">3.4. Differing libraries</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="dreq.vi.html">4. Required files under the <code class="filename">debian</code> directory</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="dreq.vi.html#control">4.1. <code class="filename">control</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dreq.vi.html#copyright">4.2. <code class="filename">copyright</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dreq.vi.html#changelog">4.3. <code class="filename">changelog</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dreq.vi.html#rules">4.4. <code class="filename">rules</code></a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="section">
+                      <a href="dreq.vi.html#targets">4.4.1. Targets of the <code class="filename">rules</code> file</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="dreq.vi.html#defaultrules">4.4.2. Default <code class="filename">rules</code> file</a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="dreq.vi.html#customrules">4.4.3. Customization of <code class="filename">rules</code> file</a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="dother.vi.html">5. Other files under the <code class="filename">debian</code> directory</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#readme">5.1. <code class="filename">README.Debian</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#compat">5.2. <code class="filename">compat</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#conffiles">5.3. <code class="filename">conffiles</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#crond">5.4. <code class="filename"><em class="replaceable"><code>package</code></em>.cron.*</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#dirs">5.5. <code class="filename">dirs</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#doc-base">5.6. <code class="filename"><em class="replaceable"><code>package</code></em>.doc-base</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#docs">5.7. <code class="filename">docs</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#emacsen">5.8. <code class="filename">emacsen-*</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#examples">5.9. <code class="filename"><em class="replaceable"><code>package</code></em>.examples</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#initd">5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> and
+<code class="filename"><em class="replaceable"><code>package</code></em>.default</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#install">5.11. <code class="filename">install</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#info">5.12. <code class="filename"><em class="replaceable"><code>package</code></em>.info</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#links">5.13. <code class="filename"><em class="replaceable"><code>package</code></em>.links</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#lintian">5.14. <code class="filename">{<em class="replaceable"><code>package</code></em>.,source/}lintian-overrides</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#manpage">5.15. <code class="filename">manpage.*</code></a>
+                </span>
+              </dt>
+              <dd>
+                <dl>
+                  <dt>
+                    <span class="section">
+                      <a href="dother.vi.html#manpage1">5.15.1. <code class="filename">manpage.1.ex</code></a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="dother.vi.html#manpagesgml">5.15.2. <code class="filename">manpage.sgml.ex</code></a>
+                    </span>
+                  </dt>
+                  <dt>
+                    <span class="section">
+                      <a href="dother.vi.html#manpagexml">5.15.3. <code class="filename">manpage.xml.ex</code></a>
+                    </span>
+                  </dt>
+                </dl>
+              </dd>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#manpages">5.16. <code class="filename"><em class="replaceable"><code>package</code></em>.manpages</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#news">5.17. <code class="filename">NEWS</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#maintscripts">5.18. <code class="filename">{pre,post}{inst,rm}</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#symbols">5.19. <code class="filename"><em class="replaceable"><code>package</code></em>.symbols</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#todo">5.20. <code class="filename">TODO</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#watch">5.21. <code class="filename">watch</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#sourcef">5.22. <code class="filename">source/format</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#sourcel">5.23. <code class="filename">source/local-options</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#sourceopt">5.24. <code class="filename">source/options</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#patches">5.25. <code class="filename">patches/*</code></a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="build.vi.html">6. Biên dịch gói</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#completebuild">6.1. (Tái) biên dịch toàn bộ</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#autobuilder">6.2. Tự động biên dịch</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#debuild">6.3. <span class="command"><strong>debuild</strong></span> command</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#pbuilder">6.4. <code class="systemitem">pbuilder</code> package</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#git-buildpackage">6.5. lệnh <span class="command"><strong>git-buildpackage</strong></span> và những lệnh tương tự</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#quickrebuild">6.6. Tái biên dịch nhanh</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="build.vi.html#hierarchy">6.7. Sơ đồ lệnh</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="checkit.vi.html">7. Kiểm tra gói để tìm lỗi</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#inadvent">7.1. Những thay đổi đáng nghi</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#pinstall">7.2. Kiểm tra việc cài đặt của gói phần mềm</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#pmaintscripts">7.3. Kiểm tra các kịch bản bảo trì của một gói phần mềm</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#lintians">7.4. Sử dụng <code class="systemitem">lintian</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#debc">7.5. Lệnh <span class="command"><strong>debc</strong></span></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#debdiff">7.6. Lệnh <span class="command"><strong>debdiff</strong></span></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#interdiff">7.7. Lệnh <span class="command"><strong>interdiff</strong></span></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="checkit.vi.html#mc">7.8. Lệnh <span class="command"><strong>mc</strong></span></a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="update.vi.html">8. Cập nhật gói phần mềm</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="update.vi.html#newrevision">8.1. Phiên bản tu chỉnh Debian mới</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="update.vi.html#inspectnewupstream">8.2. Thẩm định phiên bản mới phát hành từ thượng nguồn</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="update.vi.html#newupstream">8.3. Phiên bản phát hành mới từ thượng nguồn.</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="update.vi.html#packagestyle">8.4. Cập nhật kiểu đóng gói</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="update.vi.html#utf8">8.5. Chuyển đổi sang UTF-8</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="update.vi.html#reminders">8.6. Các nhắc nhở cho việc cập nhật các gói phần mềm</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="chapter">
+              <a href="upload.vi.html">9. Tải gói phần mềm lên</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="upload.vi.html#upload-debian">9.1. Tải nó lên kho lưu trữ Debian</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="upload.vi.html#option-sa">9.2. Đính kèm <code class="filename">orig.tar.gz</code> cho việc tải lên</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="upload.vi.html#skipped-uploads">9.3. Những lần tải lên bị bỏ qua</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="appendix">
+              <a href="advanced.vi.html">A. Đóng gói nâng cao</a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="advanced.vi.html#library">A.1. Các thư viện được chia sẻ</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="advanced.vi.html#librarysymbols">A.2. Quản lý
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="advanced.vi.html#multiarch">A.3. Multiarch</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="advanced.vi.html#librarypackage">A.4. Biên dịch một gói phần mềm chia sẻ</a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="advanced.vi.html#native-dh-make">A.5. Gói phần mềm Debian native</a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="start.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top"> </td>
+          <td align="center"> </td>
+          <td align="right" valign="top"> Chương 1. Bắt đầu Đúng cách</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

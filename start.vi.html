@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 1. Bắt đầu Đúng cách</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="next" href="first.vi.html" title="Chương 2. Những bước đầu tiên"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 1. Bắt đầu Đúng cách</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="index.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="first.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="start"/>Chương 1. Bắt đầu Đúng cách</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="start.vi.html#socialdynamics">1.1. Động lực xã hội của Debian</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="start.vi.html#needprogs">1.2. Các chương trình cần thiết cho sự phát triển</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="start.vi.html#needdocs">1.3. Tài liệu cần thiết cho sự phát triển</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="start.vi.html#helpme">1.4. Nơi để yêu cầu trợ giúp</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Tài liệu này mô tả việc xây dựng một gói Debian cho người dùng Debian bình
+thường và các nhà phát triển tiềm năng.  Nó sử dụng ngôn ngữ khá phi kỹ
+thuật, và được mô tả với các ví dụ.  Có một câu nói Latin cổ đại:
+<span class="emphasis"><em>Longum iter est per praecepta, breve et efficax per
+exempla</em></span> (Đó là một chặng đường dài bởi các quy tắc, nhưng ngắn và
+hiệu quả với các ví dụ).
+</p>
+      <p>
+Tài liệu này đã được cập nhật cho bản phát hành Debian
+<code class="literal">jessie</code>.  <a href="#ftn.idm49" class="footnote" id="idm49"><sup class="footnote">[1]</sup></a>
+</p>
+      <p>
+Một trong những điều làm cho Debian trở thành một hệ thống gói phần mềm hàng
+đầu.  Mặc dù có một lượng lớn phần mềm đã có trong định dạng Debian, đôi khi
+bạn cần phải cài đặt phần mềm mà nó không có.  Bạn tự hỏi làm thế nàođể bạn
+có thể tạo gói cho riêng bạn;  Và có lẽ bạn nghĩ đó là một nhiệm vụ rất khó
+khăn.  Vâng, nếu bạn là người mới làm quen trên Linux, thật khó, nhưng nếu
+bạn là một tân binh, bạn sẽ không đọc tài liệu này bây giờ  :-) Bạn cần
+biết một chút về lập trình Unix nhưng bạn chắc chắn không cần phải là một
+cao thủ.  <a href="#ftn.idm55" class="footnote" id="idm55"><sup class="footnote">[2]</sup></a>
+</p>
+      <p>
+Tuy nhiên một điều chắc chắn là: để tạo và duy trì đúng các gói Debian phải
+mất nhiều giờ.  Không mắc sai lầm, vì hệ thống của chúng tôi làm việc bảo
+trì cần phải có cả kỹ thuật có thẩm quyền và cả sự siêng năng.
+</p>
+      <p>
+Nếu bạn cần trợ giúp về đóng gói, vui lòng đọc <a class="xref" href="start.vi.html#helpme" title="1.4. Nơi để yêu cầu trợ giúp">Phần 1.4, “Nơi để yêu cầu trợ giúp”</a>.
+</p>
+      <p>
+Các phiên bản mới hơn của tài liệu này luôn sẵn sàng trực tuyến tại  <a class="ulink" href="http://www.debian.org/doc/maint-guide/">http://www.debian.org/doc/maint-guide/</a> và trong gói  <code class="systemitem">maint-guide</code>.  Bản dịch có thể có sẵn trong các
+gói như <code class="systemitem">maint-guide-es</code>.  Xin lưu ý
+rằng tài liệu này có thể đã lỗi thời.
+</p>
+      <p>
+Vì đây là một hướng dẫn, tôi chọn để giải thích từng bước chi tiết cho một
+số chủ đề quan trọng.  Một số người trong số họ có thể không có liên quan
+đến bạn.  Làm ơn hãy kiên nhẫn.  Tôi cũng đã cố ý bỏ qua một số trường hợp
+góc và chỉ cung cấp con trỏ để giữ tài liệu này đơn giản.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="socialdynamics"/>1.1. Động lực xã hội của Debian</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Dưới đây là một số quan sát về động lực xã hội của Debian, được trình bày
+với hy vọng rằng nó sẽ chuẩn bị cho bạn tương tác với Debian:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>Tất cả chúng ta đều là tình nguyện viên.</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>Bạn không thể áp đặt lên những người khác phải làm gì.</p>
+                  </li>
+                  <li class="listitem">
+                    <p>Bạn nên có động cơ để làm việc một mình.</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>Hợp tác thân thiện là động lực.</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>Đóng góp của bạn không nên quá căng thẳng người khác.</p>
+                  </li>
+                  <li class="listitem">
+                    <p>Đóng góp của bạn chỉ có giá trị khi những người khác đánh giá cao nó.</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>Debian không phải là trường học của bạn mà bạn nhận được sự chú ý tự động
+của giáo viên.</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>Bạn sẽ có thể tự học hỏi nhiều điều.</p>
+                  </li>
+                  <li class="listitem">
+                    <p>Sự chú ý của các tình nguyện viên khác là một nguồn lực khan hiếm.</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>Debian đang không ngừng cải tiến.</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>Bạn sẽ phải tạo ra các gói chất lượng cao.</p>
+                  </li>
+                  <li class="listitem">
+                    <p>Bạn nên thích nghi với chính mình để thay đổi.</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+Có nhiều người tương tác với Debian với các vai trò khác nhau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>upstream author</strong></span>: người đã tạo ra chương
+trình gốc.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>upstream maintainer</strong></span>: người hiện đang duy
+trì bảo trì chương trình gốc.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>maintainer</strong></span>: người tạo ra gói Debian cho
+chương trình.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>sponsor</strong></span>: một người giúp đỡ người bảo trì
+tải các gói lên kho lưu trữ Debian chính thức (sau khi kiểm tra nội dung của
+chúng).
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>mentor</strong></span>: người giúp những người mới làm
+quen với bảo trì gói vv
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>Debian Developer</strong></span> (DD): thành viên của dự
+án Debian với quyền tải đầy đủ lên kho lưu trữ Debian chính thức.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="strong"><strong>Debian Maintainer</strong></span> (DM): người có quyền
+tải lên giới hạn về kho lưu trữ gói Debian chính thức.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Xin lưu ý rằng bạn không thể trở thành một <span class="strong"><strong>Debian
+Developer</strong></span> (DD) chính thức qua 1 đêm, vì nó đòi hỏi nhiều kỹ năng
+hơn.  Xin đừng nản lòng vì điều này.  Nếu nó là hữu ích cho người khác, bạn
+vẫn có thể tải gói của bạn hoặc như là một <span class="strong"><strong>maintainer</strong></span> thông qua một <span class="strong"><strong>sponsor</strong></span> hoặc như một <span class="strong"><strong>Debian
+Maintainer</strong></span>.
+</p>
+        <p>
+Xin lưu ý rằng bạn không cần tạo bất kỳ gói mới nào để trở thành Nhà phát
+triển Debian chính thức.  Đóng góp cho các gói hiện có cũng có thể cung cấp
+một con đường để trở thành Nhà phát triển Debian chính thức.  Có nhiều gói
+đang chờ người bảo dưỡng tốt (xem <a class="xref" href="first.vi.html#choose" title="2.2. Chọn chương trình của bạn">Phần 2.2, “Chọn chương trình của bạn”</a>).
+</p>
+        <p>
+Vì chúng ta chỉ tập trung vào các khía cạnh kỹ thuật của đóng gói trong tài
+liệu này, vui lòng tham khảo những điều dưới đây để tìm hiểu cách các chức
+năng của Debian và cách bạn có thể tham gia:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p><a class="ulink" href="http://upsilon.cc/~zack/talks/2011/20110321-taipei.pdf"> Debian: 17 năm của Phần mềm Tự do,"do-ocracy",
+và dân chủ </a> (Các trang giới thiệu) </p>
+            </li>
+            <li class="listitem">
+              <p><a class="ulink" href="http://www.debian.org/intro/help">Làm thế nào bạn có thể giúp Debian? </a>
+(chính thức) </p>
+            </li>
+            <li class="listitem">
+              <p><a class="ulink" href="http://www.debian.org/doc/FAQ/ch-contributing">Câu hỏi Thường Gặp về Debian GNU / Linux,
+Chương 13 -"Góp phần Dự án Debian"</a> (bán chính thức) </p>
+            </li>
+            <li class="listitem">
+              <p><a class="ulink" href="http://wiki.debian.org/HelpDebian">Debian Wiki, HelpDebian </a> (bổ sung) </p>
+            </li>
+            <li class="listitem">
+              <p><a class="ulink" href="https://nm.debian.org/">Trang web thành viên của Debian </a> (chính thức) </p>
+            </li>
+            <li class="listitem">
+              <p><a class="ulink" href="http://wiki.debian.org/DebianMentorsFaq">Câu hỏi thường gặp của trợ giảng của Debian
+</a> (bổ sung) </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="needprogs"/>1.2. Các chương trình cần thiết cho sự phát triển</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Trước khi bạn bắt đầu bất cứ điều gì, bạn nên chắc chắn rằng bạn đã cài đặt
+đúng một số gói bổ sung cần thiết cho sự phát triển.  Lưu ý rằng danh sách
+không chứa bất kỳ gói nào được đánh dấu <code class="literal">essential</code> hoặc
+<code class="literal">required</code> - chúng tôi mong rằng bạn đã cài đặt xong.
+</p>
+        <p>
+Các gói sau đi kèm với cài đặt Debian tiêu chuẩn, do đó có lẽ bạn đã có
+chúng rồi (cùng với bất kỳ gói bổ sung nào mà chúng phụ thuộc).  Tuy nhiên,
+bạn nên kiểm tra nó bằng gói <code class="literal">aptitude show
+<em class="replaceable"><code>pakage</code></em></code> hoặc với <code class="literal">dpkg -s
+<em class="replaceable"><code>package</code></em></code>.
+</p>
+        <p>
+Gói phần quan trọng nhất để cài đặt trên hệ thống phát triển của bạn là gói
+<code class="systemitem">build-essential</code>.  Một khi bạn cố
+gắng cài đặt nó, nó sẽ <span class="emphasis"><em>pull in</em></span> gói khác cần thiết để có
+một môi trường xây dựng cơ bản.
+</p>
+        <p>
+Đối với một số loại bao bì, đó là tất cả những gì bạn cần;  Tuy nhiên, có
+một bộ gói khác mà mặc dù không cần thiết cho tất cả các gói được xây dựng
+rất hữu ích để cài đặt hoặc có thể được yêu cầu bởi gói của bạn:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="systemitem">autoconf</code>, <code class="systemitem">automake</code>, và <code class="systemitem">autotools-dev</code> - nhiều chương trình mới hơn sử
+dụng các tập lệnh cấu hình và <code class="filename">Makefile </code> các tệp tin
+được xử lý trước với sự trợ giúp của các chương trình như thế này (xem
+<code class="literal">info autoconf</code>, <code class="literal">info automake</code>).
+<code class="systemitem">autotools-dev</code> giữ các phiên bản cập
+nhật của các tệp tin tự động nhất định và có tài liệu về cách tốt nhất để sử
+dụng các tệp đó.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">debhelper</code> và <code class="systemitem">dh-make</code> - <code class="systemitem">dh-make</code> là cần thiết để tạo ra bộ xương của gói
+ví dụ của chúng tôi,  Và nó sẽ sử dụng một số công cụ <code class="systemitem">debhelper</code> để tạo các gói.  Chúng không cần thiết
+cho mục đích này, nhưng được <span class="emphasis"><em>đánh giá cao</em></span> được đề xuất
+cho người bảo trì mới.  Nó làm cho toàn bộ quá trình rất dễ dàng để bắt đầu,
+và để kiểm soát sau đó.  (Xem <span class="citerefentry"><span class="refentrytitle">dh_make</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">debhelper</span>(1)</span>.) <a href="#ftn.idm185" class="footnote" id="idm185"><sup class="footnote">[3]</sup></a>
+</p>
+              <p>
+Công cụ mới <code class="systemitem">debmake</code> có thể sử dụng
+thay thế cho tiêu chuẩn <code class="systemitem">dh-make</code>.  Nó
+làm nhiều hơn và đi kèm thêm tài liệu HTML với các mẫu ví dụ đóng gói thêm
+trong <code class="systemitem">debmake-doc</code>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem"> devscripts </code> - gói này chứa một số
+kịch bản hữu ích có thể giúp ích cho người bảo trì, nhưng chúng cũng không
+cần thiết cho việc  xây dựng các gói. Các gói đề nghị và đề xuất bởi gói này
+rất đáng để xem xét.  (Xem <code class="filename">/usr/share/doc/devscripts/README.gz</code>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">fakeroot</code> - công cụ tiện ích này cho
+phép bạn  giả lập root khi cần thiết cho một số phần của quá trình xây
+dựng.  (Xem <span class="citerefentry"><span class="refentrytitle">fakeroot</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">file</code> - chương trình tiện ích này có
+thể xác định loại tập tin là gì.  (Xem <span class="citerefentry"><span class="refentrytitle">file</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">gfortran</code> - trình biên dịch GNU
+Fortran 95, sẽ là cần thiết nếu chương trình của bạn được viết bằng
+Fortran.  (Xem <span class="citerefentry"><span class="refentrytitle">gfortran</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">git</code> - gói này cung cấp một hệ thống
+quản lý phiên bản phổ biến được thiết kế để xử lý các dự án rất lớn với tốc
+độ và hiệu quả;  Nó được sử dụng cho nhiều dự án mã nguồn mở lớn, nhất là
+nhân Linux.  (Xem <span class="citerefentry"><span class="refentrytitle">git</span>(1)</span>, Tài liệu git
+(<code class="filename">/usr/share/doc/git-doc/index.html</code>).)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">gnupg</code> - một công cụ cho phép bạn
+dùng chữ ký số để <span class="emphasis"><em>ký</em></span> gói.  Điều này đặc biệt quan trọng
+nếu bạn muốn phân phối nó cho người khác, và chắc chắn bạn sẽ làm điều đó
+khi tác phẩm của bạn được đưa vào phân phối Debian.  (Xem <span class="citerefentry"><span class="refentrytitle">gpg</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem"> gpc </code> - trình biên dịch Pascal GNU,
+cần thiết nếu chương trình của bạn được viết bằng Pascal.  Đáng lưu ý ở đây
+là <code class="systemitem">fp-compiler</code>, Free Pascal
+Compiler, cũng tốt trong nhiệm vụ này.  (Xem <span class="citerefentry"><span class="refentrytitle">gpc</span>(1)</span>,
+<span class="citerefentry"><span class="refentrytitle">ppc386</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">lintian</code> - đây là trình kiểm tra gói
+Debian, có thể cho bạn biết về bất kỳ lỗi phổ biến nào sau khi bạn xây dựng
+gói và giải thích các lỗi được tìm thấy.  (Xem <span class="citerefentry"><span class="refentrytitle">lintian</span>(1)</span>, <a class="ulink" href="https://lintian.debian.org/manual/index.html"> Hướng dẫn sử dụng Lintian
+</a>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem"> patch </code> - tiện ích hữu ích này sẽ
+lấy một tệp có chứa sự thay đổi (được sản sinh bởi chương trình
+<span class="command"><strong>diff</strong></span>) và áp dụng nó vào tệp gốc, tạo ra  một phiên bản
+vá.  (Xem <span class="citerefentry"><span class="refentrytitle">patch</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">patchutils</code> - gói này chứa một số
+tiện ích  để làm việc với các bản vá như <span class="command"><strong>lsdiff</strong></span>,
+<span class="command"><strong>interdiff</strong></span> và lệnh <span class="command"><strong>filterdiff </strong></span>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">pbuilder</code> - gói này chứa các chương
+trình được sử dụng để tạo và duy trì môi trường <span class="command"><strong>chroot</strong></span>.
+Xây dựng gói Debian trong môi trường <span class="command"><strong>chroot </strong></span> này sẽ kiểm
+tra sự phụ thuộc thư viện phù hợp và tránh lỗi FTBFS (Fails To Build From
+Source).  (Xem <span class="citerefentry"><span class="refentrytitle">pbuilder
+</span>( 8)</span> và <span class="citerefentry"><span class="refentrytitle">pdebuild </span>( 1 )</span>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">perl</code> - Perl là một trong những ngôn
+ngữ lập trình được sử dụng phổ biến nhất trên các hệ thống Unix ngày nay,
+thường được gọi là Unix's Swiss Army Chainsaw.  (Xem <span class="citerefentry"><span class="refentrytitle">perl</span>(1)</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">python</code> - Python là một trong những
+ngôn ngữ kịch bản thông dịch được sử dụng nhiều nhất trên hệ thống Debian,
+kết hợp sức mạnh vượt trội với cú pháp rất rõ ràng.  (Xem <span class="citerefentry"><span class="refentrytitle">python</span>( 1 )</span>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem"> quilt </code> - gói này giúp bạn quản lý
+một số lượng lớn các bản vá lỗi bằng cách theo dõi những thay đổi mà mỗi bản
+vá lỗi tạo ra.  Các bản vá lỗi có thể được áp dụng, không áp dụng, làm mới
+và nhiều hơn nữa.  (Xem <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span> và <code class="filename">/usr/share/doc/quilt/quilt.pdf.gz</code>
+.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">xutils-dev</code> - một vài chương trình,
+thường xây dựng cho X11, sử dụng chương trình này để tạo ra các tệp tin
+<code class="filename">Makefile</code> từ các cài đặt của các hàm macro. (Xem
+<span class="citerefentry"><span class="refentrytitle">imake</span>(1)</span>, <span class="citerefentry"><span class="refentrytitle">xmkmf</span>(1)</span>.)
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Các mô tả ngắn được đưa ra ở trên chỉ phục vụ để giới thiệu cho bạn những gì
+mỗi gói thực hiện. Trước khi tiếp tục, hãy đọc tài liệu của mỗi chương trình
+có liên quan, bao gồm cả những chương trình được cài đặt thông qua sự phụ
+thuộc gói như <span class="command"><strong>make</strong></span>, ít nhất, cho việc sử dụng tiêu
+chuẩn.  Có vẻ như bây giờ kiến thức khá nặng, nhưng sau đó bạn sẽ
+<span class="emphasis"><em>rất</em></span> vui vì bạn đã đọc nó.  Nếu bạn có câu hỏi cụ thể
+sau này, tôi sẽ đề nghị đọc lại các tài liệu đã đề cập ở trên.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="needdocs"/>1.3. Tài liệu cần thiết cho sự phát triển</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Sau đây là tài liệu <span class="emphasis"><em>rất quan trọng</em></span> mà bạn nên đọc cùng
+với tài liệu này:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="systemitem">debian-policy</code> - <a class="ulink" href="http://www.debian.org/doc/devel-manuals#policy">Debian Policy Manual</a> bao gồm các giải thích về
+cấu trúc và nội dung của kho lưu trữ Debian, một số vấn đề thiết kế hệ điều
+hành, <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/fhs/fhs-2.3.html">Filesystem Hierarchy Standard</a> (FHS, nơi mà
+mỗi tập tin và thư mục phải là),vv .Đối với bạn, điều quan trọng nhất là nó
+mô tả các yêu cầu mà mỗi gói phải đáp ứng để được đưa vào trong phân phối.
+(Xem bản sao địa phương của <code class="filename">/usr/share/doc/debian-policy/policy.pdf.gz</code> and
+<code class="filename">/usr/share/doc/debian-policy/fhs/fhs-2.3.pdf.gz</code>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">developer-reference</code> - <a class="ulink" href="http://www.debian.org/doc/devel-manuals#devref">Debian Developer's Refrence</a> mô tả tất
+cả các vấn đề không cụ thể về các chi tiết kỹ thuật của gói, như cấu trúc
+của kho lưu trữ, cách đổi tên, mồ côi, hoặc nhận các gói, làm thế nào để làm
+NMUs, làm thế nào để quản lý lỗi, cách thức đóng gói tốt nhất, khi nào và ở
+đâu để tải lên vv (Xem bản sao của địa phương của
+<code class="filename">/usr/share/doc/developers-reference/developers-reference.pdf</code>.)
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Sau đây là tài liệu <span class="emphasis"><em>quan trọng</em></span> mà bạn nên đọc cùng với
+tài liệu này:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://www.lrde.epita.fr/~adl/autotools.html">Autotools Tutorial</a> cung cấp một
+huớng dẫn rất tốt cho <a class="ulink" href="http://wikipedia.org/wiki/Autotools">GNU Build System được
+biết như là GNU Autotools</a> là thành phần quan trọng nhất cho
+Autoconf, Automake, Libtool, and gettext.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">gnu-standards</code> - gói này chứa hai
+phần tài liệu từ dự án GNU: <a class="ulink" href="http://www.gnu.org/prep/standards/html_node/index.html">GNU Coding
+Standards</a>, và <a class="ulink" href="http://www.gnu.org/prep/maintain/html_node/index.html">Information for
+Maintainers of GNU Software</a>.  Mặc dù Debian không yêu cầu những điều
+này được tuân theo, những điều này vẫn còn hữu ích như các hướng dẫn và
+thông thường.  (Xem bản sao địa phương của <code class="filename">
+/usr/share/doc/gnu-standards/standards.pdf.gz</code> và <code class="filename">/usr/share/doc/gnu-standards/maintain.pdf.gz</code>.)
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nếu tài liệu này mâu thuẫn với bất kỳ tài liệu nào được đề cập ở trên, nếu
+chúng là đúng. Vui lòng gửi một báo cáo lỗi trên <code class="systemitem">maint-guide</code> gói bằng cách sử dụng
+<span class="command"><strong>reportbug</strong></span>.
+</p>
+        <p>
+Sau đây là một tài liệu hướng dẫn thay thế mà bạn có thể đọc cùng với tài
+liệu này:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+                <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/packaging-tutorial/packaging-tutorial">Debian Packaging Tutorial</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="helpme"/>1.4. Nơi để yêu cầu trợ giúp</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Trước khi bạn quyết định đặt câu hỏi của mình ở nơi công cộng, vui lòng đọc
+tài liệu tốt
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Các tệp trong gói
+<code class="filename">/usr/share/doc/<em class="replaceable"><code>package</code></em></code> cho
+tất cả các gói phù hợp
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nội dung của lệnh <code class="literal"><span class="command"><strong>man</strong></span>
+<em class="replaceable"><code>command</code></em> </code> cho tất cả các lệnh thích hợp
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nội dung của lệnh <code class="literal"> <span class="command"><strong>info</strong></span>
+<em class="replaceable"><code>command</code></em> </code> cho tất cả các lệnh thích hợp
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+các nội dung tại <a class="ulink" href="http://lists.debian.org/debian-mentors/">debian-mentors@lists.debian.org mailing list
+archive</a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+các nội dung tại <a class="ulink" href="http://lists.debian.org/debian-devel/">debian-devel@lists.debian.org mailing list
+archive</a>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Bạn có thể sử dụng công cụ tìm kiếm web hiệu quả hơn bằng cách bao gồm các
+chuỗi tìm kiếm như <code class="literal">site:lists.debian.org</code> để hạn chế tên
+miền.
+</p>
+        <p>
+Làm một gói thử nghiệm nhỏ là một cách hay để tìm hiểu chi tiết về đóng
+gói.  Kiểm tra các gói đã được duy trì tốt hiện tại là cách tốt nhất để tìm
+hiểu làm thế nào người khác đóng các gói
+</p>
+        <p>
+Nếu bạn vẫn có câu hỏi về đóng gói mà bạn không thể tìm thấy câu trả lời
+trong tài liệu sẵn có và tài nguyên web, bạn có thể nhờ họ tương tác:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://lists.debian.org/debian-mentors/">debian-mentors@lists.debian.org mailing
+list</a>. (Danh sách gửi thư này dành cho người mới bắt đầu.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://lists.debian.org/debian-devel/">debian-devel@lists.debian.org mailing
+list</a>. (Danh sách gửi thư dành cho chuyên gia)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://www.debian.org/support#irc">IRC</a> ví dụ như
+<code class="literal">#debian-mentors</code>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các đội tập trung vào một bộ gói cụ thể.  (Danh sách đầy đủ tại <a class="ulink" href="https://wiki.debian.org/Teams">https://wiki.debian.org/Teams</a>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Danh sách gửi thư cụ thể theo ngôn ngữ ví dụ như
+debian-devel-{french,italian,portuguese,spanish}@lists.debian.org hoặc
+debian-devel@debian.or.jp. (Danh sách đầy đủ tại <a class="ulink" href="https://lists.debian.org/devel.html">https://lists.debian.org/devel.html</a> và <a class="ulink" href="https://lists.debian.org/users.html">https://lists.debian.org/users.html</a>)
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Các nhà phát triển giàu kinh nghiệm của Debian sẽ sẵn sàng giúp bạn, nếu bạn
+hỏi đúng cách sau khi thực hiện những nỗ lực bắt buộc của bạn.
+</p>
+        <p>
+Khi bạn nhận được báo cáo lỗi (vâng, lỗi thực sự!), Bạn sẽ biết rằng đã đến
+lúc bạn phải khai thác vào <a class="ulink" href="http://www.debian.org/Bugs/">Debian Bug Tracking
+System</a> và đọc tài liệu ở đó, để được có khả năng giải quyết các báo
+cáo hiệu quả. Tôi rất khuyên bạn nên đọc <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/pkgs.html#bug-handling">Debian Developer's Reference, 5.8.  "Handling
+bugs"</a>.
+</p>
+        <p>
+Ngay cả khi tất cả đều hoạt động tốt, đó là thời gian để bắt đầu cầu
+nguyện.  Tại sao?  Bởi vì chỉ trong vài giờ (hoặc ngày) người dùng từ khắp
+nơi trên thế giới sẽ bắt đầu sử dụng gói của bạn và nếu bạn mắc một số lỗi
+nghiêm trọng, bạn sẽ nhận được mailbombed bởi nhiều người dùng Debian tức
+giận... Đùa thôi :-)
+</p>
+        <p>
+Hãy thư giãn và sẵn sàng cho các báo cáo lỗi, vì còn rất nhiều việc phải làm
+trước khi gói của bạn hoàn toàn phù hợp với các chính sách của Debian và các
+hướng dẫn thực hành tốt nhất của nó (một lần nữa đọc <span class="emphasis"><em>tài
+liệu</em></span> thật chi tiết).  Chúc may mắn!
+</p>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm49" class="footnote">
+          <p><a href="#idm49" class="para"><sup class="para">[1] </sup></a> Tài liệu giả định bạn đang sử dụng <code class="literal">jessie</code> hoặc hệ
+thống mới hơn.  Nếu bạn cần phải làm theo các văn bản này trong một hệ thống
+cũ hơn (bao gồm cả một hệ thống Ubuntu cũ hơn vv), bạn phải cài đặt ít nhất
+các gói <code class="systemitem">dpkg</code> và <code class="systemitem">debhelper</code>.
+</p>
+        </div>
+        <div id="ftn.idm55" class="footnote">
+          <p><a href="#idm55" class="para"><sup class="para">[2] </sup></a>
+Bạn có thể tìm hiểu về cách xử lý cơ bản của một hệ thống Debian từ <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/">Debian Reference</a>.  Nó cũng chứa một số gợi ý để tìm
+hiểu về lập trình Unix.
+</p>
+        </div>
+        <div id="ftn.idm185" class="footnote">
+          <p><a href="#idm185" class="para"><sup class="para">[3] </sup></a> Ngoài ra còn có một số gói chuyên dụng hơn nhưng tương tự như <code class="systemitem">dh-make-perl</code>, <code class="systemitem">dh-make-php</code>, v.v.  </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="index.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="first.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Debian New Maintainers' Guide </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 2. Những bước đầu tiên</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

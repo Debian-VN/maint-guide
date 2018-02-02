@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 8. Cập nhật gói phần mềm</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="checkit.vi.html" title="Chương 7. Kiểm tra gói để tìm lỗi"/>
+    <link rel="next" href="upload.vi.html" title="Chương 9. Tải gói phần mềm lên"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 8. Cập nhật gói phần mềm</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="checkit.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="upload.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="update"/>Chương 8. Cập nhật gói phần mềm</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="update.vi.html#newrevision">8.1. Phiên bản tu chỉnh Debian mới</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="update.vi.html#inspectnewupstream">8.2. Thẩm định phiên bản mới phát hành từ thượng nguồn</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="update.vi.html#newupstream">8.3. Phiên bản phát hành mới từ thượng nguồn.</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="update.vi.html#packagestyle">8.4. Cập nhật kiểu đóng gói</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="update.vi.html#utf8">8.5. Chuyển đổi sang UTF-8</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="update.vi.html#reminders">8.6. Các nhắc nhở cho việc cập nhật các gói phần mềm</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Sau khi bạn tung ra một gói phần mềm, bạn sẽ sớm cần phải cập nhật nó.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="newrevision"/>8.1. Phiên bản tu chỉnh Debian mới</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Hãy giả sử là một báo cáo lỗi được gửi về gói phần mềm của bạn như
+<code class="literal">#654321</code>, và nó mô tả một vấn đề mà bạn có thể xử lý.  Đây
+là những gì bạn cần làm để tạo một bản tu chỉnh mới của gói phần mềm:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Nếu nó sẽ được ghi lại như là một bản vá, hãy làm như sau:
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt new <em class="replaceable"><code>bugname.patch</code></em></code> to
+set the patch name;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt add <em class="replaceable"><code>buggy-file</code></em></code> để khai
+báo tập tin sẽ được điều chỉnh;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Sửa vấn đề trong nguồn của gói phần mềm cho một lỗi từ thượng nguồn
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt refresh</code> để ghi lại vào
+<code class="filename"><em class="replaceable"><code>bugname.patch</code></em></code>;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt header -e</code> để thêm vào mô tả của nó;
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu nó dùng để cập nhật một bản vá đang tồn tại, hãy làm như sau:
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt pop <em class="replaceable"><code>foo.patch</code></em></code> để hủy bỏ
+bản vá hiện tại <code class="filename"><em class="replaceable"><code>foo.patch</code></em></code>;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Sửa vấn đề trong bản cũ
+<code class="filename"><em class="replaceable"><code>foo.patch</code></em></code>;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt refresh</code> để cập nhật
+<code class="filename"><em class="replaceable"><code>foo.patch</code></em></code>;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt header -e</code> để cập nhật mô tả của nó;
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">while dquilt push; do dquilt refresh; done</code> để áp dụng tất
+cả bản vá trong khi tháo bỏ <span class="emphasis"><em>fuzz</em></span>;
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Thêm một bản tu chỉnh mới vào đầu của tập tin Debian
+<code class="filename">changelog</code>, ví dụ như chạy lệnh <code class="literal">dch
+-i</code>, hoặc cụ thể hơn với lệnh <code class="literal">dch -v
+<em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em></code>
+và sau đó chèn ghi chú vào bằng trình soạn thảo văn bản bạn thích.
+<a href="#ftn.idm3366" class="footnote" id="idm3366"><sup class="footnote">[77]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Chèn một đoạn mô tả ngắn của lỗi và giải pháp trong mục nhật ký thay đổi,
+theo sau bởi <code class="literal">Closes: #654321</code>.  Bằng cách đó, báo cáo lỗi
+sẽ được <span class="emphasis"><em>tự động </em></span> đóng bởi phần mềm bảo trì kho lưu trữ
+ngay lúc gói phần mềm của bạn được nhận vào kho lưu trữ của Debian.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Lặp lại những gì bạn đã làm phía trên để sửa nhiều lỗi trong quá trình cập
+nhật tập tin Debian <code class="filename">changelog</code> với lệnh
+<code class="literal">dch</code> nếu cần thiết.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Lặp lại những gì bạn đã làm ở <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a> và <a class="xref" href="checkit.vi.html" title="Chương 7. Kiểm tra gói để tìm lỗi">Chương 7, <em>Kiểm tra gói để tìm lỗi</em></a>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Khi bạn đã hài lòng, bạn nên thay đổi giá trị bản phân phối trong tập tin
+<code class="filename">changelog</code> từ <code class="literal">UNRELEASED</code> sang giá trị
+bản phân phối đích <code class="literal">unstable</code> (hoặc thậm chí
+<code class="literal">experimental</code>).<a href="#ftn.idm3387" class="footnote" id="idm3387"><sup class="footnote">[78]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Tải lên gói phần như ở <a class="xref" href="upload.vi.html" title="Chương 9. Tải gói phần mềm lên">Chương 9, <em>Tải gói phần mềm lên</em></a>.  Sự khác biệt là lần này,
+tập tin nén chứa mã nguồn nguyên vẹn ban đầu sẽ không được đính kèm, bởi vì
+nó không có thay đổi gì và nó đã tồn tại trong kho lưu trữ của Debian.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Một tình huống khó có thể xảy ra khi bạn tạo một gói phần mềm tại chỗ để thí
+nghiệm với quá trình đóng gói trước khi tải phiên bản bình thường lên kho
+lưu trữ chính thức, ví dụ như
+<code class="literal"><em class="replaceable"><code>1.0.1</code></em>-<em class="replaceable"><code>1</code></em></code>.
+Để nâng cấp trơn tru hơn, sẽ là một ý hay nếu tạo một chỉ mục trong tập tin
+<code class="filename">changelog</code> với phiên bản là một chuỗi ký tự như
+<code class="literal"><em class="replaceable"><code>1.0.1</code></em>-<em class="replaceable"><code>1~rc1</code></em></code>.
+Bạn có thể sắp xếp lại nội dung tập tin <code class="filename">changelog</code> bằng
+cách gộp nhiều chỉ mục nhật ký thay đổi được tạo ra tại chỗ thành một chỉ
+mục duy nhất cho gói phần mềm chính thức.  Xem <a class="xref" href="first.vi.html#namever" title="2.6. Tên và phiên bản gói">Phần 2.6, “Tên và phiên bản gói”</a> để
+biết thêm về thứ tự của các chuỗi ký tự dành cho phiên bản.
+</p>
+        <p>
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="inspectnewupstream"/>8.2. Thẩm định phiên bản mới phát hành từ thượng nguồn</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Khi chuẩn bị các gói phần mềm của một phiên bản mới được phát hành từ thượng
+nguồn cho kho lưu trữ Debian, bạn phải kiểm tra bản phát hành mới từ thượng
+nguồn trước tiên.
+</p>
+        <p>
+Bắt đầu bằng việc đọc tập tin thượng nguồn <code class="filename">changelog</code>,
+<code class="filename">NEWS</code>, và bất kỳ tài liệu nào khác họ có thể vừa phát
+hành với phiên bản mới.
+</p>
+        <p>
+Bạn có thể tiếp theo thẩm định những thay đổi giữa mã nguồn của bản cũ và
+bản mới từ thượng nguồn như sau, quan sát kỹ những gì đáng nghi:
+</p>
+        <pre class="screen">
+$ diff -urN <em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>oldversion</code></em> <em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>newversion</code></em>
+</pre>
+        <p>
+Những thay đổi liên quan tới một vài tập tin tự động được tạo ra bởi
+Autotools như là <code class="filename">missing</code>,
+<code class="filename">aclocal.m4</code>, <code class="filename">config.guess</code>,
+<code class="filename">config.h.in</code>, <code class="filename">config.sub</code>,
+<code class="filename">configure</code>, <code class="filename">depcomp</code>,
+<code class="filename">install-sh</code>, <code class="filename">ltmain.sh</code>, và
+<code class="filename">Makefile.in</code> có thể bị phớt lờ.  Bạn có thể xóa nó đi
+trước khi chạy lệnh <span class="command"><strong>diff</strong></span> trên mã nguồn để thẩm định.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="newupstream"/>8.3. Phiên bản phát hành mới từ thượng nguồn.</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu một gói phần mềm <code class="systemitem"><em class="replaceable"><code>foo</code></em></code> được cấu hình
+đúng cách theo các định dạng mới <code class="literal">3.0 (native)</code> or
+<code class="literal">3.0 (quilt)</code>, đóng gói một phiên bản thượng nguồn mới chủ
+yếu chỉ là di chuyển thư mục <code class="filename">debian</code> cũ sang mã nguồn
+mới.  Công việc này có thể được thực hiện bằng cách chạy lệnh <code class="literal">tar
+xvzf
+/<em class="replaceable"><code>path</code></em>/<em class="replaceable"><code>to</code></em>/<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>.debian.tar.gz</code>
+tại nơi giải nén mã nguồn mới.  <a href="#ftn.idm3442" class="footnote" id="idm3442"><sup class="footnote">[79]</sup></a> Dĩ
+nhiên, bạn cần phải làm một số công việc chắc chắn phải làm sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Tạo một bản sao của mã nguồn từ thượng nguồn như là tập tin
+<code class="filename">foo_<em class="replaceable"><code>newversion</code></em>.orig.tar.gz</code>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Cập nhật tập tin Debian <code class="filename">changelog</code> với lệnh <code class="literal">dch
+-v
+<em class="replaceable"><code>newversion</code></em>-<em class="replaceable"><code>1</code></em></code>.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Tạo một mục mới với chuỗi ký tự <code class="literal">New upstream release</code>
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Mô tả cụ thể những thay đổi <span class="emphasis"><em> trong bản phát hành mới từ thượng
+nguồn</em></span> sửa được các lỗi đã báo cáo và đóng các lỗi đó bằng việc
+chèn thêm <code class="literal">Closes: #<em class="replaceable"><code>bug_number</code></em></code>.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Mô tả cụ thể những thay đổi xảy ra bởi người bảo trì <span class="emphasis"><em> đối với bản
+phát hành từ thượng nguồn</em></span>  mà sửa được các lỗi đã báo cáo và đóng
+các lỗi đó bằng hành động chèn thêm <code class="literal">Closes:
+#<em class="replaceable"><code>bug_number</code></em></code>.
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="literal">while dquilt push; do dquilt refresh; done</code> để áp dụng tất
+cả các bản vá trong lúc tháo chúng ra <span class="emphasis"><em>fuzz</em></span>.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nếu bản vá/ghép không áp dụng được sạch sẽ, thẩm định tình hình (gợi ý được
+để trong các tập tin <code class="filename">.rej</code>).
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Nếu một bản vá bạn đã áp dụng với mã nguồn được ghép vào mã nguồn từ thượng
+nguồn,
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+chạy lệnh <code class="literal">dquilt delete</code> để tháo bỏ nó ra.
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu một bản vá bạn đã áp dụng vào mã nguồn xung đột với những thay đổi mới
+đến từ mã nguồn mới của thượng nguồn,
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt push -f</code> để áp dụng những bản vá cũ trong khi ép
+buộc các từ chối vá từ tập tin
+<code class="filename"><em class="replaceable"><code>baz</code></em>.rej</code>.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Sửa tập tin <code class="filename"><em class="replaceable"><code>baz</code></em></code> bằng tay để
+có được hiệu quả mong muốn của tập tin
+<code class="filename"><em class="replaceable"><code>baz</code></em>.rej</code>.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+<code class="literal">dquilt refresh</code> để cập nhật bản vá
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Tiếp tục như bình thường với <code class="literal">while dquilt push; do dquilt refresh;
+done</code>.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Quá trình này có thể được tự động hóa bằng cách chạy lệnh <span class="citerefentry"><span class="refentrytitle">uupdate</span>(1)</span> như sau:
+</p>
+        <pre class="screen">
+$ apt-get source <em class="replaceable"><code>foo</code></em>
+...
+dpkg-source: info: extracting <em class="replaceable"><code>foo</code></em> in <em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>oldversion</code></em>
+dpkg-source: info: unpacking <em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>.orig.tar.gz
+dpkg-source: info: applying <em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>-1.debian.tar.gz
+$ ls -F
+<em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>oldversion</code></em>/
+<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>-1.debian.tar.gz
+<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>-1.dsc
+<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>.orig.tar.gz
+$ wget http://example.org/<em class="replaceable"><code>foo</code></em>/<em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>newversion</code></em>.tar.gz
+$ cd <em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>oldversion</code></em>
+$ uupdate -v <em class="replaceable"><code>newversion</code></em> ../<em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>newversion</code></em>.tar.gz
+$ cd ../<em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>newversion</code></em>
+$ while dquilt push; do dquilt refresh; done
+$ dch
+... document changes made
+</pre>
+        <p>
+Nếu bạn tạo một tập tin <code class="filename">debian/watch</code> như được mô tả ở
+<a class="xref" href="dother.vi.html#watch" title="5.21. watch">Phần 5.21, “<code class="filename">watch</code>”</a>, bạn nên bỏ qua lệnh <span class="command"><strong>wget</strong></span>.  Bạn
+đơn giản chỉ chạy lệnh <span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span> trong thư mục
+<code class="filename"><em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>oldversion</code></em></code>
+thay vì lệnh <span class="command"><strong>uupdate</strong></span>.  Hành động này <span class="emphasis"><em>tự
+động</em></span> tìm mã nguồn mới, tải về, và chạy lệnh
+<span class="command"><strong>uupdate</strong></span>.  <a href="#ftn.idm3554" class="footnote" id="idm3554"><sup class="footnote">[80]</sup></a>
+</p>
+        <p>
+Bạn có thể phát hành mã nguồn mới này bằng việc lặp lại những gì bạn đã làm
+ở <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>, <a class="xref" href="checkit.vi.html" title="Chương 7. Kiểm tra gói để tìm lỗi">Chương 7, <em>Kiểm tra gói để tìm lỗi</em></a>, và <a class="xref" href="upload.vi.html" title="Chương 9. Tải gói phần mềm lên">Chương 9, <em>Tải gói phần mềm lên</em></a>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="packagestyle"/>8.4. Cập nhật kiểu đóng gói</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Cập nhật cách đóng gói không phải là một hành động bắt buộc cho việc cập
+nhật một gói phần mềm.  Tuy nhiên, làm vậy sẽ cho phép bạn sử dụng toàn bộ
+khả năng của hệ thống <code class="systemitem">debhelper</code> hiện
+đại và định dạng gói nguồn <code class="literal">3.0</code>.  <a href="#ftn.idm3569" class="footnote" id="idm3569"><sup class="footnote">[81]</sup></a>
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Nếu bạn cần tái tạo những tập tin khuôn mẫu đã bị xóa vì lý do gì đó, bạn có
+thể chạy lệnh <span class="command"><strong>dh_make</strong></span> lại trong cây thư mục của gói phần
+mềm nguồn Debian với tham số <code class="literal">--addmissing</code> option.  Sau đó
+điều chỉnh chúng cho phù hợp.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu gói phần mềm không được cập nhật để sử dụng cú pháp <code class="systemitem">debhelper</code> v7+ <span class="command"><strong>dh</strong></span> cho tập tin
+<code class="filename">debian/rules</code>, cập nhật nó để sử dụng
+<span class="command"><strong>dh</strong></span>.  Cập nhật tập tin <code class="filename">debian/control</code>
+tương ứng.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu bạn muốn cập nhật tập tin <code class="filename">rules</code> được tạo với cơ chế
+đính kèm <code class="filename">Makefile</code> của Common Debian Build System
+(<code class="systemitem">cdbs</code>)  (Hệ Thống Biên Dịch Chung
+Debian) lên cú pháp <span class="command"><strong>dh</strong></span>, xem phần sau để hiểu các biến cấu
+hình <code class="literal">DEB_*</code>.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>bản sao tại chỗ của <code class="filename">/usr/share/doc/cdbs/cdbs-doc.pdf.gz</code></p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+                      <a class="ulink" href="http://meetings-archive.debian.net/pub/debian-meetings/2009/fosdem/slides/The_Common_Debian_Build_System_CDBS/">The Common Debian Build System (CDBS), FOSDEM
+2009</a>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu bạn có một gói phần mềm nguồn với định dạng <code class="literal">1.0</code> mà
+không có tập tin
+<code class="filename"><em class="replaceable"><code>foo</code></em>.diff.gz</code>, bạn có thể cập
+nhật nó lên định dạng nguồn <code class="literal">3.0 (native)</code> mới hơn bằng
+việc tạo tập tin <code class="filename">debian/source/format</code> chứa dòng
+<code class="literal">3.0 (native)</code>.  Các tập tin <code class="filename">debian/*</code>
+còn lại có thể được sao chép sang.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu bạn có một gói phần mềm nguồn với định dạng <code class="literal">1.0</code> mà
+không có tập tin
+<code class="filename"><em class="replaceable"><code>foo</code></em>.diff.gz</code>, bạn có thể cập
+nhật nó lên định dạng nguồn <code class="literal">3.0 (native)</code> mới hơn bằng
+việc tạo tập tin <code class="filename">debian/source/format</code> chứa dòng
+<code class="literal">3.0 (native)</code>.  Các tập tin <code class="filename">debian/*</code>
+còn lại có thể được sao chép sang.  Nhập tập tin
+<code class="filename">big.diff</code> được tạo ra bởi lệnh <code class="literal">filterdiff -z -x
+'*/debian/*' <em class="replaceable"><code>foo</code></em>.diff.gz &gt; big.diff</code>
+vào hệ thống <span class="command"><strong>quilt</strong></span> của bạn, nếu cần thiết.  <a href="#ftn.idm3619" class="footnote" id="idm3619"><sup class="footnote">[82]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu nó được đóng gói bằng một hệ thống vá khác như là <code class="systemitem">dpatch</code>, <code class="systemitem">dbs</code>, hay <code class="systemitem">cdbs</code> với <code class="literal">-p0</code>,
+<code class="literal">-p1</code>, or <code class="literal">-p2</code>, chuyển đổi nó sang
+<code class="systemitem">quilt</code> bằng việc sử dụng
+<code class="filename">deb3</code> tại <a class="ulink" href="http://bugs.debian.org/581186">http://bugs.debian.org/581186</a>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu nó được đóng gói với lệnh <span class="command"><strong>dh</strong></span> với tham số
+<code class="literal">--with quilt</code> hay với các lệnh
+<span class="command"><strong>dh_quilt_patch</strong></span> và <span class="command"><strong>dh_quilt_unpatch</strong></span>, bỏ
+những thứ này và buộc nó sử dụng định dạng gói nguồn <code class="literal">3.0
+(quilt)</code> mới hơn.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Bạn nên kiểm tra <a class="ulink" href="http://dep.debian.net/">DEP - Debian Enhancement
+Proposals</a>(Những đề nghị cải tiến Debian) and và sử dụng những đề
+nghị đã được CHẤP THUẬN.
+</p>
+        <p>
+Bạn cũng cần phải thực hiện các công việc khác mô tả ở <a class="xref" href="update.vi.html#newupstream" title="8.3. Phiên bản phát hành mới từ thượng nguồn.">Phần 8.3, “Phiên bản phát hành mới từ thượng nguồn.”</a>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="utf8"/>8.5. Chuyển đổi sang UTF-8</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu các văn bản thượng nguồn được mã hóa theo kiểu mã hóa cũ, chuyển đổi nó
+sang <a class="ulink" href="http://wikipedia.org/wiki/UTF-8">UTF-8</a> là một ý hay.
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Sử dụng <span class="citerefentry"><span class="refentrytitle">iconv</span>(1)</span> để chuyển đổi mã hóa của các tập
+tin văn bản thô.
+</p>
+              <pre class="screen">
+iconv -f latin1 -t utf8 <em class="replaceable"><code>foo_in.txt</code></em> &gt; <em class="replaceable"><code>foo_out.txt</code></em>
+</pre>
+            </li>
+            <li class="listitem">
+              <p>
+Sử dụng <span class="citerefentry"><span class="refentrytitle">w3m</span>(1)</span> để chuyển đổi các tập tin HTML sang
+các tập tin văn bản thô UTF-8.  Khi bạn làm điều này, hãy chắc chắn rằng bạn
+chạy nó dưới môi trường UTF-8.
+</p>
+              <pre class="screen">
+LC_ALL=en_US.UTF-8 w3m -o display_charset=UTF-8 \
+        -cols 70 -dump -no-graph -T text/html \
+        &lt; <em class="replaceable"><code>foo_in.html</code></em> &gt; <em class="replaceable"><code>foo_out.txt</code></em>
+</pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="reminders"/>8.6. Các nhắc nhở cho việc cập nhật các gói phần mềm</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Sau đây là vài nhắc nhở cho việc cập nhật các phần mềm:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Bảo tồn các chỉ mục cũ trong tập tin <code class="filename">changelog</code> (nghe có
+vẻ quá dĩ nhiên, nhưng đã có các tình huống nhiều người đánh lệnh
+<code class="literal">dch</code> trong khi họ đáng lẽ phải đánh <code class="literal">dch
+-i</code>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các thay đổi Debian hiện tại cần phải được đánh giá lại; ném đi những thứ
+thượng nguồn đã tích hợp (dưới kiểu này hay kiểu khác) và ghi nhớ giữ những
+thứ mà thượng nguồn chưa tích hợp, trừ khi có một lý do đáng để không làm
+thế.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu bất kỳ thay đổi nào được tạo ra đối với hệ thống biên dịch (hi vọng bạn
+sẽ biết từ việc thẩm định các thay đổi từ thượng nguồn), hãy cập nhật các
+điều kiện biên dịch của <code class="filename">debian/rules</code> và
+<code class="filename">debian/control</code> nếu cần thiết.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Kiểm tra <a class="ulink" href="http://www.debian.org/Bugs/">Debian Bug Tracking System (BTS)</a> (Hệ
+thống theo dõi lỗi Debian) để xem có ai đã cung cấp bản vá cho các lỗi đang
+mở.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Kiểm tra những nội dung của tập tin <code class="filename">.changes</code> để chắc
+chắn rằng bạn đang tải lên đúng bản phân phối, các lỗi được đóng đúng cách
+được liệt kê trong trường <code class="literal">Closes</code>, trường
+<code class="literal">Maintainer</code> và <code class="literal">Changed-By</code> phải khớp,
+tập tin phải được ký bằng GPG, v.v.
+</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm3366" class="footnote">
+          <p><a href="#idm3366" class="para"><sup class="para">[77] </sup></a>Để lấy thông tin ngày dưới định dạng bị bắt buộc, dùng <code class="literal">LANG=C date
+-R</code>.
+</p>
+        </div>
+        <div id="ftn.idm3387" class="footnote">
+          <p><a href="#idm3387" class="para"><sup class="para">[78] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
+please make sure to save the <code class="filename">changelog</code> file explicitly
+by the editor.</p>
+        </div>
+        <div id="ftn.idm3442" class="footnote">
+          <p><a href="#idm3442" class="para"><sup class="para">[79] </sup></a> Nếu một gói phần mềm <code class="systemitem"><em class="replaceable"><code>foo</code></em></code> được đóng gói
+theo định dạng cũ <code class="literal">1.0</code>, công việc này có thể được hoàn
+thành bằng việc chạy lệnh <code class="literal">zcat
+/<em class="replaceable"><code>path</code></em>/<em class="replaceable"><code>to</code></em>/<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>.diff.gz|patch
+-p1</code>  </p>
+        </div>
+        <div id="ftn.idm3554" class="footnote">
+          <p><a href="#idm3554" class="para"><sup class="para">[80] </sup></a> Nếu lệnh <span class="command"><strong>uscan</strong></span> tải về mã nguồn mới nhưng nó không chạy
+lệnh <span class="command"><strong>uupdate</strong></span>, bạn nên sửa tập tin
+<code class="filename">debian/watch</code> để có dòng <code class="literal">debian
+uupdate</code> tại cuối của đường dẫn URL.  </p>
+        </div>
+        <div id="ftn.idm3569" class="footnote">
+          <p><a href="#idm3569" class="para"><sup class="para">[81] </sup></a> Nếu nhà tài trợ của bạn hoặc các nhà bảo trì khác phản đối việc cập nhật
+cách đóng gói hiện tại, đừng phí thời gian tranh cãi.  Có nhiều việc quan
+trọng hơn cần phải làm.  </p>
+        </div>
+        <div id="ftn.idm3619" class="footnote">
+          <p><a href="#idm3619" class="para"><sup class="para">[82] </sup></a>
+Bạn có thể chặt tập tin <code class="filename">big.diff</code> ra nhiều bản vá nhỏ
+liên tiếp dùng lệnh <span class="command"><strong>splitdiff</strong></span>.  </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="checkit.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="upload.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 7. Kiểm tra gói để tìm lỗi </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 9. Tải gói phần mềm lên</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

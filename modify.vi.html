@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 3. Modifying the source</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="first.vi.html" title="Chương 2. Những bước đầu tiên"/>
+    <link rel="next" href="dreq.vi.html" title="Chương 4. Required files under the debian directory"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 3. Modifying the source</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="first.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="dreq.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="modify"/>Chương 3. Modifying the source</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="modify.vi.html#quiltrc">3.1. Setting up <span class="command"><strong>quilt</strong></span></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="modify.vi.html#fixupstream">3.2. Fixing upstream bugs</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="modify.vi.html#destdir">3.3. Installation of files to their destination</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="modify.vi.html#difflibs">3.4. Differing libraries</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Please note that there isn't space here to go into <span class="emphasis"><em>all</em></span>
+the details of fixing upstream sources, but here are some basic steps and
+problems people often run across.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="quiltrc"/>3.1. Setting up <span class="command"><strong>quilt</strong></span></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The program <span class="command"><strong>quilt</strong></span> offers a basic method for recording
+modifications to the upstream source for Debian packaging.  It's useful to
+have a slightly customized default, so let's create an alias
+<span class="command"><strong>dquilt</strong></span> for Debian packaging by adding the following lines
+to <code class="filename">~/.bashrc</code>.  The second line provides the same shell
+completion feature of the <span class="command"><strong>quilt</strong></span> command to the
+<span class="command"><strong>dquilt</strong></span> command:
+</p>
+        <pre class="screen">
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+complete -F _quilt_completion -o filenames dquilt
+</pre>
+        <p>
+Then let's create <code class="filename">~/.quiltrc-dpkg</code> as follows:
+</p>
+        <pre class="screen">
+d=. ; while [ ! -d $d/debian -a `readlink -e $d` != / ]; do d=$d/..; done
+if [ -d $d/debian ] &amp;&amp; [ -z $QUILT_PATCHES ]; then
+    # if in Debian packaging tree with unset $QUILT_PATCHES
+    QUILT_PATCHES="debian/patches"
+    QUILT_PATCH_OPTS="--reject-format=unified"
+    QUILT_DIFF_ARGS="-p ab --no-timestamps --no-index --color=auto"
+    QUILT_REFRESH_ARGS="-p ab --no-timestamps --no-index"
+    QUILT_COLORS="diff_hdr=1;32:diff_add=1;34:diff_rem=1;31:diff_hunk=1;33:diff_ctx=35:diff_cctx=33"
+    if ! [ -d $d/debian/patches ]; then mkdir $d/debian/patches; fi
+fi
+</pre>
+        <p>
+See <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span> and
+<code class="filename">/usr/share/doc/quilt/quilt.pdf.gz</code> on how to use <span class="command"><strong>quilt</strong></span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="fixupstream"/>3.2. Fixing upstream bugs</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Let's assume you find an error in the upstream <code class="filename">Makefile</code>
+as follows where <code class="literal">install: gentoo</code> should have been
+<code class="literal">install: gentoo-target</code>.
+</p>
+        <pre class="screen">
+install: gentoo
+        install ./gentoo $(BIN)
+        install icons/* $(ICONS)
+        install gentoorc-example $(HOME)/.gentoorc
+</pre>
+        <p>
+Let's fix this and record it with the <span class="command"><strong>dquilt</strong></span> command as
+<code class="filename">fix-gentoo-target.patch</code>: <a href="#ftn.idm974" class="footnote" id="idm974"><sup class="footnote">[22]</sup></a>
+</p>
+        <pre class="screen">
+$ mkdir debian/patches
+$ dquilt new fix-gentoo-target.patch
+$ dquilt add Makefile
+</pre>
+        <p>
+You change the <code class="filename">Makefile</code> file as follows:
+</p>
+        <pre class="screen">
+install: gentoo-target
+        install ./gentoo $(BIN)
+        install icons/* $(ICONS)
+        install gentoorc-example $(HOME)/.gentoorc
+</pre>
+        <p>
+Ask <span class="command"><strong>dquilt</strong></span> to generate the patch to create
+<code class="filename">debian/patches/fix-gentoo-target.patch</code> and add its
+description following <a class="ulink" href="http://dep.debian.net/deps/dep3/">DEP-3: Patch Tagging
+Guidelines</a>:
+</p>
+        <pre class="screen">
+$ dquilt refresh
+$ dquilt header -e
+... describe patch
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="destdir"/>3.3. Installation of files to their destination</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Most third-party software installs itself in the
+<code class="filename">/usr/local</code> directory hierarchy.  On Debian this is
+reserved for private use by the system administrator, so packages must not
+use directories such as <code class="filename">/usr/local/bin</code> but should
+instead use system directories such as <code class="filename">/usr/bin</code>,
+obeying the <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/fhs/fhs-2.3.html">Filesystem Hierarchy Standard</a> (FHS).
+</p>
+        <p>
+Normally, <span class="citerefentry"><span class="refentrytitle">make</span>(1)</span> is used to automate building the
+program, and executing <code class="literal">make install</code> installs programs
+directly to the desired destination (following the
+<code class="literal">install</code> target in the <code class="filename">Makefile</code>).  In
+order for Debian to provide pre-built installable packages, it modifies the
+build system to install programs into a file tree image created under a
+temporary directory instead of the actual destination.
+</p>
+        <p>
+These two differences between normal program installation on one hand and
+the Debian packaging system on the other can be transparently addressed by
+the <code class="systemitem">debhelper</code> package through the
+<span class="command"><strong>dh_auto_configure</strong></span> and <span class="command"><strong>dh_auto_install</strong></span>
+commands if the following conditions are met:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+The <code class="filename">Makefile</code> must follow GNU conventions and support
+the <code class="literal">$(DESTDIR)</code> variable.  <a href="#ftn.idm1010" class="footnote" id="idm1010"><sup class="footnote">[23]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+The source must follow the Filesystem Hierarchy Standard (FHS).
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Programs that use GNU <span class="command"><strong>autoconf</strong></span> follow the GNU conventions
+automatically, so they can be trivial to package.  On the basis of this and
+other heuristics, it is estimated that the <code class="systemitem">debhelper</code> package will work for about 90% of
+packages without making any intrusive changes to their build system.  So
+packaging is not as complicated as it may seem.
+</p>
+        <p>
+If you need to make changes in the <code class="filename">Makefile</code>, you should
+be careful to support the <code class="literal">$(DESTDIR)</code> variable.  Although
+it is unset by default, the <code class="literal">$(DESTDIR)</code> variable is
+prepended to each file path used for the program installation.  The
+packaging script will set <code class="literal">$(DESTDIR)</code> to the temporary
+directory. 
+</p>
+        <p>
+For a source package generating a single binary package, the temporary
+directory used by the <span class="command"><strong>dh_auto_install</strong></span> command will be set
+to <code class="filename">debian/<em class="replaceable"><code>package</code></em></code>.
+<a href="#ftn.idm1027" class="footnote" id="idm1027"><sup class="footnote">[24]</sup></a> Everything that is contained in the
+temporary directory will be installed on users' systems when they install
+your package; the only difference is that <span class="command"><strong>dpkg</strong></span> will be
+installing the files to paths relative to the root directory rather than
+your working directory.
+</p>
+        <p>
+Bear in mind that even though your program installs in
+<code class="filename">debian/<em class="replaceable"><code>package</code></em></code>, it still
+needs to behave correctly when installed from the <code class="filename">.deb</code>
+package under the root directory.  So you must not allow the build system to
+hardcode strings like
+<code class="literal">/home/me/deb/<em class="replaceable"><code>package</code></em>-<em class="replaceable"><code>version</code></em>/usr/share/<em class="replaceable"><code>package</code></em></code>
+into files in the package.
+</p>
+        <p>
+Here's the relevant part of <code class="systemitem">gentoo</code>'s
+<code class="filename">Makefile</code><a href="#ftn.idm1057" class="footnote" id="idm1057"><sup class="footnote">[25]</sup></a>:
+</p>
+        <pre class="screen">
+# Where to put executable commands on 'make install'?
+BIN     = /usr/local/bin
+# Where to put icons on 'make install'?
+ICONS   = /usr/local/share/gentoo
+</pre>
+        <p>
+We see that the files are set to install under
+<code class="filename">/usr/local</code>.  As explained above, that directory
+hierarchy is reserved for local use on Debian, so change those paths to:
+</p>
+        <pre class="screen">
+# Where to put executable commands on 'make install'?
+BIN     = $(DESTDIR)/usr/bin
+# Where to put icons on 'make install'?
+ICONS   = $(DESTDIR)/usr/share/gentoo
+</pre>
+        <p>
+The exact locations that should be used for binaries, icons, documentation,
+etc. are specified in the Filesystem Hierarchy Standard (FHS).  You should
+browse through it and read the sections relevant to your package.
+</p>
+        <p>
+So, we should install executable commands in <code class="filename">/usr/bin</code>
+instead of <code class="filename">/usr/local/bin</code>, the manual page in
+<code class="filename">/usr/share/man/man1</code> instead of
+<code class="filename">/usr/local/man/man1</code>, and so on.  Notice how there's no
+manual page mentioned in <code class="systemitem">gentoo</code>'s
+<code class="filename">Makefile</code>, but since Debian Policy requires that every
+program has one, we'll make one later and install it in
+<code class="filename">/usr/share/man/man1</code>.
+</p>
+        <p>
+Some programs don't use <code class="filename">Makefile</code> variables to define
+paths such as these.  This means you might have to edit some real C sources
+in order to fix them to use the right locations.  But where to search, and
+exactly what for? You can find this out by issuing:
+</p>
+        <pre class="screen">
+$ grep -nr --include='*.[c|h]' -e 'usr/local/lib' .
+</pre>
+        <p>
+<span class="command"><strong>grep</strong></span> will run recursively through the source tree and
+tell you the filename and the line number for all matches.
+</p>
+        <p>
+Edit those files and in those lines replace <code class="literal">usr/local/lib</code>
+with <code class="literal">usr/lib</code>.  This can be done automatically as follows:
+</p>
+        <pre class="screen">
+$ sed -i -e 's#usr/local/lib#usr/lib#g' \
+        $(find . -type f -name '*.[c|h]')
+</pre>
+        <p>
+If you want to confirm each substitution instead, this can be done
+interactively as follows:
+</p>
+        <pre class="screen">
+$ vim '+argdo %s#usr/local/lib#usr/lib#gce|update' +q \
+        $(find . -type f -name '*.[c|h]')
+</pre>
+        <p>
+Next you should find the <code class="literal">install</code> target (searching for
+the line that starts with <code class="literal">install:</code> will usually work) and
+rename all references to directories other than ones defined at the top of
+the <code class="filename">Makefile</code>.
+</p>
+        <p>
+Originally, <code class="systemitem">gentoo</code>'s
+<code class="literal">install</code> target said:
+</p>
+        <pre class="screen">
+install: gentoo-target
+        install ./gentoo $(BIN)
+        install icons/* $(ICONS)
+        install gentoorc-example $(HOME)/.gentoorc
+</pre>
+        <p>
+Let's fix this upstream bug and record it with the <span class="command"><strong>dquilt</strong></span>
+command as <code class="filename">debian/patches/install.patch</code>.
+</p>
+        <pre class="screen">
+$ dquilt new install.patch
+$ dquilt add Makefile
+</pre>
+        <p>
+In your editor, change this for the Debian package as follows:
+</p>
+        <pre class="screen">
+install: gentoo-target
+        install -d $(BIN) $(ICONS) $(DESTDIR)/etc
+        install ./gentoo $(BIN)
+        install -m644 icons/* $(ICONS)
+        install -m644 gentoorc-example $(DESTDIR)/etc/gentoorc
+</pre>
+        <p>
+You'll have noticed that there's now an <code class="literal">install -d</code>
+command before the other commands in the rule.  The original
+<code class="filename">Makefile</code> didn't have it because usually
+<code class="literal">/usr/local/bin</code> and other directories already exist on the
+system where you are running <code class="literal">make install</code>.  However,
+since we will be installing into a newly created private directory tree, we
+will have to create each and every one of those directories.
+</p>
+        <p>
+We can also add in other things at the end of the rule, like the
+installation of additional documentation that the upstream authors sometimes
+omit:
+</p>
+        <pre class="screen">
+        install -d $(DESTDIR)/usr/share/doc/gentoo/html
+        cp -a docs/* $(DESTDIR)/usr/share/doc/gentoo/html
+</pre>
+        <p>
+Check carefully, and if everything is okay, ask <span class="command"><strong>dquilt</strong></span> to
+generate the patch to create
+<code class="filename">debian/patches/install.patch</code> and add its description:
+</p>
+        <pre class="screen">
+$ dquilt refresh
+$ dquilt header -e
+... describe patch
+</pre>
+        <p>
+Now you have a series of patches.
+</p>
+        <div class="orderedlist">
+          <ol class="orderedlist">
+            <li class="listitem">
+              <p>
+Upstream bug fix:
+<code class="filename">debian/patches/fix-gentoo-target.patch</code>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Debian specific packaging modification:
+<code class="filename">debian/patches/install.patch</code>
+</p>
+            </li>
+          </ol>
+        </div>
+        <p>
+Whenever you make changes that are not specific to the Debian package such
+as <code class="filename">debian/patches/fix-gentoo-target.patch</code>, be sure to
+send them to the upstream maintainer so they can be included in the next
+version of the program and be useful to everyone else.  Also remember to
+avoid making your fixes specific to Debian or Linux - or even Unix! Make
+them portable.  This will make your fixes much easier to apply.
+</p>
+        <p>
+Note that you don't have to send the <code class="filename">debian/*</code> files
+upstream.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="difflibs"/>3.4. Differing libraries</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+There is one other common problem: libraries are often different from
+platform to platform.  For example, a <code class="filename">Makefile</code> can
+contain a reference to a library which doesn't exist on the Debian system.
+In that case, we need to change it to a library which does exist in Debian,
+and serves the same purpose.
+</p>
+        <p>
+Let's assume a line in your program's <code class="filename">Makefile</code> (or
+<code class="filename">Makefile.in</code>) as the following.
+</p>
+        <pre class="screen">
+LIBS = -lfoo -lbar
+</pre>
+        <p>
+If your program doesn't compile since the <code class="literal">foo</code> library
+doesn't exist and its equivalent is provided by the <code class="literal">foo2</code>
+library on the Debian system, you can fix this build problem as
+<code class="filename">debian/patches/foo2.patch</code> by changing
+<code class="literal">foo</code> into <code class="literal">foo2</code>:<a href="#ftn.idm1141" class="footnote" id="idm1141"><sup class="footnote">[26]</sup></a>
+</p>
+        <pre class="screen">
+$ dquilt new foo2.patch
+$ dquilt add Makefile
+$ sed -i -e 's/-lfoo/-lfoo2/g' Makefile
+$ dquilt refresh
+$ dquilt header -e
+... describe patch
+</pre>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm974" class="footnote">
+          <p><a href="#idm974" class="para"><sup class="para">[22] </sup></a> The <code class="filename">debian/patches</code> directory should exist now if you
+ran <span class="command"><strong>dh_make</strong></span> as described before.  This example operation
+creates it just in case you are updating an existing package.  </p>
+        </div>
+        <div id="ftn.idm1010" class="footnote">
+          <p><a href="#idm1010" class="para"><sup class="para">[23] </sup></a> See <a class="ulink" href="http://www.gnu.org/prep/standards/html_node/DESTDIR.html#DESTDIR">GNU Coding Standards: 7.2.4 DESTDIR: Support
+for Staged Installs</a>.</p>
+        </div>
+        <div id="ftn.idm1027" class="footnote">
+          <p><a href="#idm1027" class="para"><sup class="para">[24] </sup></a> For a source package generating multiple binary packages, the
+<span class="command"><strong>dh_auto_install</strong></span> command uses
+<code class="filename">debian/tmp</code> as the temporary directory while the
+<span class="command"><strong>dh_install</strong></span> command with the help of
+<code class="filename">debian/<em class="replaceable"><code>package-1</code></em>.install</code> and
+<code class="filename">debian/<em class="replaceable"><code>package-2</code></em>.install</code>
+files will split the contents of <code class="filename">debian/tmp</code> into
+<code class="filename">debian/<em class="replaceable"><code>package-1</code></em></code> and
+<code class="filename">debian/<em class="replaceable"><code>package-2</code></em></code> temporary
+directories, to create
+<code class="filename"><em class="replaceable"><code>package-1</code></em>_*.deb</code> and
+<code class="filename"><em class="replaceable"><code>package-2</code></em>_*.deb</code> binary
+packages.
+</p>
+        </div>
+        <div id="ftn.idm1057" class="footnote">
+          <p><a href="#idm1057" class="para"><sup class="para">[25] </sup></a> This is just an example to show what a <code class="filename">Makefile</code> should
+look like.  If the <code class="filename">Makefile</code> is created by the
+<span class="command"><strong>./configure</strong></span> command, the correct way to fix this kind of
+<code class="filename">Makefile</code> is to execute <span class="command"><strong>./configure</strong></span>
+from the <span class="command"><strong>dh_auto_configure</strong></span> command with default options
+including <code class="literal">--prefix=/usr</code>.  </p>
+        </div>
+        <div id="ftn.idm1141" class="footnote">
+          <p><a href="#idm1141" class="para"><sup class="para">[26] </sup></a>If there are API changes from the <code class="literal">foo</code> library to the
+<code class="literal">foo2</code> library, required changes to the source code need to
+be made to match the new API.</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="first.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="dreq.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 2. Những bước đầu tiên </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 4. Required files under the <code class="filename">debian</code> directory</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

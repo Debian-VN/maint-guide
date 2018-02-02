@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 5. Other files under the debian directory</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="dreq.vi.html" title="Chương 4. Required files under the debian directory"/>
+    <link rel="next" href="build.vi.html" title="Chương 6. Biên dịch gói"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 5. Other files under the <code class="filename">debian</code> directory</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="dreq.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="build.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="dother"/>Chương 5. Other files under the <code class="filename">debian</code> directory</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#readme">5.1. <code class="filename">README.Debian</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#compat">5.2. <code class="filename">compat</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#conffiles">5.3. <code class="filename">conffiles</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#crond">5.4. <code class="filename"><em class="replaceable"><code>package</code></em>.cron.*</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#dirs">5.5. <code class="filename">dirs</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#doc-base">5.6. <code class="filename"><em class="replaceable"><code>package</code></em>.doc-base</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#docs">5.7. <code class="filename">docs</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#emacsen">5.8. <code class="filename">emacsen-*</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#examples">5.9. <code class="filename"><em class="replaceable"><code>package</code></em>.examples</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#initd">5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> and
+<code class="filename"><em class="replaceable"><code>package</code></em>.default</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#install">5.11. <code class="filename">install</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#info">5.12. <code class="filename"><em class="replaceable"><code>package</code></em>.info</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#links">5.13. <code class="filename"><em class="replaceable"><code>package</code></em>.links</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#lintian">5.14. <code class="filename">{<em class="replaceable"><code>package</code></em>.,source/}lintian-overrides</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#manpage">5.15. <code class="filename">manpage.*</code></a>
+            </span>
+          </dt>
+          <dd>
+            <dl>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#manpage1">5.15.1. <code class="filename">manpage.1.ex</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#manpagesgml">5.15.2. <code class="filename">manpage.sgml.ex</code></a>
+                </span>
+              </dt>
+              <dt>
+                <span class="section">
+                  <a href="dother.vi.html#manpagexml">5.15.3. <code class="filename">manpage.xml.ex</code></a>
+                </span>
+              </dt>
+            </dl>
+          </dd>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#manpages">5.16. <code class="filename"><em class="replaceable"><code>package</code></em>.manpages</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#news">5.17. <code class="filename">NEWS</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#maintscripts">5.18. <code class="filename">{pre,post}{inst,rm}</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#symbols">5.19. <code class="filename"><em class="replaceable"><code>package</code></em>.symbols</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#todo">5.20. <code class="filename">TODO</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#watch">5.21. <code class="filename">watch</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#sourcef">5.22. <code class="filename">source/format</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#sourcel">5.23. <code class="filename">source/local-options</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#sourceopt">5.24. <code class="filename">source/options</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="dother.vi.html#patches">5.25. <code class="filename">patches/*</code></a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+To control most of what <code class="systemitem">debhelper</code>
+does while building the package, you put optional configuration files under
+the <code class="filename">debian</code> directory.  This chapter will provide an
+overview of what each of these does and its format.  Please read the <a class="ulink" href="http://www.debian.org/doc/devel-manuals#policy">Debian Policy Manual</a> and <a class="ulink" href="http://www.debian.org/doc/devel-manuals#devref">Debian Developer's Reference</a> for
+guidelines for packaging.
+</p>
+      <p>
+The <span class="command"><strong>dh_make</strong></span> command will create some template
+configuration files under the <code class="filename">debian</code> directory.  Most
+of them come with filenames suffixed by <code class="literal">.ex</code>.  Some of
+them come with filenames prefixed by the binary package name such as
+<code class="literal"><em class="replaceable"><code>package</code></em></code>.  Take a look at all
+of them.  <a href="#ftn.idm2008" class="footnote" id="idm2008"><sup class="footnote">[54]</sup></a>
+</p>
+      <p>
+Some template configuration files for <code class="systemitem">debhelper</code> may not be created by the
+<span class="command"><strong>dh_make</strong></span> command.  In such cases, you need to create them
+with an editor.
+</p>
+      <p>
+If you wish or need to activate any of these, please do the following:
+</p>
+      <div class="itemizedlist">
+        <ul class="itemizedlist">
+          <li class="listitem">
+            <p>
+rename template files by removing the <code class="literal">.ex</code> or
+<code class="literal">.EX</code> suffix if they have one;
+</p>
+          </li>
+          <li class="listitem">
+            <p>
+rename the configuration files to use the actual binary package name in
+place of <code class="literal"><em class="replaceable"><code>package</code></em></code>;
+</p>
+          </li>
+          <li class="listitem">
+            <p>
+modify template file contents to suit your needs;
+</p>
+          </li>
+          <li class="listitem">
+            <p>
+remove template files which you do not need;
+</p>
+          </li>
+          <li class="listitem">
+            <p>
+modify the <code class="filename">control</code> file (see <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>), if necessary;
+</p>
+          </li>
+          <li class="listitem">
+            <p>
+modify the <code class="filename">rules</code> file (see <a class="xref" href="dreq.vi.html#rules" title="4.4. rules">Phần 4.4, “<code class="filename">rules</code>”</a>), if
+necessary.
+</p>
+          </li>
+        </ul>
+      </div>
+      <p>
+Any <code class="systemitem">debhelper</code> configuration files
+without a <code class="filename"><em class="replaceable"><code>package</code></em></code> prefix,
+such as <code class="filename">install</code>, apply to the first binary package.
+When there are many binary packages, their configurations can be specified
+by prefixing their name to their configuration filenames such as
+<code class="filename"><em class="replaceable"><code>package-1</code></em>.install</code>,
+<code class="filename"><em class="replaceable"><code>package-2</code></em>.install</code>, etc.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="readme"/>5.1. <code class="filename">README.Debian</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Any extra details or discrepancies between the original package and your
+Debian version should be documented here.
+</p>
+        <p>
+<span class="command"><strong>dh_make</strong></span> created a default one; this is what it looks
+like:
+</p>
+        <pre class="screen">
+gentoo for Debian
+-----------------
+&lt;possible notes regarding this package - if none, delete this file&gt;
+ -- Josip Rodin &lt;joy-mg@debian.org&gt;, Wed, 11 Nov 1998 21:02:14 +0100
+</pre>
+        <p>
+If you have nothing to be documented, remove this file.  See <span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="compat"/>5.2. <code class="filename">compat</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The <code class="filename">compat</code> file defines the <code class="systemitem">debhelper</code> compatibility level.  Currently, you
+should set it to the <code class="systemitem">debhelper</code> v9 as
+follows:
+</p>
+        <pre class="screen">
+$ echo 9 &gt; debian/compat
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="conffiles"/>5.3. <code class="filename">conffiles</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+One of the most annoying things about software is when you spend a great
+deal of time and effort customizing a program, only to have an upgrade stomp
+all over your changes.  Debian solves this problem by marking such
+configuration files as conffiles.  <a href="#ftn.idm2069" class="footnote" id="idm2069"><sup class="footnote">[55]</sup></a>
+When you upgrade a package, you'll be asked whether you want to keep your
+old configuration files or not.
+</p>
+        <p>
+<span class="citerefentry"><span class="refentrytitle">dh_installdeb</span>(1)</span> <span class="emphasis"><em>automatically</em></span>
+flags any files under the <code class="filename">/etc</code> directory as conffiles,
+so if your program only has conffiles there you do not need to specify them
+in this file.  For most package types, the only place conffiles should ever
+be is under <code class="filename">/etc</code>, and so this file doesn't need to
+exist.
+</p>
+        <p>
+If your program uses configuration files but also rewrites them on its own,
+it's best not to make them conffiles because <span class="command"><strong>dpkg</strong></span> will
+then prompt users to verify the changes all the time.
+</p>
+        <p>
+If the program you're packaging requires every user to modify the
+configuration files in the <code class="filename">/etc</code> directory, there are
+two popular ways to arrange for them to not be conffiles, keeping
+<span class="command"><strong>dpkg</strong></span> quiet:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Create a symlink under the <code class="filename">/etc</code> directory pointing to a
+file under the <code class="filename">/var</code> directory generated by the
+maintainer scripts.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Create a file generated by the maintainer scripts under the
+<code class="filename">/etc</code> directory.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+For information on maintainer scripts, see <a class="xref" href="dother.vi.html#maintscripts" title="5.18. {pre,post}{inst,rm}">Phần 5.18, “<code class="filename">{pre,post}{inst,rm}</code>”</a>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="crond"/>5.4. <code class="filename"><em class="replaceable"><code>package</code></em>.cron.*</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If your package requires regularly scheduled tasks to operate properly, you
+can use these files to set that up.  You can set up regular tasks that
+either happen hourly, daily, weekly, or monthly, or alternatively happen at
+any other time that you wish.  The filenames are:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.hourly</code> -
+Installed as
+<code class="filename">/etc/cron.hourly/<em class="replaceable"><code>package</code></em></code>;
+run once an hour.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.daily</code> -
+Installed as
+<code class="filename">/etc/cron.daily/<em class="replaceable"><code>package</code></em></code>; run
+once a day.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.weekly</code> -
+Installed as
+<code class="filename">/etc/cron.weekly/<em class="replaceable"><code>package</code></em></code>;
+run once a week.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.monthly</code> -
+Installed as
+<code class="filename">/etc/cron.monthly/<em class="replaceable"><code>package</code></em></code>:
+run once a month.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.d</code> - Installed
+as <code class="filename">/etc/cron.d/<em class="replaceable"><code>package</code></em></code>: for
+any other time.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Most of these files are shell scripts, with the exception of
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.d</code> which follows
+the format of <span class="citerefentry"><span class="refentrytitle">crontab</span>(5)</span>.
+</p>
+        <p>
+No explicit <code class="filename">cron.*</code> file is needed to set up log
+rotation; for that, see
+<span class="citerefentry"><span class="refentrytitle">dh_installlogrotate</span>(1)</span> and
+<span class="citerefentry"><span class="refentrytitle">logrotate</span>(8)</span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="dirs"/>5.5. <code class="filename">dirs</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+This file specifies any directories which we need but which are not created
+by the normal installation procedure (<code class="literal">make install
+DESTDIR=...</code> invoked by <code class="literal">dh_auto_install</code>).  This
+generally means there is a problem with the <code class="filename">Makefile</code>.
+</p>
+        <p>
+Files listed in an <code class="filename">install</code> file don't need their
+directories created first.  See <a class="xref" href="dother.vi.html#install" title="5.11. install">Phần 5.11, “<code class="filename">install</code>”</a>.
+</p>
+        <p>
+It is best to try to run the installation first and only use this if you run
+into trouble.  There is no preceding slash on the directory names listed in
+the <code class="filename">dirs</code> file.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="doc-base"/>5.6. <code class="filename"><em class="replaceable"><code>package</code></em>.doc-base</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If your package has documentation other than manual and info pages, you
+should use the <code class="systemitem">doc-base</code> file to
+register it, so the user can find it with e.g.  <span class="citerefentry"><span class="refentrytitle">dhelp</span>(1)</span>, <span class="citerefentry"><span class="refentrytitle">dwww</span>(1)</span>, or <span class="citerefentry"><span class="refentrytitle">doccentral</span>(1)</span>.
+</p>
+        <p>
+This usually includes HTML, PS and PDF files, shipped in
+<code class="filename">/usr/share/doc/<em class="replaceable"><code>packagename</code></em>/</code>.
+</p>
+        <p>
+This is what <code class="systemitem">gentoo</code>'s doc-base file
+<code class="filename">gentoo.doc-base</code> looks like:
+</p>
+        <pre class="screen">
+Document: gentoo
+Title: Gentoo Manual
+Author: Emil Brink
+Abstract: This manual describes what Gentoo is, and how it can be used.
+Section: File Management
+Format: HTML
+Index: /usr/share/doc/gentoo/html/index.html
+Files: /usr/share/doc/gentoo/html/*.html
+</pre>
+        <p>
+For information on the file format, see <span class="citerefentry"><span class="refentrytitle">install-docs</span>(8)</span> and the Debian <code class="systemitem">doc-base</code> manual at the local copy
+<code class="filename">/usr/share/doc/doc-base/doc-base.html/index.html</code> provided by the <code class="systemitem">doc-base</code> package.
+</p>
+        <p>
+For more details on installing additional documentation, look in <a class="xref" href="modify.vi.html#destdir" title="3.3. Installation of files to their destination">Phần 3.3, “Installation of files to their destination”</a>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="docs"/>5.7. <code class="filename">docs</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+This file specifies the file names of documentation files we can have
+<span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span> install into the temporary
+directory for us.
+</p>
+        <p>
+By default, it will include all existing files in the top-level source
+directory that are called <code class="filename">BUGS</code>,
+<code class="filename">README*</code>, <code class="filename">TODO</code> etc.
+</p>
+        <p>
+For <code class="systemitem">gentoo</code>, some other files are
+also included:
+</p>
+        <pre class="screen">
+BUGS
+CONFIG-CHANGES
+CREDITS
+NEWS
+README
+README.gtkrc
+TODO
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="emacsen"/>5.8. <code class="filename">emacsen-*</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If your package supplies Emacs files that can be bytecompiled at package
+installation time, you can use these files to set it up.
+</p>
+        <p>
+They are installed into the temporary directory by <span class="citerefentry"><span class="refentrytitle">dh_installemacsen</span>(1)</span>.
+</p>
+        <p>
+If you don't need these, remove them.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="examples"/>5.9. <code class="filename"><em class="replaceable"><code>package</code></em>.examples</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The <span class="citerefentry"><span class="refentrytitle">dh_installexamples</span>(1)</span> command installs files and
+directories listed in this file as example files.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="initd"/>5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> and
+<code class="filename"><em class="replaceable"><code>package</code></em>.default</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If your package is a daemon that needs to be run at system start-up, you've
+obviously disregarded my initial recommendation, haven't you? :-)
+</p>
+        <p>
+The <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> file is
+installed as the
+<code class="filename">/etc/init.d/<em class="replaceable"><code>package</code></em></code> script
+which starts and stops the daemon.  Its fairly generic skeleton template is
+provided by the <span class="command"><strong>dh_make</strong></span> command as
+<code class="filename">init.d.ex</code>.  You'll likely have to rename and edit it, a
+lot, while making sure to provide <a class="ulink" href="http://www.linuxfoundation.org/collaborate/workgroups/lsb">Linux Standard
+Base</a> (LSB) compliant headers.  It gets installed into the temporary
+directory by <span class="citerefentry"><span class="refentrytitle">dh_installinit</span>(1)</span>.
+</p>
+        <p>
+The <code class="filename"><em class="replaceable"><code>package</code></em>.default</code> file
+will be installed as
+<code class="filename">/etc/default/<em class="replaceable"><code>package</code></em></code>.  This
+file sets defaults that are sourced by the init script.  This
+<code class="filename"><em class="replaceable"><code>package</code></em>.default</code> file is most
+often used to disable running a daemon, or to set some default flags or
+timeouts.  If your init script has certain configurable features, you can
+set them in the
+<code class="filename"><em class="replaceable"><code>package</code></em>.default</code> file,
+instead of in the init script itself.
+</p>
+        <p>
+If your upstream program provides a file for the init script, you can either
+use it or not.  If you don't use their init script then create a new one in
+<code class="filename"><em class="replaceable"><code>package</code></em>.init</code>.  However if
+the upstream init script looks fine and installs in the right place you
+still need to set up the <code class="filename">rc*</code> symlinks.  To do this you
+will need to override <span class="command"><strong>dh_installinit</strong></span> in the
+<code class="filename">rules</code> file with the following lines:
+</p>
+        <pre class="screen">
+override_dh_installinit:
+        dh_installinit --onlyscripts
+</pre>
+        <p>
+If you don't need this, remove the files.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="install"/>5.11. <code class="filename">install</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If there are files that need to be installed into your package but your
+standard <code class="literal">make install</code> won't do it, put the filenames and
+destinations into this <code class="filename">install</code> file.  They are
+installed by <span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2265" class="footnote" id="idm2265"><sup class="footnote">[56]</sup></a> You should first check there is not a more specific tool to use.
+For example, documents should be in the <code class="filename">docs</code> file and
+not in this one.
+</p>
+        <p>
+This <code class="filename">install</code> file has one line per file installed, with
+the name of the file (relative to the top build directory) then a space then
+the installation directory (relative to the install directory).  One example
+of where this is used is if a binary
+<code class="filename">src/<em class="replaceable"><code>bar</code></em></code> is left uninstalled;
+the <code class="filename">install</code> file might look like:
+</p>
+        <pre class="screen">
+src/<em class="replaceable"><code>bar</code></em> usr/bin
+</pre>
+        <p>
+This means when this package is installed, there will be an executable
+command <code class="filename">/usr/bin/<em class="replaceable"><code>bar</code></em></code>.
+</p>
+        <p>
+Alternatively, this <code class="filename">install</code> can have the name of the
+file only without the installation directory when the relative directory
+path does not change.  This format is usually used for a large package that
+splits the output of its build into multiple binary packages using
+<code class="filename"><em class="replaceable"><code>package-1</code></em>.install</code>,
+<code class="filename"><em class="replaceable"><code>package-2</code></em>.install</code>, etc.
+</p>
+        <p>
+The <span class="command"><strong>dh_install</strong></span> command will fall back to looking in
+<code class="filename">debian/tmp</code> for files, if it doesn't find them in the
+current directory (or wherever you've told it to look using
+<code class="literal">--sourcedir</code>).
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="info"/>5.12. <code class="filename"><em class="replaceable"><code>package</code></em>.info</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If your package has info pages, you should install them using <span class="citerefentry"><span class="refentrytitle">dh_installinfo</span>(1)</span> by listing them in a
+<code class="filename"><em class="replaceable"><code>package</code></em>.info</code> file.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="links"/>5.13. <code class="filename"><em class="replaceable"><code>package</code></em>.links</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If you need to create additional symlinks in package build directories as
+package maintainer, you should install them using <span class="citerefentry"><span class="refentrytitle">dh_link</span>(1)</span> by listing their full paths of source and destination files
+in a <code class="filename"><em class="replaceable"><code>package</code></em>.links</code> file.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="lintian"/>5.14. <code class="filename">{<em class="replaceable"><code>package</code></em>.,source/}lintian-overrides</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If <code class="systemitem">lintian</code> reports an erroneous
+diagnostic for a case where Debian policy allows exceptions to some rule,
+you can use
+<code class="filename"><em class="replaceable"><code>package</code></em>.lintian-overrides</code> or
+<code class="filename">source/lintian-overrides</code> to quieten it.  Please read
+Lintian User's Manual (<code class="filename">https://lintian.debian.org/manual/index.html</code>) and refrain from
+abusing this.
+</p>
+        <p>
+<code class="filename"><em class="replaceable"><code>package</code></em>.lintian-overrides</code> is
+for the binary package named <code class="systemitem"><em class="replaceable"><code>package</code></em></code> and is
+installed into
+<code class="filename">usr/share/lintian/overrides/<em class="replaceable"><code>package</code></em></code>
+by the <span class="command"><strong>dh_lintian</strong></span> command.
+</p>
+        <p>
+<code class="filename">source/lintian-overrides</code> is for the source package.
+This is not installed.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="manpage"/>5.15. <code class="filename">manpage.*</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Your program(s) should have a manual page.  If they don't, you should create
+them.  The <span class="command"><strong>dh_make</strong></span> command creates some template files
+for manual pages.  These need to be copied and edited for each command
+missing its manual page.  Please make sure to remove unused templates.
+</p>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="manpage1"/>5.15.1. <code class="filename">manpage.1.ex</code></h3>
+              </div>
+            </div>
+          </div>
+          <p>
+Manual pages are normally written in <span class="citerefentry"><span class="refentrytitle">nroff</span>(1)</span>.  The <code class="filename">manpage.1.ex</code> template is written
+in <span class="command"><strong>nroff</strong></span>, too.  See the <span class="citerefentry"><span class="refentrytitle">man</span>(7)</span>
+manual page for a brief description of how to edit such a file.
+</p>
+          <p>
+The final manual page file name should give the name of the program it is
+documenting, so we will rename it from <code class="literal">manpage</code> to
+<code class="literal">gentoo</code>.  The file name also includes
+<code class="literal">.1</code> as the first suffix, which means it's a manual page
+for a user command.  Be sure to verify that this section is indeed the
+correct one.  Here's a short list of manual page sections:
+</p>
+          <div class="informaltable">
+            <a id="manpage-sections"/>
+            <table class="informaltable" border="1">
+              <colgroup>
+                <col style="text-align: left"/>
+                <col style="text-align: left"/>
+                <col style="text-align: left"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th style="text-align: left">Section</th>
+                  <th style="text-align: left">Description</th>
+                  <th style="text-align: left">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align: left">1</td>
+                  <td style="text-align: left">User commands</td>
+                  <td style="text-align: left">Executable commands or scripts</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">2</td>
+                  <td style="text-align: left">System calls</td>
+                  <td style="text-align: left">Functions provided by the kernel</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">3</td>
+                  <td style="text-align: left">Library calls</td>
+                  <td style="text-align: left">Functions within system libraries</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">4</td>
+                  <td style="text-align: left">Special files</td>
+                  <td style="text-align: left">Usually found in <code class="filename">/dev</code></td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">5</td>
+                  <td style="text-align: left">File formats</td>
+                  <td style="text-align: left">E.g. <code class="filename">/etc/passwd</code>'s format</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">6</td>
+                  <td style="text-align: left">Games</td>
+                  <td style="text-align: left">Games or other frivolous programs</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">7</td>
+                  <td style="text-align: left">Macro packages</td>
+                  <td style="text-align: left">Such as <span class="command"><strong>man</strong></span> macros</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">8</td>
+                  <td style="text-align: left">System administration</td>
+                  <td style="text-align: left">Programs typically only run by root</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left">9</td>
+                  <td style="text-align: left">Kernel routines</td>
+                  <td style="text-align: left">Non-standard calls and internals</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+So <code class="systemitem">gentoo</code>'s man page should be
+called <code class="filename">gentoo.1</code>.  If there was no
+<code class="filename">gentoo.1</code> man page in the original source, you should
+create it by renaming the <code class="filename">manpage.1.ex</code> template to
+<code class="filename">gentoo.1</code> and editing it using information from the
+example and from the upstream docs.
+</p>
+          <p>
+You can use the <span class="command"><strong>help2man</strong></span> command to generate a man page
+out of the <code class="literal">--help</code> and <code class="literal">--version</code> output
+of each program, too.  <a href="#ftn.idm2413" class="footnote" id="idm2413"><sup class="footnote">[57]</sup></a>
+</p>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="manpagesgml"/>5.15.2. <code class="filename">manpage.sgml.ex</code></h3>
+              </div>
+            </div>
+          </div>
+          <p>
+If on the other hand you prefer writing SGML instead of
+<span class="command"><strong>nroff</strong></span>, you can use the
+<code class="filename">manpage.sgml.ex</code> template.  If you do this, you have to:
+</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist">
+              <li class="listitem">
+                <p>
+rename the file to something like <code class="filename">gentoo.sgml</code>.
+</p>
+              </li>
+              <li class="listitem">
+                <p>
+install the <code class="systemitem">docbook-to-man</code> package
+</p>
+              </li>
+              <li class="listitem">
+                <p>
+add <code class="literal">docbook-to-man</code> to the
+<code class="literal">Build-Depends</code> line in the <code class="filename">control</code>
+file
+</p>
+              </li>
+              <li class="listitem">
+                <p>
+add an <code class="literal">override_dh_auto_build</code> target to your
+<code class="filename">rules</code> file:
+</p>
+                <pre class="screen">
+override_dh_auto_build:
+        docbook-to-man debian/gentoo.sgml &gt; debian/gentoo.1
+        dh_auto_build
+</pre>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title"><a id="manpagexml"/>5.15.3. <code class="filename">manpage.xml.ex</code></h3>
+              </div>
+            </div>
+          </div>
+          <p>
+If you prefer XML over SGML, you can use the
+<code class="literal">manpage.xml.ex</code> template.  If you do this, you have to:
+</p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist">
+              <li class="listitem">
+                <p>
+rename the source file to something like <code class="literal">gentoo.1.xml</code>
+</p>
+              </li>
+              <li class="listitem">
+                <p>
+install the <code class="systemitem">docbook-xsl</code> package and
+an XSLT processor like <code class="systemitem">xsltproc</code>
+(recommended)
+</p>
+              </li>
+              <li class="listitem">
+                <p>
+add the <code class="literal">docbook-xsl</code>, <code class="literal">docbook-xml</code>, and
+<code class="literal">xsltproc</code> packages to the <code class="literal">Build-Depends</code>
+line in the <code class="literal">control</code> file
+</p>
+              </li>
+              <li class="listitem">
+                <p>
+add an <code class="literal">override_dh_auto_build</code> target to your
+<code class="filename">rules</code> file:
+</p>
+                <pre class="screen">
+override_dh_auto_build:
+        xsltproc --nonet \
+         --param make.year.ranges 1 \
+         --param make.single.year.ranges 1 \
+         --param man.charmap.use.subset 0 \
+         -o debian/ \
+http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl\
+        debian/gentoo.1.xml
+        dh_auto_build
+</pre>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="manpages"/>5.16. <code class="filename"><em class="replaceable"><code>package</code></em>.manpages</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+If your package has manual pages, you should install them using
+<span class="citerefentry"><span class="refentrytitle">dh_installman</span>(1)</span> by listing them in a
+<code class="filename"><em class="replaceable"><code>package</code></em>.manpages</code> file.
+</p>
+        <p>
+To install <code class="filename">docs/gentoo.1</code> as a manpage for the
+<code class="systemitem">gentoo</code> package, create a
+<code class="filename">gentoo.manpages</code> file as follows:
+</p>
+        <pre class="screen">
+docs/gentoo.1
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="news"/>5.17. <code class="filename">NEWS</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The <span class="citerefentry"><span class="refentrytitle">dh_installchangelogs</span>(1)</span> command installs this.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="maintscripts"/>5.18. <code class="filename">{pre,post}{inst,rm}</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+These <code class="filename">postinst</code>, <code class="filename">preinst</code>,
+<code class="filename">postrm</code>, and <code class="filename">prerm</code> files
+<a href="#ftn.idm2496" class="footnote" id="idm2496"><sup class="footnote">[58]</sup></a> are called <span class="emphasis"><em>maintainer
+scripts</em></span>.  They are scripts which are put in the control area of
+the package and run by <span class="command"><strong>dpkg</strong></span> when your package is
+installed, upgraded, or removed.
+</p>
+        <p>
+As a novice maintainer, you should avoid any manual editing of maintainer
+scripts because they are problematic.  For more information refer to the
+<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html">Debian Policy Manual, 6 "Package
+maintainer scripts and installation procedure"</a>, and take a look at
+the example files provided by <span class="command"><strong>dh_make</strong></span>.
+</p>
+        <p>
+If you did not listen to me and have created custom maintainer scripts for a
+package, you should make sure to test them not only for <span class="strong"><strong>install</strong></span> and <span class="strong"><strong>upgrade</strong></span> but also for <span class="strong"><strong>remove</strong></span> and <span class="strong"><strong>purge</strong></span>.
+</p>
+        <p>
+Upgrades to the new version should be silent and non-intrusive (existing
+users should not notice the upgrade except by discovering that old bugs have
+been fixed and perhaps that there are new features).
+</p>
+        <p>
+When the upgrade is necessarily intrusive (eg., config files scattered
+through various home directories with totally different structure), you may
+consider as the last resort switching the package to a safe fallback state
+(e.g., disabling a service) and providing the proper documentation required
+by policy (<code class="filename">README.Debian</code> and
+<code class="filename">NEWS.Debian</code>).  Don't bother the user with
+<span class="command"><strong>debconf</strong></span> notes invoked from these maintainer scripts for
+upgrades.
+</p>
+        <p>
+The <code class="systemitem">ucf</code> package provides a
+<span class="emphasis"><em>conffile-like</em></span> handling infrastructure to preserve user
+changes for files that may not be labeled as <span class="emphasis"><em>conffiles</em></span>
+such as those managed by the maintainer scripts.  This should minimize
+issues associated with them.
+</p>
+        <p>
+These maintainer scripts are among the Debian enhancements that explain
+<span class="strong"><strong>why people choose Debian</strong></span>.  You must be
+very careful not to turn them into a source of annoyance.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="symbols"/>5.19. <code class="filename"><em class="replaceable"><code>package</code></em>.symbols</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Packaging of library is not easy for a novice maintainer and should be
+avoided.  Having said it, if your package has libraries, you should have
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code>
+files. See <a class="xref" href="advanced.vi.html#librarysymbols" title="A.2. Quản lý debian/package.symbols">Phần A.2, “Quản lý
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code>”</a>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="todo"/>5.20. <code class="filename">TODO</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The <span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span> command installs this.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="watch"/>5.21. <code class="filename">watch</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The <code class="filename">watch</code> file format is documented in the
+<span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span> manpage.  The <code class="filename">watch</code> file configures the
+<span class="command"><strong>uscan</strong></span> program (in the <code class="systemitem">devscripts</code> package) to watch the site where you
+originally got the source from.  This is also used by the <a class="ulink" href="http://wiki.debian.org/DEHS">Debian External Health Status (DEHS)</a> service.
+</p>
+        <p>
+Here are its contents:
+</p>
+        <pre class="screen">
+# watch control file for uscan
+version=3
+http://sf.net/gentoo/gentoo-(.+)\.tar\.gz debian uupdate
+</pre>
+        <p>
+Normally with a <code class="filename">watch</code> file, the URL at
+<code class="literal">http://sf.net/gentoo</code> is downloaded and searched for links of
+the form <code class="literal">&lt;a href=...&gt;</code>.  The basename (just the part
+after the final <code class="literal">/</code>) of each linked URL is compared against
+the Perl regular expression pattern (see <span class="citerefentry"><span class="refentrytitle">perlre</span>(1)</span>)  <code class="literal">gentoo-(.+)\.tar\.gz</code>.  Out of the files
+that match, the one with the greatest version number is downloaded and the
+<span class="command"><strong>uupdate</strong></span> program is run to create an updated source tree.
+</p>
+        <p>
+Although this is true for other sites, the SourceForge download service at
+<a class="ulink" href="http://sf.net">http://sf.net</a> is an exception.  When the
+<code class="filename">watch</code> file has an URL matching the Perl regexp
+<code class="literal">^http://sf\.net/</code>, the <span class="command"><strong>uscan</strong></span> program
+replaces it with <code class="literal">http://qa.debian.org/watch/sf.php/</code> and then applies
+this rule.  The URL redirector service at <a class="ulink" href="http://qa.debian.org/">http://qa.debian.org/</a> is designed
+to offer a stable redirect service to the desired file for any
+<code class="filename">watch</code> pattern of the form
+<code class="literal">http://sf.net/<em class="replaceable"><code>project</code></em>/<em class="replaceable"><code>tar-name</code></em>-(.+)\.tar\.gz</code>.
+This solves issues related to periodically changing SourceForge URLs.
+</p>
+        <p>
+If the upstream offers the cryptographic signature of the tarball, it is
+recommended to verify its authenticity using the
+<code class="literal">pgpsigurlmangle</code> option as described in <span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="sourcef"/>5.22. <code class="filename">source/format</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+In the <code class="filename">debian/source/format</code> file, there should be a
+single line indicating the desired format for the source package (check
+<span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span> for an exhaustive list).  After
+<code class="literal">squeeze</code>, it should say either:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="literal">3.0 (native)</code> for native Debian packages or
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="literal">3.0 (quilt)</code> for everything else.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+The newer <code class="literal">3.0 (quilt)</code> source format records modifications
+in a <span class="command"><strong>quilt</strong></span> patch series within
+<code class="filename">debian/patches</code>.  Those changes are then automatically
+applied during extraction of the source package.  <a href="#ftn.idm2597" class="footnote" id="idm2597"><sup class="footnote">[59]</sup></a> The Debian modifications are simply stored in a
+<code class="filename">debian.tar.gz</code> archive containing all files under the
+<code class="filename">debian</code> directory.  This new format supports inclusion
+of binary files such as PNG icons by the package maintainer without
+requiring tricks.  <a href="#ftn.idm2604" class="footnote" id="idm2604"><sup class="footnote">[60]</sup></a>
+</p>
+        <p>
+When <span class="command"><strong>dpkg-source</strong></span> extracts a source package in
+<code class="literal">3.0 (quilt)</code> source format, it automatically applies all
+patches listed in <code class="filename">debian/patches/series</code>.  You can avoid
+applying patches at the end of the extraction with the
+<code class="literal">--skip-patches</code> option.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="sourcel"/>5.23. <code class="filename">source/local-options</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+When you want to manage Debian packaging activities under a VCS, you
+typically create one branch (e.g.  <code class="literal">upstream</code>) tracking the
+upstream source and another branch (e.g.  typically
+<code class="literal">master</code> for Git)  tracking the Debian package.  For the
+latter, you usually want to have unpatched upstream source with your
+<code class="filename">debian/*</code> files for the Debian packaging to ease merging
+of the new upstream source.
+</p>
+        <p>
+After you build a package, the source is normally left patched.  You need to
+unpatch it manually by running <code class="literal">dquilt pop -a</code> before
+committing to the <code class="literal">master</code> branch.  You can automate this
+by adding the optional <code class="filename">debian/source/local-options</code> file
+containing <code class="literal">unapply-patches</code>.  This file is not included in
+the generated source package and changes the local build behavior only.
+This file may contain <code class="literal">abort-on-upstream-changes</code>, too (see
+<span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span>).
+</p>
+        <pre class="screen">
+unapply-patches
+abort-on-upstream-changes
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="sourceopt"/>5.24. <code class="filename">source/options</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The autogenerated files in the source tree can be quite annoying for
+packaging since they generate meaningless large patch files.  There are
+custom modules such as <span class="command"><strong>dh_autoreconf</strong></span> to ease this problem
+as described in <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Customization of rules file">Phần 4.4.3, “Customization of <code class="filename">rules</code> file”</a>.
+</p>
+        <p>
+You can provide a Perl regular expression to the
+<code class="literal">--extend-diff-ignore</code> option argument of <span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span> to ignore changes made to the autogenerated files while
+creating the source package.
+</p>
+        <p>
+As a general solution to address this problem of the autogenerated files,
+you can store such a <span class="command"><strong>dpkg-source</strong></span> option argument in the
+<code class="filename">source/options</code> file of the source package.  The
+following will skip creating patch files for
+<code class="filename">config.sub</code>, <code class="filename">config.guess</code>, and
+<code class="filename">Makefile</code>.
+</p>
+        <pre class="screen">
+extend-diff-ignore = "(^|/)(config\.sub|config\.guess|Makefile)$"
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="patches"/>5.25. <code class="filename">patches/*</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+The old <code class="literal">1.0</code> source format created a single large
+<code class="filename">diff.gz</code> file containing package maintenance files in
+<code class="filename">debian</code> and patch files for the source.  Such a package
+is a bit cumbersome to inspect and understand for each source tree
+modification later.  This is not so nice.
+</p>
+        <p>
+The newer <code class="literal">3.0 (quilt)</code> source format stores patches in
+<code class="filename">debian/patches/*</code> files using the
+<span class="command"><strong>quilt</strong></span> command.  These patches and other package data
+which are all contained under the <code class="filename">debian</code> directory are
+packaged as the <code class="filename">debian.tar.gz</code> file.  Since the
+<span class="command"><strong>dpkg-source</strong></span> command can handle <span class="command"><strong>quilt</strong></span>
+formatted patch data in the <code class="literal">3.0 (quilt)</code> source without
+the <code class="systemitem">quilt</code> package, it does not need
+a <code class="literal">Build-Depends</code> on <code class="systemitem">quilt</code>.  <a href="#ftn.idm2665" class="footnote" id="idm2665"><sup class="footnote">[61]</sup></a>
+</p>
+        <p>
+The <span class="command"><strong>quilt</strong></span> command is explained in <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span>.  It records modifications to the source as a stack of
+<code class="literal">-p1</code> patch files in the
+<code class="filename">debian/patches</code> directory and the source tree is
+untouched outside of the <code class="filename">debian</code> directory.  The order
+of these patches is recorded in the
+<code class="filename">debian/patches/series</code> file.  You can apply (=push),
+un-apply (=pop), and refresh patches easily.  <a href="#ftn.idm2681" class="footnote" id="idm2681"><sup class="footnote">[62]</sup></a>
+</p>
+        <p>
+For <a class="xref" href="modify.vi.html" title="Chương 3. Modifying the source">Chương 3, <em>Modifying the source</em></a>, we created three patches in
+<code class="filename">debian/patches</code>.
+</p>
+        <p>
+Since Debian patches are located in <code class="filename">debian/patches</code>,
+please make sure to set up the <span class="command"><strong>dquilt</strong></span> command properly as
+described in <a class="xref" href="modify.vi.html#quiltrc" title="3.1. Setting up quilt">Phần 3.1, “Setting up <span class="command"><strong>quilt</strong></span>”</a>.
+</p>
+        <p>
+When anyone (including yourself) provides a patch
+<code class="filename"><em class="replaceable"><code>foo</code></em>.patch</code> to the source
+later, modifying a <code class="literal">3.0 (quilt)</code> source package is quite
+simple:
+</p>
+        <pre class="screen">
+$ dpkg-source -x gentoo_0.9.12.dsc
+$ cd gentoo-0.9.12
+$ dquilt import ../<em class="replaceable"><code>foo</code></em>.patch
+$ dquilt push
+$ dquilt refresh
+$ dquilt header -e
+... describe patch
+</pre>
+        <p>
+The patches stored in the newer <code class="literal">3.0 (quilt)</code> source format
+must be <span class="emphasis"><em>fuzz</em></span> free.  You can ensure this with
+<code class="literal">dquilt pop -a; while dquilt push; do dquilt refresh;
+done</code>.
+</p>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm2008" class="footnote">
+          <p><a href="#idm2008" class="para"><sup class="para">[54] </sup></a>
+In this chapter, files in the <code class="filename">debian</code> directory are
+referred to without the leading <code class="filename">debian/</code> for simplicity
+whenever the meaning is obvious.
+</p>
+        </div>
+        <div id="ftn.idm2069" class="footnote">
+          <p><a href="#idm2069" class="para"><sup class="para">[55] </sup></a>See <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> and <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
+</p>
+        </div>
+        <div id="ftn.idm2265" class="footnote">
+          <p><a href="#idm2265" class="para"><sup class="para">[56] </sup></a> This replaces the deprecated <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> command which is configured by the
+<code class="filename">files</code> file.  </p>
+        </div>
+        <div id="ftn.idm2413" class="footnote">
+          <p><a href="#idm2413" class="para"><sup class="para">[57] </sup></a> Note that <span class="command"><strong>help2man</strong></span>'s placeholder man page will claim that
+more detailed documentation is available in the info system. If the command
+is missing an <span class="command"><strong>info</strong></span> page, you should manually edit the man
+page created by the <span class="command"><strong>help2man</strong></span> command.  </p>
+        </div>
+        <div id="ftn.idm2496" class="footnote">
+          <p><a href="#idm2496" class="para"><sup class="para">[58] </sup></a> Despite this use of the <span class="command"><strong>bash</strong></span> shorthand expression
+<code class="filename">{pre,post}{inst,rm}</code> to indicate these filenames, you
+should use pure POSIX syntax for these maintainer scripts for compatibility
+with <span class="command"><strong>dash</strong></span> as the system shell.  </p>
+        </div>
+        <div id="ftn.idm2597" class="footnote">
+          <p><a href="#idm2597" class="para"><sup class="para">[59] </sup></a> See <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> for a summary on the switch to
+the new <code class="literal">3.0 (quilt)</code> and <code class="literal">3.0 (native)</code>
+source formats.  </p>
+        </div>
+        <div id="ftn.idm2604" class="footnote">
+          <p><a href="#idm2604" class="para"><sup class="para">[60] </sup></a>Actually, this new format also supports multiple upstream tarballs and more
+compression methods.  These are beyond the scope of this document.</p>
+        </div>
+        <div id="ftn.idm2665" class="footnote">
+          <p><a href="#idm2665" class="para"><sup class="para">[61] </sup></a> Several methods of patch set maintenance have been proposed and are in use
+for Debian packages.  The <span class="command"><strong>quilt</strong></span> system is the preferred
+maintenance system in use.  Others include <span class="command"><strong>dpatch</strong></span>,
+<span class="command"><strong>dbs</strong></span>, and <span class="command"><strong>cdbs</strong></span>.  Many of these keep
+such patches as <code class="filename">debian/patches/*</code> files.  </p>
+        </div>
+        <div id="ftn.idm2681" class="footnote">
+          <p><a href="#idm2681" class="para"><sup class="para">[62] </sup></a> If you are asking a sponsor to upload your package, this kind of clear
+separation and documentation of your changes is very important to expedite
+the package review by your sponsor.  </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="dreq.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="build.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 4. Required files under the <code class="filename">debian</code> directory </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 6. Biên dịch gói</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

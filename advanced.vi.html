@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Phụ lục A. Đóng gói nâng cao</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="upload.vi.html" title="Chương 9. Tải gói phần mềm lên"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Phụ lục A. Đóng gói nâng cao</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="upload.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> </td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="appendix">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="advanced"/>Phụ lục A. Đóng gói nâng cao</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="advanced.vi.html#library">A.1. Các thư viện được chia sẻ</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="advanced.vi.html#librarysymbols">A.2. Quản lý
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="advanced.vi.html#multiarch">A.3. Multiarch</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="advanced.vi.html#librarypackage">A.4. Biên dịch một gói phần mềm chia sẻ</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="advanced.vi.html#native-dh-make">A.5. Gói phần mềm Debian native</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Sau đây là một vài gợi ý và chỉ dẫn cho các đề tài đóng gói nâng cáo mà bạn
+rất có thể phải đối mặt.  Bạn rất được khuyến khích đọc tất cả những tài
+liệu liên quan được đề nghị ở đây.
+</p>
+      <p>
+Bạn có thể cần phải thay đổi các tập tin khuôn mẫu đóng gói tạo ra bởi lệnh
+<span class="command"><strong>dh_make</strong></span> để biết được các đề tài được nói tới trong chương
+này.  Lệnh <span class="command"><strong>debmake</strong></span> mới hơn có thể sẽ nói về các đề tài
+này tốt hơn.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="library"/>A.1. Các thư viện được chia sẻ</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Trước khi đóng gói các <a class="ulink" href="http://wikipedia.org/wiki/Llibreria_informàtica">thư viện</a> được chia sẻ,
+bạn nên đọc những tài liệu liên quan sau một cách chi tiết:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html">Hướng dẫn về Chính sách Debian, 8 "Các
+Thư viện Chia sẻ"</a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-opersys.html#s-fhs">Hướng dẫn về Chính sách Debian, 9.1.1 "Cấu trúc Hệ
+thống tập tin"</a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-files.html#s-libraries">Hướng dẫn về Chính sách Debian, 10.2 "Các
+Thư viện"</a>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Sau đây là một số gợi ý được đơn giản hóa quá mức để giúp bạn bắt đầu:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Các thư viện chia sẻ là các tập tin đối tượng <a class="ulink" href="http://wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a>
+chứa mã biên dịch.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các thư viện chia sẻ được phân phối bởi các tập tin
+<code class="filename">*.so</code>. (Không phải các tập tin <code class="filename">*.a</code>
+hay các tập tin <code class="filename">*.la</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các thư viện chia sẻ được sử dụng phần lớn để chia sẻ những mã thông dụng
+giữa nhiều tập tin thực thi với cơ chế <span class="command"><strong>ld</strong></span>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các thư viện chia sẻ thỉnh thoảng được sử dụng để cung cấp nhiều phần mở
+rộng có thể cắm vào một tập tin thực thi với cơ chế
+<span class="command"><strong>dlopen</strong></span>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các thư viện chia sẻ xuất <a class="ulink" href="http://en.wikipedia.org/wiki/Symbol_(programming)">các ký hiệu</a> đại diện
+cho các đối tượng được biên dịch như là các tham biến, các hàm, và các
+class; và cho phép truy cập tới chúng từ các tập tin thực thi được kết nối
+tới chúng. 
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://en.wikipedia.org/wiki/Soname">SONAME</a> của một thư viện chia sẻ
+<code class="filename">lib<em class="replaceable"><code>foo</code></em>.so</code>.<em class="replaceable"><code>1</code></em>:
+<code class="literal">objdump -p
+lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em> | grep
+SONAME</code> <a href="#ftn.idm3837" class="footnote" id="idm3837"><sup class="footnote">[88]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+SONAME của một thư viện chia sẻ thường khớp với tên tập tin thư viện (nhưng
+không phải luôn luôn như vậy).
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+SONAME của các thư viện chia sẻ được kết nối tới
+<code class="filename"><em class="replaceable"><code>/usr/bin/foo</code></em></code>:
+<code class="literal">objdump -p <em class="replaceable"><code>/usr/bin/foo</code></em> | grep
+NEEDED</code> <a href="#ftn.idm3850" class="footnote" id="idm3850"><sup class="footnote">[89]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">lib<em class="replaceable"><code>foo</code></em><em class="replaceable"><code>1</code></em></code>:
+gói phần mềm thư viện cho thư viện chia sẻ
+<code class="filename">lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em></code>
+với phiên bản SONAME ABI <em class="replaceable"><code>1</code></em>.<a href="#ftn.idm3864" class="footnote" id="idm3864"><sup class="footnote">[90]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Các kịch bản bảo trì gói phần mềm của gói phần mềm thư viện phải gọi lệnh
+<span class="command"><strong>ldconfig</strong></span> dưới các tình huống cụ thể để tạo các kết nối
+tượng trưng cho SONAME.<a href="#ftn.idm3870" class="footnote" id="idm3870"><sup class="footnote">[91]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">lib<em class="replaceable"><code>foo</code></em><em class="replaceable"><code>1</code></em>-dbg</code>:
+gói phần mềm ký hiệu dò lỗ chứa các ký hiệu dò lỗi cho gói phần mềm thư viện
+chia sẻ <code class="systemitem">lib<em class="replaceable"><code>foo</code></em><em class="replaceable"><code>1</code></em></code>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">lib<em class="replaceable"><code>foo</code></em>-dev</code>: gói phần
+mềm phát triển chứa những tập tin tiêu đề v.v. cho thư viện chia sẻ
+<code class="filename">lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em></code>.<a href="#ftn.idm3888" class="footnote" id="idm3888"><sup class="footnote">[92]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Gói phần mềm Debian không nên chứa các tập tin lưu trữ
+<code class="filename">*.la</code> nói chung.<a href="#ftn.idm3895" class="footnote" id="idm3895"><sup class="footnote">[93]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Gói phần mềm Debian nói chung không nên sử dụng RPATH.<a href="#ftn.idm3900" class="footnote" id="idm3900"><sup class="footnote">[94]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Mặc dù nó có thể đã lạc hậu và chỉ tồn tại như là tài liêu tham khảo thứ
+cấp, <a class="ulink" href="http://www.netfort.gr.jp/~dancer/column/libpkg-guide/libpkg-guide.html">Hướng dẫn Đóng gói thư viện
+Debian</a> có thể vẫn hữu dụng.
+</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="librarysymbols"/>A.2. Quản lý
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Khi bạn đóng gói một thư viện chia sẻ, bạn nên tạo một tập tin
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code> để
+quản lý phiên bản thấp nhất liên quan tới từng ký hiệu cho các thay đổi ABI
+tương thích ngược dưới cùng một SONAME của thư viện cho cùng một tên gói
+phần mềm thư viện.<a href="#ftn.idm3913" class="footnote" id="idm3913"><sup class="footnote">[95]</sup></a> Bạn nên đọc những
+tài liệu liên quan chính thống sau đây một cách chi tiết:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-symbols">Hướng dẫn Chính sách Debian, 8.6.3 "Hệ
+thống ký hiệu"</a><a href="#ftn.idm3919" class="footnote" id="idm3919"><sup class="footnote">[96]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="citerefentry"><span class="refentrytitle">dh_makeshlibs</span>(1)</span>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="citerefentry"><span class="refentrytitle">dpkg-gensymbols</span>(1)</span>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="citerefentry"><span class="refentrytitle">dpkg-shlibdeps</span>(1)</span>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<span class="citerefentry"><span class="refentrytitle">deb-symbols</span>(5)</span>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Sau đây là một ví dụ sơ khảo để tạo một gói phần mềm <code class="systemitem">libfoo1</code> tương ứng với phiên bản thượng nguồn
+<code class="literal">1.3</code> với tập tin
+<code class="filename">debian/libfoo1.symbols</code> phù hợp:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Chuẩn bị một sườn cho cây mã nguồn Debian hóa sử dụng tập tin thượng nguồn
+<code class="filename">libfoo-1.3.tar.gz</code>.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Nếu đây là lần đóng gói đầu tiên của gói phần mềm <code class="systemitem">libfoo1</code>, tạo một tập tin
+<code class="filename">debian/libfoo1.symbols</code> rỗng.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Nếu phiên bản thượng nguồn trước đó <code class="literal">1.2</code> được đóng gói
+thành gói phần mềm <code class="systemitem">libfoo1</code> với một
+tập tin <code class="filename">debian/libfoo1.symbols</code> phù hợp trong gói phần
+mềm nguồn của nó, hãy sử dụng lại tập tin đó.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Nếu bản thượng nguồn trước đó <code class="literal">1.2</code> không được đóng gói với
+tập tin <code class="filename">debian/libfoo1.symbols</code>, tạo một tập tin như là
+tập tin <code class="filename">symbols</code> từ tất cả các gói phần mềm nhị phân có
+sẵn của một tên gói phần mềm thư viện chứa cùng SONAME của một thư viện, ví
+dụ, các phiên bản <code class="literal">1.1-1</code> và <code class="literal">1.2-1</code>.
+<a href="#ftn.idm3967" class="footnote" id="idm3967"><sup class="footnote">[97]</sup></a>
+</p>
+                    <pre class="screen">
+$ dpkg-deb -x libfoo1_1.1-1.deb libfoo1_1.1-1
+$ dpkg-deb -x libfoo1_1.2-1.deb libfoo1_1.2-1
+$ : &gt; symbols
+$ dpkg-gensymbols -v1.1 -plibfoo1 -Plibfoo1_1.1-1 -Osymbols
+$ dpkg-gensymbols -v1.2 -plibfoo1 -Plibfoo1_1.2-1 -Osymbols
+</pre>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Tạo các bản biên dịch thử của cây mã nguồn với các công cụ như là
+<span class="command"><strong>debuild</strong></span> và <span class="command"><strong>pdebuild</strong></span>.  (Nếu điều này
+thất bại do thiếu ký hiệu v.v., đã có một số thay đổi ABI không tương thích
+ngược buộc bạn phải tăng tên gói phần mềm thư viện chia sẻ lên một tên như
+là <code class="systemitem">libfoo1a</code> và bạn nên bắt đầu lại
+từ đầu.)
+</p>
+              <pre class="screen">
+$ cd libfoo-1.3
+$ debuild
+...
+dpkg-gensymbols: warning: some new symbols appeared in the symbols file: ...
+ see diff output below
+--- debian/libfoo1.symbols (libfoo1_1.3-1_amd64)
++++ dpkg-gensymbolsFE5gzx        2012-11-11 02:24:53.609667389 +0900
+@@ -127,6 +127,7 @@
+  foo_get_name@Base 1.1
+  foo_get_longname@Base 1.2
+  foo_get_type@Base 1.1
++ foo_get_longtype@Base 1.3-1
+  foo_get_symbol@Base 1.1
+  foo_get_rank@Base 1.1
+  foo_new@Base 1.1
+...
+</pre>
+            </li>
+            <li class="listitem">
+              <p>
+Nếu bạn thấy sự khác biệt in ra bởi lệnh <span class="command"><strong>dpkg-gensymbols</strong></span>
+như trên, giải nén tập tin <code class="filename">symbols</code> phù hợp cập nhật mới
+nhất từ gói phần mềm nhị phân được tạo ra của thư viện chia sẻ.
+<a href="#ftn.idm3987" class="footnote" id="idm3987"><sup class="footnote">[98]</sup></a>
+</p>
+              <pre class="screen">
+$ cd ..
+$ dpkg-deb -R  libfoo1_1.3_amd64.deb libfoo1-tmp
+$ sed -e 's/1\.3-1/1\.3/' libfoo1-tmp/DEBIAN/symbols \
+        &gt;libfoo-1.3/debian/libfoo1.symbols
+</pre>
+            </li>
+            <li class="listitem">
+              <p>
+Biên dịch các gói phần mềm phát hành với các công cụ như
+<span class="command"><strong>debuild</strong></span> và <span class="command"><strong>pdebuild</strong></span>.
+</p>
+              <pre class="screen">
+$ cd libfoo-1.3
+$ debuild clean
+$ debuild
+...
+</pre>
+            </li>
+          </ul>
+        </div>
+        <p>
+Bên cạnh các ví dụ ở trên, chúng ta cần phải kiểm tra tương thích ABI hơn
+nữa và tăng các phiên bản cho một vài ký hiệu bằng tay nếu cần.
+<a href="#ftn.idm3999" class="footnote" id="idm3999"><sup class="footnote">[99]</sup></a>
+</p>
+        <p>
+Mặc dù đây chỉ là một tài liệu tham khảo thứ cấp, <a class="ulink" href="http://wiki.debian.org/UsingSymbolsFiles">Debian wiki UsingSymbolsFiles</a> và những
+trang điện tử kết nối tới nó có thể rất hữu dụng.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="multiarch"/>A.3. Multiarch</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Tính năng multiarch được giới thiệu ở Debian wheezy tích hợp hỗ trợ cho cài
+đặt xuyên nền tảng của các gói phần mềm nhị phân (đặc biệt
+<code class="literal">i386</code>&lt;-&gt;<code class="literal">amd64</code>, nhưng cũng một vài
+kết hợp khác) trong <code class="systemitem">dpkg</code> và
+<code class="systemitem">apt</code>. Bạn nên đọc các tài liệu tham
+khảo sau một cách chi tiết:</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<a class="ulink" href="https://wiki.ubuntu.com/MultiarchSpec">Ubuntu wiki MultiarchSpec</a> (thượng
+nguồn)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<a class="ulink" href="http://wiki.debian.org/Multiarch/Implementation">Debian wiki
+Multiarch/Implementation</a> (tình huống Debian)
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nó sử dụng bộ ba như là <code class="literal">i386-linux-gnu</code> và
+<code class="literal">x86_64-linux-gnu</code> cho đường dẫn cài đặt của các thư viện
+chia sẻ. Đường dẫn bộ ba thực sự được đặt giá trị linh động theo tham biến
+<code class="literal">$(DEB_HOST_MULTIARCH)</code> dùng lệnh <span class="citerefentry"><span class="refentrytitle">dpkg-architecture</span>(1)</span>
+cho từng lần biên dịch gói phần mềm nhị phân. Ví dụ, đường dẫn để cài đặt
+các thư viện multiarch được thay đổi như sau:<a href="#ftn.idm4025" class="footnote" id="idm4025"><sup class="footnote">[100]</sup></a>
+</p>
+        <div class="informaltable">
+          <a id="tripletpaths"/>
+          <table class="informaltable" border="1">
+            <colgroup>
+              <col style="text-align: left"/>
+              <col style="text-align: left"/>
+              <col style="text-align: left"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left">Đường dẫn cũ</th>
+                <th style="text-align: left">Đường dẫn i386 multiarch</th>
+                <th style="text-align: left">Đường dẫn amd64 multiarch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left">
+                  <code class="filename">/lib/</code>
+                </td>
+                <td style="text-align: left">
+                  <code class="filename">/lib/i386-linux-gnu/</code>
+                </td>
+                <td style="text-align: left">
+                  <code class="filename">/lib/x86_64-linux-gnu/</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="filename">/usr/lib/</code>
+                </td>
+                <td style="text-align: left">
+                  <code class="filename">/usr/lib/i386-linux-gnu/</code>
+                </td>
+                <td style="text-align: left">
+                  <code class="filename">/usr/lib/x86_64-linux-gnu/</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+Sau đây là một vài ví dụ về tình huống băm gói phần mềm multiarch tiêu biểu
+cho các gói:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+một gói phần mềm nguồn cho
+<code class="filename">lib<em class="replaceable"><code>foo</code></em>-1.tar.gz</code>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+một gói phần mềm nguồn công cụ
+<code class="filename"><em class="replaceable"><code>bar</code></em>-1.tar.gz</code> viết bằng một
+ngôn ngữ biên dịch.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+một gói phần mềm nguồn công cụ
+<code class="filename"><em class="replaceable"><code>baz</code></em>-1.tar.gz</code> viết bằng một
+ngôn ngữ thông dịch
+</p>
+            </li>
+          </ul>
+        </div>
+        <div class="informaltable">
+          <a id="multiarchtable"/>
+          <table class="informaltable" border="1">
+            <colgroup>
+              <col style="text-align: left"/>
+              <col style="text-align: left"/>
+              <col style="text-align: left"/>
+              <col style="text-align: left"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th style="text-align: left">Package</th>
+                <th style="text-align: left">Architecture:</th>
+                <th style="text-align: left">Multi-Arch:</th>
+                <th style="text-align: left">Nội dung gói phần mềm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">lib<em class="replaceable"><code>foo</code></em><em class="replaceable"><code>1</code></em></code>
+                </td>
+                <td style="text-align: left">bất kỳ</td>
+                <td style="text-align: left">không đổi</td>
+                <td style="text-align: left">
+thư viện được chia sẻ, có thể cài cùng lúc
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">lib<em class="replaceable"><code>foo</code></em><em class="replaceable"><code>1</code></em>-dbg</code>
+                </td>
+                <td style="text-align: left">bất kỳ</td>
+                <td style="text-align: left">không đổi</td>
+                <td style="text-align: left">
+các ký hiệu dò lỗi của thư viện chia sẻ, có thể cài cùng lúc
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">lib<em class="replaceable"><code>foo</code></em>-dev</code>
+                </td>
+                <td style="text-align: left">bất kỳ</td>
+                <td style="text-align: left">không đổi</td>
+                <td style="text-align: left">
+các tập tin tiêu đề của thư viện chia sẻ v.v., có thể cài cùng lúc
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">lib<em class="replaceable"><code>foo</code></em>-tools</code>
+                </td>
+                <td style="text-align: left">bất kỳ</td>
+                <td style="text-align: left">Xa lạ</td>
+                <td style="text-align: left">
+Các chương trình hỗ trợ khi chạy, không thể cài đặt cùng lúc
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">lib<em class="replaceable"><code>foo</code></em>-doc</code>
+                </td>
+                <td style="text-align: left">tất cả</td>
+                <td style="text-align: left">Xa lạ</td>
+                <td style="text-align: left">
+những tập tin tài liệu hướng dẫn của thư viện chia sẻ
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">
+                    <em class="replaceable">
+                      <code>bar</code>
+                    </em>
+                  </code>
+                </td>
+                <td style="text-align: left">bất kỳ</td>
+                <td style="text-align: left">Xa lạ</td>
+                <td style="text-align: left">
+các tập tin chương trình đã biên dịch, không thể cài đặt cùng lúc
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem"><em class="replaceable"><code>bar</code></em>-doc</code>
+                </td>
+                <td style="text-align: left">tất cả</td>
+                <td style="text-align: left">Xa lạ</td>
+                <td style="text-align: left">
+những tập tin tài liệu hướng dẫn cho chương trình
+</td>
+              </tr>
+              <tr>
+                <td style="text-align: left">
+                  <code class="systemitem">
+                    <em class="replaceable">
+                      <code>baz</code>
+                    </em>
+                  </code>
+                </td>
+                <td style="text-align: left">tất cả</td>
+                <td style="text-align: left">Xa lạ</td>
+                <td style="text-align: left">
+các tập tin chương trình được thông dịch
+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+Xin chú ý rằng gói phần mềm phát triển nên chứa một kết nối tượng trưng cho
+thư viện chia sẻ tương ứng <span class="strong"><strong>không có số phiên
+bản</strong></span>.  Ví dụ:
+<code class="filename">/usr/lib/x86_64-linux-gnu/libfoo.so</code> -&gt;
+<code class="filename">libfoo.so.1</code>
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="librarypackage"/>A.4. Biên dịch một gói phần mềm chia sẻ</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Bạn có thể biên dịch một gói phần mềm thư viện Debian cho phép hỗ trợ
+multiarch <span class="citerefentry"><span class="refentrytitle">dh</span>(1)</span> như sau: 
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Cập nhật <code class="filename">debian/control</code>.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Thêm <code class="literal">Build-Depends: debhelper (&gt;=9)</code> cho phần gói phần mềm
+nguồn.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Thêm <code class="literal">Pre-Depends: ${misc:Pre-Depends}</code> cho mỗi gói phần
+mềm nhị phân thư viện chia sẻ.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Thêm <code class="literal">Multi-Arch:</code> cho mỗi phần tương ứng với mỗi gói phần
+mềm nhị phân.
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Đặt giá trị 9 cho  <code class="filename">debian/compat</code>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Điều chỉnh đường dẫn từ <code class="literal">/usr/lib/</code> bình thường sang
+multiarch <code class="literal">/usr/lib/$(DEB_HOST_MULTIARCH)/</code> cho tất cả kịch
+bản đóng gói.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Gọi <code class="literal">DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture
+-qDEB_HOST_MULTIARCH)</code> trong <code class="filename">debian/rules</code> để
+đặt giá trị cho tham biến <code class="literal">DEB_HOST_MULTIARCH</code> trước tiên.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Thay thế <code class="literal">/usr/lib/</code> với
+<code class="literal">/usr/lib/$(DEB_HOST_MULTIARCH)/</code> trong
+<code class="filename">debian/rules</code>.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Nếu <code class="literal">./configure</code> được sử dụng trong một phần của mục tiêu
+<code class="literal">override_dh_auto_configure</code> trong
+<code class="filename">debian/rules</code>, chắc chắn rằng bạn thay thế nó với
+<code class="literal">dh_auto_configure -- </code>.  <a href="#ftn.idm4187" class="footnote" id="idm4187"><sup class="footnote">[101]</sup></a>
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Thay thế hết tất cả các sự xuất hiện của <code class="literal">/usr/lib/</code> với
+<code class="literal">/usr/lib/*/</code> trong các tập tin
+<code class="filename">debian/<em class="replaceable"><code>foo</code></em>.install</code>.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Tạo ra các tập tin như
+<code class="filename">debian/<em class="replaceable"><code>foo</code></em>.links</code> từ
+<code class="filename">debian/<em class="replaceable"><code>foo</code></em>.links.in</code> một cách
+tự động bắng thêm một kịch bản vào mục tiêu
+<code class="literal">override_dh_auto_configure</code> trong
+<code class="filename">debian/rules</code>.
+</p>
+                    <pre class="screen">
+override_dh_auto_configure:
+        dh_auto_configure
+        sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' \
+                debian/<em class="replaceable"><code>foo</code></em>.links.in &gt; debian/<em class="replaceable"><code>foo</code></em>.links
+</pre>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+Hãy chắc chắn rằng gói phần mềm thư viện chia sẻ chỉ chứa duy nhất các tập
+tin được trông đợi, và gói phần mềm -dev của bạn vẫn hoạt động tốt.
+</p>
+        <p>
+Tất cả các tập tin được cài đặt cùng lúc với gói phần mềm multiarch vào cùng
+một đường dẫn nên có cùng một nội dung chính xác như nhau.  Bạn phải cẩn
+thận với những sự khác biệt tạo ra bởi thứ tự byte dữ liệu và thuật toán
+nén.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="native-dh-make"/>A.5. Gói phần mềm Debian native</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu một gói phần mề được bảo trì chỉ cho Debian hoặc có thể chỉ cho việc
+dùng nội bộ, mã nguồn của nó có thể chứa tất các tập tin
+<code class="filename">debian/*</code> bên trong nó.  Có 2 cách để đóng gói nó.
+</p>
+        <p>
+Bạn có thể tạo một tập tin lưu trữ thượng nguồn bằng việc loại trừ tất cả
+các tập tin <code class="filename">debian/*</code> và đóng gói nó như là một gói phần
+mềm nhị phân Debian không native như ở <a class="xref" href="first.vi.html#workflow" title="2.1. Luồng làm việc tạo ra gói Debian">Phần 2.1, “Luồng làm việc tạo ra gói Debian”</a>.  Đây là
+cách thông thường mọi người khuyến khích sử dụng.
+</p>
+        <p>
+Một cách khác là cách làm của một gói phần mềm Debian native.
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Tạo một gói phần mềm nguồn Debian native dưới định dạng <code class="literal">3.0
+(native)</code> bằng việc sử dụng một tập tin nén tar đơn độc chứa tất cả
+các tập tin bên trong.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>.tar.gz</code>
+                  </li>
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>.dsc</code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Biên dịch các gói phần mềm nhị phân Debian từ gói phần mềm nguồn Debian
+native.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>_<em class="replaceable"><code>arch</code></em>.deb</code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+Ví dụ, nếu bạn có các tập tin nguồn trong thư mục
+<code class="filename">~/mypackage-1.0</code> mà không có các tập tin
+<code class="filename">debian/*</code>, bạn có thể tạo một gói phần mềm Debian native
+cho nó bằng việc chạy lệnh <span class="command"><strong>dh_make</strong></span> như sau:
+</p>
+        <pre class="screen">
+$ cd ~/mypackage-1.0
+$ dh_make --native
+</pre>
+        <p>
+Sau đó thư mục <code class="filename">debian</code> và nội dụng của nó được tạo như
+là ở <a class="xref" href="first.vi.html#non-native-dh-make" title="2.8. Khởi tạo gói Debian mới">Phần 2.8, “Khởi tạo gói Debian mới”</a>.  Hành động này không tạo một tập
+tin lưu trữ vì đây là một gói phần mềm Debian native.  Nhưng đó là điểm khác
+biệt duy nhất.  Phần còn lại của quá trình đóng gói thực tế là không khác
+gì.
+</p>
+        <p>
+Sau khi chạy lệnh <span class="command"><strong>dpkg-buildpackage</strong></span>, bạn sẽ thấy các tập
+tin sau trong thư mục cha:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="filename">mypackage_1.0.tar.gz</code>
+</p>
+              <p>
+Đây là tập tin mã nguồn tạo ra từ thư mục <code class="filename">mypackage-1.0</code>
+bởi lệnh <span class="command"><strong>dpkg-source</strong></span> command.  (Phần hậu tố của nó không
+phải là <code class="filename">orig.tar.gz</code>.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">mypackage_1.0.dsc</code>
+</p>
+              <p>
+Đây là bản tóm tắt của những nội dung của mã nguồn như ở trong gói phần mềm
+Debian không native. (There có mã tu chỉnh Debian.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">mypackage_1.0_i386.deb</code>
+</p>
+              <p>
+Đây là gói phần mềm nhị phân hoàn chỉnh của bạn như là gói phần mềm Debian
+không native.  (Không có mã tu chỉnh Debian.)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">mypackage_1.0_i386.changes</code>
+</p>
+              <p>
+Tập tin này mô tả những thay đổi được tạo ra trong phiên bản gói phần mềm
+hiện tại như ở trong gói phần mềm Debian không native. (Không có bản tu
+chỉnh Debian.)
+</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm3837" class="footnote">
+          <p><a href="#idm3837" class="para"><sup class="para">[88] </sup></a>
+Ngoài ra: <code class="literal">readelf -d
+lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em> | grep
+SONAME</code>
+</p>
+        </div>
+        <div id="ftn.idm3850" class="footnote">
+          <p><a href="#idm3850" class="para"><sup class="para">[89] </sup></a>
+Ngoài ra: <code class="literal">readelf -d
+lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em> | grep
+NEEDED</code>
+</p>
+        </div>
+        <div id="ftn.idm3864" class="footnote">
+          <p><a href="#idm3864" class="para"><sup class="para">[90] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-runtime">Hướng dẫn về Chính sách Debian, 8.1 "Các
+Thư viện chia sẻ khi chạy"</a>.</p>
+        </div>
+        <div id="ftn.idm3870" class="footnote">
+          <p><a href="#idm3870" class="para"><sup class="para">[91] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-ldconfig">Hướng dẫn về Chính sách Debian, 8.1.1
+"ldconfig"</a>.</p>
+        </div>
+        <div id="ftn.idm3888" class="footnote">
+          <p><a href="#idm3888" class="para"><sup class="para">[92] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-static">Hướng dẫn Chính sách Debian, 10.2 "Các Thư
+viện tĩnh"</a> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-dev">Hướng dẫn về Chính sách
+Debian, 8.4 "Các Tập tin phát triển"</a></p>
+        </div>
+        <div id="ftn.idm3895" class="footnote">
+          <p><a href="#idm3895" class="para"><sup class="para">[93] </sup></a>Xem <a class="ulink" href="http://wiki.debian.org/ReleaseGoals/LAFileRemoval">Debian wiki ReleaseGoals/LAFileRemoval</a>.</p>
+        </div>
+        <div id="ftn.idm3900" class="footnote">
+          <p><a href="#idm3900" class="para"><sup class="para">[94] </sup></a>Xem <a class="ulink" href="http://wiki.debian.org/RpathIssue">Debian wiki RpathIssue</a>.</p>
+        </div>
+        <div id="ftn.idm3913" class="footnote">
+          <p><a href="#idm3913" class="para"><sup class="para">[95] </sup></a>Các thay đổi ABI không tương thích ngược thông thường cần bạn phải cập nhật
+SONAME của thư viện và tên gói phần mềm thư viện chia sẻ sang những tên mới.</p>
+        </div>
+        <div id="ftn.idm3919" class="footnote">
+          <p><a href="#idm3919" class="para"><sup class="para">[96] </sup></a>Với các thư viện C++ và các tình huống khác mà theo dõi từng ký hiệu là vô
+cùng khó khăn, thay vì như trên hãy làm theo <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-shlibdeps">Hướng dẫn Chính sách về Debian, 8.6.4 "Hệ
+thống shlibs"</a>,</p>
+        </div>
+        <div id="ftn.idm3967" class="footnote">
+          <p><a href="#idm3967" class="para"><sup class="para">[97] </sup></a>
+Tất cả các phiên bản trước đó của các gói phần mềm Debian có sẵn tại <a class="ulink" href="http://snapshot.debian.org/">http://snapshot.debian.org/</a>.  Phiên bản tu chỉnh
+Debian được cắt bỏ khỏi phiên bản để giúp việc backport gói phần mềm (tạo
+gói phần mềm chứa các cập nhật mới cho các bản phân phối Debian cũ) dễ hơn:
+<code class="literal">1.1</code> &lt;&lt; <code class="literal">1.1-1~bpo70+1</code> &lt;&lt;
+<code class="literal">1.1-1</code> và <code class="literal">1.2</code> &lt;&lt;
+<code class="literal">1.2-1~bpo70+1</code> &lt;&lt; <code class="literal">1.2-1</code>
+</p>
+        </div>
+        <div id="ftn.idm3987" class="footnote">
+          <p><a href="#idm3987" class="para"><sup class="para">[98] </sup></a>
+Phiên bản tu chỉnh Debian được cắt bỏ khỏi phiên bản để giúp việc backport
+gói phần mềm (tạo gói phần mềm chứa các cập nhật mới cho các bản phân phối
+Debian cũ) dễ hơn: <code class="literal">1.3</code> &lt;&lt;
+<code class="literal">1.3-1~bpo70+1</code> &lt;&lt; <code class="literal">1.3-1</code>
+</p>
+        </div>
+        <div id="ftn.idm3999" class="footnote">
+          <p><a href="#idm3999" class="para"><sup class="para">[99] </sup></a>
+Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-updates">Hướng dẫn về Chính sách Debian, 8.6.2
+"Các Thay đổi ABI của Thư viện chia sẻ"</a>
+</p>
+        </div>
+        <div id="ftn.idm4025" class="footnote">
+          <p><a href="#idm4025" class="para"><sup class="para">[100] </sup></a>Các đường dẫn thư viện chuyên dụng cũ như <code class="filename">/lib32/</code> và
+<code class="filename">/lib64/</code> không được sử dụng nữa.</p>
+        </div>
+        <div id="ftn.idm4187" class="footnote">
+          <p><a href="#idm4187" class="para"><sup class="para">[101] </sup></a>
+Ngoài ra, bạn có thể thêm các đối số
+<code class="literal">--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)</code> và
+<code class="literal">--libexecdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)</code> cho
+<code class="literal">./configure</code>.  Xin hãy chú ý rằng tham số
+<code class="literal">--libexecdir</code> thông báo đường dẫn ngầm định để cài đặt các
+chương trình thực thi được chạy bởi các chương trình khác thay vì bởi người
+dùng.  Giá trị ngầm định Autotools của nó là
+<code class="filename">/usr/libexec/</code> nhưng ngầm định của Debian là
+<code class="filename">/usr/lib/</code>.
+</p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="upload.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> </td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 9. Tải gói phần mềm lên </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

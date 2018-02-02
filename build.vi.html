@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 6. Biên dịch gói</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="dother.vi.html" title="Chương 5. Other files under the debian directory"/>
+    <link rel="next" href="checkit.vi.html" title="Chương 7. Kiểm tra gói để tìm lỗi"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 6. Biên dịch gói</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="dother.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="checkit.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="build"/>Chương 6. Biên dịch gói</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#completebuild">6.1. (Tái) biên dịch toàn bộ</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#autobuilder">6.2. Tự động biên dịch</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#debuild">6.3. <span class="command"><strong>debuild</strong></span> command</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#pbuilder">6.4. <code class="systemitem">pbuilder</code> package</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#git-buildpackage">6.5. lệnh <span class="command"><strong>git-buildpackage</strong></span> và những lệnh tương tự</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#quickrebuild">6.6. Tái biên dịch nhanh</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="build.vi.html#hierarchy">6.7. Sơ đồ lệnh</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Bây giờ chúng ta xem như đã sẵn sàng để biên dịch gói.
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="completebuild"/>6.1. (Tái) biên dịch toàn bộ</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Để có thể (tái) biên dịch toàn bộ gói một cách đúng đắn, bạn cần phải đảm
+bảo là bạn đã cài đặt
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+gói <code class="systemitem">build-essential</code>,
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+các gói liệt kê ở trong mục <code class="literal">Build-Depends</code> (xem <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>), và
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+các gói được liệt kê trong mục <code class="literal">Build-Depends-indep</code> (see
+<a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>).
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Sau đó bạn thực thi lệnh sau ở trong thư mục nguồn:
+</p>
+        <pre class="screen">
+$ dpkg-buildpackage -us -uc
+</pre>
+        <p>
+Lệnh này sẽ làm hết tất cả những thứ cần thiết để tạo gói nhị phân và nguồn
+hoàn chỉnh cho bạn.  Nó sẽ
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+xóa sạch cây thư mục nguồn (<code class="literal">debian/rules clean</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+biên dịch gói nguồn (<code class="literal">dpkg-source -b</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+biên dịch chương trình (<code class="literal">debian/rules build</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+biên dịch gói nhị phân (<code class="literal">fakeroot debian/rules binary</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+tạo tập tin <code class="filename">.dsc</code>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+tạo tập tin <code class="filename">.changes</code>, dùng lệnh
+<span class="command"><strong>dpkg-genchanges</strong></span>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nếu kết quả biên dịch đạt mức thỏa mãn yêu cầu, kí tên các tập tin
+<code class="filename">.dsc</code> và <code class="filename">.changes</code> dùng mã GPG riêng
+tư của bạn bằng lệnh <span class="command"><strong>debsign</strong></span>.  Bạn cần phải nhập mật mã,
+hai lần.  <a href="#ftn.idm2745" class="footnote" id="idm2745"><sup class="footnote">[63]</sup></a>
+</p>
+        <p>
+Đối với một gói không đến từ Debian, ví dụ như <code class="systemitem">gentoo</code>, bạn sẽ thấy những tập tin sau trong thư
+mục cấp trên (<code class="filename">~/gentoo</code>) sau khi biên dịch các gói xong:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="filename">gentoo_0.9.12.orig.tar.gz</code>
+</p>
+              <p>
+Đây là tập tin nén chứa mã nguồn nguyên gốc từ các nhà phát triển, chỉ được
+đổi tên về tên như trên để tuân thủ theo quy định của Debian. Chú ý rằng tập
+tin trên được tạo trước tiên bởi lệnh <code class="literal">dh_make -f
+../gentoo-0.9.12.tar.gz</code>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">gentoo_0.9.12-1.dsc</code>
+</p>
+              <p>
+Đây là tóm tắt nội dung của mã nguồn. Tập tin này được tạo ra từ tập tin
+<code class="filename">control</code>, và nó được sử dung khi giải nén mã nguồn bằng
+lệnh <span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span>.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">gentoo_0.9.12-1.debian.tar.gz</code>
+</p>
+              <p>
+Tập tin nén này chứa các nội dung trong thư mục
+<code class="filename">debian</code>. Mỗi điều chỉnh bạn thêm vào mã nguồn ban đầu
+được lưu ở dạng một bản vá <span class="command"><strong>quilt</strong></span> trong
+<code class="filename">debian/patches</code>.
+</p>
+              <p>
+Nếu bất cứ ai muốn tự tạo gói từ đầu, họ có thể làm thế bằng việc sử dung ba
+tập tin phía trên.  Quy trình giải nén thì khá dễ dàng: chỉ cần sao chép ba
+tập tin đến một nơi khác và chạy lệnh <code class="literal">dpkg-source -x
+gentoo_0.9.12-1.dsc</code>.  <a href="#ftn.idm2776" class="footnote" id="idm2776"><sup class="footnote">[64]</sup></a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">gentoo_0.9.12-1_i386.deb</code>
+</p>
+              <p>
+Đây là gói nhị phân hoàn chỉnh của bạn.  Bạn có thể dùng lệnh
+<span class="command"><strong>dpkg</strong></span> để cài đặt và tháo gỡ gói nhị phân này như những gói
+khác.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="filename">gentoo_0.9.12-1_i386.changes</code>
+</p>
+              <p>
+Tập tin này mô tả tất cả những thay đổi trong phiên bản hiện thời của gói;
+nó được dùng bởi các chương trình bảo trì kho FTP của Debian để cài đặt các
+gói nhị phân và gói nguồn.  Nó một phần được tạo ra từ tập tin
+<code class="filename">changelog</code> và tập tin <code class="filename">.dsc</code>.
+</p>
+              <p>
+Trong lúc bạn làm việc với gói, biểu hiện của gói sẽ thay đổi và những tính
+năng mới sẽ được thêm vào.  Những người tải gói của bạn về có thể nhìn vào
+tập tin này và nhìn sơ nhanh được có những gì đã thay đổi.  Các chương trình
+bảo trì kho Debian sẽ đăng các nội dung của tập tin này lên bó thư<a class="ulink" href="http://lists.debian.org/debian-devel-changes/">debian-devel-changes@lists.debian.org</a>.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Các tập tin <code class="filename">gentoo_0.9.12-1.dsc</code> và
+<code class="filename">gentoo_0.9.12-1_i386.changes</code> phải được ký tên bằng lệnh
+<span class="command"><strong>debsign</strong></span> với mã GPG riêng tư của bạn trong thư mục
+<code class="filename">~/.gnupg/</code>, trước khi tải chúng lên kho FTP của
+Debian. Chữ ký GPG chứng minh những tập tin này là thật sự của bạn bằng mã
+GPG công cộng của bạn.
+</p>
+        <p>
+Lệnh <span class="command"><strong>debsign</strong></span> có thể được dùng để ký tên với mã nhận dạng
+của khóa GPG bí mật của bạn (tốt cho việc tài trợ các gói) được chỉ ra trong
+dòng sau trong tập tin <code class="filename">~/.devscripts</code>:
+</p>
+        <pre class="screen">
+DEBSIGN_KEYID=Your_GPG_keyID
+</pre>
+        <p>
+Những chuỗi số dài trong các tập tin <code class="filename">.dsc</code> và
+<code class="filename">.changes</code> là mã băm SHA1/SHA256 cho những tập tin đã
+được đề cập.  Bất kỳ ai tải xuống các tập tin của bạn có thể sử dung và kiểm
+tra chúng bằng lệnh <span class="citerefentry"><span class="refentrytitle">sha1sum</span>(1)</span> hoặc <span class="citerefentry"><span class="refentrytitle">sha256sum</span>(1)</span> và nếu các số không khớp, họ sẽ biết ngay là tập tin đã bị
+lỗi hoặc đã bị chỉnh sửa.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="autobuilder"/>6.2. Tự động biên dịch</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Debian hỗ trợ nhiều <a class="ulink" href="http://www.debian.org/ports/">cổng</a> với  <a class="ulink" href="http://www.debian.org/devel/buildd/">mạng lưới biên dịch tự động</a> chạy các dịch vụ
+<span class="command"><strong>buildd</strong></span> trên các máy tính chạy nhiều nền tảng khác nhau.
+Mặc dù bạn không cần phải tự làm điều này, bạn cần phải biết những gì sẽ xảy
+ra với các gói phần mềm của bạn.  Hãy nhìn vào cách chúng biên dịch các gói
+phần mềm của bạn cho các nhiều nền tảng.  <a href="#ftn.idm2819" class="footnote" id="idm2819"><sup class="footnote">[65]</sup></a>
+</p>
+        <p>
+Đối với các gói phần mềm cho nền tảng <code class="literal">Architecture: any</code>,
+hệ thống tự động biên dịch thực hiện hành động tái biên dịch.  Nó đảm bảo
+việc cài đặt của
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+gói <code class="systemitem">build-essential</code>, và
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+các gói được liệt kê trong trường <code class="literal">Build-Depends</code> (see
+<a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>).
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Sau đó nó chạy lệnh sau trong thư mục nguồn:
+</p>
+        <pre class="screen">
+$ dpkg-buildpackage -B
+</pre>
+        <p>
+Lệnh này sẽ làm tất cả mọi thứ để tạo ra các gói phần mềm nhị phân phụ thuộc
+vào nền tảng trê một nền tảng khác.  Nó sẽ:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+xóa sạch cây thư mục nguồn (<code class="literal">debian/rules clean</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+biên dịch chương trình (<code class="literal">debian/rules build</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+biên dịch các gói phần mềm nhị phân phụ thuộc vào nền tảng
+(<code class="literal">fakeroot debian/rules binary-arch</code>)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+ký tên vào tập tin nguồn <code class="filename">.dsc</code>, dùng lệnh
+<span class="command"><strong>gpg</strong></span>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+tạo và ký tên tập tin sẽ được tải lên <code class="filename">.changes</code>, dùng
+lệnh <span class="command"><strong>dpkg-genchanges</strong></span> và <span class="command"><strong>gpg</strong></span>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Đây là lý do bạn thấy gói phần mềm của bạn cho các nền tảng khác.
+</p>
+        <p>
+Mặc dù các gói phần mềm liệt kê trong trường
+<code class="literal">Build-Depends-Indep</code> bị buộc phải được cài đặt cho quá
+trình đóng gói bình thường của chúng tôi (see <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>), chúng không bị buộc phải được cài đặt bởi hệ
+thống tự động biên dịch bởi vì nó biên dịch chỉ những gói phần mềm phụ thuộc
+vào nền tảng.  <a href="#ftn.idm2857" class="footnote" id="idm2857"><sup class="footnote">[66]</sup></a> Điểm khác biệt giữa thủ
+tục đóng gói bình thường và đóng gói tự động là cái gì chỉ ra bạn nên ghi
+lại những gói phần mềm bắt buộc trong trường
+<code class="literal">Build-Depends</code> hay <code class="literal">Build-Depends-Indep</code>
+của tập tin <code class="filename">debian/control</code> (see <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>).
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="debuild"/>6.3. <span class="command"><strong>debuild</strong></span> command</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Bạn có thể tự động hóa hành động biên dịch xung quanh việc thực thi lệnh
+<span class="command"><strong>dpkg-buildpackage</strong></span> và lệnh <span class="command"><strong>debuild</strong></span>.
+Xem <span class="citerefentry"><span class="refentrytitle">debuild</span>(1)</span>.
+</p>
+        <p>
+Lệnh <span class="command"><strong>debuild</strong></span> chạy lệnh <span class="command"><strong>lintian</strong></span> để thực
+hiện bài kiểm tra tĩnh sau khi biên dịch gói phần mềm Debian. Lệnh
+<span class="command"><strong>lintian</strong></span> có thể được thay đổi với các dòng sau trong tập
+tin <code class="filename">~/.devscripts</code>:
+</p>
+        <pre class="screen">
+DEBUILD_DPKG_BUILDPACKAGE_OPTS="-us -uc -I -i"
+DEBUILD_LINTIAN_OPTS="-i -I --show-overrides"
+</pre>
+        <p>
+Dọn dẹp mã nguồn và tái biên dịch gói phần mềm từ tài khoản của bạn thì đơn
+giản như sau:
+</p>
+        <pre class="screen">
+$ debuild
+</pre>
+        <p>
+Bạn có thể dọn dẹp cây mã nguồn đơn giản như sau:
+</p>
+        <pre class="screen">
+$ debuild clean
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="pbuilder"/>6.4. <code class="systemitem">pbuilder</code> package</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Để có một môi trường biên dịch (<span class="command"><strong>chroot</strong></span>) sạch sẽ để kiểm
+tra các điều kiện biên dịch, gói phần mềm <code class="systemitem">pbuilder</code> rất hữu dụng.  <a href="#ftn.idm2891" class="footnote" id="idm2891"><sup class="footnote">[67]</sup></a> Nó đảm bảo việc biên dịch sạch sẽ từ mã nguồn dưới
+hệ thống biên dịch tự động <code class="literal">sid</code> cho các nền tảng khác nhau
+và tránh một lỗi nghiêm trọng FTBFS (Thất Bại Biên Dịch Từ Nguồn) vốn luôn
+nằm trong thể loại RC (Nghiêm Trọng Cho Phát Hành).  <a href="#ftn.idm2895" class="footnote" id="idm2895"><sup class="footnote">[68]</sup></a>
+</p>
+        <p>
+Hãy tùy chỉnh gói phần mềm <code class="systemitem">pbuilder</code>
+như sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Làm cho thư mục <code class="filename">/var/cache/pbuilder/result</code> có thể ghi
+được bởi tài khoản của bạn.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+tạo một thư mục, ví dụ như
+<code class="filename"><em class="replaceable"><code>/var/cache/pbuilder/hooks</code></em></code>,
+có thể ghi được bởi người dùng, để đặt mã kịch bản mồi vào.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+cấu hình <code class="filename">~/.pbuilderrc</code> hoặc
+<code class="filename">/etc/pbuilderrc</code> để bao gồm những thứ sau:
+</p>
+              <pre class="screen">
+AUTO_DEBSIGN=${AUTO_DEBSIGN:-no}
+HOOKDIR=<em class="replaceable"><code>/var/cache/pbuilder/hooks</code></em>
+</pre>
+            </li>
+          </ul>
+        </div>
+        <p>
+Trước tiên hãy khởi động hệ thống <code class="systemitem">pbuilder</code> <span class="command"><strong>chroot</strong></span> tại chỗ như
+sau:
+</p>
+        <pre class="screen">
+$ sudo pbuilder create
+</pre>
+        <p>
+Nếu bạn đang có một gói phần mềm chứa mã nguồn hoàn chỉnh, chạy các lệnh sau
+dưới thư mục nơi các tập tin
+<code class="filename"><em class="replaceable"><code>foo</code></em>.orig.tar.gz</code>,
+<code class="filename"><em class="replaceable"><code>foo</code></em>.debian.tar.gz</code>, and
+<code class="filename"><em class="replaceable"><code>foo</code></em>.dsc</code> tồn tại để cập nhật
+hệ thống <code class="systemitem">pbuilder</code>
+<span class="command"><strong>chroot</strong></span> tại chỗ và để biên dịch các gói phần mềm nhị phân
+trong nó:
+</p>
+        <pre class="screen">
+$ sudo pbuilder --update
+$ sudo pbuilder --build <em class="replaceable"><code>foo_version</code></em>.dsc
+</pre>
+        <p>
+Các gói phần mềm vừa mới được biên dịch mà không có chữ ký GPG sẽ được đặt ở
+<code class="filename">/var/cache/pbuilder/result/</code> với chủ sở hữu không phải
+là root.
+</p>
+        <p>
+Các chữ ký GPG trên các tập tin <code class="filename">.dsc</code> và
+<code class="filename">.changes</code> có thể được tạo ra như sau:
+</p>
+        <pre class="screen">
+$ cd /var/cache/pbuilder/result/
+$ debsign <em class="replaceable"><code>foo_version_arch</code></em>.changes
+</pre>
+        <p>
+Nếu bạn có một cây thư mục chứa mã nguồn đã được cập nhật nhưng chưa tạo ra
+gói phần mềm chứa mã nguồn tương ứng, thay vì thế hãy chạy các lệnh sau
+trong thư mục nguồn nơi thư mục <code class="filename">debian</code> tồn tại:
+</p>
+        <pre class="screen">
+$ sudo pbuilder --update
+$ pdebuild
+</pre>
+        <p>
+Bạn có thể đăng nhập vào môi trường <span class="command"><strong>chroot</strong></span> với lệnh
+<code class="literal">pbuilder --login --save-after-login</code> và cấu hình nó theo ý
+bạn muốn.  Môi trường này có thể được lưu bằng việc rời khỏi dòng lệnh với
+thao tác <code class="literal">^D</code> (Control-D).
+</p>
+        <p>
+Phiên bản mới nhất của lệnh <span class="command"><strong>lintian</strong></span> có thể được chạy từ
+môi trường <code class="literal">chroot</code> dùng kịch bản mồi
+<code class="filename"><em class="replaceable"><code>/var/cache/pbuilder/hooks</code></em>/B90lintian</code>
+cấu hình như sau: <a href="#ftn.idm2948" class="footnote" id="idm2948"><sup class="footnote">[69]</sup></a>
+</p>
+        <pre class="screen">
+#!/bin/sh
+set -e
+install_packages() {
+        apt-get -y --force-yes install "$@"
+        }
+install_packages lintian
+echo "+++ lintian output +++"
+su -c "lintian -i -I --show-overrides /tmp/buildd/*.changes" - pbuilder
+# use this version if you don't want lintian to fail the build
+#su -c "lintian -i -I --show-overrides /tmp/buildd/*.changes; :" - pbuilder
+echo "+++ end of lintian output +++"
+</pre>
+        <p>
+Bạn cần phải có kết nối đến môi trường <code class="literal">sid</code> mới nhất để
+biên dịch gói phần đúng cách cho <code class="literal">sid</code>.  Trên thực tế,
+<code class="literal">sid</code> có thể gặp vấn đề làm cho bạn cảm thấy khó khăn hơn
+khi di chuyển toàn bộ hệ thống của bạn.  Gói phần mềm <code class="systemitem">pbuilder</code> có thể giúp bạn đối mặt với loại tình
+huống này.
+</p>
+        <p>
+Bạn có thể cần phải cập nhật các gói phần mềm <code class="literal">stable</code> sau
+khi chúng được tung ra cho <code class="literal">stable-proposed-updates</code>,
+<code class="literal">stable/updates</code>, v.v.  <a href="#ftn.idm2962" class="footnote" id="idm2962"><sup class="footnote">[70]</sup></a> Cho những tình huống như thế, việc bạn có thể chạy một hệ thống
+<code class="literal">sid</code> không phải là một lý do đủ tốt cho việc thất bại
+trong cập nhật chúng đúng cách.  Gói phần mềm <code class="systemitem">pbuilder</code> có thể giúp bạn truy cập các môi trường
+của bất cứ bản phân phối hệ điều hành nào xuất phát từ Debian trên cùng một
+nền tảng.
+</p>
+        <p>
+Xem <a class="ulink" href="http://www.netfort.gr.jp/~dancer/software/pbuilder.html">http://www.netfort.gr.jp/~dancer/software/pbuilder.html</a>, <span class="citerefentry"><span class="refentrytitle">pdebuild</span>(1)</span>, <span class="citerefentry"><span class="refentrytitle">pbuilderrc</span>(5)</span>, và <span class="citerefentry"><span class="refentrytitle">pbuilder</span>(8)</span>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="git-buildpackage"/>6.5. lệnh <span class="command"><strong>git-buildpackage</strong></span> và những lệnh tương tự</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu thượng nguồn của bạn dùng một hệ thống quản lý mã nguồn (VCS)
+<a href="#ftn.idm2982" class="footnote" id="idm2982"><sup class="footnote">[71]</sup></a> để bảo trì mã nguồn của họ, bạn cũng
+nên xem xét việc sử dụng nó.  Nó có thể giúp bạn gộp và chọn các bản vá từ
+thượng nguồn dễ hơn.  Có nhiều gói phần mềm chứa mã kịch bản dùng cho việc
+đóng gói các gói phần mềm Debian cho từng VCS.
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+<code class="systemitem">git-buildpackage</code>: a giải pháp để
+giúp việc đóng gói phần mềm Debian với các kho mã nguồn Git.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">svn-buildpackage</code>: các chương trình
+giúp đỡ để bảo trì các gói phần mềm Debian với Subversion.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+<code class="systemitem">cvs-buildpackage</code>: một tập hợp các
+kịch bản đóng gói Debian cho các cây mã nguồn CVS.
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Việc sử dụng <code class="systemitem">git-buildpackage</code> đang
+dần trở nên phổ biến đối với các nhà phát triển Debian để quản lý các gói
+phần mềm Debian với máy phục vụ Git trên <a class="ulink" href="http://alioth.debian.org/">alioth.debian.org</a>. <a href="#ftn.idm2998" class="footnote" id="idm2998"><sup class="footnote">[72]</sup></a> Gói phần mềm này cung cấp nhiều lệnh để
+<span class="emphasis"><em>tự động hóa</em></span> các thao tác đóng gói:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p> <span class="citerefentry"><span class="refentrytitle">git-import-dsc</span>(1)</span>: nhập một gói phần mềm Debian trước
+đây vào một kho Git.</p>
+            </li>
+            <li class="listitem">
+              <p> <span class="citerefentry"><span class="refentrytitle">git-import-orig</span>(1)</span>: nhập một tập tin tar mới từ thượng
+nguồn vào một kho Git.</p>
+            </li>
+            <li class="listitem">
+              <p> <span class="citerefentry"><span class="refentrytitle">git-dch</span>(1)</span>: tạo ra một changelog(nhật ký thay
+đổi) từ các thông điệp Git.</p>
+            </li>
+            <li class="listitem">
+              <p> <span class="citerefentry"><span class="refentrytitle">git-buildpackage</span>(1)</span>: biên dịch các gói Debian từ một
+kho Git.</p>
+            </li>
+            <li class="listitem">
+              <p> <span class="citerefentry"><span class="refentrytitle">git-pbuilder</span>(1)</span>: biên dịch các gói Debian từ một
+kho Git dùng lệnh <span class="command"><strong>pbuilder</strong></span>/<span class="command"><strong>cowbuilder</strong></span>.</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Những lệnh sau dùng 3 nhánh để theo dõi thao tác đóng gói:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p> <code class="literal">main</code> cho cây mã nguồn của gói phần mềm Debian.</p>
+            </li>
+            <li class="listitem">
+              <p> <code class="literal">upstream</code> for cây mã nguồn của thượng nguồn.</p>
+            </li>
+            <li class="listitem">
+              <p> <code class="literal">pristine-tar</code> cho tập tin nén thượng nguồn tạo ra bởi tham
+số <code class="literal">--pristine-tar</code>.<a href="#ftn.idm3043" class="footnote" id="idm3043"><sup class="footnote">[73]</sup></a> </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Bạn có thể cấu hình <code class="systemitem">git-buildpackage</code>
+với <code class="filename">~/.gbp.conf</code>. Xem <span class="citerefentry"><span class="refentrytitle">gbp.conf</span>(5)</span>.  <a href="#ftn.idm3054" class="footnote" id="idm3054"><sup class="footnote">[74]</sup></a>
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="quickrebuild"/>6.6. Tái biên dịch nhanh</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Với một gói phần mềm lớn, bạn có thể không muốn biên dịch lại từ đầu mỗi lần
+bạn tinh chỉnh các chi tiết trong <code class="filename">debian/rules</code>.  Dành
+cho mục đích kiểm tra, bạn có thể tạo một tập tin <code class="filename">.deb</code>
+mà không cần tái biên dịch các mã nguồn từ thượng nguồn như sau:<a href="#ftn.idm3077" class="footnote" id="idm3077"><sup class="footnote">[75]</sup></a>:
+</p>
+        <pre class="screen">
+$ fakeroot debian/rules binary
+</pre>
+        <p>
+Hoặc đơn giản chạy lệnh sau để xem nó có biên dịch được hay không:
+</p>
+        <pre class="screen">
+$ fakeroot debian/rules build
+</pre>
+        <p>
+Khi bạn hoàn tất tinh chỉnh, hãy nhớ tái biên dịch với thủ tục chính quy.
+Bạn có khả năng không thể tải lên được đúng cách nếu bạn cố gắng tải các tập
+tin <code class="filename">.deb</code> được biên dịch theo cách này.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="hierarchy"/>6.7. Sơ đồ lệnh</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Đây là một bản tóm tắt cho thấy các lệnh biên dịch gói phần mềm phối hợp như
+thế nào trong sơ đồ lệnh. Có nhiều cách để làm một thứ.
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p><code class="filename">debian/rules</code> = kịch bản của người bảo trì cho biên dịch
+gói phần mềm</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>dpkg-buildpackage</strong></span> = lõi của công cụ biên dịch gói phần
+mềm</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>debuild</strong></span> = <span class="command"><strong>dpkg-buildpackage</strong></span> +
+<span class="command"><strong>lintian</strong></span> (biên dịch với các biến môi trường dọn dẹp sạch
+sẽ)</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>pbuilder</strong></span> = lõi của công cụ sắp đặt môi trường chroot
+Debian.</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>pdebuild</strong></span> = <span class="command"><strong>pbuilder</strong></span> +
+<span class="command"><strong>dpkg-buildpackage</strong></span> (biên dịch trong chroot)</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>cowbuilder</strong></span> = tăng tốc <span class="command"><strong>pbuilder</strong></span> thực
+thi</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>git-pbuilder</strong></span> = lệnh với ngữ pháp dễ sử dụng thay thế cho
+lệnh<span class="command"><strong>pdebuild</strong></span> (dùng bởi lệnh<span class="command"><strong>gbp
+buildpackage</strong></span>)</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>gbp</strong></span> = quản lý mã nguồn của gói phần mềm dưới kho git</p>
+            </li>
+            <li class="listitem">
+              <p><span class="command"><strong>gbp buildpackage</strong></span> = <span class="command"><strong>pbuilder</strong></span> +
+<span class="command"><strong>dpkg-buildpackage</strong></span> + <span class="command"><strong>gbp</strong></span></p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Mặc dù việc sử dụng các lệnh cấp cao hơn như <span class="command"><strong>gbp
+buildpackage</strong></span> và <span class="command"><strong>pbuilder</strong></span> đảm bảo một môi trường
+biên dịch phần mềm hoàn hảo, hãy đặt sự quan trọng vào việc hiểu các lệnh
+cấp thấp như <code class="filename">debian/rules</code> và
+<span class="command"><strong>dpkg-buildpackage</strong></span> được thực thi như thế nào dưới các lệnh
+cấp cao.
+</p>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm2745" class="footnote">
+          <p><a href="#idm2745" class="para"><sup class="para">[63] </sup></a>
+Mã GPG này phải được ký tên bởi một nhà phát triển Debian để có thể được kết
+nối được tới mạng lưới uy tín và phải được đăng ký vào <a class="ulink" href="http://keyring.debian.org">tập hợp mã tin cậy của Debian</a>. Điều này cho phép các
+gói bạn tải lên được chấp nhận vào kho của Debian.  Xem <a class="ulink" href="http://keyring.debian.org/creating-key.html">Tạo một mã GPG mới</a> và <a class="ulink" href="http://wiki.debian.org/Keysigning ">Debian Wiki về Ký tên lên mã</a>.
+</p>
+        </div>
+        <div id="ftn.idm2776" class="footnote">
+          <p><a href="#idm2776" class="para"><sup class="para">[64] </sup></a> Bạn có thể tránh việc áp dung các bản vá <span class="command"><strong>quilt</strong></span> dưới định
+dạng nguồn <code class="literal">3.0 (quilt)</code> tại phần cuối của lựa chọn
+<code class="literal">--skip-patches</code>.  Một lựa chọn khác là bạn có thể chạy
+lệnh <code class="literal">dquilt pop -a</code> sau khi thực hiện lệnh bình thường.  </p>
+        </div>
+        <div id="ftn.idm2819" class="footnote">
+          <p><a href="#idm2819" class="para"><sup class="para">[65] </sup></a> Hệ thống tự động biên dịch thực tế cần các kế hoạch phức tạp hơn nhiều kế
+hoạch được giải thích ở đây.  Những chi tiết như thế là quá tầm của tài liệu
+này.  </p>
+        </div>
+        <div id="ftn.idm2857" class="footnote">
+          <p><a href="#idm2857" class="para"><sup class="para">[66] </sup></a> Khác với khi dưới gói phần mềm <code class="systemitem">pbuilder</code>, môi trường <span class="command"><strong>chroot</strong></span>
+dưới gói <code class="systemitem">sbuild</code> được sử dụng bởi hệ
+thống tự động biên dịch không buộc sử dụng một hệ thống nhỏ và có thể có
+nhiều gói phần mềm thừa đã được cài đặt.  </p>
+        </div>
+        <div id="ftn.idm2891" class="footnote">
+          <p><a href="#idm2891" class="para"><sup class="para">[67] </sup></a> Bởi vì gói phần mềm <code class="systemitem">pbuilder</code> vẫn
+đang tiếp tục tiến hóa, bạn nên kiểm tra môi trường cấu hình thực sự bằng
+việc đọc tài liệu hướng dẫn mới nhất.</p>
+        </div>
+        <div id="ftn.idm2895" class="footnote">
+          <p><a href="#idm2895" class="para"><sup class="para">[68] </sup></a>Xem <a class="ulink" href="http://buildd.debian.org/">http://buildd.debian.org/</a> để biết thêm về việc tự động biên dịch các
+gói phần mềm Debian.</p>
+        </div>
+        <div id="ftn.idm2948" class="footnote">
+          <p><a href="#idm2948" class="para"><sup class="para">[69] </sup></a> Điều này giả sử là <code class="literal">HOOKDIR=/var/cache/pbuilder/hooks</code>.
+Bạn có thể tìm thấy nhiều ví dụ của các kịch bản mồi trong thư mục
+<code class="filename">/usr/share/doc/pbuilder/examples</code>.  </p>
+        </div>
+        <div id="ftn.idm2962" class="footnote">
+          <p><a href="#idm2962" class="para"><sup class="para">[70] </sup></a> Có nhiều giới hạn cho những cập nhật của gói phần mềm
+<code class="literal">stable</code> của bạn.
+</p>
+        </div>
+        <div id="ftn.idm2982" class="footnote">
+          <p><a href="#idm2982" class="para"><sup class="para">[71] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch10#_version_control_systems">Các hệ thống quản lý phiên bản</a> để biết
+thêm.</p>
+        </div>
+        <div id="ftn.idm2998" class="footnote">
+          <p><a href="#idm2998" class="para"><sup class="para">[72] </sup></a><a class="ulink" href="http://wiki.debian.org/Alioth">Debian wiki Alioth</a> hướng dẫn cách
+sử dụng dịch vụ <a class="ulink" href="http://alioth.debian.org/">alioth.debian.org</a>.</p>
+        </div>
+        <div id="ftn.idm3043" class="footnote">
+          <p><a href="#idm3043" class="para"><sup class="para">[73] </sup></a>Tham số <code class="literal">--pristine-tar</code> chạy lệnh
+<span class="command"><strong>pristine-tar</strong></span> và tạo ra một bản sao nguyên vẹn của tập tin
+nén thượng nguồn chưa chỉnh sửa với một tập tin nhị phân delta nhỏ và những
+nội dung của tập tin nén vốn được giữ trong nhánh
+<code class="literal">upstream</code> trong VCS. </p>
+        </div>
+        <div id="ftn.idm3054" class="footnote">
+          <p><a href="#idm3054" class="para"><sup class="para">[74] </sup></a> Đây là một vài nguồn thông tin điện tử có sẵn cho các đối tượng thông thái.  </p>
+          <div class="itemizedlist">
+            <ul class="itemizedlist">
+              <li class="listitem">
+                <p> Biên dịch các Gói Phần Mềm Debian với git-buildpackage
+(<code class="filename">/usr/share/doc/git-buildpackage/manual-html/gbp.html</code>)</p>
+              </li>
+              <li class="listitem">
+                <p> <a class="ulink" href="https://honk.sigxcpu.org/piki/development/debian_packages_in_git/">các gói phần mềm debian trong git</a> </p>
+              </li>
+              <li class="listitem">
+                <p> <a class="ulink" href="http://www.eyrie.org/~eagle/notes/debian/git.html">Dùng Git cho đóng gói phần mềm
+Debian</a> </p>
+              </li>
+              <li class="listitem">
+                <p> <a class="ulink" href="http://git-dpm.alioth.debian.org/">git-dpm: các gói phần mềm Debian trong công cụ quản
+lý Git</a> </p>
+              </li>
+              <li class="listitem">
+                <p> <a class="ulink" href="http://git.debian.org/?p=collab-maint/topgit.git;a=blob_plain;f=debian/HOWTO-tg2quilt;hb=HEAD">Dùng TopGit để tạo một chuỗi quilt cho đóng gói phần
+mềm Debian</a> </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="ftn.idm3077" class="footnote">
+          <p><a href="#idm3077" class="para"><sup class="para">[75] </sup></a> Các biến môi trường vốn được cấu hình bình thường với các giá trị phù hợp
+không được gán giá trị với phương pháp này.  Đừng bao giờ tạo các gói  phần
+mềm thực tế để được tải lên với phương pháp <span class="strong"><strong>nhanh</strong></span> này.  </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="dother.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="checkit.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 5. Other files under the <code class="filename">debian</code> directory </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 7. Kiểm tra gói để tìm lỗi</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

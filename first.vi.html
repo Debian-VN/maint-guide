@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Chương 2. Những bước đầu tiên</title>
+    <link rel="stylesheet" type="text/css" href="debian.css"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
+    <link rel="prev" href="start.vi.html" title="Chương 1. Bắt đầu Đúng cách"/>
+    <link rel="next" href="modify.vi.html" title="Chương 3. Modifying the source"/>
+  </head>
+  <body>
+    <div class="navheader">
+      <table width="100%" summary="Navigation header">
+        <tr>
+          <th colspan="3" align="center">Chương 2. Những bước đầu tiên</th>
+        </tr>
+        <tr>
+          <td align="left"><a accesskey="p" href="start.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <th width="60%" align="center"> </th>
+          <td align="right"> <a accesskey="n" href="modify.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+      </table>
+      <hr/>
+    </div>
+    <div class="chapter">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title"><a id="first"/>Chương 2. Những bước đầu tiên</h1>
+          </div>
+        </div>
+      </div>
+      <div class="toc">
+        <p>
+          <strong>Mục lục</strong>
+        </p>
+        <dl class="toc">
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#workflow">2.1. Luồng làm việc tạo ra gói Debian</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#choose">2.2. Chọn chương trình của bạn</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#getit">2.3. Lấy chương trình, và hãy thử nó</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#simplemake">2.4. Xây dựng hệ thống đơn giản</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#portable">2.5. Xây dựng hệ thống phổ biến</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#namever">2.6. Tên và phiên bản gói</a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#dh-make">2.7. Thiết lập <span class="command"><strong>dh_make</strong></span></a>
+            </span>
+          </dt>
+          <dt>
+            <span class="section">
+              <a href="first.vi.html#non-native-dh-make">2.8. Khởi tạo gói Debian mới</a>
+            </span>
+          </dt>
+        </dl>
+      </div>
+      <p>
+Hãy bắt đầu bằng cách tạo một gói riêng của bạn (hoặc, thậm chí tốt hơn,
+chấp nhận một cái hiện tại).
+</p>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="workflow"/>2.1. Luồng làm việc tạo ra gói Debian</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu bạn đang tạo ra một gói Debian từ một chương trình thượng nguồn, quy
+trình làm việc điển hình của việc xây dựng gói Debian liên quan đến việc tạo
+ra một số tệp được đặt tên cụ thể cho từng bước như sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>Lấy một bản sao của phần mềm thượng nguồn, thường ở dạng nén tar.</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>-<em class="replaceable"><code>version</code></em>.tar.gz</code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Thêm các sửa đổi đóng gói cụ thể của Debian vào chương trình thượng nguồn
+trong thư mục <code class="filename">debian</code> và tạo một gói mã nguồn mới
+(non-native) (tức là bộ tập tin đầu vào sử dụng cho việc xây dựng gói
+Debian) với định dạng <code class="literal">3.0 (quilt)</code>.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>.orig.tar.gz</code>
+                  </li>
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em>.debian.tar.gz</code>
+                    <a href="#ftn.idm422" class="footnote" id="idm422">
+                      <sup class="footnote">[4]</sup>
+                    </a>
+                  </li>
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em>.dsc</code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Xây dựng các gói nhị phân Debian, là những gói có thể cài đặt bình thường
+trong định dạng <code class="literal">.deb </code> (hoặc định dạng
+<code class="literal">.udeb</code>, được sử dụng bởi Trình cài đặt Debian) từ gói
+nguồn Debian.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em>_<em class="replaceable"><code>arch</code></em>.deb</code>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+Xin lưu ý rằng ký tự phân tách
+<code class="literal"><em class="replaceable"><code>package</code></em></code> và
+<code class="literal"><em class="replaceable"><code>version</code></em></code> đã thay đổi từ
+<code class="literal">-</code> (dấu trừ) trong tên tệp nén thành  <code class="literal">_</code>
+(gạch dưới)  ở trong tên của gói Debian
+</p>
+        <p>
+Trong tên tệp ở trên, hãy thay thế
+<code class="literal"><em class="replaceable"><code>package</code></em></code> bằng <span class="strong"><strong>package name</strong></span>, tên
+<code class="literal"><em class="replaceable"><code>version</code></em></code> bằng <span class="strong"><strong>upstream version</strong></span>,
+<code class="literal"><em class="replaceable"><code>revision</code></em></code> thành <span class="strong"><strong>Debian revision</strong></span>, và
+<code class="literal"><em class="replaceable"><code>arch</code></em></code> thành <span class="strong"><strong>package architecture</strong></span>, như đã định nghĩa trong
+Debian Policy Manual.  <a href="#ftn.idm465" class="footnote" id="idm465"><sup class="footnote">[5]</sup></a>
+</p>
+        <p>
+Mỗi bước của phác thảo này được giải thích với các ví dụ chi tiết trong các
+phần sau.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="choose"/>2.2. Chọn chương trình của bạn</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Có thể bạn đã chọn gói bạn muốn tạo. Điều đầu tiên bạn cần làm là kiểm tra
+xem gói có trong kho lưu trữ đã được phân phối bằng cách sử dụng như sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>lệnh <span class="command"><strong>aptitude</strong></span></p>
+            </li>
+            <li class="listitem">
+              <p>trang web <a class="ulink" href="http://www.debian.org/distrib/packages">Debian packages</a></p>
+            </li>
+            <li class="listitem">
+              <p>trang web <a class="ulink" href="http://packages.qa.debian.org/common/index.html">Debian Package Tracking
+System</a></p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nếu một gói đã tồn tại, tốt, hãy cài đặt nó! :-) Nếu lúc cài đặt xuất hiện
+từ <span class="strong"><strong>orphaned</strong></span> (điều đó có nghĩa người bảo
+trì gói đấy đã thiết lập tại <a class="ulink" href="http://qa.debian.org/">Debian QA Group</a>),
+bạn có thể chọn nó nếu nó vẫn có sẵn.  Bạn cũng có thể giúp một gói nếu
+người bảo trị của gói đó đã tạo một "Request for Adoption" (<span class="strong"><strong>RFA</strong></span>).<a href="#ftn.idm490" class="footnote" id="idm490"><sup class="footnote">[6]</sup></a>
+</p>
+        <p>
+Có một số tài nguyên trạng thái quyền sở hữu gói:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>Lệnh <span class="command"><strong>wnpp-alert</strong></span> từ gói <code class="systemitem">devscripts</code></p>
+            </li>
+            <li class="listitem">
+              <p> <a class="ulink" href="http://www.debian.org/devel/wnpp/">Các gói công việc Cần thiết và Triển vọng</a> </p>
+            </li>
+            <li class="listitem">
+              <p> <a class="ulink" href="http://bugs.debian.org/wnpp">Debian Bug report logs: Bugs in pseudo-package
+<code class="systemitem">wnpp</code> in
+<code class="literal">unstable</code></a> </p>
+            </li>
+            <li class="listitem">
+              <p> <a class="ulink" href="http://wnpp.debian.net/">Debian Packages that Need Lovin'</a> </p>
+            </li>
+            <li class="listitem">
+              <p> <a class="ulink" href="http://wnpp-by-tags.debian.net/">Browse <code class="systemitem">wnpp</code> bugs based on debtags</a> </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Một lưu ý quan trọng là  Debian đã có các gói cho hầu hết các loại chương
+trình, và số lượng các gói đã có trong kho lưu trữ Debian lớn hơn nhiều so
+với các cộng tác viên có quyền tải lên.  Do đó, đóng góp cho các gói đã có
+sẵn trong kho lưu trữ luôn được đánh giá cao hơn (và nhiều khả năng nhận tài
+trợ) bởi các nhà phát triển khác <a href="#ftn.idm515" class="footnote" id="idm515"><sup class="footnote">[7]</sup></a>.  Bạn
+có thể đóng góp bằng nhiều cách:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Tiếp nhận gói mồ côi, nhưng vẫn đang được sử dụng
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+tham gia vào <a class="ulink" href="http://wiki.debian.org/Teams">packaging teams</a>
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+xử lý lỗi của các gói phổ biến
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+chuẩn bị <a class="ulink" href="http://www.debian.org/doc/developers-reference/pkgs.html#nmu-qa-upload">QA or NMU uploads</a>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Nếu bạn có thể nhận bảo trì gói nào, hãy lấy nguồn (bằng các công cụ như
+<code class="literal">apt-get source <em class="replaceable"><code>packagename</code></em></code>) và
+kiểm tra chúng.  Tài liệu này tiếc là không bao gồm thông tin toàn diện về
+việc nhận bảo trì gói.  Rất may, bạn không cần phải mất nhiều thời gian khó
+khăn để tìm hiểu cách gói làm việc, khi đã có ai đó trước đây thực hiện các
+thiết lập ban đầu cho bạn. Hãy tiếp tục đọc, và;  Rất nhiều lời khuyên dưới
+đây vẫn sẽ được áp dụng cho trường hợp của bạn.
+</p>
+        <p>
+Nếu là một gói mới, và bạn quyết định muốn xem nó trong Debian, thực hiện
+theo các bước sau:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Trước tiên, bạn phải biết rằng chương trình hoạt động như thế nào, và đã thử
+nó một thời gian để xác nhận tính hữu dụng của nó.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Bạn phải kiểm tra xem có ai khác đang làm việc trên gói trên trang <a class="ulink" href="http://www.debian.org/devel/wnpp/">Work-Needing và Prospective Packages </a>.  Nếu không có
+ai khác đang làm việc trên nó, hãy gửi báo cáo lỗi ITP (Intent To Package)
+đến gói <code class="systemitem">wnpp</code>  bằng cách sử dụng lệnh
+<span class="command"><strong>reportbug</strong></span>.  Nếu ai đó đã làm việc đó rồi, hãy liên hệ với
+họ nếu bạn cảm thấy cần.  Nếu không - hãy tìm một chương trình thú vị mà
+chưa ai đang duy trì.
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Phần mềm <span class="strong"><strong>phải có một giấy phép</strong></span>.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Đối với mục <code class="literal">main</code>, Chính sách Debian yêu cầu các gói phải
+<span class="strong"><strong>tuân thủ hoàn toàn Nguyên tắc về Phần mềm Tự do
+Debian </strong></span> (<a class="ulink" href="http://www.debian.org/social_contract#guidelines"> DFSG </a> và <span class="strong"><strong>không yêu cầu một gói nào bên ngoài mục
+<code class="literal">main</code></strong></span> để biên dịch hay thực thi. Đây là trường
+hợp bắt buộc.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Đối với mục <code class="literal">contrib</code>, nó phải tuân thủ DFSG nhưng nó có
+thể yêu cầu một gói bên ngoài mục <code class="literal">main</code> để biên dịch hoặc
+thực thi.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Còn mục <code class="literal">non-free</code>, nó có thể không tương thích với DFSG
+nhưng <span class="strong"><strong> cần được phân phối </strong></span>.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Nếu bạn không chắc chắn về vị trí của gói đó, hãy đăng hỏi về giấy phép trên
+<a class="ulink" href="http://lists.debian.org/debian-legal/"> debian-legal@lists.debian.org </a> và
+xin tư vấn.
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>
+Chương trình <span class="strong"><strong> không nên </strong></span> tác động tới mối
+quan tâm bảo mật và bảo trì cho hệ thống Debian.
+</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>
+Chương trình nên được ghi chép đầy đủ và mã của nó cần phải có thể hiểu được
+(không làm rối)
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Bạn nên liên hệ với tác giả của chương trình để kiểm tra nếu họ đồng ý với
+việc đóng gói nó trở nên thân thiện với Debian.  Điều quan trọng là có thể
+tham khảo ý kiến ​​của tác giả trong trường hợp có bất kỳ vấn đề với chương
+trình, do đó, không cố gắng với gói phần mềm không còn phát triển/bảo trì từ
+thượng nguồn
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Chương trình chắc chắn <span class="strong"><strong> không nên </strong></span> chạy
+setuid root, hoặc thậm chí cao hơn, nó không cần phải setuid hoặc setgid để
+làm bất cứ điều gì.
+</p>
+                  </li>
+                  <li class="listitem">
+                    <p>
+Chương trình không nên là một daemon, hoặc cho vào trong thư mục
+<code class="filename">*/sbin</code>, hoặc mở một cổng như là root.
+</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+Tất nhiên, cuối cùng chỉ là một biện pháp an toàn, và nhằm cứu bạn khỏi sự
+kích động của người dùng nếu bạn làm điều gì đó sai trái trong một số daemon
+setuid... Khi bạn có nhiều kinh nghiệm hơn trong trong gói, bạn sẽ có thể
+gói phần mềm kiểu như vậy.
+</p>
+        <p>
+Là một người bảo trì mới, bạn được khuyến khích để có được một số kinh
+nghiệm trong đóng gói với các gói đơn giản và không khuyến khích từ việc tạo
+ra các gói phức tạp.  
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>Gói đơn giản</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>gói nhị phân duy nhất, arch = all (bộ sưu tập dữ liệu như hình nền)</p>
+                  </li>
+                  <li class="listitem">
+                    <p>gói nhị phân duy nhất, arch = all (các tệp thực thi được viết bằng ngôn
+thông dịch như POSIX shell)</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>Gói phức tạp trung bình</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>gói nhị phân duy nhất, arch = all (tệp tin thực thi nhị phân của ELF được
+biên dịch từ các ngôn ngữ như C và C ++)</p>
+                  </li>
+                  <li class="listitem">
+                    <p>nhiều gói nhị phân, arch = any + all (các gói cho các tập tin thực thi nhị
+phân ELF + tài liệu)</p>
+                  </li>
+                  <li class="listitem">
+                    <p>thượng nguồn ở định dạng khác với <code class="filename">tar.gz</code> hoặc
+<code class="filename">tar.bz2</code></p>
+                  </li>
+                  <li class="listitem">
+                    <p>thượng nguồn chứa nội dung không thể giải quyết</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="listitem">
+              <p>Gói phức tạp cao</p>
+              <div class="itemizedlist">
+                <ul class="itemizedlist">
+                  <li class="listitem">
+                    <p>gói chứa các kịch bản được sử dụng bởi các gói khác</p>
+                  </li>
+                  <li class="listitem">
+                    <p>gói thư viện ELF chung được sử dụng bởi các gói khác</p>
+                  </li>
+                  <li class="listitem">
+                    <p>nhiều gói nhị phân bao gồm gói thư viện ELF</p>
+                  </li>
+                  <li class="listitem">
+                    <p>gói nguồn có nhiều thượng nguồn</p>
+                  </li>
+                  <li class="listitem">
+                    <p>gói module hạt nhân</p>
+                  </li>
+                  <li class="listitem">
+                    <p>các gói bản vá cho hạt nhân</p>
+                  </li>
+                  <li class="listitem">
+                    <p>bất kỳ gói nào kịch bản người bảo trì không tầm thường</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <p>
+Đóng gói gói phức tạp cao không phải là quá khó, nhưng nó đòi hỏi một chút
+kiến ​​thức. Bạn nên tìm kiếm hướng dẫn cụ thể cho từng tính năng phức tạp.
+Ví dụ, một số ngôn ngữ có tài liệu chính sách phụ của riêng mình:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+                <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/perl-policy/">Perl policy</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/python-policy/">Python policy</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/java-policy/">Java policy</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Có một câu trong tiếng Latinh nói rằng: <span class="emphasis"><em>fabricando fit
+faber</em></span> (thực hành làm cho hoàn hảo).  Đó là <span class="emphasis"><em> tính cao
+nhất </em></span> được đề nghị để thực hành và thử nghiệm với tất cả các bước
+của gói Debian với các gói đơn giản trong khi đọc hướng dẫn này.  Một
+tarball thượng nguồn đơn giản <code class="filename">hello-sh-1.0.tar.gz</code> được
+tạo như sau có thể cung cấp một điểm khởi đầu tốt: <a href="#ftn.idm631" class="footnote" id="idm631"><sup class="footnote">[8]</sup></a>
+</p>
+        <pre class="screen">
+$ mkdir -p hello-sh/hello-sh-1.0; cd hello-sh/hello-sh-1.0
+$ cat &gt; hello &lt;&lt;EOF
+#!/bin/sh
+# (C) 2011 Foo Bar, GPL2+
+echo "Hello!"
+EOF
+$ chmod 755 hello
+$ cd ..
+$ tar -cvzf hello-sh-1.0.tar.gz hello-sh-1.0
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="getit"/>2.3. Lấy chương trình, và hãy thử nó</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Vì vậy, điều đầu tiên cần làm là tìm và tải về mã nguồn gốc.  Có lẽ bạn đã
+có tập tin nguồn mà bạn đã chọn ở trang chủ của tác giả.  Mã nguồn của các
+chương trình Unix tự do thường có trong
+<span class="command"><strong>tar</strong></span>+<span class="command"><strong>gzip</strong></span> định dạng với phần mở rộng là
+<code class="filename">.tar.gz</code>, <span class="command"><strong>tar</strong></span>+<span class="command"><strong>bzip2
+</strong></span> định dạng với phần mở rộng là <code class="filename">.tar.bz2 </code>,
+hoặc <span class="command"><strong>tar</strong></span>+<span class="command"><strong>xz</strong></span> định dạng với phần mở rộng
+là <code class="filename">.tar.xz </code>.  Các bản nén này thường chứa một thư mục
+gọi là <code class="filename"><em class="replaceable"><code>package
+</code></em>-<em class="replaceable"><code>version</code></em></code> với tất cả các
+nguồn bên trong.
+</p>
+        <p>
+Nếu phiên bản mới nhất của mã nguồn có sẵn thông qua VCS như Git, Subversion
+hoặc CVS, bạn cần phải lấy nó với <code class="literal">git clone</code>, <code class="literal">svn
+co</code> hoặc <code class="literal">cvs co</code> và đóng gói lại nó vào
+<span class="command"><strong>tar</strong></span>+<span class="command"><strong>gzip</strong></span> định dạng cho mình bằng cách
+sử dụng tuỳ chọn <code class="literal">--exclude-vcs</code>
+</p>
+        <p>
+Nếu mã nguồn chương trình của bạn xuất hiện dưới dạng một số loại lưu trữ
+khác (ví dụ: tên tập tin kết thúc bằng <code class="filename">Z</code> hoặc
+<code class="filename">.zip </code> <a href="#ftn.idm665" class="footnote" id="idm665"><sup class="footnote">[9]</sup></a>), Bạn cũng
+nên giải nén nó bằng các công cụ thích hợp và đóng gói lại nó.
+</p>
+        <p>
+Nếu mã nguồn chương trình của bạn đi kèm với một số nội dung không tuơng
+thích DFSG, bạn cũng nên giải nén nó để loại bỏ các nội dung đó và đóng gói
+lại nó bằng một phiên bản chỉnh sửa của thượng nguồn có chứa
+<code class="literal">dfsg</code>.
+</p>
+        <p>
+Với một ví dụ: Tôi sẽ sử dụng chương trình được gọi là <span class="command"><strong> gentoo
+</strong></span>, trình quản lý tệp GTK+.  <a href="#ftn.idm672" class="footnote" id="idm672"><sup class="footnote">[10]</sup></a>
+</p>
+        <p>
+Tạo một thư mục con trong thư mục home của bạn có tên là
+<code class="filename">debian</code> hoặc <code class="filename">deb</code> hoặc bất cứ thứ gì
+bạn thấy thích hợp (ví dụ như <code class="filename">~/gentoo </code> sẽ là tốt trong
+trường hợp này). Đặt tệp nén mã nguồn đã tải xuống vào trong đó và giải nén
+(với <code class="literal"> tar xzf gentoo-0.9.12.tar.gz </code>).  Đảm bảo không có
+thông báo cảnh báo lỗi, thậm chí  <span class="emphasis"><em>irrelevant</em></span>, bởi vì
+các công cụ giải nén của người khác có thể hoặc không thể bỏ qua những dị
+thường này, vì vậy họ có thể gặp sự cố khi giải nén chúng.  Dòng lệnh trình
+báo của bạn có thể giống như sau:
+</p>
+        <pre class="screen">
+$ mkdir ~/gentoo ; cd ~/gentoo
+$ wget http://<em class="replaceable"><code>www.example.org</code></em>/gentoo-0.9.12.tar.gz
+$ tar xvzf gentoo-0.9.12.tar.gz
+$ ls -F
+gentoo-0.9.12/
+gentoo-0.9.12.tar.gz
+</pre>
+        <p>
+Bây giờ bạn có một thư mục con khác, gọi là <code class="filename"> gentoo-0.9.12
+</code>.  Đi vào thư mục đó và <span class="emphasis"><em> cẩn trọng </em></span> đọc tài
+liệu được cung cấp.  Thường có các tệp có <code class="filename"> README*</code>,
+<code class="filename">INSTALL*</code>,  <code class="filename">*.lsm</code> hoặc
+<code class="filename">*.html </code>.  Bạn phải tìm hướng dẫn về cách biên dịch và
+cài đặt chương trình (có lẽ họ giả sử rằng bạn sẽ muốn cài đặt chương trình
+vào thư mục <code class="filename">/usr/local/bin</code>), bạn sẽ không làm điều đó,
+nhưng còn nhiều thứ về sau trong <a class="xref" href="modify.vi.html#destdir" title="3.3. Installation of files to their destination">Phần 3.3, “Installation of files to their destination”</a>).
+</p>
+        <p>
+Bạn nên bắt đầu đóng gói với một thư mục mã nguồn hoàn toàn sạch sẽ (nguyên
+sơ), hoặc chỉ đơn giản với mã nguồn mới được giải nén
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="simplemake"/>2.4. Xây dựng hệ thống đơn giản</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Các chương trình đơn giản thường có một <code class="filename">Makefile</code> và có
+thể được biên dịch chỉ bằng cách chạy lệnh
+<code class="literal">make</code>. <a href="#ftn.idm698" class="footnote" id="idm698"><sup class="footnote">[11]</sup></a> Một số còn hỗ
+trợ <code class="literal">make check</code>, nhằm tự kiểm tra điều kiện biên dịch. Để
+cài đặt chương trình vào thư mục đích thường được thực hiện với
+<code class="literal">make install</code>.
+</p>
+        <p>
+Bây giờ hãy thử biên dịch và chạy chương trình của bạn, để đảm bảo nó hoạt
+động đúng và không làm hỏng cái gì khác trong khi cài đặt hoặc chạy.
+</p>
+        <p>
+Ngoài ra, bạn có thể chạy <code class="literal">make clean</code> (hoặc tốt hơn nữa là
+<code class="literal">make distclean</code>) để dọn dẹp thư mục build. Đôi khi thậm
+chí còn hỗ trợ kịch bản gỡ cài đặt, <code class="literal">make uninstall</code> được
+sử dụng để xóa tất cả các tập tin đã cài đặt.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="portable"/>2.5. Xây dựng hệ thống phổ biến</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Rất nhiều chương trình phần mềm tự do được viết bằng ngôn ngữ <a class="ulink" href="http://wikipedia.org/wiki/Llenguatge_C">C</a> và <a class="ulink" href="http://wikipedia.org/wiki/C++">C++</a>. Nhiều trong
+số đó sử dụng Autotools hoặc CMake để làm cho chúng dễ dàng biên dịch đối
+với các nền tảng khác nhau. Các công cụ xây dựng này cần được sử dụng để tạo
+tệp <code class="filename">Makefile</code> từ tệp nguồn bắt buộc khác. Sau đó, các
+chương trình dễ dàng được xây dựng bằng cách sử dụng <code class="literal">make; make
+install </code>.
+</p>
+        <p>
+<a class="ulink" href="http://wikipedia.org/wiki/Autotools">Autotools</a> là hệ thống xây dựng GNU
+bao gồm <a class="ulink" href="http://wikipedia.org/wiki/Autoconf">Autoconf</a>, <a class="ulink" href="http://wikipedia.org/wiki/Automake">Automake</a>, <a class="ulink" href="http://wikipedia.org/wiki/GNU_Libtool">Libtool</a>,
+và <a class="ulink" href="http://wikipedia.org/wiki/Gettext">gettext</a>. Bạn có thể nhận ra các nguồn như
+vậy bằng các tệp <code class="filename">configure.ac</code>,
+<code class="filename">Makefile.am</code>, và
+<code class="filename">Makefile.in</code>.<a href="#ftn.idm725" class="footnote" id="idm725"><sup class="footnote">[12]</sup></a>
+</p>
+        <p>
+Bước đầu tiên của quy trình làm việc với Autotools thường là chạy với bản
+thượng nguồn <code class="literal">autoreconf -i -f</code> trong thư mục nguồn và các
+tệp được tạo ra cùng với mã nguồn.
+</p>
+        <pre class="screen">
+configure.ac-----+-&gt; autoreconf -+-&gt; configure
+Makefile.am -----+        |      +-&gt; Makefile.in
+src/Makefile.am -+        |      +-&gt; src/Makefile.in
+                          |      +-&gt; config.h.in
+                      automake
+                      aclocal
+                      aclocal.m4
+                      autoheader
+</pre>
+        <p>
+Việc chỉnh sửa các tệp <code class="filename">configure.ac</code> và
+<code class="filename">Makefile.am</code> yêu cầu vài kiên thức về
+<span class="command"><strong>autoconf</strong></span> và <span class="command"><strong>automake</strong></span>.  Xem
+<code class="literal">info autoconf</code> và <code class="literal">info automake</code>.
+</p>
+        <p>
+Bước thứ hai của quy trình làm việc Autotools thường là chúng ta sẽ có được
+các tệp mới sinh ra  và chỉ cần chạy <code class="literal">./configure &amp;&amp;
+make</code> trong thư mục nguồn để biên dịch thành chương trình
+<span class="command"><strong><em class="replaceable"><code>binary</code></em></strong></span>.
+</p>
+        <pre class="screen">
+Makefile.in -----+                +-&gt; Makefile -----+-&gt; make -&gt; <em class="replaceable"><code>binary</code></em>
+src/Makefile.in -+-&gt; ./configure -+-&gt; src/Makefile -+
+config.h.in -----+                +-&gt; config.h -----+
+                 |
+  config.status -+
+  config.guess --+
+</pre>
+        <p>
+Bạn có thể thay đổi nhiều thứ trong <code class="filename">Makefile</code>; ví dụ bạn
+có thể thay đổi thư mục mặc định để cài đặt tệp bằng cách sử dụng tùy chọn
+<code class="literal">./configure --prefix=/usr</code>.
+</p>
+        <p>
+Mặc dù không bắt buộc, việc cập nhật cấu hình <code class="filename">configure</code>
+và các tệp khác với <code class="literal">autoreconf -i -f</code> có thể cải thiện
+tính tương thích của mã nguồn. <a href="#ftn.idm751" class="footnote" id="idm751"><sup class="footnote">[13]</sup></a>
+</p>
+        <p>
+<a class="ulink" href="http://wikipedia.org/wiki/CMake">CMake</a> là một hệ thống xây dựng thay thế. Bạn có
+thể nhận ra các nguồn như vậy bằng tệp <code class="filename">CMakeLists.txt</code>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="namever"/>2.6. Tên và phiên bản gói</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Nếu mã nguồn thượng nguồn là <code class="filename">gentoo-0.9.12.tar.gz</code>, bạn
+có thể dùng <code class="literal">gentoo</code> làm nguồn (source) <span class="strong"><strong>tên gói</strong></span> và <code class="literal">0.9.12</code> là <span class="strong"><strong>phiên bản thượng nguồn</strong></span>. Chúng được mô tả trong tệp
+<code class="filename">debian/changelog</code> chi tiết tại <a class="xref" href="dreq.vi.html#changelog" title="4.3. changelog">Phần 4.3, “<code class="filename">changelog</code>”</a>.
+</p>
+        <p>
+Mặc dù phương pháp tiếp cận đơn giản này là chủ yếu, bạn có thể cần phải
+điều chỉnh <span class="strong"><strong>tên gói</strong></span> và <span class="strong"><strong>phiên bản thượng nguồn</strong></span> bằng cách đổi tên thượng
+nguồn theo Chính sách Debian và quy ước hiện hành.
+</p>
+        <p>
+Bạn phải chọn <span class="strong"><strong>tên gói</strong></span> chỉ bao gồm các chữ
+thường (<code class="literal">a-z</code>), chữ số (<code class="literal">0-9</code>, dấu cộng
+(<code class="literal">+</code>) dấu trừ (<code class="literal">-</code>), và dấu chấm
+(<code class="literal">.</code>). Phải có ít nhất hai ký tự, phải bắt đầu bằng một ký
+tự chữ hoặc số, và không được giống với tên đã tồn tại. Bạn nên giữ chiều
+dài của nó trong vòng 30 ký tự.  <a href="#ftn.idm778" class="footnote" id="idm778"><sup class="footnote">[14]</sup></a>
+</p>
+        <p>
+Nếu thượng nguồn sử dụng một số thuật ngữ chung chung như
+<code class="literal">test-suite</code> cho tên của nó, bạn nên đổi tên nó để xác định
+rõ ràng nội dung của nó và cũng tránh làm rối không gian tên.  <a href="#ftn.idm783" class="footnote" id="idm783"><sup class="footnote">[15]</sup></a>
+</p>
+        <p>
+Bạn nên chọn <span class="strong"><strong>phiên bản thượng nguồn</strong></span> chỉ
+bao gồm alphanumerics (<code class="literal">0-9A-Za-z</code>), dấu cộng (<code class="literal"> +
+</code>), dấu ngã (<code class="literal"> ~ </code>), và dấu chấm
+(<code class="literal">. </code>). Nó phải bắt đầu bằng một chữ số
+(<code class="literal">0-9</code>). <a href="#ftn.idm793" class="footnote" id="idm793"><sup class="footnote">[16]</sup></a>Tốt nhất nên
+giữ chiều dài của nó trong vòng 8 ký tự nếu có thể.  <a href="#ftn.idm795" class="footnote" id="idm795"><sup class="footnote">[17]</sup></a>
+</p>
+        <p>
+Nếu thượng nguồn không sử dụng cấu trúc phiên bản bình thường như
+<code class="literal">2.30.32</code> mà lại sử dụng một số kiểu như
+<code class="literal">11Apr29</code>, một chuỗi tên mã ngẫu nhiên, hoặc một giá trị
+băm VCS như một phần của phiên bản, hãy chắc chắn loại bỏ chúng khỏi
+<span class="strong"><strong>phiên bản thượng nguồn</strong></span>. Thông tin này có
+thể được ghi lại trong tệp <code class="filename">debian/changelog</code>. Nếu bạn
+cần tạo mới ra một chuỗi phiên bản, nên sử dụng định dạng
+<code class="literal">YYYYMMDD</code> như là <code class="literal"> 20110429 </code> cho phiên
+bản thượng nguồn. Điều này đảm bảo rằng <span class="command"><strong>dpkg</strong></span> hiểu các
+phiên bản sau này chính xác như cho việc nâng cấp phiên bản. Nếu bạn cần đảm
+bảo chuyển đổi suôn sẻ sang cấu trúc phiên bản bình thường như
+<code class="literal">0.1</code> trong tương lai, hãy sử dụng định dạng
+<code class="literal">0~YYMMDD</code> như <code class="literal">0~110429</code> cho phiên bản
+thượng nguồn.
+</p>
+        <p>
+Các tên phiên bản <a href="#ftn.idm810" class="footnote" id="idm810"><sup class="footnote">[18]</sup></a> có thể được so sánh
+bằng cách sử dụng <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> như sau:
+</p>
+        <pre class="screen">
+$ dpkg --compare-versions <em class="replaceable"><code>ver1</code></em> <em class="replaceable"><code>op</code></em> <em class="replaceable"><code>ver2</code></em>
+</pre>
+        <p>
+Quy tắc so sánh phiên bản có thể được tóm tắt như sau:
+
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>Chuỗi được so sánh từ đầu đến cuối chuỗi.</p>
+            </li>
+            <li class="listitem">
+              <p>Các chữ cái lớn hơn chữ số.</p>
+            </li>
+            <li class="listitem">
+              <p>Số được so sánh như số nguyên.</p>
+            </li>
+            <li class="listitem">
+              <p>Các chữ cái được so sánh theo thứ tự mã ASCII.</p>
+            </li>
+            <li class="listitem">
+              <p>Có các quy tắc đặc biệt cho các dấu chấm (<code class="literal">.</code>), cộng
+(<code class="literal">+</code>), ngã (<code class="literal">~</code>), như sau:</p>
+              <p>
+<code class="literal">0.0</code> &lt; <code class="literal">0.5</code> &lt;
+<code class="literal">0.10</code> &lt; <code class="literal">0.99</code> &lt;
+<code class="literal">1</code> &lt; <code class="literal">1.0~rc1</code> &lt;
+<code class="literal">1.0</code> &lt; <code class="literal">1.0+b1</code> &lt;
+<code class="literal">1.0+nmu1</code> &lt; <code class="literal">1.1</code> &lt;
+<code class="literal">2.0</code>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Một trường hợp có thể xảy ra khi các bản phát hành thượng nguồn có phiên bản
+là <code class="filename">gentoo-0.9.12-ReleaseCandidate-99.tar.gz</code> nó là phiên
+bản trước của <code class="filename">gentoo-0.9.12.tar.gz</code>. Bạn cần đảm bảo
+rằng việc nâng cấp vẫn hoạt động bằng cách đổi tên nguồn thượng nguồn thành
+<code class="filename">gentoo-0.9.12~rc99.tar.gz</code>.
+</p>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="dh-make"/>2.7. Thiết lập <span class="command"><strong>dh_make</strong></span></h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Thiết lập các biến môi trường shell <code class="literal">$DEBEMAIL</code> và
+<code class="literal">$DEBFULLNAME</code> để các công cụ bảo trì Debian nhận biết địa
+chỉ email và tên của bạn cho việc sử dụng cho các gói .<a href="#ftn.idm868" class="footnote" id="idm868"><sup class="footnote">[19]</sup></a>
+</p>
+        <pre class="screen">
+$ cat &gt;&gt;~/.bashrc &lt;&lt;EOF
+DEBEMAIL="your.email.address@example.org"
+DEBFULLNAME="Firstname Lastname"
+export DEBEMAIL DEBFULLNAME
+EOF
+$ . ~/.bashrc
+</pre>
+      </div>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title"><a id="non-native-dh-make"/>2.8. Khởi tạo gói Debian mới</h2>
+            </div>
+          </div>
+        </div>
+        <p>
+Normal Debian packages are non-native Debian packages made from upstream
+programs.  If you wish to create a non-native Debian package of an upstream
+source <code class="filename">gentoo-0.9.12.tar.gz</code>, you can create an initial
+non-native Debian package for it by issuing the <span class="command"><strong>dh_make</strong></span>
+command as follows:
+</p>
+        <pre class="screen">
+$ cd ~/gentoo
+$ wget http://example.org/gentoo-0.9.12.tar.gz
+$ tar -xvzf gentoo-0.9.12.tar.gz
+$ cd gentoo-0.9.12
+$ dh_make -f ../gentoo-0.9.12.tar.gz
+</pre>
+        <p>
+Tất nhiên, hãy thay tên tệp bằng tên của bản lưu trữ gốc của
+bạn. <a href="#ftn.idm879" class="footnote" id="idm879"><sup class="footnote">[20]</sup></a> Xem <span class="citerefentry"><span class="refentrytitle">dh_make</span>(8)</span> để biết chi tiết.
+</p>
+        <p>
+Bạn sẽ thấy một số câu hỏi về loại gói bạn muốn tạo. Gentoo là một gói nhị
+phân duy nhất - nó chị tạo ra một gói nhị phân, tức chỉ cần một tập tin
+<code class="filename">.deb</code>- vì vậy chúng ta sẽ chọn tùy chọn đầu tiên (với
+<code class="literal">s</code>), kiểm tra thông tin trên màn hình và xác nhận bằng
+cách nhấn <code class="literal"><em class="replaceable"><code>ENTER</code></em>. <a href="#ftn.idm893" class="footnote" id="idm893"><sup class="footnote">[21]</sup></a></code>
+</p>
+        <p>
+Việc thực hiện <span class="command"><strong>dh_make</strong></span> sẽ tạo một bản sao của tarball
+thượng nguồn  <code class="filename">gentoo_0.9.12.orig.tar.gz</code> trong thư mục
+cha để phù hợp với việc tạo ra gói nguồn non-native Debian với tên
+<code class="filename"> debian.tar.gz </code> sau này:
+</p>
+        <pre class="screen">
+$ cd ~/gentoo ; ls -F
+gentoo-0.9.12/
+gentoo-0.9.12.tar.gz
+gentoo_0.9.12.orig.tar.gz
+</pre>
+        <p>
+Vui lòng lưu ý hai điểm chính của tên tệp tin này
+<code class="filename">gentoo_0.9.12.orig.tar.gz</code>:
+</p>
+        <div class="itemizedlist">
+          <ul class="itemizedlist">
+            <li class="listitem">
+              <p>
+Tên gói và phiên bản phân cách nhau bởi kí tự <code class="literal">_</code> (gạch
+dưới)
+</p>
+            </li>
+            <li class="listitem">
+              <p>
+Thành phần <code class="filename">.orig</code> được chèn trước
+<code class="filename">.tar.gz</code>
+</p>
+            </li>
+          </ul>
+        </div>
+        <p>
+Bạn cũng nên lưu ý rằng nhiều tệp mẫu đã được tạo ra trong thư mục
+<code class="filename">debian</code> Chúng được giải thích ở <a class="xref" href="dreq.vi.html" title="Chương 4. Required files under the debian directory">Chương 4, <em>Required files under the <code class="filename">debian</code> directory</em></a>
+và <a class="xref" href="dother.vi.html" title="Chương 5. Other files under the debian directory">Chương 5, <em>Other files under the <code class="filename">debian</code> directory</em></a>.  Bạn cũng nên hiểu rằng việc đóng gói không thể
+là một quá trình tự động hoàn toàn. Bạn sẽ cần phải chỉnh sửa thượng nguồn
+cho Debian (xem <a class="xref" href="modify.vi.html" title="Chương 3. Modifying the source">Chương 3, <em>Modifying the source</em></a>). Sau đó, bạn phải cần sử dụng
+phương pháp thích hợp cho công việc xây dựng gói Debian (<a class="xref" href="build.vi.html" title="Chương 6. Biên dịch gói">Chương 6, <em>Biên dịch gói</em></a>), kiểm thử chúng (<a class="xref" href="checkit.vi.html" title="Chương 7. Kiểm tra gói để tìm lỗi">Chương 7, <em>Kiểm tra gói để tìm lỗi</em></a>), vả đẩy chúng
+lên máy chủ (<a class="xref" href="upload.vi.html" title="Chương 9. Tải gói phần mềm lên">Chương 9, <em>Tải gói phần mềm lên</em></a>).  Tất cả các bước sẽ được giải thích.
+</p>
+        <p>
+Nếu bạn vô tình xoá một số tệp khuôn mẫu trong khi đang làm việc với chúng,
+bạn có thể khôi phục chúng bằng cách chạy <span class="command"><strong>dh_make</strong></span> với tùy
+chọn <code class="literal">--addmissing</code> trong thư mục mã nguồn đang làm việc
+</p>
+        <p>
+Cập nhật cho một gói hiện sẽ có thể phức tạp vì nó có thể sử dụng các kỹ
+thuật cũ. Khi học những điều cơ bản, vui lòng gắn bó với việc tạo ra một gói
+theo kỹ thuật mới;  Giải thích thêm được đưa ra trong <a class="xref" href="update.vi.html" title="Chương 8. Cập nhật gói phần mềm">Chương 8, <em>Cập nhật gói phần mềm</em></a>.
+</p>
+        <p>
+Vui lòng lưu ý rằng mã nguồn không cần chứa bất kỳ hệ thống xây dựng nào đã
+thảo luận trong <a class="xref" href="first.vi.html#simplemake" title="2.4. Xây dựng hệ thống đơn giản">Phần 2.4, “Xây dựng hệ thống đơn giản”</a> và <a class="xref" href="first.vi.html#portable" title="2.5. Xây dựng hệ thống phổ biến">Phần 2.5, “Xây dựng hệ thống phổ biến”</a>.
+Nó có thể chỉ là một tập hợp các dữ liệu đồ hoạ,... Việc cài đặt các tệp có
+thể được chỉ thực hiện bằng các tập tin cấu hình <code class="systemitem">debhelper</code>  như là
+<code class="filename">debian/install</code> (xem <a class="xref" href="dother.vi.html#install" title="5.11. install">Phần 5.11, “<code class="filename">install</code>”</a>).
+</p>
+      </div>
+      <div class="footnotes">
+        <br/>
+        <hr/>
+        <div id="ftn.idm422" class="footnote">
+          <p><a href="#idm422" class="para"><sup class="para">[4] </sup></a>Đối với các gói mã nguồn Debian kiểu cũ với định dạng
+<code class="literal">1.0</code>,
+<code class="literal"><em class="replaceable"><code>package</code></em>_<em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em>.diff.gz</code>
+được sử dụng để thay thế. </p>
+        </div>
+        <div id="ftn.idm465" class="footnote">
+          <p><a href="#idm465" class="para"><sup class="para">[5] </sup></a> Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Source">5.6.1 "Source"</a>, <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Package">5.6.7 "Package"</a>, và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Version">5.6.12 "Version"</a>.<span class="strong"><strong>kiến
+trúc gói</strong></span> theo <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy
+Manual, 5.6.8 "Architecture"</a> và đuợc tự động ký bởi tiến trình xây
+dựng gói.</p>
+        </div>
+        <div id="ftn.idm490" class="footnote">
+          <p><a href="#idm490" class="para"><sup class="para">[6] </sup></a>Xem phần <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/pkgs.html#adopting">Debian Developer's Reference 5.9.5.
+"Adopting a package"</a>.</p>
+        </div>
+        <div id="ftn.idm515" class="footnote">
+          <p><a href="#idm515" class="para"><sup class="para">[7] </sup></a> Có thể nói rằng, sẽ luôn có những chương trình mới sẽ thật sự cần đóng gói
+mới  </p>
+        </div>
+        <div id="ftn.idm631" class="footnote">
+          <p><a href="#idm631" class="para"><sup class="para">[8] </sup></a>Đừng lo lắng về việc thiếu tệp <code class="filename"> Makefile </code>.  Bạn có thể
+cài đặt lệnh <span class="command"><strong> hello </strong></span> bằng cách sử dụng
+<span class="command"><strong>debhelper</strong></span> như trong <a class="xref" href="dother.vi.html#install" title="5.11. install">Phần 5.11, “<code class="filename">install</code>”</a>, hoặc bằng
+cách sửa đổi nguồn thượng nguồn để thêm tệp <code class="filename">Makefile</code>
+với mục install như trong <a class="xref" href="modify.vi.html" title="Chương 3. Modifying the source">Chương 3, <em>Modifying the source</em></a>.</p>
+        </div>
+        <div id="ftn.idm665" class="footnote">
+          <p><a href="#idm665" class="para"><sup class="para">[9] </sup></a> Bạn có thể xác định định dạng lưu trữ bằng sử dụng lệnh
+<span class="command"><strong>file</strong></span> khi phần mở rộng tệp là không đủ thông tin.  </p>
+        </div>
+        <div id="ftn.idm672" class="footnote">
+          <p><a href="#idm672" class="para"><sup class="para">[10] </sup></a> Chương trình này đã được đóng gói.  <a class="ulink" href="http://packages.qa.debian.org/g/gentoo.html"> phiên bản
+hiện tại </a> sử dụng Autotools làm cấu trúc xây dựng nên sẽ khác với
+các ví dụ sau dựa trên phiên bản 0.9.12.</p>
+        </div>
+        <div id="ftn.idm698" class="footnote">
+          <p><a href="#idm698" class="para"><sup class="para">[11] </sup></a>
+Nhiều chương trình hiện đại đi kèm với một kịch bản
+<code class="filename">configure</code> mà khi thực hiện tạo tệp
+<code class="filename">Makefile</code> tùy chỉnh linh hoạt đối với hệ thống của bạn.</p>
+        </div>
+        <div id="ftn.idm725" class="footnote">
+          <p><a href="#idm725" class="para"><sup class="para">[12] </sup></a>Autotools là công cụ quá lớn để giải quyết trong hướng dẫn nhỏ này. Phần này
+chỉ nhằm cung cấp các từ khoá và tham khảo. Hãy đảm bảo đọc <a class="ulink" href="http://www.lrde.epita.fr/~adl/autotools.html"> Autotools Tutorial </a> và bản sao cục bộ
+của <code class="filename">/usr/share/doc/autotools-dev/README.Debian.gz</code>, nếu bạn cần sử dụng nó.</p>
+        </div>
+        <div id="ftn.idm751" class="footnote">
+          <p><a href="#idm751" class="para"><sup class="para">[13] </sup></a>Bạn có thể tự động hoá việc này bằng cách sử dụng gói <code class="systemitem">dh-autoreconf</code>. Xem <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Customization of rules file">Phần 4.4.3, “Customization of <code class="filename">rules</code> file”</a>.</p>
+        </div>
+        <div id="ftn.idm778" class="footnote">
+          <p><a href="#idm778" class="para"><sup class="para">[14] </sup></a>Độ dài của trường tên gói mặc định trong <span class="command"><strong> aptitude </strong></span> là
+30. Và có hơn 90% gói có độ dài tên dưới 24 ký tự.</p>
+        </div>
+        <div id="ftn.idm783" class="footnote">
+          <p><a href="#idm783" class="para"><sup class="para">[15] </sup></a>Nếu bạn theo dõi <a class="ulink" href="http://www.debian.org/doc/developers-reference/pkgs.html#newpackage">Debian Developer's
+Reference 5.1. "New packages"</a>, quá trình ITP thường sẽ bắt lỗi các
+loại vấn đề này</p>
+        </div>
+        <div id="ftn.idm793" class="footnote">
+          <p><a href="#idm793" class="para"><sup class="para">[16] </sup></a>Quy tắc chặt chẽ hơn này sẽ giúp bạn tránh nhầm lẫn tên tập tin.</p>
+        </div>
+        <div id="ftn.idm795" class="footnote">
+          <p><a href="#idm795" class="para"><sup class="para">[17] </sup></a>Độ dài của trường phiên bản mặc định trong <span class="command"><strong>aptitude</strong></span> là
+10. Phiên bản Debian với dấu gạch nối trước thường tiêu tốn 2. Đối với hơn
+80% gói, phiên bản thượng nguồn ít hơn 8 ký tự và phiên bản Debian có ít hơn
+2 ký tự.  Đối với hơn 90% gói, phiên bản thượng nguồn ít hơn 10 ký tự và
+phiên bản Debian ít hơn 3 ký tự.</p>
+        </div>
+        <div id="ftn.idm810" class="footnote">
+          <p><a href="#idm810" class="para"><sup class="para">[18] </sup></a>Các chuỗi tên phiên bản có thể là <span class="strong"><strong>upstream
+version</strong></span> (<code class="literal"><em class="replaceable"><code>version</code></em></code>),
+<span class="strong"><strong>Debian revision</strong></span>
+(<code class="literal"><em class="replaceable"><code>revision</code></em></code>), hoặc <span class="strong"><strong>version</strong></span>
+(<code class="literal"><em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em></code>).
+Xem <a class="xref" href="update.vi.html#newrevision" title="8.1. Phiên bản tu chỉnh Debian mới">Phần 8.1, “Phiên bản tu chỉnh Debian mới”</a> để biết cách mà <span class="strong"><strong>Debian revision</strong></span> hoạt động
+</p>
+        </div>
+        <div id="ftn.idm868" class="footnote">
+          <p><a href="#idm868" class="para"><sup class="para">[19] </sup></a> Ví dụ dưới đây giả định bạn đang sử dụng Bash là shell đăng nhập mặc định
+của bạn. Nếu bạn sử dụng một số shell đăng nhập khác như Z shell, hãy sử
+dụng các file cấu hình tương ứng thay vì <code class="filename">~/.bashrc</code>. </p>
+        </div>
+        <div id="ftn.idm879" class="footnote">
+          <p><a href="#idm879" class="para"><sup class="para">[20] </sup></a> Nếu thượng nguồn đã cung cấp thư mục <code class="filename">debian</code> và cả nội
+dung của nó, hãy chạy lệnh <span class="command"><strong>dh_make</strong></span> với tùy chọn thêm
+<code class="literal">--addmissing</code>. Định dạng nguồn <code class="literal">3.0
+(quilt)</code> là đủ mạnh để không làm hỏng các gói này.  Bạn có thể cần
+phải cập nhật nội dung được cung cấp bởi thượng nguồn cho gói Debian của
+bạn.  </p>
+        </div>
+        <div id="ftn.idm893" class="footnote">
+          <p><a href="#idm893" class="para"><sup class="para">[21] </sup></a> Có vài sự lựa chọn bao gồm: <code class="literal">s</code> cho Single binary package,
+<code class="literal">i</code> cho arch-Independent package, <code class="literal">m</code> cho
+Multiple binary packages, <code class="literal">l</code> cho Library package,
+<code class="literal">k</code> cho Kernel module package, <code class="literal">n</code> cho
+kernel patch package, và <code class="literal">b</code> cho <code class="systemitem">cdbs</code> package.  Tài liệu này tập trung vào sử
+dụng câu lệnh <span class="command"><strong>dh</strong></span>  (từ gói <code class="systemitem">debhelper</code>) để tạo một single binary package,
+nhưng cũng nói tới làm sao sử dụng nó cho arch-independent hay multiple
+binary packages. Gói <code class="systemitem">cdbs</code> cung cấp
+các nền tảng kịch bản khác nhau cho lệnh <span class="command"><strong>dh</strong></span> và cả nằm
+ngoài phạm vi tài liệu này.  </p>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <hr/>
+      <table width="100%" summary="Navigation footer">
+        <tr>
+          <td align="left"><a accesskey="p" href="start.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
+          <td align="center"> </td>
+          <td align="right"> <a accesskey="n" href="modify.vi.html"><img src="images/next.png" alt="Kế tiếp"/></a></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top">Chương 1. Bắt đầu Đúng cách </td>
+          <td align="center">
+            <a accesskey="h" href="index.vi.html">
+              <img src="images/home.png" alt="Đầu"/>
+            </a>
+          </td>
+          <td align="right" valign="top"> Chương 3. Modifying the source</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
