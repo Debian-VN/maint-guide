@@ -1056,33 +1056,37 @@ msgstr "Mỗi bước của phác thảo này được giải thích với các 
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Choose your program"
-msgstr ""
+msgstr "Chọn chương trình của bạn"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "You have probably chosen the package you want to create.  The first thing you need to "
 "do is check if the package is in the distribution archive already by using the "
 "following:"
-msgstr ""
+msgstr "Có thể bạn đã chọn gói bạn muốn tạo. Điều đầu tiên bạn cần làm là "
+"kiểm tra xem gói có trong kho lưu trữ đã được phân phối bằng cách sử dụng như sau:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "the <command>aptitude</command> command"
-msgstr ""
+msgstr "lệnh <command>aptitude</command>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "the <ulink url=\"&packages-do;\">Debian packages</ulink> web page"
-msgstr ""
+msgstr "trang web <ulink url=\"&packages-do;\">Debian packages</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "the <ulink url=\"&packages-qa-do;\">Debian Package Tracking System</ulink> web page"
 msgstr ""
+"trang web <ulink url=\"&packages-qa-do;\">Debian Package Tracking System</ulink>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "See <ulink url=\"&devref-adopt;\">Debian Developer's Reference 5.9.5.  \"Adopting a "
 "package\"</ulink>."
 msgstr ""
+"Xem phần <ulink url=\"&devref-adopt;\">Debian Developer's Reference 5.9.5.  \"Adopting a "
+"package\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1092,41 +1096,52 @@ msgid ""
 "You may also adopt a package whose maintainer has filed a Request for Adoption "
 "(<emphasis role=\"strong\">RFA</emphasis>).<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Nếu một gói đã tồn tại, tốt, hãy cài đặt nó! :-) Nếu lúc cài đặt xuất hiện từ <emphasis role="
+"\"strong\">orphaned</emphasis> (điều đó có nghĩa người bảo trì gói đấy đã thiết lập tại <ulink url=\"&qa-"
+"do;\">Debian QA Group</ulink>), bạn có thể chọn nó nếu nó vẫn có sẵn.  "
+"Bạn cũng có thể giúp một gói nếu người bảo trị của gói đó đã tạo một \"Request for Adoption\" "
+"(<emphasis role=\"strong\">RFA</emphasis>).<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "There are several package ownership status resources:"
-msgstr ""
+msgstr "Có một số tài nguyên trạng thái quyền sở hữu gói:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "The <command>wnpp-alert</command> command from the <systemitem role=\"package"
 "\">devscripts</systemitem> package"
 msgstr ""
+"Lệnh <command>wnpp-alert</command> từ gói <systemitem role=\"package\">devscripts</systemitem>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<ulink url=\"&wnpp-do;\">Work-Needing and Prospective Packages</ulink>"
-msgstr ""
+msgstr "<ulink url=\"&wnpp-do;\">Các gói công việc Cần thiết và Triển vọng</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<ulink url=\"&wnpp-bts;\">Debian Bug report logs: Bugs in pseudo-package <systemitem "
 "role=\"package\">wnpp</systemitem> in <literal>unstable</literal></ulink>"
 msgstr ""
+"<ulink url=\"&wnpp-bts;\">Debian Bug report logs: Bugs in pseudo-package <systemitem "
+"role=\"package\">wnpp</systemitem> in <literal>unstable</literal></ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<ulink url=\"&wnpp-dn;\">Debian Packages that Need Lovin'</ulink>"
-msgstr ""
+msgstr "<ulink url=\"&wnpp-dn;\">Debian Packages that Need Lovin'</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<ulink url=\"&wnpp-debtags;\">Browse <systemitem role=\"package\">wnpp</systemitem> "
 "bugs based on debtags</ulink>"
 msgstr ""
+"<ulink url=\"&wnpp-debtags;\">Browse <systemitem role=\"package\">wnpp</systemitem> "
+"bugs based on debtags</ulink>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "Having said that, there will of course always be new programs that are worth packaging."
 msgstr ""
+"Có thể nói rằng, sẽ luôn có những chương trình mới sẽ thật sự cần đóng gói mới"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1137,22 +1152,27 @@ msgid ""
 "sponsorship) by other developers <placeholder type=\"footnote\" id=\"0\"/>.  You can "
 "contribute in various ways:"
 msgstr ""
+"Một lưu ý quan trọng là  Debian đã có các gói cho hầu hết các loại chương trình, "
+"và số lượng các gói đã có trong kho lưu trữ Debian lớn hơn nhiều so với các cộng tác "
+"viên có quyền tải lên.  Do đó, đóng góp cho các gói đã có sẵn trong kho lưu trữ luôn "
+"được đánh giá cao hơn (và nhiều khả năng nhận tài trợ) bởi các nhà phát triển khác "
+"<placeholder type=\"footnote\" id=\"0\"/>.  Bạn có thể đóng góp bằng nhiều cách:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "taking over orphaned, yet actively used, packages"
-msgstr ""
+msgstr "Tiếp nhận gói mồ côi, nhưng vẫn đang được sử dụng"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "joining <ulink url=\"&teams;\">packaging teams</ulink>"
-msgstr ""
+msgstr "tham gia vào <ulink url=\"&teams;\">packaging teams</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "triaging bugs of very popular packages"
-msgstr ""
+msgstr "xử lý lỗi của các gói phổ biến"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "preparing <ulink url=\"&devref-nmu;\">QA or NMU uploads</ulink>"
-msgstr ""
+msgstr "chuẩn bị <ulink url=\"&devref-nmu;\">QA or NMU uploads</ulink>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1163,18 +1183,28 @@ msgid ""
 "since someone has already done the initial setup for you.  Keep reading, though; a lot "
 "of the advice below will still be applicable for your case."
 msgstr ""
+"Nếu bạn có thể nhận bảo trì gói nào, hãy lấy nguồn (bằng các công cụ như <literal>apt-get "
+"source <replaceable>packagename</replaceable></literal>) và kiểm tra chúng.  Tài liệu này tiếc "
+"là không bao gồm thông tin toàn diện về việc nhận bảo trì gói.  Rất may, bạn không cần phải "
+"mất nhiều thời gian khó khăn để tìm hiểu cách gói làm việc, khi đã có ai đó trước đây thực "
+"hiện các thiết lập ban đầu cho bạn. Hãy tiếp tục đọc, và;  Rất nhiều lời khuyên dưới đây "
+"vẫn sẽ được áp dụng cho trường hợp của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If the package is new, and you decide you'd like to see it in Debian, proceed as "
 "follows:"
 msgstr ""
+"Nếu là một gói mới, và bạn quyết định muốn xem nó trong Debian, thực hiện theo "
+"các bước sau:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "First, you must know that the program works, and have tried it for some time to confirm "
 "its usefulness."
 msgstr ""
+"Trước tiên, bạn phải biết rằng chương trình hoạt động như thế nào, và đã thử nó một thời "
+"gian để xác nhận tính hữu dụng của nó."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -1185,10 +1215,16 @@ msgid ""
 "someone's already on it, contact them if you feel you need to.  If not - find another "
 "interesting program that nobody is maintaining."
 msgstr ""
+"Bạn phải kiểm tra xem có ai khác đang làm việc trên gói trên trang <ulink url=\"&wnpp-do;\">"
+"Work-Needing và Prospective Packages </ulink>.  Nếu không có ai khác đang làm việc trên nó, "
+"hãy gửi báo cáo lỗi ITP (Intent To Package) đến gói <systemitem role="
+"\"package\">wnpp</systemitem>  bằng cách sử dụng lệnh <command>reportbug</command>.  Nếu ai "
+"đó đã làm việc đó rồi, hãy liên hệ với họ nếu bạn cảm thấy cần.  Nếu không - hãy tìm một "
+"chương trình thú vị mà chưa ai đang duy trì."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "The software <emphasis role=\"strong\">must have a license</emphasis>."
-msgstr ""
+msgstr "Phần mềm <emphasis role=\"strong\">phải có một giấy phép</emphasis>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
@@ -1198,36 +1234,49 @@ msgid ""
 "package outside of <literal>main</literal></emphasis> for compilation or execution.  "
 "This is the desired case."
 msgstr ""
+"Đối với mục <literal>main</literal>, Chính sách Debian yêu cầu các gói phải <emphasis "
+"role=\"strong\">tuân thủ hoàn toàn Nguyên tắc về Phần mềm Tự do Debian </emphasis> (<ulink "
+"url=\"&dfsg;\"> DFSG </ulink> và <emphasis role=\"strong\">không yêu cầu một gói nào "
+"bên ngoài mục <literal>main</literal></emphasis> để biên dịch hay thực thi. "
+"Đây là trường hợp bắt buộc."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "For the <literal>contrib</literal> section, it must comply with the DFSG but it may "
 "require a package outside of <literal>main</literal> for compilation or execution."
 msgstr ""
+"Đối với mục <literal>contrib</literal>, nó phải tuân thủ DFSG nhưng nó có thể yêu "
+"cầu một gói bên ngoài mục <literal>main</literal> để biên dịch hoặc thực thi."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "For the <literal>non-free</literal> section, it may be non-compliant with the DFSG but "
 "it <emphasis role=\"strong\">must be distributable</emphasis>."
 msgstr ""
+"Còn mục <literal>non-free</literal>, nó có thể không tương thích với DFSG nhưng <emphasis role=\"strong\"> cần được phân phối </emphasis>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "If you are unsure about where it should go, post the license text on <ulink url="
 "\"&debian-legal-ldo;\">debian-legal@lists.debian.org</ulink> and ask for advice."
 msgstr ""
+"Nếu bạn không chắc chắn về vị trí của gói đó, hãy đăng hỏi về giấy phép trên "
+"<ulink url=\"&debian-legal-ldo;\"> debian-legal@lists.debian.org </ulink> và "
+"xin tư vấn."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "The program should <emphasis role=\"strong\">not</emphasis> introduce security and "
 "maintenance concerns to the Debian system."
-msgstr ""
+msgstr "Chương trình <emphasis role=\"strong\"> không nên </emphasis> tác động tới "
+"mối quan tâm bảo mật và bảo trì cho hệ thống Debian."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "The program should be well documented and its code needs to be understandable (i.e.  "
 "not obfuscated)."
 msgstr ""
+"Chương trình nên được ghi chép đầy đủ và mã của nó cần phải có thể hiểu được (không làm rối)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
@@ -1235,18 +1284,26 @@ msgid ""
 "are amicable to Debian.  It is important to be able to consult with the author(s)  in "
 "case of any problems with the program, so don't try to package unmaintained software."
 msgstr ""
+"Bạn nên liên hệ với tác giả của chương trình để kiểm tra nếu họ đồng ý với việc đóng gói "
+"nó trở nên thân thiện với Debian.  Điều quan trọng là có thể tham khảo ý kiến ​​của tác giả "
+"trong trường hợp có bất kỳ vấn đề với chương trình, do đó, không cố gắng với gói phần mềm "
+"không còn phát triển/bảo trì từ thượng nguồn"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "The program certainly should <emphasis role=\"strong\">not</emphasis> run setuid root, "
 "or even better, it shouldn't need to be setuid or setgid to anything."
 msgstr ""
+"Chương trình chắc chắn <emphasis role=\"strong\"> không nên </emphasis> chạy setuid root, hoặc thậm "
+"chí cao hơn, nó không cần phải setuid hoặc setgid để làm bất cứ điều gì."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "The program should not be a daemon, or go in an <filename>*/sbin</filename> directory, "
 "or open a port as root."
 msgstr ""
+"Chương trình không nên là một daemon, hoặc cho vào trong thư mục <filename>*/sbin</filename>, hoặc mở "
+"một cổng như là root."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1254,84 +1311,95 @@ msgid ""
 "enraging users if you do something wrong in some setuid daemon...  When you gain more "
 "experience in packaging, you'll be able to package such software."
 msgstr ""
+"Tất nhiên, cuối cùng chỉ là một biện pháp an toàn, và nhằm cứu bạn khỏi sự kích động của "
+"người dùng nếu bạn làm điều gì đó sai trái trong một số daemon setuid... Khi bạn có nhiều "
+"kinh nghiệm hơn trong trong gói, bạn sẽ có thể gói phần mềm kiểu như vậy."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "As a new maintainer, you are encouraged to get some experience in packaging with easier "
 "packages and discouraged from creating complicated packages."
 msgstr ""
+"Là một người bảo trì mới, bạn được khuyến khích để có được một số kinh nghiệm trong đóng gói "
+"với các gói đơn giản và không khuyến khích từ việc tạo ra các gói phức tạp."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Simple packages"
-msgstr ""
+msgstr "Gói đơn giản"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "single binary package, arch = all (collection of data such as wallpaper graphics)"
-msgstr ""
+msgstr "gói nhị phân duy nhất, arch = all (bộ sưu tập dữ liệu như hình nền)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "single binary package, arch = all (executables written in an interpreted language such "
 "as POSIX shell)"
 msgstr ""
+"gói nhị phân duy nhất, arch = all (các tệp thực thi được viết bằng ngôn "
+"thông dịch như POSIX shell)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Intermediate complexity packages"
-msgstr ""
+msgstr "Gói phức tạp trung bình"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "single binary package, arch = any (ELF binary executables compiled from languages such "
 "as C and C++)"
 msgstr ""
+"gói nhị phân duy nhất, arch = all (tệp tin thực thi nhị phân của ELF được biên dịch "
+"từ các ngôn ngữ như C và C ++)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "multiple binary packages, arch = any + all (packages for ELF binary executables + "
 "documentation)"
 msgstr ""
+"nhiều gói nhị phân, arch = any + all (các gói cho các tập tin thực thi nhị phân ELF + tài liệu)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "upstream source in a format other than <filename>tar.gz</filename> or <filename>tar."
 "bz2</filename>"
 msgstr ""
+"thượng nguồn ở định dạng khác với <filename>tar.gz</filename> hoặc <filename>tar.bz2</filename>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "upstream source containing undistributable contents"
-msgstr ""
+msgstr "thượng nguồn chứa nội dung không thể giải quyết"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "High complexity packages"
-msgstr ""
+msgstr "Gói phức tạp cao"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "interpreter module package used by other packages"
-msgstr ""
+msgstr "gói chứa các kịch bản được sử dụng bởi các gói khác"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "generic ELF library package used by other packages"
-msgstr ""
+msgstr "gói thư viện ELF chung được sử dụng bởi các gói khác"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "multiple binary packages including an ELF library package"
-msgstr ""
+msgstr "nhiều gói nhị phân bao gồm gói thư viện ELF"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "source package with multiple upstream sources"
-msgstr ""
+msgstr "gói nguồn có nhiều thượng nguồn"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "kernel module packages"
-msgstr ""
+msgstr "gói module hạt nhân"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "kernel patch packages"
-msgstr ""
+msgstr "các gói bản vá cho hạt nhân"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "any package with non-trivial maintainer scripts"
-msgstr ""
+msgstr "bất kỳ gói nào kịch bản người bảo trì không tầm thường"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1339,18 +1407,21 @@ msgid ""
 "knowledge. You should seek specific guidance for every complex feature. For example, "
 "some languages have their own sub-policy documents:"
 msgstr ""
+"Đóng gói gói phức tạp cao không phải là quá khó, nhưng nó đòi hỏi một chút kiến ​​thức. "
+"Bạn nên tìm kiếm hướng dẫn cụ thể cho từng tính năng phức tạp.  Ví dụ, một số ngôn ngữ "
+"có tài liệu chính sách phụ của riêng mình:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<ulink url=\"&policy-perl;\">Perl policy</ulink>"
-msgstr ""
+msgstr "<ulink url=\"&policy-perl;\">Perl policy</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<ulink url=\"&policy-python;\">Python policy</ulink>"
-msgstr ""
+msgstr "<ulink url=\"&policy-python;\">Python policy</ulink>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<ulink url=\"&policy-java;\">Java policy</ulink>"
-msgstr ""
+msgstr "<ulink url=\"&policy-java;\">Java policy</ulink>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1360,6 +1431,10 @@ msgid ""
 "<filename>Makefile</filename> with the <literal>install</literal> target as in <xref "
 "linkend=\"modify\"/>."
 msgstr ""
+"Đừng lo lắng về việc thiếu tệp <filename> Makefile </filename>.  Bạn có thể cài đặt lệnh "
+"<command> hello </command> bằng cách sử dụng <command>debhelper</command> như trong <xref "
+"linkend=\"install\"/>, hoặc bằng cách sửa đổi nguồn thượng nguồn để thêm tệp <filename>"
+"Makefile</filename> với mục install như trong <xref linkend=\"modify\"/>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1370,6 +1445,12 @@ msgid ""
 "created as followings may offer a good starting point:<placeholder type=\"footnote\" id="
 "\"0\"/>"
 msgstr ""
+"Có một câu trong tiếng Latinh nói rằng: <emphasis>fabricando fit faber</emphasis> "
+"(thực hành làm cho hoàn hảo).  Đó là <emphasis> tính cao nhất </emphasis> được đề "
+"nghị để thực hành và thử nghiệm với tất cả các bước của gói Debian với các gói đơn "
+"giản trong khi đọc hướng dẫn này.  Một tarball thượng nguồn đơn giản <filename>hello"
+"-sh-1.0.tar.gz</filename> được tạo như sau có thể cung cấp một điểm khởi đầu tốt: "
+"<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -1384,10 +1465,19 @@ msgid ""
 "$ cd ..\n"
 "$ tar -cvzf hello-sh-1.0.tar.gz hello-sh-1.0\n"
 msgstr ""
+"$ mkdir -p hello-sh/hello-sh-1.0; cd hello-sh/hello-sh-1.0\n"
+"$ cat &gt; hello &lt;&lt;EOF\n"
+"#!/bin/sh\n"
+"# (C) 2011 Foo Bar, GPL2+\n"
+"echo \"Hello!\"\n"
+"EOF\n"
+"$ chmod 755 hello\n"
+"$ cd ..\n"
+"$ tar -cvzf hello-sh-1.0.tar.gz hello-sh-1.0\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Get the program, and try it out"
-msgstr ""
+msgstr "Lấy chương trình, và hãy thử nó"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1401,6 +1491,14 @@ msgid ""
 "<filename><replaceable>package</replaceable>-<replaceable>version</replaceable></"
 "filename> with all the sources inside."
 msgstr ""
+"Vì vậy, điều đầu tiên cần làm là tìm và tải về mã nguồn gốc.  Có lẽ bạn đã có tập tin nguồn mà "
+"bạn đã chọn ở trang chủ của tác giả.  Mã nguồn của các chương trình Unix tự do thường có trong "
+"<command>tar</command>+<command>gzip</command> định dạng với phần mở rộng là <filename>.tar.gz"
+"</filename>, <command>tar</command>+<command>bzip2 </command> định dạng với phần mở rộng là "
+"<filename>.tar.bz2 </filename>, hoặc <command>tar</command>+<command>xz</command> định dạng "
+"với phần mở rộng là <filename>.tar.xz </filename>.  Các bản nén này thường chứa một thư mục gọi "
+"là <filename><replaceable>package  </replaceable>-<replaceable>version</replaceable></filename> với tất cả "
+"các nguồn bên trong."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1410,12 +1508,18 @@ msgid ""
 "+<command>gzip</command> format yourself by using the <literal>--exclude-vcs</literal> "
 "option."
 msgstr ""
+"Nếu phiên bản mới nhất của mã nguồn có sẵn thông qua VCS như Git, Subversion hoặc CVS, bạn "
+"cần phải lấy nó với <literal>git clone</literal>, <literal>svn co</literal> hoặc <literal>"
+"cvs co</literal> và đóng gói lại nó vào <command>tar</command>+<command>gzip</command> định "
+"dạng cho mình bằng cách sử dụng tuỳ chọn <literal>--exclude-vcs</literal>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "You can identify the archive format using the <command>file</command> command when the "
 "file extension is not enough."
 msgstr ""
+"Bạn có thể xác định định dạng lưu trữ bằng sử dụng lệnh <command>file</command> khi phần "
+"mở rộng tệp là không đủ thông tin."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1424,6 +1528,9 @@ msgid ""
 "\"footnote\" id=\"0\"/>), you should also unpack it with the appropriate tools and "
 "repack it."
 msgstr ""
+"Nếu mã nguồn chương trình của bạn xuất hiện dưới dạng một số loại lưu trữ khác (ví dụ: tên "
+"tập tin kết thúc bằng <filename>Z</filename> hoặc <filename>.zip </filename> <placeholder "
+"type=\"footnote\" id=\"0\"/>), Bạn cũng nên giải nén nó bằng các công cụ thích hợp và đóng gói lại nó."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1431,6 +1538,8 @@ msgid ""
 "should also unpack it to remove such contents and repack it with a modified upstream "
 "version containing <literal>dfsg</literal>."
 msgstr ""
+"Nếu mã nguồn chương trình của bạn đi kèm với một số nội dung không tuơng thích DFSG, bạn "
+"cũng nên giải nén nó để loại bỏ các nội dung đó và đóng gói lại nó bằng một phiên bản chỉnh sửa của thượng nguồn có chứa <literal>dfsg</literal>."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1438,12 +1547,15 @@ msgid ""
 "ulink> uses Autotools as its build structure and is substantially different from the "
 "following examples, which were based on version 0.9.12."
 msgstr ""
+"Chương trình này đã được đóng gói.  <ulink url=\"&gentoo-package;\"> phiên bản hiện tại </ulink> sử dụng Autotools làm cấu trúc xây dựng nên sẽ khác với các ví dụ sau dựa trên phiên bản 0.9.12."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "As an example, I'll use a program called <command>gentoo</command>, a GTK+ file "
 "manager.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Với một ví dụ: Tôi sẽ sử dụng chương trình được gọi là <command> gentoo </command>, "
+"trình quản lý tệp GTK+.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1455,6 +1567,13 @@ msgid ""
 "unpacking tools may or may not ignore these anomalies, so they may have problems "
 "unpacking them.  Your shell command line may look something like this:"
 msgstr ""
+"Tạo một thư mục con trong thư mục home của bạn có tên là <filename>debian</filename> hoặc "
+"<filename>deb</filename> hoặc bất cứ thứ gì bạn thấy thích hợp (ví dụ như <filename>~/gentoo "
+"</filename> sẽ là tốt trong trường hợp này). Đặt tệp nén mã nguồn đã tải xuống vào trong đó "
+"và giải nén (với <literal> tar xzf gentoo-0.9.12.tar.gz </literal>).  Đảm bảo không có thông "
+"báo cảnh báo lỗi, thậm chí  <emphasis>irrelevant</emphasis>, bởi vì các công cụ giải nén của "
+"người khác có thể hoặc không thể bỏ qua những dị thường này, vì vậy họ có thể gặp sự cố khi "
+"giải nén chúng.  Dòng lệnh trình báo của bạn có thể giống như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -1466,6 +1585,12 @@ msgid ""
 "gentoo-0.9.12/\n"
 "gentoo-0.9.12.tar.gz\n"
 msgstr ""
+"$ mkdir ~/gentoo ; cd ~/gentoo\n"
+"$ wget http://<replaceable>www.example.org</replaceable>/gentoo-0.9.12.tar.gz\n"
+"$ tar xvzf gentoo-0.9.12.tar.gz\n"
+"$ ls -F\n"
+"gentoo-0.9.12/\n"
+"gentoo-0.9.12.tar.gz\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1477,22 +1602,34 @@ msgid ""
 "you want to install to the <filename>/usr/local/bin</filename> directory; you won't be "
 "doing that, but more on that later in <xref linkend=\"destdir\"/>)."
 msgstr ""
+"Bây giờ bạn có một thư mục con khác, gọi là <filename> gentoo-0.9.12 </filename>.  "
+"Đi vào thư mục đó và <emphasis> cẩn trọng </emphasis> đọc tài liệu được cung cấp.  "
+"Thường có các tệp có <filename> README*</filename>, <filename>INSTALL*</filename>,  "
+"<filename>*.lsm</filename> hoặc <filename>*.html </filename>.  Bạn phải tìm hướng dẫn "
+"về cách biên dịch và cài đặt chương trình (có lẽ họ giả sử rằng bạn sẽ muốn cài đặt "
+"chương trình vào thư mục <filename>/usr/local/bin</filename>), bạn sẽ không làm "
+"điều đó, nhưng còn nhiều thứ về sau trong <xref linkend=\"destdir\"/>)."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "You should start packaging with a completely clean (pristine) source directory, or "
 "simply with freshly unpacked sources."
 msgstr ""
+"Bạn nên bắt đầu đóng gói với một thư mục mã nguồn hoàn toàn sạch sẽ (nguyên sơ)"
+", hoặc chỉ đơn giản với mã nguồn mới được giải nén"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Simple build systems"
-msgstr ""
+msgstr "Xây dựng hệ thống đơn giản"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "Many modern programs come with a script <filename>configure</filename> which when "
 "executed creates a <filename>Makefile</filename> customized for your system."
 msgstr ""
+"Nhiều chương trình hiện đại đi kèm với một kịch bản <filename>configure</filename> "
+"mà khi thực hiện tạo tệp <filename>Makefile</filename> tùy chỉnh linh hoạt đối với "
+"hệ thống của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1502,12 +1639,19 @@ msgid ""
 "Installation to the destination directories is usually done with <literal>make install</"
 "literal>."
 msgstr ""
+"Các chương trình đơn giản thường có một <filename>Makefile</filename> và có thể được "
+"biên dịch chỉ bằng cách chạy lệnh <literal>make</literal>. <placeholder type=\"footnote"
+"\" id=\"0\"/> Một số còn hỗ trợ <literal>make check</literal>, nhằm tự kiểm tra điều kiện "
+"biên dịch. Để cài đặt chương trình vào thư mục đích thường được thực hiện với <literal>"
+"make install</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Now try to compile and run your program, to make sure it works properly and doesn't "
 "break something else while it's installing or running."
 msgstr ""
+"Bây giờ hãy thử biên dịch và chạy chương trình của bạn, để đảm bảo nó hoạt động đúng "
+"và không làm hỏng cái gì khác trong khi cài đặt hoặc chạy."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1515,10 +1659,13 @@ msgid ""
 "distclean</literal>) to clean up the build directory.  Sometimes there's even a "
 "<literal>make uninstall</literal> which can be used to remove all the installed files."
 msgstr ""
+"Ngoài ra, bạn có thể chạy <literal>make clean</literal> (hoặc tốt hơn nữa là <literal>make "
+"distclean</literal>) để dọn dẹp thư mục build. Đôi khi thậm chí còn hỗ trợ kịch bản gỡ "
+"cài đặt, <literal>make uninstall</literal> được sử dụng để xóa tất cả các tập tin đã cài đặt."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Popular portable build systems"
-msgstr ""
+msgstr "Xây dựng hệ thống phổ biến"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1528,6 +1675,11 @@ msgid ""
 "generate the <filename>Makefile</filename> and other required source files first.  "
 "Then, such programs are built using the usual <literal>make; make install</literal>."
 msgstr ""
+"Rất nhiều chương trình phần mềm tự do được viết bằng ngôn ngữ <ulink url=\"&c-program;\">"
+"C</ulink> và <ulink url=\"&cxx;\">C++</ulink>. Nhiều trong số đó sử dụng Autotools hoặc CMake "
+"để làm cho chúng dễ dàng biên dịch đối với các nền tảng khác nhau. Các công cụ xây dựng này cần được sử "
+"dụng để tạo tệp <filename>Makefile</filename> từ tệp nguồn bắt buộc khác. Sau đó, các chương "
+"trình dễ dàng được xây dựng bằng cách sử dụng <literal>make; make install </literal>."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1536,6 +1688,10 @@ msgid ""
 "tutorial;\">Autotools Tutorial</ulink> and the local copy of <filename>&autotools-"
 "readme;</filename>, if you need to use it."
 msgstr ""
+"Autotools là công cụ quá lớn để giải quyết trong hướng dẫn nhỏ này. Phần này chỉ nhằm "
+"cung cấp các từ khoá và tham khảo. Hãy đảm bảo đọc <ulink url=\"&autotools-tutorial;\">"
+" Autotools Tutorial </ulink> và bản sao cục bộ của <filename>&autotools-readme;</filename>"
+", nếu bạn cần sử dụng nó."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1546,6 +1702,12 @@ msgid ""
 "<filename>Makefile.am</filename>, and <filename>Makefile.in</filename> files.  "
 "<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"<ulink url=\"&gnu-build-system;\">Autotools</ulink> là hệ thống xây dựng GNU bao gồm "
+"<ulink url=\"&autoconf;\">Autoconf</ulink>, <ulink url=\"&automake;\">Automake</ulink>, "
+"<ulink url=\"&libtool;\">Libtool</ulink>, và <ulink url=\"&gettext;\">gettext</"
+"ulink>. Bạn có thể nhận ra các nguồn như vậy bằng các tệp <filename>configure.ac</filename>, "
+"<filename>Makefile.am</filename>, và <filename>Makefile.in</filename>."
+"<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1553,6 +1715,9 @@ msgid ""
 "<literal>autoreconf -i -f</literal> in the source directory and distributes the "
 "generated files along with the source."
 msgstr ""
+"Bước đầu tiên của quy trình làm việc với Autotools thường là chạy với bản thượng nguồn "
+"<literal>autoreconf -i -f</literal> trong thư mục nguồn và các tệp được tạo ra cùng với"
+" mã nguồn."
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -1566,6 +1731,14 @@ msgid ""
 "                      aclocal.m4\n"
 "                      autoheader\n"
 msgstr ""
+"configure.ac-----+-&gt; autoreconf -+-&gt; configure\n"
+"Makefile.am -----+        |      +-&gt; Makefile.in\n"
+"src/Makefile.am -+        |      +-&gt; src/Makefile.in\n"
+"                          |      +-&gt; config.h.in\n"
+"                      automake\n"
+"                      aclocal\n"
+"                      aclocal.m4\n"
+"                      autoheader\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1573,6 +1746,9 @@ msgid ""
 "requires some knowledge of <command>autoconf</command> and <command>automake</"
 "command>.  See <literal>info autoconf</literal> and <literal>info automake</literal>."
 msgstr ""
+"Việc chỉnh sửa các tệp <filename>configure.ac</filename> và <filename>Makefile.am</filename> "
+"yêu cầu vài kiên thức về <command>autoconf</command> và <command>automake</command>.  "
+"Xem <literal>info autoconf</literal> và <literal>info automake</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1581,6 +1757,9 @@ msgid ""
 "source directory to compile the program into an executable command "
 "<command><replaceable>binary</replaceable></command>."
 msgstr ""
+"Bước thứ hai của quy trình làm việc Autotools thường là chúng ta sẽ có được các tệp mới sinh ra "
+" và chỉ cần chạy <literal>./configure &amp;&amp; make</literal> trong thư mục nguồn để biên dịch "
+"thành chương trình <command><replaceable>binary</replaceable></command>."
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -1592,6 +1771,12 @@ msgid ""
 "  config.status -+\n"
 "  config.guess --+\n"
 msgstr ""
+"Makefile.in -----+                +-&gt; Makefile -----+-&gt; make -&gt; <replaceable>binary</replaceable>\n"
+"src/Makefile.in -+-&gt; ./configure -+-&gt; src/Makefile -+\n"
+"config.h.in -----+                +-&gt; config.h -----+\n"
+"                 |\n"
+"  config.status -+\n"
+"  config.guess --+\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1599,12 +1784,16 @@ msgid ""
 "change the default location for file installation using the option <literal>./configure "
 "--prefix=/usr</literal>."
 msgstr ""
+"Bạn có thể thay đổi nhiều thứ trong <filename>Makefile</filename>; ví dụ bạn có thể thay đổi thư "
+"mục mặc định để cài đặt tệp bằng cách sử dụng tùy chọn <literal>./configure --prefix=/usr</literal>."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "You can automate this by using <systemitem role=\"package\">dh-autoreconf</systemitem> "
 "package.  See <xref linkend=\"customrules\"/>."
 msgstr ""
+"Bạn có thể tự động hoá việc này bằng cách sử dụng gói <systemitem role=\"package\">"
+"dh-autoreconf</systemitem>. Xem <xref linkend=\"customrules\"/>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1612,16 +1801,21 @@ msgid ""
 "files with <literal>autoreconf -i -f</literal> may improve the compatibility of the "
 "source.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Mặc dù không bắt buộc, việc cập nhật cấu hình <filename>configure</filename> và các tệp "
+"khác với <literal>autoreconf -i -f</literal> có thể cải thiện tính tương thích của mã nguồn"
+". <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "<ulink url=\"&cmake;\">CMake</ulink> is an alternative build system.  You can recognize "
 "such sources by the <filename>CMakeLists.txt</filename> file."
 msgstr ""
+"<ulink url=\"&cmake;\">CMake</ulink> là một hệ thống xây dựng thay thế. Bạn có thể nhận ra "
+"các nguồn như vậy bằng tệp <filename>CMakeLists.txt</filename>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Package name and version"
-msgstr ""
+msgstr "Tên và phiên bản gói"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1631,6 +1825,11 @@ msgid ""
 "version</emphasis>.  These are used in the <filename>debian/changelog</filename> file "
 "described later in <xref linkend=\"changelog\"/>, too."
 msgstr ""
+"Nếu mã nguồn thượng nguồn là <filename>gentoo-0.9.12.tar.gz</filename>, bạn có thể dùng "
+"<literal>gentoo</literal> làm nguồn (source) <emphasis role=\"strong\">tên gói</emphasis> "
+"và <literal>0.9.12</literal> là <emphasis role=\"strong\">phiên bản thượng nguồn</emphasis>"
+". Chúng được mô tả trong tệp <filename>debian/changelog</filename> chi tiết tại "
+"<xref linkend=\"changelog\"/>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1639,12 +1838,18 @@ msgid ""
 "emphasis> by renaming the upstream source to follow Debian Policy and existing "
 "convention."
 msgstr ""
+"Mặc dù phương pháp tiếp cận đơn giản này là chủ yếu, bạn có thể cần phải "
+"điều chỉnh <emphasis role=\"strong\">tên gói</emphasis> và <emphasis role="
+"\"strong\">phiên bản thượng nguồn</emphasis> bằng cách đổi tên thượng nguồn "
+"theo Chính sách Debian và quy ước hiện hành."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "The default package name field length of <command>aptitude</command> is 30.  For more "
 "than 90% of packages, the package name is less than 24 characters."
 msgstr ""
+"Độ dài của trường tên gói mặc định trong <command> aptitude </command> là 30. Và có hơn"
+" 90% gói có độ dài tên dưới 24 ký tự."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1655,12 +1860,19 @@ msgid ""
 "character, and must not be the same as existing ones.  It is a good idea to keep its "
 "length within 30 characters.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Bạn phải chọn <emphasis role=\"strong\">tên gói</emphasis> chỉ bao gồm các chữ thường "
+"(<literal>a-z</literal>), chữ số (<literal>0-9</literal>, dấu cộng (<literal>+</literal>)"
+" dấu trừ (<literal>-</literal>), và dấu chấm (<literal>.</literal>). Phải có ít nhất hai "
+"ký tự, phải bắt đầu bằng một ký tự chữ hoặc số, và không được giống với tên đã tồn tại. "
+"Bạn nên giữ chiều dài của nó trong vòng 30 ký tự.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "If you follow the <ulink url=\"&devref-newpackage;\">Debian Developer's Reference 5.1. "
 "\"New packages\"</ulink>, the ITP process will usually catch this kind of issues."
 msgstr ""
+"Nếu bạn theo dõi <ulink url=\"&devref-newpackage;\">Debian Developer's Reference 5.1. "
+"\"New packages\"</ulink>, quá trình ITP thường sẽ bắt lỗi các loại vấn đề này"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1668,10 +1880,13 @@ msgid ""
 "it is a good idea to rename it to identify its contents explicitly and avoid namespace "
 "pollution.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Nếu thượng nguồn sử dụng một số thuật ngữ chung chung như <literal>test-suite</literal> "
+"cho tên của nó, bạn nên đổi tên nó để xác định rõ ràng nội dung của nó và cũng tránh làm rối "
+"không gian tên.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid "This stricter rule should help you avoid confusing file names."
-msgstr ""
+msgstr "Quy tắc chặt chẽ hơn này sẽ giúp bạn tránh nhầm lẫn tên tập tin."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1681,6 +1896,10 @@ msgid ""
 "characters.  For more than 90% of packages, the upstream version is less than 10 "
 "characters and the Debian revision is less than 3 characters."
 msgstr ""
+"Độ dài của trường phiên bản mặc định trong <command>aptitude</command> là 10. Phiên bản"
+" Debian với dấu gạch nối trước thường tiêu tốn 2. Đối với hơn 80% gói, phiên bản thượng "
+"nguồn ít hơn 8 ký tự và phiên bản Debian có ít hơn 2 ký tự.  Đối với hơn 90% gói, "
+"phiên bản thượng nguồn ít hơn 10 ký tự và phiên bản Debian ít hơn 3 ký tự."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1691,6 +1910,12 @@ msgid ""
 "idea to keep its length within 8 characters if possible.  <placeholder type=\"footnote"
 "\" id=\"1\"/>"
 msgstr ""
+"Bạn nên chọn <emphasis role=\"strong\">phiên bản thượng nguồn</emphasis> chỉ bao gồm "
+"alphanumerics (<literal>0-9A-Za-z</literal>), dấu cộng (<literal> + </literal>), dấu "
+"ngã (<literal> ~ </literal>), và dấu chấm (<literal>. </literal>). Nó phải bắt đầu "
+"bằng một chữ số (<literal>0-9</literal>). <placeholder type=\"footnote\" id=\"0\"/>"
+"Tốt nhất nên giữ chiều dài của nó trong vòng 8 ký tự nếu có thể. "
+" <placeholder type=\"footnote\" id=\"1\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1706,6 +1931,17 @@ msgid ""
 "<literal>0~YYMMDD</literal> format such as <literal>0~110429</literal> as upstream "
 "version, instead."
 msgstr ""
+"Nếu thượng nguồn không sử dụng cấu trúc phiên bản bình thường như <literal>2.30.32"
+"</literal> mà lại sử dụng một số kiểu như <literal>11Apr29</literal>, một chuỗi tên "
+"mã ngẫu nhiên, hoặc một giá trị băm VCS như một phần của phiên bản, hãy chắc chắn "
+"loại bỏ chúng khỏi <emphasis role=\"strong\">phiên bản thượng nguồn</emphasis>. "
+"Thông tin này có thể được ghi lại trong tệp <filename>debian/changelog</filename>. "
+"Nếu bạn cần tạo mới ra một chuỗi phiên bản, nên sử dụng định dạng <literal>YYYYMMDD"
+"</literal> như là <literal> 20110429 </literal> cho phiên bản thượng nguồn. Điều này "
+"đảm bảo rằng <command>dpkg</command> hiểu các phiên bản sau này chính xác như cho việc "
+"nâng cấp phiên bản. Nếu bạn cần đảm bảo chuyển đổi suôn sẻ sang cấu trúc phiên bản bình "
+"thường như <literal>0.1</literal> trong tương lai, hãy sử dụng định dạng <literal>0~YYMMDD"
+"</literal> như <literal>0~110429</literal> cho phiên bản thượng nguồn."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1717,6 +1953,13 @@ msgid ""
 "\"newrevision\"/> for how the <emphasis role=\"strong\">Debian revision</emphasis> is "
 "incremented."
 msgstr ""
+"Các chuỗi tên phiên bản có thể là <emphasis role=\"strong\">upstream version</emphasis> "
+"(<literal><replaceable>version</replaceable></literal>), <emphasis role=\"strong"
+"\">Debian revision</emphasis> (<literal><replaceable>revision</replaceable></literal>), "
+"hoặc <emphasis role=\"strong\">version</emphasis> (<literal><replaceable>version</"
+"replaceable>-<replaceable>revision</replaceable></literal>).  Xem <xref linkend="
+"\"newrevision\"/> để biết cách mà <emphasis role=\"strong\">Debian revision"
+"</emphasis> hoạt động"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1724,37 +1967,41 @@ msgid ""
 "<citerefentry> <refentrytitle>dpkg</refentrytitle> <manvolnum>1</manvolnum> </"
 "citerefentry> as follows:"
 msgstr ""
+"Các tên phiên bản <placeholder type=\"footnote\" id=\"0\"/> có thể được so sánh bằng "
+"cách sử dụng <citerefentry> <refentrytitle>dpkg</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "$ dpkg --compare-versions <replaceable>ver1</replaceable> <replaceable>op</replaceable> <replaceable>ver2</replaceable>\n"
-msgstr ""
+msgstr "$ dpkg --compare-versions <replaceable>ver1</replaceable> <replaceable>op</replaceable> <replaceable>ver2</replaceable>\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "The version comparison rule can be summarized as:"
-msgstr ""
+msgstr "Quy tắc so sánh phiên bản có thể được tóm tắt như sau:\n"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Strings are compared from the head to the tail."
-msgstr ""
+msgstr "Chuỗi được so sánh từ đầu đến cuối chuỗi."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Letters are larger than digits."
-msgstr ""
+msgstr "Các chữ cái lớn hơn chữ số."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Numbers are compared as integers."
-msgstr ""
+msgstr "Số được so sánh như số nguyên."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Letters are compared in ASCII code order."
-msgstr ""
+msgstr "Các chữ cái được so sánh theo thứ tự mã ASCII."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "There are special rules for period (<literal>.</literal>), plus (<literal>+</literal>), "
 "and tilde (<literal>~</literal>) characters, as follows:"
-msgstr ""
+msgstr "Có các quy tắc đặc biệt cho các dấu chấm (<literal>.</literal>), cộng "
+"(<literal>+</literal>), ngã (<literal>~</literal>), như sau:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -1763,6 +2010,10 @@ msgid ""
 "<literal>1.0</literal> &lt; <literal>1.0+b1</literal> &lt; <literal>1.0+nmu1</literal> "
 "&lt; <literal>1.1</literal> &lt; <literal>2.0</literal>"
 msgstr ""
+"<literal>0.0</literal> &lt; <literal>0.5</literal> &lt; <literal>0.10</literal> &lt; "
+"<literal>0.99</literal> &lt; <literal>1</literal> &lt; <literal>1.0~rc1</literal> &lt; "
+"<literal>1.0</literal> &lt; <literal>1.0+b1</literal> &lt; <literal>1.0+nmu1</literal> "
+"&lt; <literal>1.1</literal> &lt; <literal>2.0</literal>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1771,10 +2022,15 @@ msgid ""
 "gz</filename>.  You need to make sure that the upgrade works properly by renaming the "
 "upstream source to <filename>gentoo-0.9.12~rc99.tar.gz</filename>."
 msgstr ""
+"Một trường hợp có thể xảy ra khi các bản phát hành thượng nguồn có phiên bản là "
+"<filename>gentoo-0.9.12-ReleaseCandidate-99.tar.gz</filename> nó là phiên "
+"bản trước của <filename>gentoo-0.9.12.tar.gz</filename>. Bạn cần đảm bảo rằng "
+"việc nâng cấp vẫn hoạt động bằng cách đổi tên nguồn thượng nguồn thành "
+"<filename>gentoo-0.9.12~rc99.tar.gz</filename>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Setting up <command>dh_make</command>"
-msgstr ""
+msgstr "Thiết lập <command>dh_make</command>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1782,6 +2038,9 @@ msgid ""
 "other login shell such as Z shell, use their corresponding configuration files instead "
 "of <filename>~/.bashrc</filename>."
 msgstr ""
+"Ví dụ dưới đây giả định bạn đang sử dụng Bash là shell đăng nhập mặc định của bạn. "
+"Nếu bạn sử dụng một số shell đăng nhập khác như Z shell, hãy sử dụng các file cấu "
+"hình tương ứng thay vì <filename>~/.bashrc</filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1789,6 +2048,10 @@ msgid ""
 "$DEBFULLNAME</literal> so that various Debian maintenance tools recognize your email "
 "address and name to use for packages. <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Thiết lập các biến môi trường shell <literal>$DEBEMAIL</literal> và <literal>"
+"$DEBFULLNAME</literal> để các công cụ bảo trì Debian nhận biết địa chỉ email "
+"và tên của bạn cho việc sử dụng cho các gói .<placeholder type=\"footnote\" id=\"0\"/>"
+
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -1800,10 +2063,16 @@ msgid ""
 "EOF\n"
 "$ . ~/.bashrc\n"
 msgstr ""
+"$ cat &gt;&gt;~/.bashrc &lt;&lt;EOF\n"
+"DEBEMAIL=\"your.email.address@example.org\"\n"
+"DEBFULLNAME=\"Firstname Lastname\"\n"
+"export DEBEMAIL DEBFULLNAME\n"
+"EOF\n"
+"$ . ~/.bashrc\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "Initial non-native Debian package"
-msgstr ""
+msgstr "Khởi tạo gói Debian mới"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1812,7 +2081,10 @@ msgid ""
 "<filename>gentoo-0.9.12.tar.gz</filename>, you can create an initial non-native Debian "
 "package for it by issuing the <command>dh_make</command> command as follows:"
 msgstr ""
-
+"Các gói Debian thường là các gói non-native Debian được tạo từ các chương trình "
+"thượng nguồn.  Nếu bạn muốn tạo gói Debian mới từ nguồn của một nguồn thượng nguồn "
+"<filename>gentoo-0.9.12.tar.gz</filename>, bạn có thể tạo một gói Debian đầu tiên "
+" bằng cách sử dụng lệnh  <command>dh_make</command> như sau:"
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid ""
@@ -1822,6 +2094,11 @@ msgid ""
 "$ cd gentoo-0.9.12\n"
 "$ dh_make -f ../gentoo-0.9.12.tar.gz\n"
 msgstr ""
+"$ cd ~/gentoo\n"
+"$ wget http://example.org/gentoo-0.9.12.tar.gz\n"
+"$ tar -xvzf gentoo-0.9.12.tar.gz\n"
+"$ cd gentoo-0.9.12\n"
+"$ dh_make -f ../gentoo-0.9.12.tar.gz\n"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1831,6 +2108,10 @@ msgid ""
 "enough not to break even for these packages.  You may need to update the contents "
 "provided by the upstream for your Debian package."
 msgstr ""
+"Nếu thượng nguồn đã cung cấp thư mục <filename>debian</filename> và cả nội dung của nó, "
+"hãy chạy lệnh <command>dh_make</command> với tùy chọn thêm  <literal>--addmissing</literal>"
+". Định dạng nguồn <literal>3.0 (quilt)</literal> là đủ mạnh để không làm hỏng các gói này. "
+" Bạn có thể cần phải cập nhật nội dung được cung cấp bởi thượng nguồn cho gói Debian của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1838,6 +2119,10 @@ msgid ""
 "<placeholder type=\"footnote\" id=\"0\"/> See <citerefentry> <refentrytitle>dh_make</"
 "refentrytitle> <manvolnum>8</manvolnum> </citerefentry> for details."
 msgstr ""
+"Tất nhiên, hãy thay tên tệp bằng tên của bản lưu trữ gốc của bạn. <placeholder "
+"type=\"footnote\" id=\"0\"/> Xem <citerefentry> <refentrytitle>dh_make</refentrytitle> "
+"<manvolnum>8</manvolnum> </citerefentry> để biết chi tiết."
+
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -1853,6 +2138,16 @@ msgid ""
 "infrastructure to the <command>dh</command> command and is outside the scope of this "
 "document."
 msgstr ""
+"Có vài sự lựa chọn bao gồm: <literal>s</literal> cho Single binary package, "
+"<literal>i</literal> cho arch-Independent package, <literal>m</literal> cho Multiple "
+"binary packages, <literal>l</literal> cho Library package, <literal>k</literal> cho "
+"Kernel module package, <literal>n</literal> cho kernel patch package, và <literal>b</"
+"literal> cho <systemitem role=\"package\">cdbs</systemitem> package.  Tài liệu này "
+"tập trung vào sử dụng câu lệnh <command>dh</command>  (từ gói <systemitem "
+"role=\"package\">debhelper</systemitem>) để tạo một single binary package, nhưng cũng "
+"nói tới làm sao sử dụng nó cho arch-independent hay multiple binary packages. Gói "
+"<systemitem role=\"package\">cdbs</systemitem> cung cấp các nền tảng kịch bản khác nhau "
+"cho lệnh <command>dh</command> và cả nằm ngoài phạm vi tài liệu này."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1863,6 +2158,11 @@ msgid ""
 "<literal><replaceable>ENTER</replaceable></literal>.  <placeholder type=\"footnote\" id="
 "\"0\"/>"
 msgstr ""
+"Bạn sẽ thấy một số câu hỏi về loại gói bạn muốn tạo. Gentoo là một gói nhị phân "
+"duy nhất - nó chị tạo ra một gói nhị phân, tức chỉ cần một tập tin <filename>.deb</filename>"
+"- vì vậy chúng ta sẽ chọn tùy chọn đầu tiên (với <literal>s</literal>), kiểm tra thông "
+"tin trên màn hình và xác nhận bằng cách nhấn <literal><replaceable>ENTER</replaceable>."
+" <placeholder type=\"footnote\" id=\"0\"/></literal>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1871,6 +2171,9 @@ msgid ""
 "the creation of the non-native Debian source package with the name <filename>debian.tar."
 "gz</filename> later:"
 msgstr ""
+"Việc thực hiện <command>dh_make</command> sẽ tạo một bản sao của tarball thượng nguồn  "
+"<filename>gentoo_0.9.12.orig.tar.gz</filename> trong thư mục cha để phù hợp với việc tạo "
+"ra gói nguồn non-native Debian với tên <filename> debian.tar.gz </filename> sau này:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -1880,24 +2183,31 @@ msgid ""
 "gentoo-0.9.12.tar.gz\n"
 "gentoo_0.9.12.orig.tar.gz\n"
 msgstr ""
+"$ cd ~/gentoo ; ls -F\n"
+"gentoo-0.9.12/\n"
+"gentoo-0.9.12.tar.gz\n"
+"gentoo_0.9.12.orig.tar.gz\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Please note two key features of this filename <filename>gentoo_0.9.12.orig.tar.gz</"
 "filename>:"
 msgstr ""
+"Vui lòng lưu ý hai điểm chính của tên tệp tin này <filename>gentoo_0.9.12.orig.tar.gz</filename>:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "Package name and version are separated by the character <literal>_</literal> "
 "(underscore)."
 msgstr ""
+"Tên gói và phiên bản phân cách nhau bởi kí tự <literal>_</literal> (gạch dưới)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "The string <filename>.orig</filename> is inserted before the <filename>.tar.gz</"
 "filename>."
 msgstr ""
+"Thành phần <filename>.orig</filename> được chèn trước <filename>.tar.gz</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1910,6 +2220,13 @@ msgid ""
 "\"checkit\"/>), and uploading them (<xref linkend=\"upload\"/>).  All the steps will be "
 "explained."
 msgstr ""
+"Bạn cũng nên lưu ý rằng nhiều tệp mẫu đã được tạo ra trong thư mục <filename>debian</filename> "
+"Chúng được giải thích ở <xref linkend=\"dreq\"/> và <xref linkend=\"dother\"/>.  "
+"Bạn cũng nên hiểu rằng việc đóng gói không thể là một quá trình tự động hoàn toàn. "
+"Bạn sẽ cần phải chỉnh sửa thượng nguồn cho Debian (xem <xref linkend=\"modify\"/>). "
+"Sau đó, bạn phải cần sử dụng phương pháp thích hợp cho công việc xây dựng gói Debian "
+"(<xref linkend=\"build\"/>), kiểm thử chúng (<xref linkend=\"checkit\"/>), vả đẩy chúng "
+"lên máy chủ (<xref linkend=\"upload\"/>).  Tất cả các bước sẽ được giải thích."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1917,6 +2234,9 @@ msgid ""
 "them by running <command>dh_make</command> with the <literal>--addmissing</literal> "
 "option again in a Debian package source tree."
 msgstr ""
+"Nếu bạn vô tình xoá một số tệp khuôn mẫu trong khi đang làm việc với chúng, bạn có thể "
+"khôi phục chúng bằng cách chạy <command>dh_make</command> với tùy chọn <literal>"
+"--addmissing</literal> trong thư mục mã nguồn đang làm việc"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1924,6 +2244,9 @@ msgid ""
 "techniques.  While learning the basics, please stick to creating a fresh package; "
 "further explanations are given in <xref linkend=\"update\"/>."
 msgstr ""
+"Cập nhật cho một gói hiện sẽ có thể phức tạp vì nó có thể sử dụng các kỹ thuật cũ. "
+"Khi học những điều cơ bản, vui lòng gắn bó với việc tạo ra một gói theo kỹ thuật mới; "
+" Giải thích thêm được đưa ra trong <xref linkend=\"update\"/>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -1933,6 +2256,11 @@ msgid ""
 "<systemitem role=\"package\">debhelper</systemitem> configuration files such as "
 "<filename>debian/install</filename> (see <xref linkend=\"install\"/>)."
 msgstr ""
+"Vui lòng lưu ý rằng mã nguồn không cần chứa bất kỳ hệ thống xây dựng nào đã thảo "
+"luận trong <xref linkend=\"simplemake\"/> và <xref linkend=\"portable\"/>.  Nó có thể "
+"chỉ là một tập hợp các dữ liệu đồ hoạ,... Việc cài đặt các tệp có thể được chỉ thực hiện "
+"bằng các tập tin cấu hình <systemitem role=\"package\">debhelper</systemitem> "
+" như là <filename>debian/install</filename> (xem <xref linkend=\"install\"/>)."
 
 #. type: Content of: <book><chapter><title>
 msgid "Modifying the source"
