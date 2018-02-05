@@ -5859,8 +5859,8 @@ msgid ""
 "\"&keycreate;\">Creating a new GPG key</ulink> and <ulink url=\"&keysigning; \">Debian "
 "Wiki on Keysigning</ulink>."
 msgstr ""
-"Mã GPG này phải được ký tên bởi một nhà phát triển Debian để có thể được kết nối được "
-"tới mạng lưới uy tín và phải được đăng ký vào <ulink url=\"&keyring;\">tập hợp mã tin "
+"Mã GPG này phải được ký tên bởi một nhà phát triển Debian để có thể được kết nối "
+"tới mạng lưới tín nhiệm và phải được đăng ký vào <ulink url=\"&keyring;\">tập hợp mã tin "
 "cậy của Debian</ulink>. Điều này cho phép các gói bạn tải lên được chấp nhận vào kho "
 "của Debian.  Xem <ulink url=\"&keycreate;\">Tạo một mã GPG mới</ulink> và <ulink url="
 "\"&keysigning; \">Debian Wiki về Ký tên lên mã</ulink>."
@@ -5913,7 +5913,7 @@ msgid ""
 "citerefentry>."
 msgstr ""
 "Đây là tóm tắt nội dung của mã nguồn. Tập tin này được tạo ra từ tập tin "
-"<filename>control</filename>, và nó được sử dung khi giải nén mã nguồn bằng lệnh "
+"<filename>control</filename>, và nó được sử dụng khi giải nén mã nguồn bằng lệnh "
 "<citerefentry> <refentrytitle>dpkg-source</refentrytitle> <manvolnum>1</manvolnum> </"
 "citerefentry>."
 
@@ -5938,10 +5938,10 @@ msgid ""
 "literal> option.  Alternatively, you can run <literal>dquilt pop -a</literal> after "
 "normal operation."
 msgstr ""
-"Bạn có thể tránh việc áp dung các bản vá <command>quilt</command> dưới định dạng nguồn "
-"<literal>3.0 (quilt)</literal> tại phần cuối của lựa chọn <literal>--skip-patches</"
+"Bạn có thể tránh việc áp dụng các bản vá <command>quilt</command> dưới định dạng nguồn "
+"<literal>3.0 (quilt)</literal> khi kết thúc việc giải nén với tham số  <literal>--skip-patches</"
 "literal>.  Một lựa chọn khác là bạn có thể chạy lệnh <literal>dquilt pop -a</literal> "
-"sau khi thực hiện lệnh bình thường."
+"sau khi làm xong các thao tác thông thường."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -6064,7 +6064,7 @@ msgid ""
 "rebuild your packages for multiple architectures.  <placeholder type=\"footnote\" id="
 "\"0\"/>"
 msgstr ""
-"Debian hỗ trợ nhiều <ulink url=\"&ports;\">cổng</ulink> với  <ulink url=\"&buildd;\">mạng lưới biên dịch tự động</ulink> chạy các dịch vụ <command>buildd</command> trên các máy tính chạy nhiều nền tảng khác nhau.  Mặc dù bạn không cần phải tự làm điều này, bạn cần phải biết những gì sẽ xảy ra với các gói phần mềm của bạn.  Hãy nhìn vào cách chúng biên dịch các gói phần mềm của bạn cho các nhiều nền tảng.  <placeholder type=\"footnote\" id=\"0\"/>"
+"Debian hỗ trợ nhiều <ulink url=\"&ports;\">cổng</ulink> với  <ulink url=\"&buildd;\">mạng lưới biên dịch tự động</ulink> chạy các dịch vụ <command>buildd</command> trên các máy tính chạy nhiều nền tảng khác nhau.  Mặc dù bạn không cần phải tự làm điều này, bạn cần phải biết những gì sẽ xảy ra với các gói phần mềm của bạn.  Hãy nhìn vào cách chúng biên dịch các gói phần mềm của bạn cho nhiều nền tảng.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6101,7 +6101,7 @@ msgid ""
 "This will do everything to make architecture dependent binary packages on another "
 "architecture.  It will:"
 msgstr ""
-"Lệnh này sẽ làm tất cả mọi thứ để tạo ra các gói phần mềm nhị phân phụ thuộc vào nền tảng trê một nền tảng khác.  Nó sẽ:"
+"Lệnh này sẽ làm tất cả mọi thứ để tạo ra các gói phần mềm nhị phân phụ thuộc vào nền tảng trên một nền tảng khác.  Nó sẽ:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -6134,7 +6134,7 @@ msgid ""
 "systemitem> package used by the autobuilder system does not enforce the use of a "
 "minimal system and may have many leftover packages installed."
 msgstr ""
-"Khác với khi dưới gói phần mềm <systemitem role=\"package\">pbuilder</systemitem>, môi trường <command>chroot</command> dưới gói <systemitem role=\"package\">sbuild</systemitem> được sử dụng bởi hệ thống tự động biên dịch không buộc sử dụng một hệ thống nhỏ và có thể có nhiều gói phần mềm thừa đã được cài đặt."
+"Khác với khi dưới gói phần mềm <systemitem role=\"package\">pbuilder</systemitem>, môi trường <command>chroot</command> dưới gói <systemitem role=\"package\">sbuild</systemitem> vốn được sử dụng bởi hệ thống tự động biên dịch không buộc sử dụng một hệ thống nhỏ gọn và có thể có nhiều gói phần mềm thừa đã được cài đặt."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6147,7 +6147,7 @@ msgid ""
 "<literal>Build-Depends</literal> or <literal>Build-Depends-Indep</literal> fields of "
 "the <filename>debian/control</filename> file (see <xref linkend=\"control\"/>)."
 msgstr ""
-"Mặc dù các gói phần mềm liệt kê trong trường <literal>Build-Depends-Indep</literal> bị buộc phải được cài đặt cho quá trình đóng gói bình thường của chúng tôi (see <xref linkend=\"completebuild\"/>), chúng không bị buộc phải được cài đặt bởi hệ thống tự động biên dịch bởi vì nó biên dịch chỉ những gói phần mềm phụ thuộc vào nền tảng.  <placeholder type=\"footnote\" id=\"0\"/> Điểm khác biệt giữa thủ tục đóng gói bình thường và đóng gói tự động là cái gì chỉ ra bạn nên ghi lại những gói phần mềm bắt buộc trong trường <literal>Build-Depends</literal> hay <literal>Build-Depends-Indep</literal> của tập tin <filename>debian/control</filename> (see <xref linkend=\"control\"/>)."
+"Mặc dù các gói phần mềm liệt kê trong trường <literal>Build-Depends-Indep</literal> bị buộc phải được cài đặt cho quá trình đóng gói bình thường của chúng tôi (xem <xref linkend=\"completebuild\"/>), chúng không bị buộc phải được cài đặt bởi hệ thống tự động biên dịch bởi vì nó biên dịch chỉ những gói phần mềm phụ thuộc vào nền tảng.  <placeholder type=\"footnote\" id=\"0\"/> Điểm khác biệt giữa thủ tục đóng gói bình thường và đóng gói tự động là cái gì chỉ ra bạn nên ghi lại những gói phần mềm bắt buộc trong trường <literal>Build-Depends</literal> hay <literal>Build-Depends-Indep</literal> của tập tin <filename>debian/control</filename> (xem <xref linkend=\"control\"/>)."
 
 
 
@@ -6277,7 +6277,7 @@ msgid ""
 "First let's initialize the local <systemitem role=\"package\">pbuilder</systemitem> "
 "<command>chroot</command> system as follows:"
 msgstr ""
-"Trước tiên hãy khởi động hệ thống <systemitem role=\"package\">pbuilder</systemitem> <command>chroot</command> tại chỗ như sau:"
+"Trước tiên hãy khởi động hệ thống <systemitem role=\"package\">pbuilder</systemitem> <command>chroot</command> nội bộ như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -6293,7 +6293,7 @@ msgid ""
 "<systemitem role=\"package\">pbuilder</systemitem> <command>chroot</command> system and "
 "to build binary packages in it:"
 msgstr ""
-"Nếu bạn đang có một gói phần mềm chứa mã nguồn hoàn chỉnh, chạy các lệnh sau dưới thư mục nơi các tập tin <filename><replaceable>foo</replaceable>.orig.tar.gz</filename>, <filename><replaceable>foo</replaceable>.debian.tar.gz</filename>, and <filename><replaceable>foo</replaceable>.dsc</filename> tồn tại để cập nhật hệ thống <systemitem role=\"package\">pbuilder</systemitem> <command>chroot</command> tại chỗ và để biên dịch các gói phần mềm nhị phân trong nó:"
+"Nếu bạn đang có một gói phần mềm chứa mã nguồn hoàn chỉnh, chạy các lệnh sau dưới thư mục nơi các tập tin <filename><replaceable>foo</replaceable>.orig.tar.gz</filename>, <filename><replaceable>foo</replaceable>.debian.tar.gz</filename>, và <filename><replaceable>foo</replaceable>.dsc</filename> tồn tại để cập nhật hệ thống <systemitem role=\"package\">pbuilder</systemitem> <command>chroot</command> nội bộ và để biên dịch các gói phần mềm nhị phân trong nó:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -6411,7 +6411,7 @@ msgstr ""
 msgid ""
 "There are some restrictions for such updates of your <literal>stable</literal> package."
 msgstr ""
-"Có nhiều giới hạn cho những cập nhật của gói phần mềm <literal>stable</literal> của bạn."
+"Có một vài giới hạn cho những cập nhật như vậy đối với gói phần mềm <literal>stable</literal> của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6423,7 +6423,7 @@ msgid ""
 "can help you to access environments of almost any Debian derivative distribution of the "
 "same architecture."
 msgstr ""
-"Bạn có thể cần phải cập nhật các gói phần mềm <literal>stable</literal> sau khi chúng được tung ra cho <literal>stable-proposed-updates</literal>, <literal>stable/updates</literal>, v.v.  <placeholder type=\"footnote\" id=\"0\"/> Cho những tình huống như thế, việc bạn có thể chạy một hệ thống <literal>sid</literal> không phải là một lý do đủ tốt cho việc thất bại trong cập nhật chúng đúng cách.  Gói phần mềm <systemitem role=\"package\">pbuilder</systemitem> có thể giúp bạn truy cập các môi trường của bất cứ bản "
+"Bạn có thể cần phải cập nhật các gói phần mềm <literal>stable</literal> sau khi chúng được tung ra cho <literal>stable-proposed-updates</literal>, <literal>stable/updates</literal>, v.v.  <placeholder type=\"footnote\" id=\"0\"/> Cho những tình huống như thế, việc bạn có thể đang chạy một hệ thống <literal>sid</literal> không phải là một lý do đủ tốt cho việc thất bại trong cập nhật chúng đúng cách.  Gói phần mềm <systemitem role=\"package\">pbuilder</systemitem> có thể giúp bạn truy cập các môi trường của bất cứ bản "
 "phân phối hệ điều hành nào xuất phát từ Debian trên cùng một nền tảng."
 
 #. type: Content of: <book><chapter><section><para>
@@ -6550,7 +6550,7 @@ msgid ""
 "using only a small binary delta file and the contents of the tarball, which are "
 "typically kept in an <literal>upstream</literal> branch in the VCS."
 msgstr ""
-"Tham số <literal>--pristine-tar</literal> chạy lệnh <command>pristine-tar</command> và tạo ra một bản sao nguyên vẹn của tập tin nén thượng nguồn chưa chỉnh sửa với một tập tin nhị phân delta nhỏ và những nội dung của tập tin nén vốn được giữ trong nhánh <literal>upstream</literal> trong VCS."
+"Tham số <literal>--pristine-tar</literal> chạy lệnh <command>pristine-tar</command>, lệnh này tạo ra một bản sao nguyên vẹn của tập tin nén thượng nguồn chưa chỉnh sửa bằng việc sử dụng một tập tin nhị phân delta nhỏ và những nội dung của tập tin nén vốn được giữ trong nhánh <literal>upstream</literal> trong VCS."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -6562,7 +6562,7 @@ msgstr ""
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid "Here are some web resources available for advanced audiences."
 msgstr ""
-"Đây là một vài nguồn thông tin điện tử có sẵn cho các đối tượng thông thái."
+"Đây là một vài nguồn thông tin điện tử có sẵn cho các đối tượng người đọc thông thái."
 
 #. type: Content of: <book><chapter><section><para><footnote><itemizedlist><listitem><para>
 msgid ""
@@ -6613,7 +6613,7 @@ msgid ""
 "this method.  Never create real packages to be uploaded using this <emphasis role="
 "\"strong\">quick</emphasis> method."
 msgstr ""
-"Các biến môi trường vốn được cấu hình bình thường với các giá trị phù hợp không được gán giá trị với phương pháp này.  Đừng bao giờ tạo các gói  phần mềm thực tế để được tải lên với phương pháp <emphasis role=\"strong\">nhanh</emphasis> này."
+"Các biến môi trường vốn được cấu hình bình thường với các giá trị phù hợp không được gán giá trị với phương pháp này.  Đừng bao giờ tạo các gói phần mềm thực sự để được tải lên với phương pháp <emphasis role=\"strong\">nhanh</emphasis> này."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
