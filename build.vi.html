@@ -4,7 +4,7 @@
   <head>
     <title>Chương 6. Biên dịch gói</title>
     <link rel="stylesheet" type="text/css" href="debian.css"/>
-    <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
     <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
@@ -159,7 +159,7 @@ tạo tập tin <code class="filename">.changes</code>, dùng lệnh
 Nếu kết quả biên dịch đạt mức thỏa mãn yêu cầu, kí tên các tập tin
 <code class="filename">.dsc</code> và <code class="filename">.changes</code> dùng mã GPG riêng
 tư của bạn bằng lệnh <span class="command"><strong>debsign</strong></span>.  Bạn cần phải nhập mật mã,
-hai lần.  <a href="#ftn.idm2747" class="footnote" id="idm2747"><sup class="footnote">[63]</sup></a>
+hai lần.  <a href="#ftn.idp46565410221856" class="footnote" id="idp46565410221856"><sup class="footnote">[63]</sup></a>
 </p>
         <p>
 Đối với một gói không đến từ Debian, ví dụ như <code class="systemitem">gentoo</code>, bạn sẽ thấy những tập tin sau trong thư
@@ -184,7 +184,7 @@ tin trên được tạo trước tiên bởi lệnh <code class="literal">dh_ma
 </p>
               <p>
 Đây là tóm tắt nội dung của mã nguồn. Tập tin này được tạo ra từ tập tin
-<code class="filename">control</code>, và nó được sử dung khi giải nén mã nguồn bằng
+<code class="filename">control</code>, và nó được sử dụng khi giải nén mã nguồn bằng
 lệnh <span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span>.
 </p>
             </li>
@@ -202,7 +202,7 @@ Tập tin nén này chứa các nội dung trong thư mục
 Nếu bất cứ ai muốn tự tạo gói từ đầu, họ có thể làm thế bằng việc sử dung ba
 tập tin phía trên.  Quy trình giải nén thì khá dễ dàng: chỉ cần sao chép ba
 tập tin đến một nơi khác và chạy lệnh <code class="literal">dpkg-source -x
-gentoo_0.9.12-1.dsc</code>.  <a href="#ftn.idm2778" class="footnote" id="idm2778"><sup class="footnote">[64]</sup></a>
+gentoo_0.9.12-1.dsc</code>.  <a href="#ftn.idp46565410237984" class="footnote" id="idp46565410237984"><sup class="footnote">[64]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -271,7 +271,7 @@ Debian hỗ trợ nhiều <a class="ulink" href="http://www.debian.org/ports/">c
 <span class="command"><strong>buildd</strong></span> trên các máy tính chạy nhiều nền tảng khác nhau.
 Mặc dù bạn không cần phải tự làm điều này, bạn cần phải biết những gì sẽ xảy
 ra với các gói phần mềm của bạn.  Hãy nhìn vào cách chúng biên dịch các gói
-phần mềm của bạn cho các nhiều nền tảng.  <a href="#ftn.idm2821" class="footnote" id="idm2821"><sup class="footnote">[65]</sup></a>
+phần mềm của bạn cho nhiều nền tảng.  <a href="#ftn.idp46565408771216" class="footnote" id="idp46565408771216"><sup class="footnote">[65]</sup></a>
 </p>
         <p>
 Đối với các gói phần mềm cho nền tảng <code class="literal">Architecture: any</code>,
@@ -301,7 +301,7 @@ $ dpkg-buildpackage -B
 </pre>
         <p>
 Lệnh này sẽ làm tất cả mọi thứ để tạo ra các gói phần mềm nhị phân phụ thuộc
-vào nền tảng trê một nền tảng khác.  Nó sẽ:
+vào nền tảng trên một nền tảng khác.  Nó sẽ:
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -341,13 +341,13 @@ lệnh <span class="command"><strong>dpkg-genchanges</strong></span> và <span c
         <p>
 Mặc dù các gói phần mềm liệt kê trong trường
 <code class="literal">Build-Depends-Indep</code> bị buộc phải được cài đặt cho quá
-trình đóng gói bình thường của chúng tôi (see <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>), chúng không bị buộc phải được cài đặt bởi hệ
+trình đóng gói bình thường của chúng tôi (xem <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>), chúng không bị buộc phải được cài đặt bởi hệ
 thống tự động biên dịch bởi vì nó biên dịch chỉ những gói phần mềm phụ thuộc
-vào nền tảng.  <a href="#ftn.idm2859" class="footnote" id="idm2859"><sup class="footnote">[66]</sup></a> Điểm khác biệt giữa thủ
+vào nền tảng.  <a href="#ftn.idp46565410288400" class="footnote" id="idp46565410288400"><sup class="footnote">[66]</sup></a> Điểm khác biệt giữa thủ
 tục đóng gói bình thường và đóng gói tự động là cái gì chỉ ra bạn nên ghi
 lại những gói phần mềm bắt buộc trong trường
 <code class="literal">Build-Depends</code> hay <code class="literal">Build-Depends-Indep</code>
-của tập tin <code class="filename">debian/control</code> (see <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>).
+của tập tin <code class="filename">debian/control</code> (xem <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>).
 </p>
       </div>
       <div class="section">
@@ -397,10 +397,10 @@ $ debuild clean
         </div>
         <p>
 Để có một môi trường biên dịch (<span class="command"><strong>chroot</strong></span>) sạch sẽ để kiểm
-tra các điều kiện biên dịch, gói phần mềm <code class="systemitem">pbuilder</code> rất hữu dụng.  <a href="#ftn.idm2893" class="footnote" id="idm2893"><sup class="footnote">[67]</sup></a> Nó đảm bảo việc biên dịch sạch sẽ từ mã nguồn dưới
+tra các điều kiện biên dịch, gói phần mềm <code class="systemitem">pbuilder</code> rất hữu dụng.  <a href="#ftn.idp46565410306032" class="footnote" id="idp46565410306032"><sup class="footnote">[67]</sup></a> Nó đảm bảo việc biên dịch sạch sẽ từ mã nguồn dưới
 hệ thống biên dịch tự động <code class="literal">sid</code> cho các nền tảng khác nhau
 và tránh một lỗi nghiêm trọng FTBFS (Thất Bại Biên Dịch Từ Nguồn) vốn luôn
-nằm trong thể loại RC (Nghiêm Trọng Cho Phát Hành).  <a href="#ftn.idm2897" class="footnote" id="idm2897"><sup class="footnote">[68]</sup></a>
+nằm trong thể loại RC (Nghiêm Trọng Cho Phát Hành).  <a href="#ftn.idp46565410308816" class="footnote" id="idp46565410308816"><sup class="footnote">[68]</sup></a>
 </p>
         <p>
 Hãy tùy chỉnh gói phần mềm <code class="systemitem">pbuilder</code>
@@ -434,7 +434,7 @@ HOOKDIR=<em class="replaceable"><code>/var/cache/pbuilder/hooks</code></em>
           </ul>
         </div>
         <p>
-Trước tiên hãy khởi động hệ thống <code class="systemitem">pbuilder</code> <span class="command"><strong>chroot</strong></span> tại chỗ như
+Trước tiên hãy khởi động hệ thống <code class="systemitem">pbuilder</code> <span class="command"><strong>chroot</strong></span> nội bộ như
 sau:
 </p>
         <pre class="screen">
@@ -444,10 +444,10 @@ $ sudo pbuilder create
 Nếu bạn đang có một gói phần mềm chứa mã nguồn hoàn chỉnh, chạy các lệnh sau
 dưới thư mục nơi các tập tin
 <code class="filename"><em class="replaceable"><code>foo</code></em>.orig.tar.gz</code>,
-<code class="filename"><em class="replaceable"><code>foo</code></em>.debian.tar.gz</code>, and
+<code class="filename"><em class="replaceable"><code>foo</code></em>.debian.tar.gz</code>, và
 <code class="filename"><em class="replaceable"><code>foo</code></em>.dsc</code> tồn tại để cập nhật
 hệ thống <code class="systemitem">pbuilder</code>
-<span class="command"><strong>chroot</strong></span> tại chỗ và để biên dịch các gói phần mềm nhị phân
+<span class="command"><strong>chroot</strong></span> nội bộ và để biên dịch các gói phần mềm nhị phân
 trong nó:
 </p>
         <pre class="screen">
@@ -486,7 +486,7 @@ thao tác <code class="literal">^D</code> (Control-D).
 Phiên bản mới nhất của lệnh <span class="command"><strong>lintian</strong></span> có thể được chạy từ
 môi trường <code class="literal">chroot</code> dùng kịch bản mồi
 <code class="filename"><em class="replaceable"><code>/var/cache/pbuilder/hooks</code></em>/B90lintian</code>
-cấu hình như sau: <a href="#ftn.idm2950" class="footnote" id="idm2950"><sup class="footnote">[69]</sup></a>
+cấu hình như sau: <a href="#ftn.idp46565410334128" class="footnote" id="idp46565410334128"><sup class="footnote">[69]</sup></a>
 </p>
         <pre class="screen">
 #!/bin/sh
@@ -511,9 +511,9 @@ huống này.
         <p>
 Bạn có thể cần phải cập nhật các gói phần mềm <code class="literal">stable</code> sau
 khi chúng được tung ra cho <code class="literal">stable-proposed-updates</code>,
-<code class="literal">stable/updates</code>, v.v.  <a href="#ftn.idm2964" class="footnote" id="idm2964"><sup class="footnote">[70]</sup></a> Cho những tình huống như thế, việc bạn có thể chạy một hệ thống
-<code class="literal">sid</code> không phải là một lý do đủ tốt cho việc thất bại
-trong cập nhật chúng đúng cách.  Gói phần mềm <code class="systemitem">pbuilder</code> có thể giúp bạn truy cập các môi trường
+<code class="literal">stable/updates</code>, v.v.  <a href="#ftn.idp46565410341648" class="footnote" id="idp46565410341648"><sup class="footnote">[70]</sup></a> Cho những tình huống như thế, việc bạn có thể đang chạy một hệ
+thống <code class="literal">sid</code> không phải là một lý do đủ tốt cho việc thất
+bại trong cập nhật chúng đúng cách.  Gói phần mềm <code class="systemitem">pbuilder</code> có thể giúp bạn truy cập các môi trường
 của bất cứ bản phân phối hệ điều hành nào xuất phát từ Debian trên cùng một
 nền tảng.
 </p>
@@ -531,7 +531,7 @@ Xem <a class="ulink" href="http://www.netfort.gr.jp/~dancer/software/pbuilder.ht
         </div>
         <p>
 Nếu thượng nguồn của bạn dùng một hệ thống quản lý mã nguồn (VCS)
-<a href="#ftn.idm2984" class="footnote" id="idm2984"><sup class="footnote">[71]</sup></a> để bảo trì mã nguồn của họ, bạn cũng
+<a href="#ftn.idp46565410351440" class="footnote" id="idp46565410351440"><sup class="footnote">[71]</sup></a> để bảo trì mã nguồn của họ, bạn cũng
 nên xem xét việc sử dụng nó.  Nó có thể giúp bạn gộp và chọn các bản vá từ
 thượng nguồn dễ hơn.  Có nhiều gói phần mềm chứa mã kịch bản dùng cho việc
 đóng gói các gói phần mềm Debian cho từng VCS.
@@ -561,7 +561,7 @@ kịch bản đóng gói Debian cho các cây mã nguồn CVS.
         <p>
 Việc sử dụng <code class="systemitem">git-buildpackage</code> đang
 dần trở nên phổ biến đối với các nhà phát triển Debian để quản lý các gói
-phần mềm Debian với máy phục vụ Git trên <a class="ulink" href="http://alioth.debian.org/">alioth.debian.org</a>. <a href="#ftn.idm3000" class="footnote" id="idm3000"><sup class="footnote">[72]</sup></a> Gói phần mềm này cung cấp nhiều lệnh để
+phần mềm Debian với máy phục vụ Git trên <a class="ulink" href="http://alioth.debian.org/">alioth.debian.org</a>. <a href="#ftn.idp46565410361168" class="footnote" id="idp46565410361168"><sup class="footnote">[72]</sup></a> Gói phần mềm này cung cấp nhiều lệnh để
 <span class="emphasis"><em>tự động hóa</em></span> các thao tác đóng gói:
 </p>
         <div class="itemizedlist">
@@ -601,13 +601,13 @@ Những lệnh sau dùng 3 nhánh để theo dõi thao tác đóng gói:
             </li>
             <li class="listitem">
               <p> <code class="literal">pristine-tar</code> cho tập tin nén thượng nguồn tạo ra bởi tham
-số <code class="literal">--pristine-tar</code>.<a href="#ftn.idm3045" class="footnote" id="idm3045"><sup class="footnote">[73]</sup></a> </p>
+số <code class="literal">--pristine-tar</code>.<a href="#ftn.idp46565410380416" class="footnote" id="idp46565410380416"><sup class="footnote">[73]</sup></a> </p>
             </li>
           </ul>
         </div>
         <p>
 Bạn có thể cấu hình <code class="systemitem">git-buildpackage</code>
-với <code class="filename">~/.gbp.conf</code>. Xem <span class="citerefentry"><span class="refentrytitle">gbp.conf</span>(5)</span>.  <a href="#ftn.idm3056" class="footnote" id="idm3056"><sup class="footnote">[74]</sup></a>
+với <code class="filename">~/.gbp.conf</code>. Xem <span class="citerefentry"><span class="refentrytitle">gbp.conf</span>(5)</span>.  <a href="#ftn.idp46565410385888" class="footnote" id="idp46565410385888"><sup class="footnote">[74]</sup></a>
 </p>
       </div>
       <div class="section">
@@ -622,7 +622,7 @@ với <code class="filename">~/.gbp.conf</code>. Xem <span class="citerefentry">
 Với một gói phần mềm lớn, bạn có thể không muốn biên dịch lại từ đầu mỗi lần
 bạn tinh chỉnh các chi tiết trong <code class="filename">debian/rules</code>.  Dành
 cho mục đích kiểm tra, bạn có thể tạo một tập tin <code class="filename">.deb</code>
-mà không cần tái biên dịch các mã nguồn từ thượng nguồn như sau:<a href="#ftn.idm3079" class="footnote" id="idm3079"><sup class="footnote">[75]</sup></a>:
+mà không cần tái biên dịch các mã nguồn từ thượng nguồn như sau:<a href="#ftn.idp46565410398320" class="footnote" id="idp46565410398320"><sup class="footnote">[75]</sup></a>:
 </p>
         <pre class="screen">
 $ fakeroot debian/rules binary
@@ -704,66 +704,68 @@ cấp cao.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm2747" class="footnote">
-          <p><a href="#idm2747" class="para"><sup class="para">[63] </sup></a>
+        <div id="ftn.idp46565410221856" class="footnote">
+          <p><a href="#idp46565410221856" class="para"><sup class="para">[63] </sup></a>
 Mã GPG này phải được ký tên bởi một nhà phát triển Debian để có thể được kết
-nối được tới mạng lưới uy tín và phải được đăng ký vào <a class="ulink" href="http://keyring.debian.org">tập hợp mã tin cậy của Debian</a>. Điều này cho phép các
+nối tới mạng lưới tín nhiệm và phải được đăng ký vào <a class="ulink" href="http://keyring.debian.org">tập hợp mã tin cậy của Debian</a>. Điều này cho phép các
 gói bạn tải lên được chấp nhận vào kho của Debian.  Xem <a class="ulink" href="http://keyring.debian.org/creating-key.html">Tạo một mã GPG mới</a> và <a class="ulink" href="http://wiki.debian.org/Keysigning ">Debian Wiki về Ký tên lên mã</a>.
 </p>
         </div>
-        <div id="ftn.idm2778" class="footnote">
-          <p><a href="#idm2778" class="para"><sup class="para">[64] </sup></a> Bạn có thể tránh việc áp dung các bản vá <span class="command"><strong>quilt</strong></span> dưới định
-dạng nguồn <code class="literal">3.0 (quilt)</code> tại phần cuối của lựa chọn
-<code class="literal">--skip-patches</code>.  Một lựa chọn khác là bạn có thể chạy
-lệnh <code class="literal">dquilt pop -a</code> sau khi thực hiện lệnh bình thường.  </p>
+        <div id="ftn.idp46565410237984" class="footnote">
+          <p><a href="#idp46565410237984" class="para"><sup class="para">[64] </sup></a> Bạn có thể tránh việc áp dụng các bản vá <span class="command"><strong>quilt</strong></span> dưới định
+dạng nguồn <code class="literal">3.0 (quilt)</code> khi kết thúc việc giải nén với
+tham số  <code class="literal">--skip-patches</code>.  Một lựa chọn khác là bạn có thể
+chạy lệnh <code class="literal">dquilt pop -a</code> sau khi làm xong các thao tác
+thông thường.  </p>
         </div>
-        <div id="ftn.idm2821" class="footnote">
-          <p><a href="#idm2821" class="para"><sup class="para">[65] </sup></a> Hệ thống tự động biên dịch thực tế cần các kế hoạch phức tạp hơn nhiều kế
+        <div id="ftn.idp46565408771216" class="footnote">
+          <p><a href="#idp46565408771216" class="para"><sup class="para">[65] </sup></a> Hệ thống tự động biên dịch thực tế cần các kế hoạch phức tạp hơn nhiều kế
 hoạch được giải thích ở đây.  Những chi tiết như thế là quá tầm của tài liệu
 này.  </p>
         </div>
-        <div id="ftn.idm2859" class="footnote">
-          <p><a href="#idm2859" class="para"><sup class="para">[66] </sup></a> Khác với khi dưới gói phần mềm <code class="systemitem">pbuilder</code>, môi trường <span class="command"><strong>chroot</strong></span>
-dưới gói <code class="systemitem">sbuild</code> được sử dụng bởi hệ
-thống tự động biên dịch không buộc sử dụng một hệ thống nhỏ và có thể có
-nhiều gói phần mềm thừa đã được cài đặt.  </p>
+        <div id="ftn.idp46565410288400" class="footnote">
+          <p><a href="#idp46565410288400" class="para"><sup class="para">[66] </sup></a> Khác với khi dưới gói phần mềm <code class="systemitem">pbuilder</code>, môi trường <span class="command"><strong>chroot</strong></span>
+dưới gói <code class="systemitem">sbuild</code> vốn được sử dụng bởi
+hệ thống tự động biên dịch không buộc sử dụng một hệ thống nhỏ gọn và có thể
+có nhiều gói phần mềm thừa đã được cài đặt.  </p>
         </div>
-        <div id="ftn.idm2893" class="footnote">
-          <p><a href="#idm2893" class="para"><sup class="para">[67] </sup></a> Bởi vì gói phần mềm <code class="systemitem">pbuilder</code> vẫn
+        <div id="ftn.idp46565410306032" class="footnote">
+          <p><a href="#idp46565410306032" class="para"><sup class="para">[67] </sup></a> Bởi vì gói phần mềm <code class="systemitem">pbuilder</code> vẫn
 đang tiếp tục tiến hóa, bạn nên kiểm tra môi trường cấu hình thực sự bằng
 việc đọc tài liệu hướng dẫn mới nhất.</p>
         </div>
-        <div id="ftn.idm2897" class="footnote">
-          <p><a href="#idm2897" class="para"><sup class="para">[68] </sup></a>Xem <a class="ulink" href="http://buildd.debian.org/">http://buildd.debian.org/</a> để biết thêm về việc tự động biên dịch các
+        <div id="ftn.idp46565410308816" class="footnote">
+          <p><a href="#idp46565410308816" class="para"><sup class="para">[68] </sup></a>Xem <a class="ulink" href="http://buildd.debian.org/">http://buildd.debian.org/</a> để biết thêm về việc tự động biên dịch các
 gói phần mềm Debian.</p>
         </div>
-        <div id="ftn.idm2950" class="footnote">
-          <p><a href="#idm2950" class="para"><sup class="para">[69] </sup></a> Điều này giả sử là <code class="literal">HOOKDIR=/var/cache/pbuilder/hooks</code>.
+        <div id="ftn.idp46565410334128" class="footnote">
+          <p><a href="#idp46565410334128" class="para"><sup class="para">[69] </sup></a> Điều này giả sử là <code class="literal">HOOKDIR=/var/cache/pbuilder/hooks</code>.
 Bạn có thể tìm thấy nhiều ví dụ của các kịch bản mồi trong thư mục
 <code class="filename">/usr/share/doc/pbuilder/examples</code>.  </p>
         </div>
-        <div id="ftn.idm2964" class="footnote">
-          <p><a href="#idm2964" class="para"><sup class="para">[70] </sup></a> Có nhiều giới hạn cho những cập nhật của gói phần mềm
+        <div id="ftn.idp46565410341648" class="footnote">
+          <p><a href="#idp46565410341648" class="para"><sup class="para">[70] </sup></a> Có một vài giới hạn cho những cập nhật như vậy đối với gói phần mềm
 <code class="literal">stable</code> của bạn.
 </p>
         </div>
-        <div id="ftn.idm2984" class="footnote">
-          <p><a href="#idm2984" class="para"><sup class="para">[71] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch10#_version_control_systems">Các hệ thống quản lý phiên bản</a> để biết
+        <div id="ftn.idp46565410351440" class="footnote">
+          <p><a href="#idp46565410351440" class="para"><sup class="para">[71] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch10#_version_control_systems">Các hệ thống quản lý phiên bản</a> để biết
 thêm.</p>
         </div>
-        <div id="ftn.idm3000" class="footnote">
-          <p><a href="#idm3000" class="para"><sup class="para">[72] </sup></a><a class="ulink" href="http://wiki.debian.org/Alioth">Debian wiki Alioth</a> hướng dẫn cách
+        <div id="ftn.idp46565410361168" class="footnote">
+          <p><a href="#idp46565410361168" class="para"><sup class="para">[72] </sup></a><a class="ulink" href="http://wiki.debian.org/Alioth">Debian wiki Alioth</a> hướng dẫn cách
 sử dụng dịch vụ <a class="ulink" href="http://alioth.debian.org/">alioth.debian.org</a>.</p>
         </div>
-        <div id="ftn.idm3045" class="footnote">
-          <p><a href="#idm3045" class="para"><sup class="para">[73] </sup></a>Tham số <code class="literal">--pristine-tar</code> chạy lệnh
-<span class="command"><strong>pristine-tar</strong></span> và tạo ra một bản sao nguyên vẹn của tập tin
-nén thượng nguồn chưa chỉnh sửa với một tập tin nhị phân delta nhỏ và những
-nội dung của tập tin nén vốn được giữ trong nhánh
+        <div id="ftn.idp46565410380416" class="footnote">
+          <p><a href="#idp46565410380416" class="para"><sup class="para">[73] </sup></a>Tham số <code class="literal">--pristine-tar</code> chạy lệnh
+<span class="command"><strong>pristine-tar</strong></span>, lệnh này tạo ra một bản sao nguyên vẹn của
+tập tin nén thượng nguồn chưa chỉnh sửa bằng việc sử dụng một tập tin nhị
+phân delta nhỏ và những nội dung của tập tin nén vốn được giữ trong nhánh
 <code class="literal">upstream</code> trong VCS. </p>
         </div>
-        <div id="ftn.idm3056" class="footnote">
-          <p><a href="#idm3056" class="para"><sup class="para">[74] </sup></a> Đây là một vài nguồn thông tin điện tử có sẵn cho các đối tượng thông thái.  </p>
+        <div id="ftn.idp46565410385888" class="footnote">
+          <p><a href="#idp46565410385888" class="para"><sup class="para">[74] </sup></a> Đây là một vài nguồn thông tin điện tử có sẵn cho các đối tượng người đọc
+thông thái.  </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
@@ -788,10 +790,10 @@ mềm Debian</a> </p>
             </ul>
           </div>
         </div>
-        <div id="ftn.idm3079" class="footnote">
-          <p><a href="#idm3079" class="para"><sup class="para">[75] </sup></a> Các biến môi trường vốn được cấu hình bình thường với các giá trị phù hợp
-không được gán giá trị với phương pháp này.  Đừng bao giờ tạo các gói  phần
-mềm thực tế để được tải lên với phương pháp <span class="strong"><strong>nhanh</strong></span> này.  </p>
+        <div id="ftn.idp46565410398320" class="footnote">
+          <p><a href="#idp46565410398320" class="para"><sup class="para">[75] </sup></a> Các biến môi trường vốn được cấu hình bình thường với các giá trị phù hợp
+không được gán giá trị với phương pháp này.  Đừng bao giờ tạo các gói phần
+mềm thực sự để được tải lên với phương pháp <span class="strong"><strong>nhanh</strong></span> này.  </p>
         </div>
       </div>
     </div>
