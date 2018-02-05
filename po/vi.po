@@ -5994,7 +5994,7 @@ msgstr ""
 "Trong lúc bạn làm việc với gói, biểu hiện của gói sẽ thay đổi và những tính năng mới sẽ "
 "được thêm vào.  Những người tải gói của bạn về có thể nhìn vào tập tin này và nhìn sơ "
 "nhanh được có những gì đã thay đổi.  Các chương trình bảo trì kho Debian sẽ đăng các "
-"nội dung của tập tin này lên bó thư<ulink url=\"&debian-devel-changes-ldo;\">debian-"
+"nội dung của tập tin này lên bó thư <ulink url=\"&debian-devel-changes-ldo;\">debian-"
 "devel-changes@lists.debian.org</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
@@ -6154,7 +6154,7 @@ msgstr ""
 #. type: Content of: <book><chapter><section><title>
 msgid "<command>debuild</command> command"
 msgstr ""
-"<command>debuild</command> command"
+"Lệnh <command>debuild</command>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6209,7 +6209,7 @@ msgstr ""
 #. type: Content of: <book><chapter><section><title>
 msgid "<systemitem role=\"package\">pbuilder</systemitem> package"
 msgstr ""
-"<systemitem role=\"package\">pbuilder</systemitem> package"
+"Gói phần mềm <systemitem role=\"package\">pbuilder</systemitem>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -6438,7 +6438,7 @@ msgstr ""
 #. type: Content of: <book><chapter><section><title>
 msgid "<command>git-buildpackage</command> command and similars"
 msgstr ""
-"lệnh <command>git-buildpackage</command> và những lệnh tương tự"
+"Lệnh <command>git-buildpackage</command> và những lệnh tương tự"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid "See <ulink url=\"&debref-vcs;\">Version control systems</ulink> for more."
@@ -6622,7 +6622,7 @@ msgid ""
 "make a <filename>.deb</filename> file without rebuilding the upstream sources like "
 "this<placeholder type=\"footnote\" id=\"0\"/>:"
 msgstr ""
-"Với một gói phần mềm lớn, bạn có thể không muốn biên dịch lại từ đầu mỗi lần bạn tinh chỉnh các chi tiết trong <filename>debian/rules</filename>.  Dành cho mục đích kiểm tra, bạn có thể tạo một tập tin <filename>.deb</filename> mà không cần tái biên dịch các mã nguồn từ thượng nguồn như sau:<placeholder type=\"footnote\" id=\"0\"/>:"
+"Với một gói phần mềm lớn, bạn có thể không muốn biên dịch lại từ đầu mỗi lần bạn tinh chỉnh các chi tiết trong <filename>debian/rules</filename>.  Dành cho mục đích kiểm tra, bạn có thể tạo một tập tin <filename>.deb</filename> mà không cần tái biên dịch các mã nguồn từ thượng nguồn như sau<placeholder type=\"footnote\" id=\"0\"/>:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -6693,7 +6693,7 @@ msgstr ""
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<command>cowbuilder</command> = speed up the <command>pbuilder</command> execution"
 msgstr ""
-"<command>cowbuilder</command> = tăng tốc <command>pbuilder</command> thực thi"
+"<command>cowbuilder</command> = tăng tốc tốc độ chạy của <command>pbuilder</command>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -6792,7 +6792,7 @@ msgid ""
 "maintainers of other affected packages, or declaring a <literal>Conflicts</literal> "
 "relationship in the <filename>debian/control</filename> file."
 msgstr ""
-"Để tránh vấn đề cài đặt trên các hệ thống khác nhau, bạn phải chắc chắn rằng không có xung đột về tên tập tin với các gói phần mềm khác đang hiện hữu, dùng tập tin <filename>Contents-<replaceable>i386</replaceable></filename> tải về từ kho Debian.  Lệnh <command>apt-file</command> có thể rất tiện cho công việc này.  Nếu có xung đột, xin hãy hành động để tránh vấn đề thực tế này, dù cho bằng cách thay đổi tên tập tin, bằng cách di chuyển một tập tin chung qua một gói phần mềm khác mà nhiều gói phần mềm có thể dựa "
+"Để tránh vấn đề trong quá trình cài đặt trên các hệ thống khác nhau, bạn phải chắc chắn rằng không có xung đột về tên tập tin với các gói phần mềm khác đang hiện hữu, dùng tập tin <filename>Contents-<replaceable>i386</replaceable></filename> tải về từ kho Debian.  Lệnh <command>apt-file</command> có thể rất tiện cho công việc này.  Nếu có xung đột, xin hãy hành động để tránh vấn đề thực tế này, dù cho bằng cách thay đổi tên tập tin, bằng cách di chuyển một tập tin chung qua một gói phần mềm khác mà nhiều gói phần mềm có thể dựa "
 "trên, bằng các phương pháp thay thế (xem <citerefentry><refentrytitle>update-alternatives</refentrytitle> <manvolnum>1</manvolnum></citerefentry>) phối hợp với các nhà bảo trì của các gói phần mềm bị ảnh hưởng khác, hoặc khai báo một mối quan hệ <literal>Conflicts</literal> trong tập tin <filename>debian/control</filename>."
 
 #. type: Content of: <book><chapter><section><title>
@@ -7073,7 +7073,7 @@ msgid ""
 "<filename>*.debian.tar.gz</filename>, <filename>*.diff.gz</filename>, and <filename>*."
 "orig.tar.gz</filename> files."
 msgstr ""
-"Rất nhiều thao tác kiểm soát tập tin này có thể được gộp chung vào một quá trình trực quan bởi một trình quản lý tập tin như <citerefentry> <refentrytitle>mc</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> với khả năng cho phép bạn duyệt không chỉ nội dung của các tập tin gói phần mềm <filename>*.deb</filename> mà cả các tập tin <filename>*.udeb</filename>, <filename>*.debian.tar.gz</filename>, <filename>*.diff.gz</filename>, and <filename>*.orig.tar.gz</filename>."
+"Rất nhiều thao tác kiểm soát tập tin này có thể được gộp chung vào một quá trình trực quan bởi một trình quản lý tập tin như <citerefentry> <refentrytitle>mc</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> với khả năng cho phép bạn duyệt không chỉ nội dung của các tập tin gói phần mềm <filename>*.deb</filename> mà cả các tập tin <filename>*.udeb</filename>, <filename>*.debian.tar.gz</filename>, <filename>*.diff.gz</filename>, và <filename>*.orig.tar.gz</filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -7116,7 +7116,7 @@ msgid ""
 "<literal>dquilt new <replaceable>bugname.patch</replaceable></literal> to set the patch "
 "name;"
 msgstr ""
-"<literal>dquilt new <replaceable>bugname.patch</replaceable></literal> to set the patch name;"
+"<literal>dquilt new <replaceable>bugname.patch</replaceable></literal> để đặt tên cho bản vá;"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
