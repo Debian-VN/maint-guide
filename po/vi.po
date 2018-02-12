@@ -2932,7 +2932,7 @@ msgstr ""
 
 #. type: Content of: <book><chapter><title>
 msgid "Required files under the <filename>debian</filename> directory"
-msgstr "Các tệp yêu cấu trong thư mục <filename>debian</filename>"
+msgstr "Các tệp yêu cầu trong thư mục <filename>debian</filename>"
 
 #. type: Content of: <book><chapter><para><footnote><para>
 msgid ""
@@ -2956,12 +2956,12 @@ msgstr ""
 "<filename>debian</filename>. Có một số tệp tin trong thư mục này mà chúng ta nên "
 "sửa đổi để các tuỳ chỉnh hành vi của gói.  Các tệp quan trọng trong số chúng là "
 "<filename>control</filename>, <filename>changelog</filename>, "
-"<filename>copyright</filename>, và <filename>rules</filename>, which are required for "
-"all packages.  <placeholder type=\"footnote\" id=\"0\"/>"
+"<filename>copyright</filename>, và <filename>rules</filename>, chúng là những tệp "
+"yêu cầu đối với tất cả các gói <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>control</filename>"
-msgstr ""
+msgstr "<filename>control</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -2971,11 +2971,16 @@ msgid ""
 "defined by the <ulink url=\"&policy-control;\">Debian Policy Manual, 5 \"Control files "
 "and their fields\"</ulink>."
 msgstr ""
+"Tập tin này chứa các giá trị khác nhau mà <command>dpkg</command>, <command>dselect"
+"</command>, <command>apt-get</command>, <command>apt-cache</command>, <command>aptitude"
+"</command>, và các công cụ quản lý gói khác sẽ sử dụng để quản lý gói. Nó được xác định "
+"bởi <ulink url=\"&policy-control;\">Debian Policy Manual, 5 \"Control files and their fields\"</ulink>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Here is the <filename>control</filename> file <command>dh_make</command> created for us:"
 msgstr ""
+"Đây là tệp <filename>control</filename> mà <command>dh_make</command> tạo ra cho chúng ta:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -2994,24 +2999,39 @@ msgid ""
 "12 Description: &lt;insert up to 60 chars description&gt;\n"
 "13  &lt;insert long description, indented with spaces&gt;\n"
 msgstr ""
+" 1 Source: gentoo\n"
+" 2 Section: unknown\n"
+" 3 Priority: extra\n"
+" 4 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;\n"
+" 5 Build-Depends: debhelper (&gt;=9)\n"
+" 6 Standards-Version: 3.9.4\n"
+" 7 Homepage: &lt;insert the upstream URL, if relevant&gt;\n"
+" 8\n"
+" 9 Package: gentoo\n"
+"10 Architecture: any\n"
+"11 Depends: ${shlibs:Depends}, ${misc:Depends}\n"
+"12 Description: &lt;insert up to 60 chars description&gt;\n"
+"13  &lt;insert long description, indented with spaces&gt;\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "(I've added the line numbers.)"
-msgstr ""
+msgstr "(Tôi đã thêm các số dòng.)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Lines 1-7 are the control information for the source package.  Lines 9-13 are the "
 "control information for the binary package."
 msgstr ""
+"Dòng 1-7 là thông tin điều khiển cho gói nguồn. "
+"Dòng 9-13 là thông tin điều khiển cho gói nhị phân."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "Line 1 is the name of the source package."
-msgstr ""
+msgstr "Dòng 1 là tên của gói nguồn"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "Line 2 is the section of the distribution the source package goes into."
-msgstr ""
+msgstr "Dòng 2 là các mục loại mục chương trình"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -3019,6 +3039,9 @@ msgid ""
 "and <ulink url=\"&sections-unstable;\">List of sections in <literal>sid</literal></"
 "ulink>."
 msgstr ""
+"Xem <ulink url=\"&policy-subsections;\">Debian Policy Manual, 2.4 \"Sections\"</ulink> "
+"và <ulink url=\"&sections-unstable;\">List of sections in <literal>sid</literal></"
+"ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3033,23 +3056,37 @@ msgid ""
 "literal> for X11 programs that don't fit anywhere else, and many more.  <placeholder "
 "type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Như bạn có thể nhận thấy, kho phần mềm Debian được chia làm nhiều khu vục: "
+"<literal>main</literal> (phần mềm tự do), <literal>non-free</literal> (thật sự không phải "
+"phẩn mềm tự do) and <literal>contrib</literal> (phần mềm tự do phụ thuộc vào phần mềm không "
+"tự do). Mỗi loại được chi thánh các phần danh mục. Vậy chúng ta có <literal>admin</literal> "
+"cho các chương trình quản trị, <literal>devel</literal> cho các công cụ phát triển, <literal>"
+"doc</literal> cho tài liệu, <literal>libs</literal> cho thư viện, <literal>mail</literal> cho "
+"chương trình liên quan thư điện tử, <literal>net</literal> cho ứng dụng mạng và chaỵ nền, "
+"<literal>x11</literal> cho các chương trình X11 khác, và nhiều nữa.  <placeholder "
+"type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Let's change it then to x11.  (A <literal>main/</literal> prefix is implied so we can "
 "omit it.)"
 msgstr ""
+"Chúng ta hãy thay đổi nó thành x11. (Tiền tố <literal>main/</literal> với ngụ ý là chúng "
+"ta có thể bỏ qua nó)."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "See <ulink url=\"&policy-priorities;\">Debian Policy Manual, 2.5 \"Priorities\"</ulink>."
 msgstr ""
+"Xem <ulink url=\"&policy-priorities;\">Debian Policy Manual, 2.5 \"Priorities\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Line 3 describes how important it is that the user installs this package.  <placeholder "
 "type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Dòng 3 miêu tả mức độ quan trọng của việc ngươì dùng cài đặt gói này.  <placeholder "
+"type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3057,12 +3094,17 @@ msgid ""
 "conflict with others claiming <literal>required</literal>, <literal>important</"
 "literal>, or <literal>standard</literal> priority."
 msgstr ""
+"Ưu tiên <literal>optional</literal> thường sẽ làm việc với gói mới mà không xung đột với "
+"các gói chứa ưu tiên <literal>required</literal>, <literal>important</literal>, "
+"hay <literal>standard</literal> ."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "The <literal>extra</literal> priority will usually work for new packages that conflict "
 "with others with non-<literal>extra</literal> priorities."
 msgstr ""
+"Ưu tiên <literal>extra</literal> thường sẽ làm việc với gói mới mà xung dột với các ưu "
+"tiên non-<literal>extra</literal> priorities."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3071,12 +3113,18 @@ msgid ""
 "these two fields can be overridden by the archive maintainers, in which case you will "
 "be notified by email."
 msgstr ""
+"Trường Section và Priority được sử dụng bởi các chương trình front-ends như <command>"
+"aptitude</command> khi họ sắp xếp gói và chọn mặc định. Khi bạn tải gói lên Debian, "
+"giá trị của hai trường này có thể bị ghi đè bởi các nhà bảo trì kho lưu trữ, "
+"trong trường hợp đó bạn sẽ được thông báo bằng email."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "As this is a normal priority package and doesn't conflict with anything else, we will "
 "change the priority to <literal>optional</literal>."
 msgstr ""
+"Vì đây là gói ưu tiên thông thường và không xung đột với bất kỳ điều gì khác, "
+"chúng tôi sẽ thay đổi mức độ ưu tiên thành <literal>optional</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3085,6 +3133,10 @@ msgid ""
 "the bug tracking system will use it to deliver bug emails to you.  Avoid using commas, "
 "ampersands, or parentheses."
 msgstr ""
+"Dòng 4 là tên và địa chỉ email của người bảo trì. Hãy đảm bảo rằng trường này có tiêu đề "
+"<literal>To</literal> hợp lệ cho email, bởi vì sau khi tải lên, hệ thống theo dõi lỗi sẽ "
+"sử dụng chính trường này để gửi email lỗi cho bạn. Tránh sử dụng dấu phẩy, ký hiệu, hoặc "
+"dấu ngoặc đơn."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -3092,6 +3144,9 @@ msgid ""
 "\"Relationships between source and binary packages - Build-Depends, Build-Depends-"
 "Indep, Build-Conflicts, Build-Conflicts-Indep\"</ulink>."
 msgstr ""
+"Xem <ulink url=\"&policy-relationships;#s-sourcebinarydeps\">Debian Policy Manual, 7.7 "
+"\"Relationships between source and binary packages - Build-Depends, Build-Depends-"
+"Indep, Build-Conflicts, Build-Conflicts-Indep\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3105,6 +3160,13 @@ msgid ""
 "entries are separated with commas; read on for the explanation of binary package "
 "dependencies to find out more about the syntax of these lines."
 msgstr ""
+"Dòng 5 là trưởng <literal>Build-Depends</literal>  bao gồm danh sách của các gói yêu cầu "
+"để xây dựng gói của bạn. Bạn cũng có thể  có thêm trường <literal>Build-Depends-Indep"
+"</literal> bổ sung.  <placeholder type=\"footnote\" id=\"0\"/>. Một số gói như "
+"<systemitem role=\"package\">gcc</systemitem> và <systemitem role=\"package\">make</systemitem> "
+"là yêu cầu ngầm định bởi gói  <systemitem role=\"package\">build-essential</systemitem> "
+"Nếu bạn cần có các công cụ khác để xây dựng gói của mình, bạn nên thêm chúng vào các trường này. "
+"Nhiều mục được phân cách bằng dấu phẩy; Hãy đọc tiếp để hiểu rõ hơn về các phụ thuộc gói nhị phân."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3113,6 +3175,10 @@ msgid ""
 "literal> in the <literal>Build-Depends</literal> field to satisfy the Debian Policy "
 "requirement for the <literal>clean</literal> target."
 msgstr ""
+"Đối với tất cả các gói đóng gói với lệnh <command>dh</command> trong tệp tin "
+"<filename>debian/rules</filename>, bạn phải có <literal>debhelper(&gt;=9)</literal> "
+"trong trường <literal>Build-Depends</literal> để thỏa mãn yêu cầu Chính sách Debian đối "
+"với mục <literal>clean</literal>."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3123,6 +3189,12 @@ msgid ""
 "<literal>Build-Depends</literal> field needs to list practically all the required "
 "packages and <literal>Build-Depends-Indep</literal> is rarely used."
 msgstr ""
+"Gói nguồn có gói nhị phân với <literal>Architecture: any</literal> được "
+"xây dựng lại bởi autobuilder. Vì thủ tục autobuilder này chỉ cài đặt các gói được "
+"liệt kê trong trường <literal>Build-Depends</literal> trước khi chạy "
+"<literal>debian/rules build</literal> (see <xref linkend=\"autobuilder\"/>), "
+"Trường <literal>Build-Depends</literal> rất cần thiết để liệt kê tất cả các gói "
+"cần thiết còn <literal>Build-Depends-Indep</literal> hiếm khi được sử dụng."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3131,6 +3203,10 @@ msgid ""
 "packages unless they are already listed in the <literal>Build-Depends</literal> field "
 "to satisfy the Debian Policy requirement for the <literal>clean</literal> target."
 msgstr ""
+"Đối với các gói nguồn với các gói nhị phân có kiến trúc <literal>Architecture: all</literal>, "
+"trường <literal>Build-Depends-Indep</literal> có thể liệt kê tất cả các gói cần thiết trừ khi "
+"chúng đã được liệt kê trong trường <literal>Build-Depends</literal> để thỏa mãn yêu cầu "
+"của Chính sách Debian đối với mục <literal>clean</literal>."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -3141,41 +3217,54 @@ msgid ""
 "situation applies to the <ulink url=\"https://bugs.launchpad.net/launchpad-buildd/"
 "+bug/238141\">auto build system for Ubuntu</ulink>."
 msgstr ""
+"Tình huống này hơi lạ là một tính năng được ghi lại trong  <ulink url="
+"\"&policy-build-depends-indep;\">Debian Policy Manual, Footnotes 55</ulink>. "
+"Đây không phải là do sử dụng lệnh <command>dh</command> trong tệp tin "
+"<filename>debian/rules</filename> nhưng do cách <command>dpkg-buildpackage</command> làm việc. "
+"Tình huống tương tự cũng áp dụng cho <ulink url=\"https://bugs.launchpad.net/launchpad-buildd/"
+"+bug/238141\">hệ thống xây dựng tự động cho Ubuntu</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If you are not sure which one should be used, use the <literal>Build-Depends</literal> "
 "field to be on the safe side.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Nếu bạn không chắc chắn nên sử dụng trường nào, hãy sử dụng trường "
+"<literal>Build-Depends</literal> để an toàn.  <placeholder type=\"footnote\" "
+"id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "To find out what packages your package needs to be built run the command:"
-msgstr ""
+msgstr "Để tìm ra những gói nào cần để xây dựng chương trình của bạn:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "$ dpkg-depcheck -d ./configure\n"
-msgstr ""
+msgstr "$ dpkg-depcheck -d ./configure\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "To manually find exact build dependencies for <command><replaceable>/usr/bin/foo</"
 "replaceable></command>, execute"
 msgstr ""
+"Để tự tìm chính xác các phụ thuộc khi xây dựng <command><replaceable>/usr/"
+"bin/foo</replaceable></command>, thực hiện"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "$ objdump -p <replaceable>/usr/bin/foo</replaceable> | grep NEEDED\n"
-msgstr ""
+msgstr "$ objdump -p <replaceable>/usr/bin/foo</replaceable> | grep NEEDED\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "and for each library listed, e.g., <command>libfoo.so.6</command>, execute"
 msgstr ""
+"và cho mỗi thư viện được liệt kê, ví dụ: <command>libfoo.so.6</command>, "
+"thực hiện"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "$ dpkg -S libfoo.so.6\n"
-msgstr ""
+msgstr "$ dpkg -S libfoo.so.6\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3184,6 +3273,9 @@ msgid ""
 "report indirect lib dependencies as well, resulting in the problem of excessive build "
 "dependencies."
 msgstr ""
+"Sau đó chỉ cần lấy phiên bản <literal>-dev </literal> của mỗi gói như một "
+"mục nhập <literal>Build-Depends</literal>.  Nếu bạn sử dụng <command>ldd</"
+"command> cho mục đích này, nó sẽ báo cáo phụ thuộc lib gián tiếp, kết quả là "
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3192,28 +3284,40 @@ msgid ""
 "systemitem> and <systemitem role=\"package\">libglib1.2-dev</systemitem> to build, so "
 "we'll add them here next to <systemitem role=\"package\">debhelper</systemitem>."
 msgstr ""
+"<systemitem role=\"package\">gentoo</systemitem> yêu cầu <systemitem role="
+"\"package\">xlibs-dev</systemitem>, <systemitem role=\"package\">libgtk1.2-"
+"dev</systemitem> and <systemitem role=\"package\">libglib1.2-dev</"
+"systemitem> để xây dựng, vâỵ nên chúng ta sẽ thêm chúng vào vị trí tiếp theo "
+"<systemitem role=\"package\">debhelper</systemitem>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Line 6 is the version of the <ulink url=\"&debian-policy;\">Debian Policy Manual</"
 "ulink> standards this package follows, the one you read while making your package."
 msgstr ""
+"Dòng 6 là phiên bản của <ulink url=\"&debian-policy;\">Debian Policy Manual</"
+"ulink>mà phần mềm này tuân theo, một trong tài liệu bạn đọc trong khi xây "
+"dựng gói của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "On line 7 you can put the URL of the software's upstream homepage."
-msgstr ""
+msgstr "Trên dòng 7, bạn có thể đặt URL của trang chủ thượng nguồn của phần mềm"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Line 9 is the name of the binary package.  This is usually the same as the name of the "
 "source package, but it doesn't necessarily have to be that way."
 msgstr ""
+"Dòng 9 là tên của gói nhị phân. Nó thường giống với tên của gói nguồn, "
+"nhưng nó không nhất thiết phải giống nhau."
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "See <ulink url=\"&policy-architecture;\">Debian Policy Manual, 5.6.8 \"Architecture\"</"
 "ulink> for exact details."
 msgstr ""
+"Xem <ulink url=\"&policy-architecture;\">Debian Policy Manual, 5.6.8 \"Architecture\"</"
+"ulink> để biết chi tiết."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3221,26 +3325,33 @@ msgid ""
 "is usually one of the following depending on the type of the binary package: "
 "<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Dòng 10 mô tả các kiến ​​trúc mà gói nhị phân có thể được biên dịch.  Giá trị này thường "
+"là một trong các tùy chọn sau, tùy thuộc vào loại gói nhị phân: <placeholder type=\""
+"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Architecture: any</literal>"
-msgstr ""
+msgstr "<literal>Architecture: any</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "The generated binary package is an architecture dependent one usually in a compiled "
 "language."
 msgstr ""
+"Gói nhị phân được tạo ra là một kiến ​​trúc phụ thuộc thường là các chương trình xây dựng bằng "
+"ngôn ngữ biên dịch."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Architecture: all</literal>"
-msgstr ""
+msgstr "<literal>Architecture: all</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "The generated binary package is an architecture independent one usually consisting of "
 "text, images, or scripts in an interpreted language."
 msgstr ""
+"Gói nhị phân được tạo ra là một kiến ​​trúc độc lập thường bao gồm các văn bản, hình ảnh "
+"hoặc các tập lệnh theo ngôn ngữ kịch bản."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3248,6 +3359,9 @@ msgid ""
 "gencontrol</refentrytitle><manvolnum>1</manvolnum></citerefentry> will fill in the "
 "appropriate architecture value for any machine this source package gets compiled on."
 msgstr ""
+"Chúng ta để lại dòng 10 vì nó được viết bằng C. <citerefentry><refentrytitle>dpkg-gencontrol"
+"</refentrytitle><manvolnum>1</manvolnum></citerefentry> sẽ tự điền vào trường Architecture "
+"một cách thích hợp cho bất kỳ máy nào gói nguồn này được biên soạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3256,6 +3370,9 @@ msgid ""
 "\"rules\"/> about using the <literal>binary-indep</literal> rule instead of "
 "<literal>binary-arch</literal> for building the package."
 msgstr ""
+"Nếu gói của bạn là kiến ​​trúc độc lập (ví dụ: mã shell hoặc kịch bản Perl, hoặc tài liệu), "
+"hãy thay đổi điều này thành <literal>all</literal> và đọc <xref linkend=\""
+"rules\"/> về <literal>binary-indep</literal> thay vì <literal>binary-arch</literal> để xây dựng gói."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3266,6 +3383,11 @@ msgid ""
 "<literal>Conflicts</literal>, <literal>Provides</literal>, and <literal>Replaces</"
 "literal>."
 msgstr ""
+"Dòng 11 cho thấy một trong những tính năng mạnh mẽ nhất của hệ thống đóng gói Debian. "
+"Gói có thể liên quan đến nhau theo nhiều cách khác nhau.  Ngoài <literal>Depends</literal>, "
+"các trường mối quan hệ khác là <literal>Recommends</literal>, <literal>Suggests</literal>, "
+"<literal>Pre-Depends</literal>, <literal>Breaks</literal>, <literal>Conflicts</literal>, "
+"<literal>Provides</literal> và <literal>Replaces</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3277,22 +3399,33 @@ msgid ""
 "citerefentry>, <citerefentry> <refentrytitle>aptitude</refentrytitle> <manvolnum>1</"
 "manvolnum> </citerefentry>, etc.)"
 msgstr ""
+"Các công cụ quản lý gói thường có chung hành vi khi đọc các mối quan hệ này; "
+"Nếu không, nó sẽ được giải thích. (See <citerefentry> <refentrytitle>dpkg</"
+"refentrytitle> <manvolnum>8</manvolnum> </citerefentry>, <citerefentry> "
+"<refentrytitle>dselect</refentrytitle> <manvolnum>8</manvolnum> </citerefentry>, "
+"<citerefentry> <refentrytitle>apt</refentrytitle> <manvolnum>8</manvolnum> </"
+"citerefentry>, <citerefentry> <refentrytitle>aptitude</refentrytitle> <manvolnum>1</"
+"manvolnum> </citerefentry>, etc.)"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "See <ulink url=\"&policy-relationships;\">Debian Policy Manual, 7 \"Declaring "
 "relationships between packages\"</ulink>."
 msgstr ""
+"Xem <ulink url=\"&policy-relationships;\">Debian Policy Manual, 7 \"Declaring "
+"relationships between packages\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Here is a simplified description of package relationships: <placeholder type=\"footnote"
 "\" id=\"0\"/>"
 msgstr ""
+"Đây là mô tả đơn giản về các mối quan hệ của gói: <placeholder type=\"footnote"
+"\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Depends</literal>"
-msgstr ""
+msgstr "<literal>Depends</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3300,10 +3433,13 @@ msgid ""
 "this if your program absolutely will not run (or will cause severe breakage) unless a "
 "particular package is present."
 msgstr ""
+"Gói của bạn sẽ không được cài đặt trừ khi các gói phụ thuộc được cài đặt. Sử dụng trường này nếu "
+"chương trình của bạn hoàn toàn không chạy (hoặc sẽ gây ra sự cố nghiêm trọng) trừ khi một "
+"gói cụ thể có mặt."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Recommends</literal>"
-msgstr ""
+msgstr "<literal>Recommends</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3313,10 +3449,15 @@ msgid ""
 "command> install recommended packages along with your package by default (but the user "
 "can disable this behavior).  <command>dpkg</command> will ignore this field."
 msgstr ""
+"Sử dụng trường này cho cho các gói không bắt buộc nhưng thường được sử dụng kèm với chương trình "
+"của bạn.  Khi người dùng cài đặt chương trình của bạn, các công cụ quản lý gói có thể sẽ nhắc "
+"cài đặt gói đề xuất. <command>aptitude</command> và <command>apt-get</command> cài đặt "
+"các gói được đề xuất cùng với gói của bạn theo mặc định (nhưng người dùng có thể "
+"vô hiệu hóa hành vi này). <command>dpkg</command> sẽ bỏ qua trường này."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Suggests</literal>"
-msgstr ""
+msgstr "<literal>Suggests</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3326,10 +3467,15 @@ msgid ""
 "suggested packages along with your package but this is not its default.  <command>dpkg</"
 "command> and <command>apt-get</command> will ignore this field."
 msgstr ""
+"Sử dụng trường này cho các gói sẽ hoạt động tốt với chương trình của bạn nhưng không "
+"cần thiết. Khi người dùng cài đặt chương trình của bạn, họ sẽ không được nhắc nhở để "
+"cài đặt gói đề xuất.  <command>aptitude</command> có thể được cấu hình để cài đặt các "
+"gói đề xuất cùng với gói của bạn nhưng đây không phải là mặc định. "
+"<command>dpkg</command> và <command>apt-get</command> sẽ bỏ qua trường này."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Pre-Depends</literal>"
-msgstr ""
+msgstr "<literal>Pre-Depends</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3339,10 +3485,15 @@ msgid ""
 "on the <ulink url=\"&debian-devel-ldo;\">debian-devel@lists.debian.org</ulink> mailing "
 "list.  Read: don't use it at all.  :-)"
 msgstr ""
+"Trường này mạnh hơn <literal>Depends</literal>. Gói sẽ không được cài đặt trừ khi "
+"các gói mà nó được phụ thuộc trước được cài đặt và <emphasis>được cấu hình chính xác"
+"</emphasis>. Sử dụng điều này một cách <emphasis>rất</emphasis> tỉ mỉ và chỉ sau khi "
+"thảo luận về nó trên danh sách gửi thư <ulink url=\"&debian-devel-ldo;\">"
+"debian-devel@lists.debian.org </ulink>. Đọc: đừng sử dụng nó.:-)"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Conflicts</literal>"
-msgstr ""
+msgstr "<literal>Conflicts</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3350,10 +3501,13 @@ msgid ""
 "removed.  Use this if your program absolutely will not run or will cause severe "
 "problems if a particular package is present."
 msgstr ""
+"Gói sẽ không được cài đặt cho đến khi tất cả các gói xung đột đã được gỡ bỏ. Sử dụng "
+"này nếu chương trình của bạn hoàn toàn không chạy hoặc sẽ gây ra những vấn đề "
+"nghiêm trọng nếu một gói cụ thể có mặt."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Breaks</literal>"
-msgstr ""
+msgstr "<literal>Breaks</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3362,10 +3516,13 @@ msgid ""
 "certain value.  The resolution is generally to use higher-level package management "
 "tools to upgrade the listed packages."
 msgstr ""
+"Khi cài đặt gói nó sẽ phá vỡ tất cả các gói được liệt kê. Thông thường trường <literal>"
+"Breaks</literal> chỉ định áp dụng các phiên bản sớm hơn một giá trị nhất định.  "
+"Nói chung là sử dụng các công cụ quản lý gói cấp cao để nâng cấp các gói được liệt kê."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Provides</literal>"
-msgstr ""
+msgstr "<literal>Provides</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3374,10 +3531,13 @@ msgid ""
 "\">virtual-package-names-list.txt.gz</ulink> file.  Use this if your program provides a "
 "function of an existing virtual package."
 msgstr ""
+"Đối với một số loại gói có nhiều tên ảo khác đã được xác định. Bạn có thể có một danh sách "
+"đầy đủ trong tệp <ulink url=\"&virtual-package;\">virtual-package-names-list.txt.gz </ulink>."
+" Sử dụng điều này nếu chương trình của bạn cung cấp một chức năng của một gói ảo hiện có."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "<literal>Replaces</literal>"
-msgstr ""
+msgstr "<literal>Replaces</literal>"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -3385,6 +3545,9 @@ msgid ""
 "another package (used in conjunction with <literal>Conflicts</literal>).  Files from "
 "the named packages will be overwritten with the files from your package."
 msgstr ""
+"Sử dụng điều này khi chương trình của bạn thay thế các tệp từ một gói khác hoặc thay thế "
+"hoàn toàn một gói khác (được sử dụng kết hợp với <literal>Conflicts</literal>). "
+"Các tệp từ các gói có tên sẽ được ghi đè bằng các tệp từ gói của bạn."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3392,6 +3555,9 @@ msgid ""
 "commas.  These package names may also be lists of alternative package names, separated "
 "by vertical bar symbols <literal>|</literal> (pipe symbols)."
 msgstr ""
+"Tất cả các trường này có cú pháp thống nhất.  Họ là một danh sách các tên gói được "
+"phân cách bằng dấu phẩy. Các tên gói này cũng có thể là danh sách các tên gói thay thế, "
+"được phân cách bằng ký hiệu thanh dọc <literal>|</literal> (biểu tượng ống)."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3403,6 +3569,13 @@ msgid ""
 "literal> for strictly lower, lower or equal, exactly equal, greater or equal, and "
 "strictly greater, respectively.  For example,"
 msgstr ""
+"Các trường có thể hạn chế khả năng áp dụng của chúng đối với các phiên bản cụ thể của "
+"từng gói có tên. Hạn chế của từng gói riêng lẻ được liệt kê trong dấu ngoặc đơn sau tên "
+"của nó và phải có một mối quan hệ từ danh sách dưới đây và theo sau là một giá trị số "
+"phiên bản.  Các mối quan hệ được cho phép là: <literal>&lt;&lt;</literal>, <literal>&lt;=</"
+"literal>, <literal>=</literal>, <literal>&gt;=</literal>, và <literal>&gt;&gt;</"
+"literal> tương ứng với bé hơn, bé hơn hoặc bằng, chính xác bằng, lớn hơn hoặc bằng, "
+"và lớn hơn. Ví dụ,"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -3413,12 +3586,19 @@ msgid ""
 "Suggests: quux\n"
 "Replaces: quux (&lt;&lt; 5), quux-foo (&lt;= 7.6)\n"
 msgstr ""
+"Depends: foo (&gt;= 1.2), libbar1 (= 1.3.4)\n"
+"Conflicts: baz\n"
+"Recommends: libbaz4 (&gt;&gt; 4.0.7)\n"
+"Suggests: quux\n"
+"Replaces: quux (&lt;&lt; 5), quux-foo (&lt;= 7.6)\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "The last feature you need to know about is <literal>${shlibs:Depends}</literal>, "
 "<literal>${perl:Depends}</literal>, <literal>${misc:Depends}</literal>, etc."
 msgstr ""
+"Tính năng cuối cùng bạn cần biết là về <literal>${shlibs:Depends}</literal>, "
+"<literal>${perl:Depends}</literal>, <literal>${misc:Depends}</literal>, vân vân."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3428,6 +3608,11 @@ msgid ""
 "found for each binary package.  This list is used for substituting <literal>${shlibs:"
 "Depends}</literal>."
 msgstr ""
+"<citerefentry> <refentrytitle>dh_shlibdeps</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> tính toán sự phụ thuộc vào các thư viện chia sẻ cho các gói nhị phân. "
+"Nó sinh ra một danh sách củả tệp thực thi <ulink url=\"&elf;\">ELF</ulink> và thư viện "
+"chia sẻ mà nó đã tìm cho mỗi gói nhị phân. Danh sách này được sử dụng để thay thế "
+"<literal>${shlibs:Depends}</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3436,6 +3621,10 @@ msgid ""
 "<literal>perl</literal> or <literal>perlapi</literal> for each binary package.  This "
 "list is used for substituting <literal>${perl:Depends}</literal>."
 msgstr ""
+"<citerefentry> <refentrytitle>dh_perl</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> tính toán sự phụ thuộc Perl. Nó sinh ra một danh sách của các phụ thuộc "
+"trong <literal>perl</literal> hoặc <literal>perlapi</literal> cho mỗi gói nhị phân.  "
+"Danh sách này được sử dụng thay thế cho <literal>${perl:Depends}</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3444,6 +3633,10 @@ msgid ""
 "list of required packages for each binary package.  This list is used for substituting "
 "<literal>${misc:Depends}</literal>."
 msgstr ""
+"Một vài lệnh <systemitem role=\"package\">debhelper</systemitem> có thể làm cho gói được "
+"sinh ra phụ thuộc vào vài gói mở rộng thêm. Tất cả các lệnh như vậy sinh ra một danh sách "
+"của các gói cho mỗi gói nhị phân. Danh sách này được sử dụng để thay thế cho "
+"<literal>${misc:Depends}</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3452,6 +3645,10 @@ msgid ""
 "while substituting <literal>${shlibs:Depends}</literal>, <literal>${perl:Depends}</"
 "literal>, <literal>${misc:Depends}</literal>, etc."
 msgstr ""
+"<citerefentry> <refentrytitle>dh_gencontrol</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> tạo ra <filename>DEBIAN/control</filename> cho mỗi gói nhị phân trong khi "
+"thay thế <literal>${shlibs:Depends}</literal>, <literal>${perl:Depends}</literal>, "
+"<literal>${misc:Depends}</literal>, vân vân."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3460,10 +3657,14 @@ msgid ""
 "because <systemitem role=\"package\">gentoo</systemitem> can use some features provided "
 "by the <systemitem role=\"package\">file</systemitem> package."
 msgstr ""
+"Có tất cả những điều đó, chúng ta có thể để trường <literal>Depends</literal> chính xác "
+"như bây giờ và chèn một dòng sau là <literal>Suggests: file</literal>, bởi vì "
+"<systemitem role=\"package\">gentoo</systemitem> có thể sử dụng một số tính năng được "
+"cung cấp bởi gói <systemitem role=\"package\">file</systemitem> ."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "Line 9 is the Homepage URL.  Let's assume this to be at <ulink url=\"&gentoo;\"/>."
-msgstr ""
+msgstr "Dòng 9 là URL Trang chủ.  Giả sử rằng đây là <ulink url=\"&gentoo;\"/>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3471,12 +3672,17 @@ msgid ""
 "shouldn't be longer than about 60 characters.  I'll change it to <literal>fully GUI-"
 "configurable, two-pane X file manager</literal>."
 msgstr ""
+"Dòng 12 là mô tả ngắn. Thiết bị đầu cuối thông thường có 80 cột nên không được dài hơn "
+"60 ký tự. Tôi sẽ thay đổi nó thành  <literal>fully GUI-configurable, two-pane X file "
+"manager</literal>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "These descriptions are in English.  Translations of these descriptions are provided by "
 "<ulink url=\"&ddtp;\">The Debian Description Translation Project - DDTP</ulink>."
 msgstr ""
+"Những mô tả này bằng tiếng Anh. Các bản dịch về các mô tả này được cung cấp bởi "
+"<ulink url=\"&ddtp;\">The Debian Description Translation Project - DDTP</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3486,12 +3692,18 @@ msgid ""
 "simulate that.  Also, there must be no more than one blank line after the long "
 "description. <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Dòng 13 là nơi diễn tả dài.  Đây sẽ là một đoạn cho biết thêm chi tiết về gói. Cột 1 "
+"của mỗi dòng nên để trống.  Không có dòng trắng, nhưng bạn có thể đặt một <literal>. "
+"</literal> (dấu chấm) trong một cột để mô phỏng.  Ngoài ra, không có nhiều dòng trống "
+"sau mô tả dài.  <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
 "See <ulink url=\"&devref-bpp-vcs;\">Debian Developer's Reference, 6.2.5. \"Version "
 "Control System location\"</ulink>."
 msgstr ""
+"Xem <ulink url=\"&devref-bpp-vcs;\">Debian Developer's Reference, 6.2.5. \"Version "
+"Control System location\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3501,10 +3713,14 @@ msgid ""
 "located in the Debian Alioth Git Service at <literal>git://git.debian.org/git/collab-"
 "maint/gentoo.git</literal>."
 msgstr ""
+"Chúng ta có thể chèn các trường <literal>Vcs-*</literal> để ghi lại thông tin của VCS "
+"trong các dòng 6 và 7. <placeholder type=\"footnote\" id=\"0\"/> Hãy giả sử rằng "
+"gói <systemitem role=\"package\">gentoo</systemitem> có VCS của nó nằm trong Debian "
+"Alioth Git Service ở <literal>git://git.debian.org/git/collab-maint/gentoo.git</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "Finally, here is the updated <filename>control</filename> file:"
-msgstr ""
+msgstr "Cuối cùng, đây là tệp <filename>control</filename> đã được cập nhật"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -3538,6 +3754,34 @@ msgid ""
 "29  gentoo was written from scratch in ANSI C, and it utilizes the GTK+ toolkit\n"
 "30  for its interface.\n"
 msgstr ""
+" 1 Source: gentoo\n"
+" 2 Section: x11\n"
+" 3 Priority: optional\n"
+" 4 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;\n"
+" 5 Build-Depends: debhelper (&gt;=9), xlibs-dev, libgtk1.2-dev, libglib1.2-dev\n"
+" 6 Standards-Version: 3.9.4\n"
+" 7 Vcs-Git: git://git.debian.org/git/collab-maint/gentoo.git\n"
+" 8 Vcs-browser: http://git.debian.org/?p=collab-maint/gentoo.git\n"
+" 9 Homepage: &gentoo;\n"
+"10\n"
+"11 Package: gentoo\n"
+"12 Architecture: any\n"
+"13 Depends: ${shlibs:Depends}, ${misc:Depends}\n"
+"14 Suggests: file\n"
+"15 Description: fully GUI-configurable, two-pane X file manager\n"
+"16  gentoo is a two-pane file manager for the X Window System. gentoo lets the\n"
+"17  user do (almost) all of the configuration and customizing from within the\n"
+"18  program itself. If you still prefer to hand-edit configuration files,\n"
+"19  they're fairly easy to work with since they are written in an XML format.\n"
+"20  .\n"
+"21  gentoo features a fairly complex and powerful file identification system,\n"
+"22  coupled to an object-oriented style system, which together give you a lot\n"
+"23  of control over how files of different types are displayed and acted upon.\n"
+"24  Additionally, over a hundred pixmap images are available for use in file\n"
+"25  type descriptions.\n"
+"26  .\n"
+"29  gentoo was written from scratch in ANSI C, and it utilizes the GTK+ toolkit\n"
+"30  for its interface.\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>copyright</filename>"
