@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Chương 4. Required files under the debian directory</title>
+    <title>Chương 4. Các tệp yêu cầu trong thư mục debian</title>
     <link rel="stylesheet" type="text/css" href="debian.css"/>
     <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -15,7 +15,7 @@
     <div class="navheader">
       <table width="100%" summary="Navigation header">
         <tr>
-          <th colspan="3" align="center">Chương 4. Required files under the <code class="filename">debian</code> directory</th>
+          <th colspan="3" align="center">Chương 4. Các tệp yêu cầu trong thư mục <code class="filename">debian</code></th>
         </tr>
         <tr>
           <td align="left"><a accesskey="p" href="modify.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
@@ -29,7 +29,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h1 class="title"><a id="dreq"/>Chương 4. Required files under the <code class="filename">debian</code> directory</h1>
+            <h1 class="title"><a id="dreq"/>Chương 4. Các tệp yêu cầu trong thư mục <code class="filename">debian</code></h1>
           </div>
         </div>
       </div>
@@ -80,13 +80,12 @@
         </dl>
       </div>
       <p>
-There is a new subdirectory under the program's source directory, called
-<code class="filename">debian</code>.  There are a number of files in this directory
-that we should edit in order to customize the behavior of the package.  The
-most important of them are <code class="filename">control</code>,
-<code class="filename">changelog</code>, <code class="filename">copyright</code>, and
-<code class="filename">rules</code>, which are required for all packages.
-<a href="#ftn.idm1157" class="footnote" id="idm1157"><sup class="footnote">[27]</sup></a>
+Có một thư mục con mới trong thư mục nguồn của chương trình được gọi là
+<code class="filename">debian</code>. Có một số tệp tin trong thư mục này mà chúng ta
+nên sửa đổi để các tuỳ chỉnh hành vi của gói.  Các tệp quan trọng trong số
+chúng là <code class="filename">control</code>, <code class="filename">changelog</code>,
+<code class="filename">copyright</code>, và <code class="filename">rules</code>, chúng là
+những tệp yêu cầu đối với tất cả các gói <a href="#ftn.idm1156" class="footnote" id="idm1156"><sup class="footnote">[27]</sup></a>
 </p>
       <div class="section">
         <div class="titlepage">
@@ -97,16 +96,15 @@ most important of them are <code class="filename">control</code>,
           </div>
         </div>
         <p>
-This file contains various values which <span class="command"><strong>dpkg</strong></span>,
+Tập tin này chứa các giá trị khác nhau mà <span class="command"><strong>dpkg</strong></span>,
 <span class="command"><strong>dselect</strong></span>, <span class="command"><strong>apt-get</strong></span>,
-<span class="command"><strong>apt-cache</strong></span>, <span class="command"><strong>aptitude</strong></span>, and other package
-management tools will use to manage the package.  It is defined by the
-<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html">Debian Policy Manual, 5 "Control files and
-their fields"</a>.
+<span class="command"><strong>apt-cache</strong></span>, <span class="command"><strong>aptitude</strong></span>, và các công cụ
+quản lý gói khác sẽ sử dụng để quản lý gói. Nó được xác định bởi <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html">Debian Policy Manual, 5 "Control files and their
+fields"</a>
 </p>
         <p>
-Here is the <code class="filename">control</code> file <span class="command"><strong>dh_make</strong></span>
-created for us:
+Đây là tệp <code class="filename">control</code> mà <span class="command"><strong>dh_make</strong></span> tạo ra
+cho chúng ta:
 </p>
         <pre class="screen">
  1 Source: gentoo
@@ -124,165 +122,164 @@ created for us:
 13  &lt;insert long description, indented with spaces&gt;
 </pre>
         <p>
-(I've added the line numbers.)
+(Tôi đã thêm các số dòng.)
 </p>
         <p>
-Lines 1-7 are the control information for the source package.  Lines 9-13
-are the control information for the binary package.
+Dòng 1-7 là thông tin điều khiển cho gói nguồn. Dòng 9-13 là thông tin điều
+khiển cho gói nhị phân.
 </p>
         <p>
-Line 1 is the name of the source package.
+Dòng 1 là tên của gói nguồn
 </p>
         <p>
-Line 2 is the section of the distribution the source package goes into.
+Dòng 2 là các mục loại mục chương trình
 </p>
         <p>
-As you may have noticed, the Debian archive is divided into multiple areas:
-<code class="literal">main</code> (the free software), <code class="literal">non-free</code>
-(the not really free software) and <code class="literal">contrib</code> (free software
-that depends on non-free software).  Each of these is divided into sections
-that classify packages into rough categories.  So we have
-<code class="literal">admin</code> for administrator-only programs,
-<code class="literal">devel</code> for programmer tools, <code class="literal">doc</code> for
-documentation, <code class="literal">libs</code> for libraries,
-<code class="literal">mail</code> for email readers and daemons,
-<code class="literal">net</code> for network apps and daemons, <code class="literal">x11</code>
-for X11 programs that don't fit anywhere else, and many more.  <a href="#ftn.idm1190" class="footnote" id="idm1190"><sup class="footnote">[28]</sup></a>
+Như bạn có thể nhận thấy, kho phần mềm Debian được chia làm nhiều khu vục:
+<code class="literal">main</code> (phần mềm tự do), <code class="literal">non-free</code> (thật
+sự không phải phẩn mềm tự do) and <code class="literal">contrib</code> (phần mềm tự do
+phụ thuộc vào phần mềm không tự do). Mỗi loại được chi thánh các phần danh
+mục. Vậy chúng ta có <code class="literal">admin</code> cho các chương trình quản trị,
+<code class="literal">devel</code> cho các công cụ phát triển, <code class="literal">doc</code>
+cho tài liệu, <code class="literal">libs</code> cho thư viện, <code class="literal">mail</code>
+cho chương trình liên quan thư điện tử, <code class="literal">net</code> cho ứng dụng
+mạng và chaỵ nền, <code class="literal">x11</code> cho các chương trình X11 khác, và
+nhiều nữa.  <a href="#ftn.idm1189" class="footnote" id="idm1189"><sup class="footnote">[28]</sup></a>
 </p>
         <p>
-Let's change it then to x11.  (A <code class="literal">main/</code> prefix is implied
-so we can omit it.)
+Chúng ta hãy thay đổi nó thành x11. (Tiền tố <code class="literal">main/</code> với
+ngụ ý là chúng ta có thể bỏ qua nó).
 </p>
         <p>
-Line 3 describes how important it is that the user installs this package.
-<a href="#ftn.idm1198" class="footnote" id="idm1198"><sup class="footnote">[29]</sup></a>
+Dòng 3 miêu tả mức độ quan trọng của việc ngươì dùng cài đặt gói này.
+<a href="#ftn.idm1197" class="footnote" id="idm1197"><sup class="footnote">[29]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
             <li class="listitem">
               <p>
-The <code class="literal">optional</code> priority will usually work for new packages
-that do not conflict with others claiming <code class="literal">required</code>,
-<code class="literal">important</code>, or <code class="literal">standard</code> priority.
+Ưu tiên <code class="literal">optional</code> thường sẽ làm việc với gói mới mà không
+xung đột với các gói chứa ưu tiên <code class="literal">required</code>,
+<code class="literal">important</code>, hay <code class="literal">standard</code> .
 </p>
             </li>
             <li class="listitem">
               <p>
-The <code class="literal">extra</code> priority will usually work for new packages
-that conflict with others with non-<code class="literal">extra</code> priorities.
+Ưu tiên <code class="literal">extra</code> thường sẽ làm việc với gói mới mà xung dột
+với các ưu tiên non-<code class="literal">extra</code> priorities.
 </p>
             </li>
           </ul>
         </div>
         <p>
-Section and priority are used by front-ends like <span class="command"><strong>aptitude</strong></span>
-when they sort packages and select defaults.  Once you upload the package to
-Debian, the value of these two fields can be overridden by the archive
-maintainers, in which case you will be notified by email.
+Trường Section và Priority được sử dụng bởi các chương trình front-ends như
+<span class="command"><strong>aptitude</strong></span> khi họ sắp xếp gói và chọn mặc định. Khi bạn tải
+gói lên Debian, giá trị của hai trường này có thể bị ghi đè bởi các nhà bảo
+trì kho lưu trữ, trong trường hợp đó bạn sẽ được thông báo bằng email.
 </p>
         <p>
-As this is a normal priority package and doesn't conflict with anything
-else, we will change the priority to <code class="literal">optional</code>.
+Vì đây là gói ưu tiên thông thường và không xung đột với bất kỳ điều gì
+khác, chúng tôi sẽ thay đổi mức độ ưu tiên thành
+<code class="literal">optional</code>.
 </p>
         <p>
-Line 4 is the name and email address of the maintainer.  Make sure that this
-field includes a valid <code class="literal">To</code> header for email, because after
-you upload it, the bug tracking system will use it to deliver bug emails to
-you.  Avoid using commas, ampersands, or parentheses.
+Dòng 4 là tên và địa chỉ email của người bảo trì. Hãy đảm bảo rằng trường
+này có tiêu đề <code class="literal">To</code> hợp lệ cho email, bởi vì sau khi tải
+lên, hệ thống theo dõi lỗi sẽ sử dụng chính trường này để gửi email lỗi cho
+bạn. Tránh sử dụng dấu phẩy, ký hiệu, hoặc dấu ngoặc đơn.
 </p>
         <p>
-Line 5 includes the list of packages required to build your package as the
-<code class="literal">Build-Depends</code> field.  You can also have the
-<code class="literal">Build-Depends-Indep</code> field as an additional line, here.
-<a href="#ftn.idm1221" class="footnote" id="idm1221"><sup class="footnote">[30]</sup></a> Some packages like <code class="systemitem">gcc</code> and <code class="systemitem">make</code> which are required by the <code class="systemitem">build-essential</code> package are implied.  If you
-need to have other tools to build your package, you should add them to these
-fields.  Multiple entries are separated with commas; read on for the
-explanation of binary package dependencies to find out more about the syntax
-of these lines.
+Dòng 5 là trưởng <code class="literal">Build-Depends</code>  bao gồm danh sách của các
+gói yêu cầu để xây dựng gói của bạn. Bạn cũng có thể  có thêm trường
+<code class="literal">Build-Depends-Indep</code> bổ sung.  <a href="#ftn.idm1220" class="footnote" id="idm1220"><sup class="footnote">[30]</sup></a>. Một số gói như <code class="systemitem">gcc</code> và <code class="systemitem">make</code> là yêu cầu ngầm định bởi gói  <code class="systemitem">build-essential</code> Nếu bạn cần có các công cụ khác
+để xây dựng gói của mình, bạn nên thêm chúng vào các trường này. Nhiều mục
+được phân cách bằng dấu phẩy; Hãy đọc tiếp để hiểu rõ hơn về các phụ thuộc
+gói nhị phân.
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
             <li class="listitem">
               <p>
-For all packages packaged with the <span class="command"><strong>dh</strong></span> command in the
-<code class="filename">debian/rules</code> file, you must have <code class="literal">debhelper
-(&gt;=9)</code> in the <code class="literal">Build-Depends</code> field to satisfy
-the Debian Policy requirement for the <code class="literal">clean</code> target.
+Đối với tất cả các gói đóng gói với lệnh <span class="command"><strong>dh</strong></span> trong tệp tin
+<code class="filename">debian/rules</code>, bạn phải có
+<code class="literal">debhelper(&gt;=9)</code> trong trường
+<code class="literal">Build-Depends</code> để thỏa mãn yêu cầu Chính sách Debian đối
+với mục <code class="literal">clean</code>.
 </p>
             </li>
             <li class="listitem">
               <p>
-Source packages which have binary packages with <code class="literal">Architecture:
-any</code> are rebuilt by the autobuilder.  Since this autobuilder
-procedure installs only the packages listed in the
-<code class="literal">Build-Depends</code> field before running <code class="literal">debian/rules
-build</code> (see <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>), the
-<code class="literal">Build-Depends</code> field needs to list practically all the
-required packages and <code class="literal">Build-Depends-Indep</code> is rarely used.
+Gói nguồn có gói nhị phân với <code class="literal">Architecture: any</code> được xây
+dựng lại bởi autobuilder. Vì thủ tục autobuilder này chỉ cài đặt các gói
+được liệt kê trong trường <code class="literal">Build-Depends</code> trước khi chạy
+<code class="literal">debian/rules build</code> (see <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>),
+Trường <code class="literal">Build-Depends</code> rất cần thiết để liệt kê tất cả các
+gói cần thiết còn <code class="literal">Build-Depends-Indep</code> hiếm khi được sử
+dụng.
 </p>
             </li>
             <li class="listitem">
               <p>
-For source packages with binary packages all of which are
-<code class="literal">Architecture: all</code>, the
-<code class="literal">Build-Depends-Indep</code> field may list all the required
-packages unless they are already listed in the
-<code class="literal">Build-Depends</code> field to satisfy the Debian Policy
-requirement for the <code class="literal">clean</code> target.
+Đối với các gói nguồn với các gói nhị phân có kiến trúc
+<code class="literal">Architecture: all</code>, trường
+<code class="literal">Build-Depends-Indep</code> có thể liệt kê tất cả các gói cần
+thiết trừ khi chúng đã được liệt kê trong trường
+<code class="literal">Build-Depends</code> để thỏa mãn yêu cầu của Chính sách Debian
+đối với mục <code class="literal">clean</code>.
 </p>
             </li>
           </ul>
         </div>
         <p>
-If you are not sure which one should be used, use the
-<code class="literal">Build-Depends</code> field to be on the safe side.  <a href="#ftn.idm1251" class="footnote" id="idm1251"><sup class="footnote">[31]</sup></a>
+Nếu bạn không chắc chắn nên sử dụng trường nào, hãy sử dụng trường
+<code class="literal">Build-Depends</code> để an toàn.  <a href="#ftn.idm1250" class="footnote" id="idm1250"><sup class="footnote">[31]</sup></a>
 </p>
         <p>
-To find out what packages your package needs to be built run the command:
+Để tìm ra những gói nào cần để xây dựng chương trình của bạn:
 </p>
         <pre class="screen">
 $ dpkg-depcheck -d ./configure
 </pre>
         <p>
-To manually find exact build dependencies for
-<span class="command"><strong><em class="replaceable"><code>/usr/bin/foo</code></em></strong></span>, execute
+Để tự tìm chính xác các phụ thuộc khi xây dựng
+<span class="command"><strong><em class="replaceable"><code>/usr/bin/foo</code></em></strong></span>, thực hiện
 </p>
         <pre class="screen">
 $ objdump -p <em class="replaceable"><code>/usr/bin/foo</code></em> | grep NEEDED
 </pre>
         <p>
-and for each library listed, e.g., <span class="command"><strong>libfoo.so.6</strong></span>, execute
+và cho mỗi thư viện được liệt kê, ví dụ: <span class="command"><strong>libfoo.so.6</strong></span>,
+thực hiện
 </p>
         <pre class="screen">
 $ dpkg -S libfoo.so.6
 </pre>
         <p>
-Then just take the <code class="literal">-dev</code> version of every package as a
-<code class="literal">Build-Depends</code> entry.  If you use <span class="command"><strong>ldd</strong></span>
-for this purpose, it will report indirect lib dependencies as well,
-resulting in the problem of excessive build dependencies.
+Sau đó chỉ cần lấy phiên bản <code class="literal">-dev </code> của mỗi gói như một
+mục nhập <code class="literal">Build-Depends</code>.  Nếu bạn sử dụng
+<span class="command"><strong>ldd</strong></span> cho mục đích này, nó sẽ báo cáo phụ thuộc lib gián
+tiếp, kết quả là 
 </p>
         <p>
-<code class="systemitem">gentoo</code> also happens to require
-<code class="systemitem">xlibs-dev</code>, <code class="systemitem">libgtk1.2-dev</code> and <code class="systemitem">libglib1.2-dev</code> to build, so we'll add them here
-next to <code class="systemitem">debhelper</code>.
+<code class="systemitem">gentoo</code> yêu cầu <code class="systemitem">xlibs-dev</code>, <code class="systemitem">libgtk1.2-dev</code> and <code class="systemitem">libglib1.2-dev</code> để xây dựng, vâỵ nên chúng ta sẽ
+thêm chúng vào vị trí tiếp theo <code class="systemitem">debhelper</code>.
 </p>
         <p>
-Line 6 is the version of the <a class="ulink" href="http://www.debian.org/doc/devel-manuals#policy">Debian Policy
-Manual</a> standards this package follows, the one you read while making
-your package.
+Dòng 6 là phiên bản của <a class="ulink" href="http://www.debian.org/doc/devel-manuals#policy">Debian Policy
+Manual</a>mà phần mềm này tuân theo, một trong tài liệu bạn đọc trong
+khi xây dựng gói của bạn.
 </p>
         <p>
-On line 7 you can put the URL of the software's upstream homepage.
+Trên dòng 7, bạn có thể đặt URL của trang chủ thượng nguồn của phần mềm
 </p>
         <p>
-Line 9 is the name of the binary package.  This is usually the same as the
-name of the source package, but it doesn't necessarily have to be that way.
+Dòng 9 là tên của gói nhị phân. Nó thường giống với tên của gói nguồn, nhưng
+nó không nhất thiết phải giống nhau.
 </p>
         <p>
-Line 10 describes the architectures the binary package can be compiled for.
-This value is usually one of the following depending on the type of the
-binary package: <a href="#ftn.idm1283" class="footnote" id="idm1283"><sup class="footnote">[32]</sup></a>
+Dòng 10 mô tả các kiến ​​trúc mà gói nhị phân có thể được biên dịch.  Giá
+trị này thường là một trong các tùy chọn sau, tùy thuộc vào loại gói nhị
+phân: <a href="#ftn.idm1282" class="footnote" id="idm1282"><sup class="footnote">[32]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -293,8 +290,8 @@ binary package: <a href="#ftn.idm1283" class="footnote" id="idm1283"><sup class=
               <div class="itemizedlist">
                 <ul class="itemizedlist">
                   <li class="listitem">
-                    <p>The generated binary package is an architecture dependent one usually in a
-compiled language.</p>
+                    <p>Gói nhị phân được tạo ra là một kiến ​​trúc phụ thuộc thường là các chương
+trình xây dựng bằng ngôn ngữ biên dịch.</p>
                   </li>
                 </ul>
               </div>
@@ -306,8 +303,8 @@ compiled language.</p>
               <div class="itemizedlist">
                 <ul class="itemizedlist">
                   <li class="listitem">
-                    <p>The generated binary package is an architecture independent one usually
-consisting of text, images, or scripts in an interpreted language.</p>
+                    <p>Gói nhị phân được tạo ra là một kiến ​​trúc độc lập thường bao gồm các văn
+bản, hình ảnh hoặc các tập lệnh theo ngôn ngữ kịch bản.</p>
                   </li>
                 </ul>
               </div>
@@ -315,34 +312,34 @@ consisting of text, images, or scripts in an interpreted language.</p>
           </ul>
         </div>
         <p>
-We leave line 10 as is since this is written in C.
+Chúng ta để lại dòng 10 vì nó được viết bằng
+C.
 <span class="citerefentry"><span class="refentrytitle">dpkg-gencontrol</span>(1)</span>
-will fill in the appropriate architecture value for any machine this source
-package gets compiled on.
+sẽ tự điền vào trường Architecture một cách thích hợp cho bất kỳ máy nào gói
+nguồn này được biên soạn.
 </p>
         <p>
-If your package is architecture independent (for example, a shell or Perl
-script, or a document), change this to <code class="literal">all</code>, and read
-later in <a class="xref" href="dreq.vi.html#rules" title="4.4. rules">Phần 4.4, “<code class="filename">rules</code>”</a> about using the
-<code class="literal">binary-indep</code> rule instead of
-<code class="literal">binary-arch</code> for building the package.
+Nếu gói của bạn là kiến ​​trúc độc lập (ví dụ: mã shell hoặc kịch bản Perl,
+hoặc tài liệu), hãy thay đổi điều này thành <code class="literal">all</code> và đọc
+<a class="xref" href="dreq.vi.html#rules" title="4.4. rules">Phần 4.4, “<code class="filename">rules</code>”</a> về <code class="literal">binary-indep</code> thay vì
+<code class="literal">binary-arch</code> để xây dựng gói.
 </p>
         <p>
-Line 11 shows one of the most powerful features of the Debian packaging
-system.  Packages can relate to each other in various ways.  Apart from
-<code class="literal">Depends</code>, other relationship fields are
+Dòng 11 cho thấy một trong những tính năng mạnh mẽ nhất của hệ thống đóng
+gói Debian. Gói có thể liên quan đến nhau theo nhiều cách khác nhau.  Ngoài
+<code class="literal">Depends</code>, các trường mối quan hệ khác là
 <code class="literal">Recommends</code>, <code class="literal">Suggests</code>,
 <code class="literal">Pre-Depends</code>, <code class="literal">Breaks</code>,
-<code class="literal">Conflicts</code>, <code class="literal">Provides</code>, and
+<code class="literal">Conflicts</code>, <code class="literal">Provides</code> và
 <code class="literal">Replaces</code>.
 </p>
         <p>
-The package management tools usually behave the same way when dealing with
-these relations; if not, it will be explained.  (See <span class="citerefentry"><span class="refentrytitle">dpkg</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">dselect</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">apt</span>(8)</span>,
+Các công cụ quản lý gói thường có chung hành vi khi đọc các mối quan hệ này;
+Nếu không, nó sẽ được giải thích. (See <span class="citerefentry"><span class="refentrytitle">dpkg</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">dselect</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">apt</span>(8)</span>,
 <span class="citerefentry"><span class="refentrytitle">aptitude</span>(1)</span>, etc.)
 </p>
         <p>
-Here is a simplified description of package relationships: <a href="#ftn.idm1331" class="footnote" id="idm1331"><sup class="footnote">[33]</sup></a>
+Đây là mô tả đơn giản về các mối quan hệ của gói: <a href="#ftn.idm1330" class="footnote" id="idm1330"><sup class="footnote">[33]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -351,9 +348,9 @@ Here is a simplified description of package relationships: <a href="#ftn.idm1331
 <code class="literal">Depends</code>
 </p>
               <p>
-The package will not be installed unless the packages it depends on are
-installed.  Use this if your program absolutely will not run (or will cause
-severe breakage) unless a particular package is present.
+Gói của bạn sẽ không được cài đặt trừ khi các gói phụ thuộc được cài đặt. Sử
+dụng trường này nếu chương trình của bạn hoàn toàn không chạy (hoặc sẽ gây
+ra sự cố nghiêm trọng) trừ khi một gói cụ thể có mặt.
 </p>
             </li>
             <li class="listitem">
@@ -361,12 +358,12 @@ severe breakage) unless a particular package is present.
 <code class="literal">Recommends</code>
 </p>
               <p>
-Use this for packages that are not strictly necessary but are typically used
-with your program.  When a user installs your program, all front-ends will
-probably prompt them to install the recommended packages.
-<span class="command"><strong>aptitude</strong></span> and <span class="command"><strong>apt-get</strong></span> install
-recommended packages along with your package by default (but the user can
-disable this behavior).  <span class="command"><strong>dpkg</strong></span> will ignore this field.
+Sử dụng trường này cho cho các gói không bắt buộc nhưng thường được sử dụng
+kèm với chương trình của bạn.  Khi người dùng cài đặt chương trình của bạn,
+các công cụ quản lý gói có thể sẽ nhắc cài đặt gói đề
+xuất. <span class="command"><strong>aptitude</strong></span> và <span class="command"><strong>apt-get</strong></span> cài đặt các
+gói được đề xuất cùng với gói của bạn theo mặc định (nhưng người dùng có thể
+vô hiệu hóa hành vi này). <span class="command"><strong>dpkg</strong></span> sẽ bỏ qua trường này.
 </p>
             </li>
             <li class="listitem">
@@ -374,12 +371,12 @@ disable this behavior).  <span class="command"><strong>dpkg</strong></span> will
 <code class="literal">Suggests</code>
 </p>
               <p>
-Use this for packages which will work nicely with your program but are not
-at all necessary.  When a user installs your program, they will probably not
-be prompted to install suggested packages.  <span class="command"><strong>aptitude</strong></span> can
-be configured to install suggested packages along with your package but this
-is not its default.  <span class="command"><strong>dpkg</strong></span> and <span class="command"><strong>apt-get</strong></span>
-will ignore this field.
+Sử dụng trường này cho các gói sẽ hoạt động tốt với chương trình của bạn
+nhưng không cần thiết. Khi người dùng cài đặt chương trình của bạn, họ sẽ
+không được nhắc nhở để cài đặt gói đề xuất.  <span class="command"><strong>aptitude</strong></span> có
+thể được cấu hình để cài đặt các gói đề xuất cùng với gói của bạn nhưng đây
+không phải là mặc định. <span class="command"><strong>dpkg</strong></span> và
+<span class="command"><strong>apt-get</strong></span> sẽ bỏ qua trường này.
 </p>
             </li>
             <li class="listitem">
@@ -387,12 +384,12 @@ will ignore this field.
 <code class="literal">Pre-Depends</code>
 </p>
               <p>
-This is stronger than <code class="literal">Depends</code>.  The package will not be
-installed unless the packages it pre-depends on are installed and
-<span class="emphasis"><em>correctly configured</em></span>.  Use this
-<span class="emphasis"><em>very</em></span> sparingly and only after discussing it on the
-<a class="ulink" href="http://lists.debian.org/debian-devel/">debian-devel@lists.debian.org</a>
-mailing list.  Read: don't use it at all.  :-)
+Trường này mạnh hơn <code class="literal">Depends</code>. Gói sẽ không được cài đặt
+trừ khi các gói mà nó được phụ thuộc trước được cài đặt và <span class="emphasis"><em>được
+cấu hình chính xác</em></span>. Sử dụng điều này một cách
+<span class="emphasis"><em>rất</em></span> tỉ mỉ và chỉ sau khi thảo luận về nó trên danh sách
+gửi thư <a class="ulink" href="http://lists.debian.org/debian-devel/">debian-devel@lists.debian.org
+</a>. Đọc: đừng sử dụng nó.:-)
 </p>
             </li>
             <li class="listitem">
@@ -400,9 +397,9 @@ mailing list.  Read: don't use it at all.  :-)
 <code class="literal">Conflicts</code>
 </p>
               <p>
-The package will not be installed until all the packages it conflicts with
-have been removed.  Use this if your program absolutely will not run or will
-cause severe problems if a particular package is present.
+Gói sẽ không được cài đặt cho đến khi tất cả các gói xung đột đã được gỡ
+bỏ. Sử dụng này nếu chương trình của bạn hoàn toàn không chạy hoặc sẽ gây ra
+những vấn đề nghiêm trọng nếu một gói cụ thể có mặt.
 </p>
             </li>
             <li class="listitem">
@@ -410,10 +407,10 @@ cause severe problems if a particular package is present.
 <code class="literal">Breaks</code>
 </p>
               <p>
-When installed the package will break all the listed packages.  Normally a
-<code class="literal">Breaks</code> entry specifies that it applies to versions
-earlier than a certain value.  The resolution is generally to use
-higher-level package management tools to upgrade the listed packages.
+Khi cài đặt gói nó sẽ phá vỡ tất cả các gói được liệt kê. Thông thường
+trường <code class="literal">Breaks</code> chỉ định áp dụng các phiên bản sớm hơn một
+giá trị nhất định.  Nói chung là sử dụng các công cụ quản lý gói cấp cao để
+nâng cấp các gói được liệt kê.
 </p>
             </li>
             <li class="listitem">
@@ -421,9 +418,10 @@ higher-level package management tools to upgrade the listed packages.
 <code class="literal">Provides</code>
 </p>
               <p>
-For some types of packages where there are multiple alternatives virtual
-names have been defined.  You can get the full list in the <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt">virtual-package-names-list.txt.gz</a> file.  Use
-this if your program provides a function of an existing virtual package.
+Đối với một số loại gói có nhiều tên ảo khác đã được xác định. Bạn có thể có
+một danh sách đầy đủ trong tệp <a class="ulink" href="http://www.debian.org/doc/packaging-manuals/virtual-package-names-list.txt">virtual-package-names-list.txt.gz </a>. Sử dụng
+điều này nếu chương trình của bạn cung cấp một chức năng của một gói ảo hiện
+có.
 </p>
             </li>
             <li class="listitem">
@@ -431,29 +429,29 @@ this if your program provides a function of an existing virtual package.
 <code class="literal">Replaces</code>
 </p>
               <p>
-Use this when your program replaces files from another package, or
-completely replaces another package (used in conjunction with
-<code class="literal">Conflicts</code>).  Files from the named packages will be
-overwritten with the files from your package.
+Sử dụng điều này khi chương trình của bạn thay thế các tệp từ một gói khác
+hoặc thay thế hoàn toàn một gói khác (được sử dụng kết hợp với
+<code class="literal">Conflicts</code>). Các tệp từ các gói có tên sẽ được ghi đè bằng
+các tệp từ gói của bạn.
 </p>
             </li>
           </ul>
         </div>
         <p>
-All these fields have uniform syntax.  They are a list of package names
-separated by commas.  These package names may also be lists of alternative
-package names, separated by vertical bar symbols <code class="literal">|</code> (pipe
-symbols).
+Tất cả các trường này có cú pháp thống nhất.  Họ là một danh sách các tên
+gói được phân cách bằng dấu phẩy. Các tên gói này cũng có thể là danh sách
+các tên gói thay thế, được phân cách bằng ký hiệu thanh dọc
+<code class="literal">|</code> (biểu tượng ống).
 </p>
         <p>
-The fields may restrict their applicability to particular versions of each
-named package.  The restriction of each individual package is listed in
-parentheses after its name, and should contain a relation from the list
-below followed by a version number value.  The relations allowed are:
-<code class="literal">&lt;&lt;</code>, <code class="literal">&lt;=</code>, <code class="literal">=</code>,
-<code class="literal">&gt;=</code>, and <code class="literal">&gt;&gt;</code> for strictly
-lower, lower or equal, exactly equal, greater or equal, and strictly
-greater, respectively.  For example,
+Các trường có thể hạn chế khả năng áp dụng của chúng đối với các phiên bản
+cụ thể của từng gói có tên. Hạn chế của từng gói riêng lẻ được liệt kê trong
+dấu ngoặc đơn sau tên của nó và phải có một mối quan hệ từ danh sách dưới
+đây và theo sau là một giá trị số phiên bản.  Các mối quan hệ được cho phép
+là: <code class="literal">&lt;&lt;</code>, <code class="literal">&lt;=</code>,
+<code class="literal">=</code>, <code class="literal">&gt;=</code>, và
+<code class="literal">&gt;&gt;</code> tương ứng với bé hơn, bé hơn hoặc bằng, chính
+xác bằng, lớn hơn hoặc bằng, và lớn hơn. Ví dụ,
 </p>
         <pre class="screen">
 Depends: foo (&gt;= 1.2), libbar1 (= 1.3.4)
@@ -463,62 +461,63 @@ Suggests: quux
 Replaces: quux (&lt;&lt; 5), quux-foo (&lt;= 7.6)
 </pre>
         <p>
-The last feature you need to know about is
-<code class="literal">${shlibs:Depends}</code>, <code class="literal">${perl:Depends}</code>,
-<code class="literal">${misc:Depends}</code>, etc.
+Tính năng cuối cùng bạn cần biết là về <code class="literal">${shlibs:Depends}</code>,
+<code class="literal">${perl:Depends}</code>, <code class="literal">${misc:Depends}</code>, vân
+vân.
 </p>
         <p>
-<span class="citerefentry"><span class="refentrytitle">dh_shlibdeps</span>(1)</span> calculates shared library
-dependencies for binary packages.  It generates a list of <a class="ulink" href="http://wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> executables and shared libraries it has found for
-each binary package.  This list is used for substituting
+<span class="citerefentry"><span class="refentrytitle">dh_shlibdeps</span>(1)</span> tính toán sự phụ thuộc vào các thư
+viện chia sẻ cho các gói nhị phân. Nó sinh ra một danh sách củả tệp thực thi
+<a class="ulink" href="http://wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> và thư viện chia sẻ mà nó đã tìm cho mỗi gói
+nhị phân. Danh sách này được sử dụng để thay thế
 <code class="literal">${shlibs:Depends}</code>.
 </p>
         <p>
-<span class="citerefentry"><span class="refentrytitle">dh_perl</span>(1)</span> calculates Perl dependencies.  It
-generates a list of a dependencies on <code class="literal">perl</code> or
-<code class="literal">perlapi</code> for each binary package.  This list is used for
-substituting <code class="literal">${perl:Depends}</code>.
+<span class="citerefentry"><span class="refentrytitle">dh_perl</span>(1)</span> tính toán sự phụ thuộc Perl. Nó
+sinh ra một danh sách của các phụ thuộc trong <code class="literal">perl</code> hoặc
+<code class="literal">perlapi</code> cho mỗi gói nhị phân.  Danh sách này được sử dụng
+thay thế cho <code class="literal">${perl:Depends}</code>.
 </p>
         <p>
-Some <code class="systemitem">debhelper</code> commands may cause
-the generated package to depend on some additional packages.  All such
-commands generate a list of required packages for each binary package.  This
-list is used for substituting <code class="literal">${misc:Depends}</code>.
+Một vài lệnh <code class="systemitem">debhelper</code> có thể làm
+cho gói được sinh ra phụ thuộc vào vài gói mở rộng thêm. Tất cả các lệnh như
+vậy sinh ra một danh sách của các gói cho mỗi gói nhị phân. Danh sách này
+được sử dụng để thay thế cho <code class="literal">${misc:Depends}</code>.
 </p>
         <p>
-<span class="citerefentry"><span class="refentrytitle">dh_gencontrol</span>(1)</span> generates
-<code class="filename">DEBIAN/control</code> for each binary package while
-substituting <code class="literal">${shlibs:Depends}</code>,
-<code class="literal">${perl:Depends}</code>, <code class="literal">${misc:Depends}</code>, etc.
+<span class="citerefentry"><span class="refentrytitle">dh_gencontrol</span>(1)</span> tạo ra
+<code class="filename">DEBIAN/control</code> cho mỗi gói nhị phân trong khi thay thế
+<code class="literal">${shlibs:Depends}</code>, <code class="literal">${perl:Depends}</code>,
+<code class="literal">${misc:Depends}</code>, vân vân.
 </p>
         <p>
-Having said all that, we can leave the <code class="literal">Depends</code> field
-exactly as it is now, and insert another line after it saying
-<code class="literal">Suggests: file</code>, because <code class="systemitem">gentoo</code> can use some features provided by the
-<code class="systemitem">file</code> package.
+Có tất cả những điều đó, chúng ta có thể để trường
+<code class="literal">Depends</code> chính xác như bây giờ và chèn một dòng sau là
+<code class="literal">Suggests: file</code>, bởi vì <code class="systemitem">gentoo</code> có thể sử dụng một số tính năng được cung
+cấp bởi gói <code class="systemitem">file</code> .
 </p>
-        <p> Line 9 is the Homepage URL.  Let's assume this to be at <a class="ulink" href="http://www.obsession.se/gentoo/">http://www.obsession.se/gentoo/</a>.
-</p>
-        <p>
-Line 12 is the short description.  Terminals are conventionally 80 columns
-wide so this shouldn't be longer than about 60 characters.  I'll change it
-to <code class="literal">fully GUI-configurable, two-pane X file manager</code>.
+        <p> Dòng 9 là URL Trang chủ.  Giả sử rằng đây là <a class="ulink" href="http://www.obsession.se/gentoo/">http://www.obsession.se/gentoo/</a>.
 </p>
         <p>
-Line 13 is where the long description goes.  This should be a paragraph
-which gives more details about the package.  Column 1 of each line should be
-empty.  There must be no blank lines, but you can put a single
-<code class="literal">.</code> (dot) in a column to simulate that.  Also, there must
-be no more than one blank line after the long description. <a href="#ftn.idm1428" class="footnote" id="idm1428"><sup class="footnote">[34]</sup></a>
+Dòng 12 là mô tả ngắn. Thiết bị đầu cuối thông thường có 80 cột nên không
+được dài hơn 60 ký tự. Tôi sẽ thay đổi nó thành  <code class="literal">fully
+GUI-configurable, two-pane X file manager</code>
 </p>
         <p>
-We can insert <code class="literal">Vcs-*</code> fields to document the Version
-Control System (VCS) location between lines 6 and 7.  <a href="#ftn.idm1433" class="footnote" id="idm1433"><sup class="footnote">[35]</sup></a> Let's assume that the <code class="systemitem">gentoo</code> package has its VCS located in the Debian
-Alioth Git Service at
+Dòng 13 là nơi diễn tả dài.  Đây sẽ là một đoạn cho biết thêm chi tiết về
+gói. Cột 1 của mỗi dòng nên để trống.  Không có dòng trắng, nhưng bạn có thể
+đặt một <code class="literal">. </code> (dấu chấm) trong một cột để mô phỏng.  Ngoài
+ra, không có nhiều dòng trống sau mô tả dài.  <a href="#ftn.idm1427" class="footnote" id="idm1427"><sup class="footnote">[34]</sup></a>
+</p>
+        <p>
+Chúng ta có thể chèn các trường <code class="literal">Vcs-*</code> để ghi lại thông
+tin của VCS trong các dòng 6 và 7. <a href="#ftn.idm1432" class="footnote" id="idm1432"><sup class="footnote">[35]</sup></a> Hãy
+giả sử rằng gói <code class="systemitem">gentoo</code> có VCS của nó
+nằm trong Debian Alioth Git Service ở
 <code class="literal">git://git.debian.org/git/collab-maint/gentoo.git</code>.
 </p>
         <p>
-Finally, here is the updated <code class="filename">control</code> file:
+Cuối cùng, đây là tệp <code class="filename">control</code> đã được cập nhật
 </p>
         <pre class="screen">
  1 Source: gentoo
@@ -551,7 +550,7 @@ Finally, here is the updated <code class="filename">control</code> file:
 30  for its interface.
 </pre>
         <p>
-(I've added the line numbers.)
+(Tôi đã thêm các số dòng.)
 </p>
       </div>
       <div class="section">
@@ -624,7 +623,7 @@ In short, here's what <code class="systemitem">gentoo</code>'s
 34  `/usr/share/common-licenses/GPL-2'.
 </pre>
         <p>
-(I've added the line numbers.)
+(Tôi đã thêm các số dòng.)
 </p>
         <p>
 Please follow the HOWTO provided by the ftpmasters and sent to
@@ -666,7 +665,7 @@ like:
 6
 </pre>
         <p>
-(I've added the line numbers.)
+(Tôi đã thêm các số dòng.)
 </p>
         <p>
 Line 1 is the package name, version, distribution, and urgency.  The name
@@ -703,14 +702,14 @@ You will end up with something like this:
 8
 </pre>
         <p>
-(I've added the line numbers.)
+(Tôi đã thêm các số dòng.)
 </p>
         <p>
 Once you are satisfied with all the changes and documented them in
 <code class="filename">changelog</code>, you should change the distribution value
 from <code class="literal">UNRELEASED</code> to the target distribution value
 <code class="literal">unstable</code> (or even <code class="literal">experimental</code>).
-<a href="#ftn.idm1497" class="footnote" id="idm1497"><sup class="footnote">[36]</sup></a>
+<a href="#ftn.idm1496" class="footnote" id="idm1496"><sup class="footnote">[36]</sup></a>
 </p>
         <p>
 You can read more about updating the <code class="filename">changelog</code> file
@@ -742,11 +741,11 @@ this one is marked as executable.
           <p>
 Every <code class="filename">rules</code> file, like any other
 <code class="filename">Makefile</code>, consists of several rules, each of which
-defines a target and how it is carried out.  <a href="#ftn.idm1519" class="footnote" id="idm1519"><sup class="footnote">[37]</sup></a> A new rule begins with its target declaration in the first column.
+defines a target and how it is carried out.  <a href="#ftn.idm1518" class="footnote" id="idm1518"><sup class="footnote">[37]</sup></a> A new rule begins with its target declaration in the first column.
 The following lines beginning with the TAB code (ASCII 9) specify the recipe
 for carrying out that target.  Empty lines and lines beginning with
 <code class="literal">#</code> (hash) are treated as comments and ignored.
-<a href="#ftn.idm1527" class="footnote" id="idm1527"><sup class="footnote">[38]</sup></a>
+<a href="#ftn.idm1526" class="footnote" id="idm1526"><sup class="footnote">[38]</sup></a>
 </p>
           <p>
 A rule that you want to execute is invoked by its target name as a command
@@ -797,21 +796,21 @@ target.  (Optional)
                 <p>
 <code class="literal">binary</code> target: to create all binary packages (effectively
 a combination of <code class="literal">binary-arch</code> and
-<code class="literal">binary-indep</code> targets).  (Required)<a href="#ftn.idm1563" class="footnote" id="idm1563"><sup class="footnote">[39]</sup></a>
+<code class="literal">binary-indep</code> targets).  (Required)<a href="#ftn.idm1562" class="footnote" id="idm1562"><sup class="footnote">[39]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
 <code class="literal">binary-arch</code> target: to create arch-dependent
 (<code class="literal">Architecture: any</code>) binary packages in the parent
-directory.  (Required)<a href="#ftn.idm1571" class="footnote" id="idm1571"><sup class="footnote">[40]</sup></a>
+directory.  (Required)<a href="#ftn.idm1570" class="footnote" id="idm1570"><sup class="footnote">[40]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
 <code class="literal">binary-indep</code> target: to create arch-independent
 (<code class="literal">Architecture: all</code>) binary packages in the parent
-directory.  (Required)<a href="#ftn.idm1579" class="footnote" id="idm1579"><sup class="footnote">[41]</sup></a>
+directory.  (Required)<a href="#ftn.idm1578" class="footnote" id="idm1578"><sup class="footnote">[41]</sup></a>
 </p>
               </li>
               <li class="listitem">
@@ -887,9 +886,9 @@ you.
           <p>
 Lines 20 and 21 are where all the work is done with an implicit rule using
 the pattern rule.  The percent sign means "any targets", which then call a
-single program, <span class="command"><strong>dh</strong></span>, with the target name.  <a href="#ftn.idm1611" class="footnote" id="idm1611"><sup class="footnote">[42]</sup></a> The <span class="command"><strong>dh</strong></span> command is a wrapper
+single program, <span class="command"><strong>dh</strong></span>, with the target name.  <a href="#ftn.idm1610" class="footnote" id="idm1610"><sup class="footnote">[42]</sup></a> The <span class="command"><strong>dh</strong></span> command is a wrapper
 script which runs appropriate sequences of <span class="command"><strong>dh_*</strong></span> programs
-depending on its argument.  <a href="#ftn.idm1627" class="footnote" id="idm1627"><sup class="footnote">[43]</sup></a>
+depending on its argument.  <a href="#ftn.idm1626" class="footnote" id="idm1626"><sup class="footnote">[43]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
@@ -919,7 +918,7 @@ dh_auto_test
               <li class="listitem">
                 <p>
 <code class="literal">fakeroot debian/rules binary</code> runs <code class="literal">fakeroot dh
-binary</code>; which in turn runs the following<a href="#ftn.idm1651" class="footnote" id="idm1651"><sup class="footnote">[44]</sup></a>:
+binary</code>; which in turn runs the following<a href="#ftn.idm1650" class="footnote" id="idm1650"><sup class="footnote">[44]</sup></a>:
 </p>
                 <pre class="screen">
 dh_testroot
@@ -988,10 +987,10 @@ appended for each remaining command.
           </div>
           <p>
 The functions of <span class="command"><strong>dh_*</strong></span> commands are largely self-evident
-from their names.  <a href="#ftn.idm1672" class="footnote" id="idm1672"><sup class="footnote">[45]</sup></a> There are a few
+from their names.  <a href="#ftn.idm1671" class="footnote" id="idm1671"><sup class="footnote">[45]</sup></a> There are a few
 notable ones that are worth giving (over)simplified explanations here
 assuming a typical build environment based on a
-<code class="filename">Makefile</code>: <a href="#ftn.idm1677" class="footnote" id="idm1677"><sup class="footnote">[46]</sup></a>
+<code class="filename">Makefile</code>: <a href="#ftn.idm1676" class="footnote" id="idm1676"><sup class="footnote">[46]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
@@ -999,7 +998,7 @@ assuming a typical build environment based on a
                 <p>
 <span class="command"><strong>dh_auto_clean</strong></span> usually executes the following if a
 <code class="filename">Makefile</code> exists with the <code class="literal">distclean</code>
-target.  <a href="#ftn.idm1687" class="footnote" id="idm1687"><sup class="footnote">[47]</sup></a>
+target.  <a href="#ftn.idm1686" class="footnote" id="idm1686"><sup class="footnote">[47]</sup></a>
 </p>
                 <pre class="screen">
 make distclean
@@ -1028,7 +1027,7 @@ make
                 <p>
 <span class="command"><strong>dh_auto_test</strong></span> usually executes the following if a
 <code class="filename">Makefile</code> exists with the <code class="literal">test</code>
-target.  <a href="#ftn.idm1709" class="footnote" id="idm1709"><sup class="footnote">[48]</sup></a>
+target.  <a href="#ftn.idm1708" class="footnote" id="idm1708"><sup class="footnote">[48]</sup></a>
 </p>
                 <pre class="screen">
 make test
@@ -1079,14 +1078,14 @@ with the new <span class="command"><strong>dh</strong></span> command.
 </p>
           <p>
 The <code class="literal">dh $@</code> command can be customized as follows:
-<a href="#ftn.idm1745" class="footnote" id="idm1745"><sup class="footnote">[49]</sup></a>
+<a href="#ftn.idm1744" class="footnote" id="idm1744"><sup class="footnote">[49]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
 Add support for the <span class="command"><strong>dh_python2</strong></span> command.  (The best choice
-for Python.) <a href="#ftn.idm1755" class="footnote" id="idm1755"><sup class="footnote">[50]</sup></a>
+for Python.) <a href="#ftn.idm1754" class="footnote" id="idm1754"><sup class="footnote">[50]</sup></a>
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
@@ -1372,7 +1371,7 @@ its rule in the <code class="filename">rules</code> file defining an
 <code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> target for the
 <span class="command"><strong>dh_<em class="replaceable"><code>foo</code></em></strong></span> command you want to
 change.  It basically says <span class="emphasis"><em>run me instead</em></span>.
-<a href="#ftn.idm1924" class="footnote" id="idm1924"><sup class="footnote">[51]</sup></a>
+<a href="#ftn.idm1923" class="footnote" id="idm1923"><sup class="footnote">[51]</sup></a>
 </p>
           <p>
 Please note that the <span class="command"><strong>dh_auto_*</strong></span> commands tend to do more
@@ -1404,7 +1403,7 @@ benign arguments to the <span class="command"><strong>./configure</strong></span
 </p>
           <p>
 If the <code class="filename">Makefile</code> in the source for <code class="systemitem">gentoo</code> requires you to specify
-<code class="literal">build</code> as its target to build it <a href="#ftn.idm1952" class="footnote" id="idm1952"><sup class="footnote">[52]</sup></a>, you create an
+<code class="literal">build</code> as its target to build it <a href="#ftn.idm1951" class="footnote" id="idm1951"><sup class="footnote">[52]</sup></a>, you create an
 <code class="literal">override_dh_auto_build</code> target to enable this.
 </p>
           <pre class="screen">
@@ -1440,7 +1439,7 @@ If <code class="systemitem">gentoo</code> has an unusual upstream
 changelog file called <code class="filename">FIXES</code>,
 <span class="command"><strong>dh_installchangelogs</strong></span> will not install that file by
 default.  The <span class="command"><strong>dh_installchangelogs</strong></span> command requires
-<code class="filename">FIXES</code> as its argument to install it.  <a href="#ftn.idm1982" class="footnote" id="idm1982"><sup class="footnote">[53]</sup></a>
+<code class="filename">FIXES</code> as its argument to install it.  <a href="#ftn.idm1981" class="footnote" id="idm1981"><sup class="footnote">[53]</sup></a>
 </p>
           <pre class="screen">
 override_dh_installchangelogs:
@@ -1459,85 +1458,85 @@ possible.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm1157" class="footnote">
-          <p><a href="#idm1157" class="para"><sup class="para">[27] </sup></a>
-In this chapter, files in the <code class="filename">debian</code> directory are
-referred to without the leading <code class="filename">debian/</code> for simplicity
-whenever the meaning is obvious.
+        <div id="ftn.idm1156" class="footnote">
+          <p><a href="#idm1156" class="para"><sup class="para">[27] </sup></a>
+Trong chương này, các tệp tin trong thư mục <code class="filename">debian</code> được
+đề cập đến mà không có <code class="filename">debian/</code> để đơn giản hóa bất cứ
+khi nhắc tới.
 </p>
         </div>
-        <div id="ftn.idm1190" class="footnote">
-          <p><a href="#idm1190" class="para"><sup class="para">[28] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections">Debian Policy Manual, 2.4
-"Sections"</a> and <a class="ulink" href="http://packages.debian.org/unstable/">List of sections in
+        <div id="ftn.idm1189" class="footnote">
+          <p><a href="#idm1189" class="para"><sup class="para">[28] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections">Debian Policy Manual, 2.4
+"Sections"</a> và <a class="ulink" href="http://packages.debian.org/unstable/">List of sections in
 <code class="literal">sid</code></a>.</p>
         </div>
-        <div id="ftn.idm1198" class="footnote">
-          <p><a href="#idm1198" class="para"><sup class="para">[29] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities">Debian Policy Manual, 2.5
+        <div id="ftn.idm1197" class="footnote">
+          <p><a href="#idm1197" class="para"><sup class="para">[29] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities">Debian Policy Manual, 2.5
 "Priorities"</a>.
 </p>
         </div>
-        <div id="ftn.idm1221" class="footnote">
-          <p><a href="#idm1221" class="para"><sup class="para">[30] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html#s-sourcebinarydeps">Debian Policy
+        <div id="ftn.idm1220" class="footnote">
+          <p><a href="#idm1220" class="para"><sup class="para">[30] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html#s-sourcebinarydeps">Debian Policy
 Manual, 7.7 "Relationships between source and binary packages -
 Build-Depends, Build-Depends-Indep, Build-Conflicts,
 Build-Conflicts-Indep"</a>.</p>
         </div>
-        <div id="ftn.idm1251" class="footnote">
-          <p><a href="#idm1251" class="para"><sup class="para">[31] </sup></a> This somewhat strange situation is a feature well documented in the <a class="ulink" href="http://www.debian.org/doc/debian-policy/footnotes.html#f55">Debian Policy Manual, Footnotes
-55</a>.  This is not due to the use of the <span class="command"><strong>dh</strong></span> command
-in the <code class="filename">debian/rules</code> file but due to how the
-<span class="command"><strong>dpkg-buildpackage</strong></span> works.  The same situation applies to
-the <a class="ulink" href="https://bugs.launchpad.net/launchpad-buildd/+bug/238141">auto build
-system for Ubuntu</a>.  </p>
+        <div id="ftn.idm1250" class="footnote">
+          <p><a href="#idm1250" class="para"><sup class="para">[31] </sup></a> Tình huống này hơi lạ là một tính năng được ghi lại trong  <a class="ulink" href="http://www.debian.org/doc/debian-policy/footnotes.html#f55">Debian Policy Manual, Footnotes
+55</a>. Đây không phải là do sử dụng lệnh <span class="command"><strong>dh</strong></span> trong
+tệp tin <code class="filename">debian/rules</code> nhưng do cách
+<span class="command"><strong>dpkg-buildpackage</strong></span> làm việc. Tình huống tương tự cũng áp
+dụng cho <a class="ulink" href="https://bugs.launchpad.net/launchpad-buildd/+bug/238141">hệ thống xây
+dựng tự động cho Ubuntu</a>.  </p>
         </div>
-        <div id="ftn.idm1283" class="footnote">
-          <p><a href="#idm1283" class="para"><sup class="para">[32] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy Manual, 5.6.8
-"Architecture"</a> for exact details.
+        <div id="ftn.idm1282" class="footnote">
+          <p><a href="#idm1282" class="para"><sup class="para">[32] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy Manual, 5.6.8
+"Architecture"</a> để biết chi tiết.
 </p>
         </div>
-        <div id="ftn.idm1331" class="footnote">
-          <p><a href="#idm1331" class="para"><sup class="para">[33] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html">Debian Policy Manual, 7 "Declaring
+        <div id="ftn.idm1330" class="footnote">
+          <p><a href="#idm1330" class="para"><sup class="para">[33] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html">Debian Policy Manual, 7 "Declaring
 relationships between packages"</a>.
 </p>
         </div>
-        <div id="ftn.idm1428" class="footnote">
-          <p><a href="#idm1428" class="para"><sup class="para">[34] </sup></a>These descriptions are in English.  Translations of these descriptions are
-provided by <a class="ulink" href="http://www.debian.org/intl/l10n/ddtp">The Debian Description Translation Project -
+        <div id="ftn.idm1427" class="footnote">
+          <p><a href="#idm1427" class="para"><sup class="para">[34] </sup></a>Những mô tả này bằng tiếng Anh. Các bản dịch về các mô tả này được cung cấp
+bởi <a class="ulink" href="http://www.debian.org/intl/l10n/ddtp">The Debian Description Translation Project -
 DDTP</a>.</p>
         </div>
-        <div id="ftn.idm1433" class="footnote">
-          <p><a href="#idm1433" class="para"><sup class="para">[35] </sup></a>See <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/best-pkging-practices.html#bpp-vcs">Debian Developer's Reference,
+        <div id="ftn.idm1432" class="footnote">
+          <p><a href="#idm1432" class="para"><sup class="para">[35] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/best-pkging-practices.html#bpp-vcs">Debian Developer's Reference,
 6.2.5. "Version Control System location"</a>.
 </p>
         </div>
-        <div id="ftn.idm1497" class="footnote">
-          <p><a href="#idm1497" class="para"><sup class="para">[36] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
+        <div id="ftn.idm1496" class="footnote">
+          <p><a href="#idm1496" class="para"><sup class="para">[36] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
 please make sure to save the <code class="filename">changelog</code> file explicitly
 by the editor.</p>
         </div>
-        <div id="ftn.idm1519" class="footnote">
-          <p><a href="#idm1519" class="para"><sup class="para">[37] </sup></a>You can start learning how to write <code class="filename">Makefile</code> from
+        <div id="ftn.idm1518" class="footnote">
+          <p><a href="#idm1518" class="para"><sup class="para">[37] </sup></a>You can start learning how to write <code class="filename">Makefile</code> from
 <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch12#_make">Debian Reference, 12.2. "Make"</a>.  The full
 documentation is available as <a class="ulink" href="http://www.gnu.org/software/make/manual/html_node/index.html">http://www.gnu.org/software/make/manual/html_node/index.html</a> or as the
 <code class="systemitem">make-doc</code> package in the
 <code class="literal">non-free</code> archive area.
 </p>
         </div>
-        <div id="ftn.idm1527" class="footnote">
-          <p><a href="#idm1527" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
+        <div id="ftn.idm1526" class="footnote">
+          <p><a href="#idm1526" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
 script: debian/rules"</a> explains the details.</p>
         </div>
-        <div id="ftn.idm1563" class="footnote">
-          <p><a href="#idm1563" class="para"><sup class="para">[39] </sup></a> This target is used by <code class="literal">dpkg-buildpackage</code> as in <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
+        <div id="ftn.idm1562" class="footnote">
+          <p><a href="#idm1562" class="para"><sup class="para">[39] </sup></a> This target is used by <code class="literal">dpkg-buildpackage</code> as in <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
         </div>
-        <div id="ftn.idm1571" class="footnote">
-          <p><a href="#idm1571" class="para"><sup class="para">[40] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -B</code> as in <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
+        <div id="ftn.idm1570" class="footnote">
+          <p><a href="#idm1570" class="para"><sup class="para">[40] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -B</code> as in <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
         </div>
-        <div id="ftn.idm1579" class="footnote">
-          <p><a href="#idm1579" class="para"><sup class="para">[41] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -A</code>.  </p>
+        <div id="ftn.idm1578" class="footnote">
+          <p><a href="#idm1578" class="para"><sup class="para">[41] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -A</code>.  </p>
         </div>
-        <div id="ftn.idm1611" class="footnote">
-          <p><a href="#idm1611" class="para"><sup class="para">[42] </sup></a> This uses the new <code class="systemitem">debhelper</code> v7+
+        <div id="ftn.idm1610" class="footnote">
+          <p><a href="#idm1610" class="para"><sup class="para">[42] </sup></a> This uses the new <code class="systemitem">debhelper</code> v7+
 features.  Its design concepts are explained in <a class="ulink" href="http://joey.kitenet.net/talks/debhelper/debhelper-slides.pdf">Not Your Grandpa's Debhelper</a> presented at
 DebConf9 by the <code class="systemitem">debhelper</code> upstream.
 Under <code class="literal">lenny</code>, <span class="command"><strong>dh_make</strong></span> created a much
@@ -1550,65 +1549,65 @@ still have full power to customize the process with
 package building process as the <code class="systemitem">cdbs</code>
 package tends to.  </p>
         </div>
-        <div id="ftn.idm1627" class="footnote">
-          <p><a href="#idm1627" class="para"><sup class="para">[43] </sup></a> You can verify the actual sequences of <span class="command"><strong>dh_*</strong></span> programs
+        <div id="ftn.idm1626" class="footnote">
+          <p><a href="#idm1626" class="para"><sup class="para">[43] </sup></a> You can verify the actual sequences of <span class="command"><strong>dh_*</strong></span> programs
 invoked for a given <code class="literal"><em class="replaceable"><code>target</code></em></code>
 without really running them by invoking <code class="literal">dh --no-act
 <em class="replaceable"><code>target</code></em></code> or <code class="literal">debian/rules --
 '--no-act <em class="replaceable"><code>target</code></em>'</code>.  </p>
         </div>
-        <div id="ftn.idm1651" class="footnote">
-          <p><a href="#idm1651" class="para"><sup class="para">[44] </sup></a>The following example assumes your <code class="filename">debian/compat</code> has a
+        <div id="ftn.idm1650" class="footnote">
+          <p><a href="#idm1650" class="para"><sup class="para">[44] </sup></a>The following example assumes your <code class="filename">debian/compat</code> has a
 value equal or more than 9 to avoid invoking any python support commands
 automatically.
 </p>
         </div>
-        <div id="ftn.idm1672" class="footnote">
-          <p><a href="#idm1672" class="para"><sup class="para">[45] </sup></a> For complete information on what all these <span class="command"><strong>dh_*</strong></span> scripts
+        <div id="ftn.idm1671" class="footnote">
+          <p><a href="#idm1671" class="para"><sup class="para">[45] </sup></a> For complete information on what all these <span class="command"><strong>dh_*</strong></span> scripts
 do exactly, and what their other options are, please read their respective
 manual pages and the <code class="systemitem">debhelper</code>
 documentation.  </p>
         </div>
-        <div id="ftn.idm1677" class="footnote">
-          <p><a href="#idm1677" class="para"><sup class="para">[46] </sup></a> These commands support other build environments such as
+        <div id="ftn.idm1676" class="footnote">
+          <p><a href="#idm1676" class="para"><sup class="para">[46] </sup></a> These commands support other build environments such as
 <code class="filename">setup.py</code> which can be listed by executing
 <code class="literal">dh_auto_build --list</code> in a package source directory.  </p>
         </div>
-        <div id="ftn.idm1687" class="footnote">
-          <p><a href="#idm1687" class="para"><sup class="para">[47] </sup></a> It actually looks for the first available target in the
+        <div id="ftn.idm1686" class="footnote">
+          <p><a href="#idm1686" class="para"><sup class="para">[47] </sup></a> It actually looks for the first available target in the
 <code class="filename">Makefile</code> out of <code class="literal">distclean</code>,
 <code class="literal">realclean</code>, or <code class="literal">clean</code>, and executes
 that.
 </p>
         </div>
-        <div id="ftn.idm1709" class="footnote">
-          <p><a href="#idm1709" class="para"><sup class="para">[48] </sup></a> It actually looks for the first available target in the
+        <div id="ftn.idm1708" class="footnote">
+          <p><a href="#idm1708" class="para"><sup class="para">[48] </sup></a> It actually looks for the first available target in the
 <code class="filename">Makefile</code> out of <code class="literal">test</code> or
 <code class="literal">check</code>, and executes that.</p>
         </div>
-        <div id="ftn.idm1745" class="footnote">
-          <p><a href="#idm1745" class="para"><sup class="para">[49] </sup></a> If a package installs the
+        <div id="ftn.idm1744" class="footnote">
+          <p><a href="#idm1744" class="para"><sup class="para">[49] </sup></a> If a package installs the
 <code class="filename">/usr/share/perl5/Debian/Debhelper/Sequence/<em class="replaceable"><code>custom_name</code></em>.pm</code>
 file, you should activate its customization function by <code class="literal">dh $@
 --with <em class="replaceable"><code>custom-name</code></em></code>.  </p>
         </div>
-        <div id="ftn.idm1755" class="footnote">
-          <p><a href="#idm1755" class="para"><sup class="para">[50] </sup></a> Use of the <span class="command"><strong>dh_python2</strong></span> command is preferred over use of
+        <div id="ftn.idm1754" class="footnote">
+          <p><a href="#idm1754" class="para"><sup class="para">[50] </sup></a> Use of the <span class="command"><strong>dh_python2</strong></span> command is preferred over use of
 <span class="command"><strong>dh_pysupport</strong></span> or <span class="command"><strong>dh_pycentral</strong></span>
 commands.  Do not use the <span class="command"><strong>dh_python</strong></span> command.  </p>
         </div>
-        <div id="ftn.idm1924" class="footnote">
-          <p><a href="#idm1924" class="para"><sup class="para">[51] </sup></a> Under <code class="literal">lenny</code>, if you wanted to change the behavior of a
+        <div id="ftn.idm1923" class="footnote">
+          <p><a href="#idm1923" class="para"><sup class="para">[51] </sup></a> Under <code class="literal">lenny</code>, if you wanted to change the behavior of a
 <span class="command"><strong>dh_*</strong></span> script you found the relevant line in the
 <code class="filename">rules</code> file and adjusted it.  </p>
         </div>
-        <div id="ftn.idm1952" class="footnote">
-          <p><a href="#idm1952" class="para"><sup class="para">[52] </sup></a>
+        <div id="ftn.idm1951" class="footnote">
+          <p><a href="#idm1951" class="para"><sup class="para">[52] </sup></a>
 <span class="command"><strong>dh_auto_build</strong></span> without any arguments will execute the
 first target in the <code class="filename">Makefile</code>.  </p>
         </div>
-        <div id="ftn.idm1982" class="footnote">
-          <p><a href="#idm1982" class="para"><sup class="para">[53] </sup></a> The <code class="filename">debian/changelog</code> and
+        <div id="ftn.idm1981" class="footnote">
+          <p><a href="#idm1981" class="para"><sup class="para">[53] </sup></a> The <code class="filename">debian/changelog</code> and
 <code class="filename">debian/NEWS</code> files are always automatically installed.
 The upstream changelog is found by converting filenames to lower case and
 matching them against <code class="filename">changelog</code>,

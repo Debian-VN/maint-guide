@@ -126,14 +126,15 @@ tất cả các gói phần mềm nhị phân được tạo ra.
 $ sudo debi gentoo_0.9.12-1_i386.changes
 </pre>
         <p>
-Để tránh vấn đề cài đặt trên các hệ thống khác nhau, bạn phải chắc chắn rằng
-không có xung đột về tên tập tin với các gói phần mềm khác đang hiện hữu,
-dùng tập tin <code class="filename">Contents-<em class="replaceable"><code>i386</code></em></code>
-tải về từ kho Debian.  Lệnh <span class="command"><strong>apt-file</strong></span> có thể rất tiện cho
-công việc này.  Nếu có xung đột, xin hãy hành động để tránh vấn đề thực tế
-này, dù cho bằng cách thay đổi tên tập tin, bằng cách di chuyển một tập tin
-chung qua một gói phần mềm khác mà nhiều gói phần mềm có thể dựa trên, bằng
-các phương pháp thay thế (xem
+Để tránh vấn đề trong quá trình cài đặt trên các hệ thống khác nhau, bạn
+phải chắc chắn rằng không có xung đột về tên tập tin với các gói phần mềm
+khác đang hiện hữu, dùng tập tin
+<code class="filename">Contents-<em class="replaceable"><code>i386</code></em></code> tải về từ kho
+Debian.  Lệnh <span class="command"><strong>apt-file</strong></span> có thể rất tiện cho công việc
+này.  Nếu có xung đột, xin hãy hành động để tránh vấn đề thực tế này, dù cho
+bằng cách thay đổi tên tập tin, bằng cách di chuyển một tập tin chung qua
+một gói phần mềm khác mà nhiều gói phần mềm có thể dựa trên, bằng các phương
+pháp thay thế (xem
 <span class="citerefentry"><span class="refentrytitle">update-alternatives</span>(1)</span>) phối hợp với các nhà bảo trì của
 các gói phần mềm bị ảnh hưởng khác, hoặc khai báo một mối quan hệ
 <code class="literal">Conflicts</code> trong tập tin
@@ -242,7 +243,7 @@ thiện.
         <p>
 Chạy <span class="citerefentry"><span class="refentrytitle">lintian</span>(1)</span> qua tập tin
 <code class="filename">.changes</code> của bạn.  Lệnh <span class="command"><strong>lintian</strong></span> chạy
-nhiều kịch bản kiểm tra các lỗi đóng gói thường gặp.  <a href="#ftn.idm3208" class="footnote" id="idm3208"><sup class="footnote">[76]</sup></a>
+nhiều kịch bản kiểm tra các lỗi đóng gói thường gặp.  <a href="#ftn.idm3207" class="footnote" id="idm3207"><sup class="footnote">[76]</sup></a>
 </p>
         <pre class="screen">
 $ lintian -i -I --show-overrides gentoo_0.9.12-1_i386.changes
@@ -380,7 +381,7 @@ trình trực quan bởi một trình quản lý tập tin như <span class="cit
 với khả năng cho phép bạn duyệt không chỉ nội dung của các tập tin gói phần
 mềm <code class="filename">*.deb</code> mà cả các tập tin
 <code class="filename">*.udeb</code>, <code class="filename">*.debian.tar.gz</code>,
-<code class="filename">*.diff.gz</code>, and <code class="filename">*.orig.tar.gz</code>.
+<code class="filename">*.diff.gz</code>, và <code class="filename">*.orig.tar.gz</code>.
 </p>
         <p>
 Hãy quan sát cả những tập tin bổ sung không cần thiết và những tập tin không
@@ -392,11 +393,11 @@ phần thừa không được dọn dẹp sạch sẽ; thay đổi tập tin
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm3208" class="footnote">
-          <p><a href="#idm3208" class="para"><sup class="para">[76] </sup></a> Bạn không cần phải cung cấp <span class="command"><strong>lintian</strong></span> tham số <code class="literal">-i
+        <div id="ftn.idm3207" class="footnote">
+          <p><a href="#idm3207" class="para"><sup class="para">[76] </sup></a> Bạn không cần phải cung cấp <span class="command"><strong>lintian</strong></span> tham số <code class="literal">-i
 -I --show-overrides</code> nếu bạn tùy chỉnh
 <code class="filename">/etc/devscripts.conf</code> hoặc
-<code class="filename">~/.devscripts</code> như mô tả trong <a class="xref" href="build.vi.html#debuild" title="6.3. debuild command">Phần 6.3, “<span class="command"><strong>debuild</strong></span> command”</a>.
+<code class="filename">~/.devscripts</code> như mô tả trong <a class="xref" href="build.vi.html#debuild" title="6.3. Lệnh debuild">Phần 6.3, “Lệnh <span class="command"><strong>debuild</strong></span>”</a>.
 </p>
         </div>
       </div>

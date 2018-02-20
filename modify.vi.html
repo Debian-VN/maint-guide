@@ -9,7 +9,7 @@
     <link rel="home" href="index.vi.html" title="Debian New Maintainers' Guide"/>
     <link rel="up" href="index.vi.html" title="Debian New Maintainers' Guide"/>
     <link rel="prev" href="first.vi.html" title="Chương 2. Những bước đầu tiên"/>
-    <link rel="next" href="dreq.vi.html" title="Chương 4. Required files under the debian directory"/>
+    <link rel="next" href="dreq.vi.html" title="Chương 4. Các tệp yêu cầu trong thư mục debian"/>
   </head>
   <body>
     <div class="navheader">
@@ -61,10 +61,9 @@
         </dl>
       </div>
       <p>
-Xin lưu ý rằng không có khoảng trống nào để đi vào <span class="emphasis"><em>tất
-cả</em></span> các chi tiết về cách khắc phục các mã nguồn thượng nguồn,
-nhưng đây là một số bước cơ bản và vài vấn đề mà mọi người thường xuyên gặp
-phải.
+Xin lưu ý rằng không có nhiều thời gian để đi vào <span class="emphasis"><em>tất
+cả</em></span> các chi tiết để khắc phục tất cả thượng nguồn, nhưng đây sẽ là
+một số bước cơ bản và vài vấn đề mà mọi người thường xuyên gặp phải.
 </p>
       <div class="section">
         <div class="titlepage">
@@ -299,16 +298,13 @@ $ vim '+argdo %s#usr/local/lib#usr/lib#gce|update' +q \
         $(find . -type f -name '*.[c|h]')
 </pre>
         <p>
-Next you should find the <code class="literal">install</code> target (searching for
-the line that starts with <code class="literal">install:</code> will usually work) and
-rename all references to directories other than ones defined at the top of
-the <code class="filename">Makefile</code>.
-</p>
-        <p>
 Tiếp theo, bạn nên tìm mục <code class="literal">install</code> (tìm kiếm dòng bắt đầu
 bằng <code class="literal">install:</code> thường sẽ có) và đổi tên tất cả các tham
 chiếu tới các thư mục khác. Được xác định ở trên cùng của
 <code class="filename">Makefile</code>.
+</p>
+        <p>
+Bản gốc ban đầu, mục <code class="literal">install</code> của <code class="systemitem">gentoo</code> như sau:
 </p>
         <pre class="screen">
 install: gentoo-target
@@ -421,7 +417,7 @@ Nếu chương trình không biên dịch được khi thư viện <code class="
 không tồn tại và nó tương đương với thư viện <code class="literal">foo2</code> được
 cung cấp trên hệ thống Debian , bạn có thể sửa vấn đề này với
 <code class="filename">debian/patches/foo2.patch</code> bằng cách thay đổi từ
-<code class="literal">foo</code> sang <code class="literal">foo2</code>:<a href="#ftn.idm1143" class="footnote" id="idm1143"><sup class="footnote">[26]</sup></a>
+<code class="literal">foo</code> sang <code class="literal">foo2</code>:<a href="#ftn.idm1142" class="footnote" id="idm1142"><sup class="footnote">[26]</sup></a>
 </p>
         <pre class="screen">
 $ dquilt new foo2.patch
@@ -466,8 +462,8 @@ nào. Nếu <code class="filename">Makefile</code> được tạo bởi lệnh
 lệnh <span class="command"><strong>dh_auto_configure</strong></span> với các tùy chọn mặc định bao gồm
 <code class="literal">--prefix =/usr </code>.  </p>
         </div>
-        <div id="ftn.idm1143" class="footnote">
-          <p><a href="#idm1143" class="para"><sup class="para">[26] </sup></a>Nếu có sự thay đổi API từ thư viện <code class="literal">foo</code> sang thư viện
+        <div id="ftn.idm1142" class="footnote">
+          <p><a href="#idm1142" class="para"><sup class="para">[26] </sup></a>Nếu có sự thay đổi API từ thư viện <code class="literal">foo</code> sang thư viện
 <code class="literal">foo2</code>, yêu cầu thay đổi mã nguồn để khớp với API mới.</p>
         </div>
       </div>
@@ -487,7 +483,7 @@ lệnh <span class="command"><strong>dh_auto_configure</strong></span> với cá
               <img src="images/home.png" alt="Đầu"/>
             </a>
           </td>
-          <td align="right" valign="top"> Chương 4. Required files under the <code class="filename">debian</code> directory</td>
+          <td align="right" valign="top"> Chương 4. Các tệp yêu cầu trong thư mục <code class="filename">debian</code></td>
         </tr>
       </table>
     </div>
