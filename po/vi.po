@@ -3785,7 +3785,7 @@ msgstr ""
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>copyright</filename>"
-msgstr ""
+msgstr "<filename>copyright</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3795,6 +3795,11 @@ msgid ""
 "parseable <filename>debian/copyright</filename></ulink> provides guidelines for its "
 "format."
 msgstr ""
+"Tập tin này chứa thông tin về bản quyền và giấy phép của các nguồn thượng nguồn "
+" <ulink url=\"&policy-copyright;\">Debian Policy Manual, 12.5 \"Copyright "
+"information\"</ulink> kiểm soát nội dung của nó và <ulink url=\"&dep5;\">DEP-5: Machine-"
+"parseable <filename>debian/copyright</filename></ulink> cung cấp các chỉ dẫn cho "
+"định dạng của nó"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3803,6 +3808,10 @@ msgid ""
 "file for the <systemitem role=\"package\">gentoo</systemitem> package released under "
 "GPL-2."
 msgstr ""
+"<command>dh_make</command> có thể cho bạn một tệp mẫu <filename>copyright</filename> "
+". Hãy sử dụng tuỳ chọn <literal>--copyright gpl2</literal> để lấy tệp mẫu cho  "
+"gói  <systemitem role=\"package\">gentoo</systemitem> phát hành dưói giấy phép "
+"GPL-2."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3813,12 +3822,20 @@ msgid ""
 "appropriate file in the <filename>/usr/share/common-licenses/</filename> directory that "
 "exists on every Debian system.  Otherwise, you must include the complete license."
 msgstr ""
+"Bạn phải điền thông tin còn thiếu để hoàn thành tệp này, chẳng hạn như nơi tạo ra gói ,"
+"thông báo bản quyền thực tế, và giấy phép. Đối với một số giấy phép phần mềm tự do "
+"thông thường (GNU GPL-1, GNU GPL-2, GNU GPL-3, LGPL-2, LGPL-2.1, LGPL-3, GNU "
+"FDL-1.2, GNU FDL-1.3, Apache-2.0, hoặc Artistic license), bạn chỉ cần tham khảo "
+"các tệp thích hợp trong thư mục <filename>/usr/share/common-licenses/</filename> "
+"tồn tại trên bất kỳ hệ thống Debian. Nếu không, bạn phải bao gồm giấy phép đầy đủ."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "In short, here's what <systemitem role=\"package\">gentoo</systemitem>'s "
 "<filename>copyright</filename> file should look like:"
 msgstr ""
+"Tóm lại, tệp <filename>copyright</filename> của gói "
+"<systemitem role=\"package\">gentoo</systemitem> trông sẽ như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -3858,16 +3875,52 @@ msgid ""
 "33  License version 2 can be found in the file\n"
 "34  `/usr/share/common-licenses/GPL-2'.\n"
 msgstr ""
+" 1 Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&amp;rev=135\n"
+" 2 Name: gentoo\n"
+" 3 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;\n"
+" 4 Source: http://sourceforge.net/projects/gentoo/files/\n"
+" 5\n"
+" 6 Copyright: 1998-2010 Emil Brink &lt;emil@obsession.se&gt;\n"
+" 7 License: GPL-2+\n"
+" 8\n"
+" 9 Files: icons/*\n"
+"10 Copyright: 1998 Johan Hanson &lt;johan@tiq.com&gt;\n"
+"11 License: GPL-2+\n"
+"12\n"
+"13 Files: debian/*\n"
+"14 Copyright: 1998-2010 Josip Rodin &lt;joy-mg@debian.org&gt;\n"
+"15 License: GPL-2+\n"
+"16\n"
+"17 License: GPL-2+\n"
+"18  This program is free software; you can redistribute it and/or modify\n"
+"19  it under the terms of the GNU General Public License as published by\n"
+"20  the Free Software Foundation; either version 2 of the License, or\n"
+"21  (at your option) any later version. \n"
+"22  .\n"
+"23  This program is distributed in the hope that it will be useful,\n"
+"24  but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"25  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n"
+"26  GNU General Public License for more details.\n"
+"27  .\n"
+"28  You should have received a copy of the GNU General Public License along\n"
+"29  with this program; if not, write to the Free Software Foundation, Inc.,\n"
+"30  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.\n"
+"31  .\n"
+"32  On Debian systems, the full text of the GNU General Public\n"
+"33  License version 2 can be found in the file\n"
+"34  `/usr/share/common-licenses/GPL-2'.\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Please follow the HOWTO provided by the ftpmasters and sent to debian-devel-announce: "
 "<ulink url=\"&howto-copyright;\"/>."
 msgstr ""
+"Hãy làm theo HOWTO cung cấp bởi ftpmasters và gửi tới debian-devel-announce: "
+"<ulink url=\"&howto-copyright;\"/>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>changelog</filename>"
-msgstr ""
+msgstr "<filename>changelog</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3876,6 +3929,10 @@ msgid ""
 "is used by <command>dpkg</command> and other programs to obtain the version number, "
 "revision, distribution, and urgency of your package."
 msgstr ""
+"Đây là tệp yêu cầu, có định dạng đặc biệt được mô tả trong <ulink url=\"&policy-"
+"dpkgchangelog;\">Debian Policy Manual, 4.4 \"debian/changelog\"</ulink>. Định dạng này "
+"được sử dụng bởi <command>dpkg</command> và các chương trình khác để đọc số phiên bản, "
+"số sửa đổi, bản phân phối và tính khẩn cấp của gói"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3884,10 +3941,14 @@ msgid ""
 "with the package that they should know about.  It will be saved as <filename>/usr/share/"
 "doc/gentoo/changelog.Debian.gz</filename> in the binary package."
 msgstr ""
+"Đối với bạn, điều này cũng rất quan trọng vì bạn nên ghi lại tất cả những thay đổi bạn đã làm. "
+"Nó sẽ giúp mọi người tải gói của bạn và xem liệu có vấn đề gì với gói mà họ cần biết hay không. "
+"Nó sẽ được lưu lại như <filename>/usr/share/doc/gentoo/changelog.Debian.gz</filename> trong gói "
+"nhị phân."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "<command>dh_make</command> created a default one, and this is what it looks like:"
-msgstr ""
+msgstr "<command>dh_make</command> tạo ra tệp mặc định, và nó sẽ trông như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -3899,6 +3960,12 @@ msgid ""
 "5  -- Josip Rodin &lt;joy-mg@debian.org&gt;  Mon, 22 Mar 2010 00:37:31 +0100\n"
 "6\n"
 msgstr ""
+"1  gentoo (0.9.12-1) unstable; urgency=low\n"
+"2\n"
+"3   * Initial release (Closes: #<replaceable>nnnn</replaceable>)  &lt;<replaceable>nnnn</replaceable> is the bug number of your ITP&gt;\n"
+"4\n"
+"5  -- Josip Rodin &lt;joy-mg@debian.org&gt;  Mon, 22 Mar 2010 00:37:31 +0100\n"
+"6\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3906,6 +3973,9 @@ msgid ""
 "the source package name; distribution should be <literal>unstable</literal>, and "
 "urgency shouldn't be changed to anything higher than <literal>low</literal>.  :-)"
 msgstr ""
+"Dòng 1 là tên gói, phiên bản, phân phối và mức độ khẩn cấp. Tên phải khớp với "
+"tên gói nguồn; Phân phối nên là <literal>unstable</literal>, và không nên thay đổi "
+"mức độ khẩn cấp lên bất cứ điều gì cao hơn <literal>low</literal>.  :-)"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3918,6 +3988,14 @@ msgid ""
 "<refentrytitle>dch</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, or "
 "manually with a text editor."
 msgstr ""
+"Dòng 3-5 là một mục thông tin, nơi bạn ghi lại những thay đổi được thực hiện trong bản "
+"sửa đổi gói này (không phải là những thay đổi ở thượng nguồn - có một tệp tin đặc biệt "
+"cho mục đích đó được tạo ra bởi các tác giả thượng nguồn, mà sau này bạn sẽ cài đặt "
+"dưới dạng <filename>/usr/share/doc/gentoo/changelog.gz</filename>). Hãy giả sử báo lỗi "
+"ITP (Intent To Package) của bạn có số là <literal>12345</literal>. Các dòng mới chèn trên "
+"dòng trên cùng nhất của mục nội dung này và bắt đầu với <literal>*</literal> (dấu sao).  "
+"Bạn có thể  thực hiện điều này với <citerefentry><refentrytitle>dch</refentrytitle> "
+"<manvolnum>1</manvolnum> </citerefentry>, hoặc bằng tay với một trình soạn thảo"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3925,10 +4003,12 @@ msgid ""
 "package, it is good idea to change the distribution value to an invalid distribution "
 "value <literal>UNRELEASED</literal>."
 msgstr ""
+"Để ngăn chặn một gói bị vô tình tải lên trước khi hoàn thành gói, bạn nên thay đổi "
+"giá trị phân phối thành chưa phát hành <literal>UNRELEASED</literal>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "You will end up with something like this:"
-msgstr ""
+msgstr "Bạn sẽ kết thúc với một cái gì đó như thế này:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -3942,12 +4022,23 @@ msgid ""
 "7  -- Josip Rodin &lt;joy-mg@debian.org&gt;  Mon, 22 Mar 2010 00:37:31 +0100\n"
 "8\n"
 msgstr ""
+"1  gentoo (0.9.12-1) UNRELEASED; urgency=low\n"
+"2\n"
+"3   * Initial Release. Closes: #12345\n"
+"4   * This is my first Debian package.\n"
+"5   * Adjusted the Makefile to fix $(DESTDIR) problems.\n"
+"6\n"
+"7  -- Josip Rodin &lt;joy-mg@debian.org&gt;  Mon, 22 Mar 2010 00:37:31 +0100\n"
+"8\n"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
 "If you use the <literal>dch -r</literal> command to make this last change, please make "
 "sure to save the <filename>changelog</filename> file explicitly by the editor."
 msgstr ""
+"Nếu bạn sử dụng lệnh <literal>dch -r</literal> để tạo thay đổi cuối này, vui lòng "
+"đảm bảo bạn đã lưu tệp <filename>changelog</filename> một cách rõ ràng bởi trình "
+"soạn thảo"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -3956,12 +4047,17 @@ msgid ""
 "to the target distribution value <literal>unstable</literal> (or even "
 "<literal>experimental</literal>).  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Khi bạn đã hài lòng với tất cả các thay đổi và ghi lại chúng trong  <filename>changelog</"
+"filename>, bạn nên thay đổi giá trị phân phối từ <literal>UNRELEASED</literal> sang "
+" <literal>unstable</literal> (hoặc ngay cả <literal>experimental</literal>).  "
+"<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "You can read more about updating the <filename>changelog</filename> file later in <xref "
 "linkend=\"update\"/>."
 msgstr ""
+"Bạn có thể đọc về cập nhật tệp <filename>changelog</filename> tại <xref linkend=\"update\"/>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>rules</filename>"
