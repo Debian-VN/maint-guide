@@ -4061,7 +4061,7 @@ msgstr ""
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>rules</filename>"
-msgstr ""
+msgstr "<filename>rules</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -4071,10 +4071,15 @@ msgid ""
 "filename>, but different from the one(s) in the upstream source.  Unlike other files in "
 "<filename>debian</filename>, this one is marked as executable."
 msgstr ""
+"Bây giờ chúng ta cần phải xem xét các quy tắc chính xác mà <citerefentry> <refentrytitle>dpkg-"
+"buildpackage</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> sẽ thực sự sử dụng "
+"để tạo gói. Tệp này thật sự là tệp <filename>Makefile</filename>, nhưng nó khác với (các) tệp "
+"Makefile trong nguồn của thượng nguồn. Và không giống các tệp khác trong thư mục "
+"<filename>debian</filename>, đây là tệp thực thi"
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "Targets of the <filename>rules</filename> file"
-msgstr ""
+msgstr "Các target của tệp <filename>rules</filename>"
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4083,12 +4088,18 @@ msgid ""
 "available as <ulink url=\"&gnu-make;\"></ulink> or as the <systemitem role=\"package"
 "\">make-doc</systemitem> package in the <literal>non-free</literal> archive area."
 msgstr ""
+"Bạn có thể bắt đầu học cách viết <filename>Makefile</filename> từ <ulink url="
+"\"&debref-make;\">Debian Reference, 12.2. \"Make\"</ulink>.  Tài liệu khả dụng "
+"như <ulink url=\"&gnu-make;\"></ulink> hoặc như gói <systemitem role=\"package"
+"\">make-doc</systemitem> trong <literal>non-free</literal>."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
 "<ulink url=\"&policy-debianrules;\">Debian Policy Manual, 4.9 \"Main building script: "
 "debian/rules\"</ulink> explains the details."
 msgstr ""
+"<ulink url=\"&policy-debianrules;\">Debian Policy Manual, 4.9 \"Main building script: "
+"debian/rules\"</ulink> giải thích chi tiết."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4100,6 +4111,13 @@ msgid ""
 "<literal>#</literal> (hash) are treated as comments and ignored.  <placeholder type="
 "\"footnote\" id=\"1\"/>"
 msgstr ""
+"Mọi tệp <filename>rules</filename>, giống bất kỳ <filename>Makefile</filename> khác, "
+"bao gồm một vài quy tắc, địng nghĩa nên target và cách nó thực hiện như thế nào. "
+"<placeholder type=\"footnote\" id=\"0\"/> Một quy tắc mới bắt đầu với tuyên bố tên "
+"target của nó trong cột đầu tiên. Các dòng theo sau bắt đầu với phím TAB (ASCII 9) để "
+"chỉ định công thức thực hiện target đó. Các dòng trống và các dòng bắt đầu với <literal>#"
+"</literal> (thăng) được xem là nhận xét và bị bỏ qua. <placeholder type="
+"\"footnote\" id=\"1\"/>"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4109,34 +4127,47 @@ msgid ""
 "literal> execute rules for <literal><replaceable>build</replaceable></literal> and "
 "<literal><replaceable>binary</replaceable></literal> targets respectively."
 msgstr ""
+"Một quy tắc mà bạn muốn thực hiện được gọi bởi tên target của nó như là một đối số "
+"dòng lệnh. Ví dụ,  <literal>debian/rules <replaceable>build</replaceable></"
+"literal> và <literal>fakeroot make -f debian/rules <replaceable>binary</replaceable></"
+"literal> thực hiện các quy tắc cho các target là <literal><replaceable>build"
+"</replaceable></literal> và <literal><replaceable>binary</replaceable></literal>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid "Here is a simplified explanation of the targets:"
-msgstr ""
+msgstr "Đây là một giải thích đơn giản của các target"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>clean</literal> target: to clean all compiled, generated, and useless files in "
 "the build-tree.  (Required)"
 msgstr ""
+"<literal>clean</literal>: làm sạch tất cả các tệp đã biên dịch, sinh ra và "
+"vô ích trong build-tree(Yêu cầu)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>build</literal> target: to build the source into compiled programs and "
 "formatted documents in the build-tree.  (Required)"
 msgstr ""
+"<literal>build</literal>: xây dựng từ mã nguồn thành các chương trình và "
+"sinh các tài liệu trong build-tree.  (Bắt buộc)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>build-arch</literal> target: to build the source into arch-dependent compiled "
 "programs in the build-tree.  (Required)"
 msgstr ""
+"<literal>build-arch</literal>: xây dựng mã nguồn thành các chuơng trình phụ thuộc "
+"vào kiến trúc trong build-tree.  (Bắt buộc)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>build-indep</literal> target: to build the source into arch-independent "
 "formatted documents in the build-tree.  (Required)"
 msgstr ""
+"<literal>build-indep</literal>: xây dựng mã nguổn thành các tài liệu không phụ "
+"thuộc và kiến trúc trong build-tree. (Bắt buộc)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4144,12 +4175,17 @@ msgid ""
 "package under the <filename>debian</filename> directory.  If defined, <literal>binary*</"
 "literal> targets effectively depend on this target.  (Optional)"
 msgstr ""
+"<literal>install</literal>: cài đặt các tệp tin vào hệ thống giả cho mỗi gói nhị phần "
+"dưới thư mục <filename>debian</filename>.  Nếu địng nghĩa target <literal>binary*</"
+"literal> sẽ có hiệu quả phụ thuộc vào target này.  (Tuỳ chọn)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
 "This target is used by <literal>dpkg-buildpackage</literal> as in <xref linkend="
 "\"completebuild\"/>."
 msgstr ""
+"Target này được sử dụng bởi <literal>dpkg-buildpackage</literal> như trong <xref linkend="
+"\"completebuild\"/>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4157,12 +4193,17 @@ msgid ""
 "combination of <literal>binary-arch</literal> and <literal>binary-indep</literal> "
 "targets).  (Required)<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"<literal>binary</literal>: tạo tất cả gói nhị phân ( sẽ hiểu quả khi là sự kết hợp "
+"của <literal>binary-arch</literal> và <literal>binary-indep</literal> .  (Bắt buộc)"
+"<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
 "This target is used by <literal>dpkg-buildpackage -B</literal> as in <xref linkend="
 "\"autobuilder\"/>."
 msgstr ""
+"Target này được sử dụng bởi <literal>dpkg-buildpackage -B</literal> như trọng <xref linkend="
+"\"autobuilder\"/>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4170,10 +4211,12 @@ msgid ""
 "any</literal>) binary packages in the parent directory.  (Required)<placeholder type="
 "\"footnote\" id=\"0\"/>"
 msgstr ""
+"<literal>binary-arch</literal>: tạo các gói nhị phân phụ thuộc (<literal>Architecture: "
+"any</literal>) trong thụ mục cha.  (Bắt buộc)<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid "This target is used by <literal>dpkg-buildpackage -A</literal>."
-msgstr ""
+msgstr "Target này được sử dụng bởi <literal>dpkg-buildpackage -A</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4181,12 +4224,17 @@ msgid ""
 "(<literal>Architecture: all</literal>) binary packages in the parent directory.  "
 "(Required)<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"<literal>binary-indep</literal>: để tạo ra các gói nhị phân không phụ thuộc "
+"(arch-independent)(<literal>Architecture: all</literal>) trong thu mục cha. "
+"(Bắt buộc)<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>get-orig-source</literal> target: to obtain the most recent version of the "
 "original source package from an upstream archive.  (Optional)"
 msgstr ""
+"<literal>get-orig-source</literal>: để lấy phiên bản gần nhất của gói nguồn gốc "
+"từ một bản lưu trữ thượng nguồn.  (Tuỳ chọn)"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4194,6 +4242,8 @@ msgid ""
 "the <filename>rules</filename> file that <command>dh_make</command> gives us as a "
 "default."
 msgstr ""
+"Bạn bây giờ có thể bị choáng ngợp, nhưng mọi thứ đơn giản hơn nhiều khi kiểm tra "
+"tệp <filename>rules</filename> mà <command>dh_make</command> sử dụng làm mặc định."
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "Default <filename>rules</filename> file"
