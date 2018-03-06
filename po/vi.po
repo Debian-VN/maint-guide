@@ -4247,13 +4247,15 @@ msgstr ""
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "Default <filename>rules</filename> file"
-msgstr ""
+msgstr "Tệp <filename>rules</filename> mặc định"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "Newer <command>dh_make</command> generates a very simple but powerful default "
 "<filename>rules</filename> file using the <command>dh</command> command:"
 msgstr ""
+"Phiên bản <command>dh_make</command> mới nhất tạo một tệp <filename>rules"
+"</filename> đơn giản nhưng mạnh mẽ bằng sử dụng lệnh <command>dh</command>:"
 
 #. type: Content of: <book><chapter><section><section><screen>
 #, no-wrap
@@ -4280,12 +4282,35 @@ msgid ""
 "20 %:\n"
 "21         dh $@ \n"
 msgstr ""
+" 1 #!/usr/bin/make -f\n"
+" 2 # Xem debhelper(7) (bỏ chú thích để kích hoạt)\n"
+" 3 # output every command that modifies files on the build system.\n"
+" 4 #DH_VERBOSE = 1\n"
+" 5 \n"
+" 6 # see EXAMPLES in dpkg-buildflags(1) and read /usr/share/dpkg/*\n"
+" 7 DPKG_EXPORT_BUILDFLAGS = 1\n"
+" 8 include /usr/share/dpkg/default.mk\n"
+" 9 \n"
+"10 # see FEATURE AREAS in dpkg-buildflags(1)\n"
+"11 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all\n"
+"12\n"
+"13 # see ENVIRONMENT in dpkg-buildflags(1)\n"
+"14 # package maintainers to append CFLAGS\n"
+"15 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic\n"
+"16 # package maintainers to append LDFLAGS\n"
+"17 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed\n"
+"18 \n"
+"19 # main packaging script based on dh7 syntax\n"
+"20 %:\n"
+"21         dh $@ \n"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "(I've added the line numbers and trimmed some comments.  In the actual <filename>rules</"
 "filename> file, the leading spaces are a TAB code.)"
 msgstr ""
+"(Tôi đã thêm các số dòng và thêm một số chú thích. Trong tệp tin <filename>rules</filename>"
+" thực tế, các ký tự khoảng cách là một mã TAB.)"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4293,6 +4318,8 @@ msgid ""
 "the operating system that this file is to be processed with <filename>/usr/bin/make</"
 "filename>."
 msgstr ""
+"Có thể bạn đã quen thuộc với các dòng như dòng 1 từ kịch bản shell hay Perl. "
+"Nó nói với hệ điều hành rằng tập tin này sẽ được xử lý với <filename>/usr/bin/make</filename>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4305,6 +4332,14 @@ msgid ""
 "command> is designed to form a core part of the <systemitem role=\"package\">debhelper</"
 "systemitem> tools, and not to hide anything from you."
 msgstr ""
+"Dòng 4 có thể bỏ ghi chú để đặt biến <literal>DH_VERBOSE</literal> thành 1, sao cho các "
+"lệnh <command>dh</command> hiển thị các lệnh <command>dh_*</command> được thực hiện. "
+" Bạn cũng có thể thêm một dòng <literal>export DH_OPTIONS=-v</literal> ở đây, để mỗi "
+"<command>dh_*</command> hiển thị thêm nhiểu kết quả đầu ra mà lệnh được thực hiện như "
+"thế nào. Điều này giúp bạn hiểu chính xác điều gì đang xảy ra đằng sau tệp tin đơn giản "
+"<filename>rules</filename> này và để gỡ lỗi các vấn đề gặp phải. <command>dh</command> "
+"là công cụ mới được thiết kế để trở thành một phần cốt lõi của công cụ "
+"<systemitem role=\"package\">debhelper</systemitem>, và không che giấu bất cứ điều gì từ bạn."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4321,6 +4356,19 @@ msgid ""
 "\">debhelper</systemitem> package and does not obfuscate the package building process "
 "as the <systemitem role=\"package\">cdbs</systemitem> package tends to."
 msgstr ""
+"Thao tác này sử dụng tính năng mới của <systemitem role=\"package\">debhelper"
+"</systemitem> v7+. Các khái niệm thiết kế của nó được giải thích tại <ulink "
+"url=\"&debhelper-slides;\">Not Your Grandpa's Debhelper</ulink> được trình bày "
+"ở DebConf9 bởi tác giả <systemitem role=\"package\">debhelper</systemitem>.  "
+"Từ phiên bản <literal>lenny</literal>, <command>dh_make</command> đã tạo ra một tệp "
+"<filename>rules</filename> phức tạp hơn nhiều với các quy tắc và nhiều kịch bản "
+"<command>dh_*</command> cho mỗi quy tắc, hầu hết trong số chúng hiện không cần thiết "
+" (và hiểu thị tuổi của gói). Lệnh <command>dh</command> mới đơn giản và giải phóng "
+"chúng ta khỏi các công việc thường xuyên làm \"thủ công\". Bạn vẫn có đủ sức mạnh "
+"để tùy biến quá trình với các target là <literal>override_dh_*</literal>. Xem <xref "
+"linkend=\"customrules\"/>.  Nó chỉ dựa trên gói <systemitem role=\"package\">debhelper"
+"</systemitem> và không làm xáo trộn tiến trình xây dựng gói như cách mà gói <systemitem "
+"role=\"package\">cdbs</systemitem> có xu hướng."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4329,6 +4377,10 @@ msgid ""
 "by invoking <literal>dh --no-act <replaceable>target</replaceable></literal> or "
 "<literal>debian/rules -- '--no-act <replaceable>target</replaceable>'</literal>."
 msgstr ""
+"Bạn có thể xác minh trình tự thực tế của các chương trình <command>dh_*</command> bằng "
+"gọi một <literal><replaceable>target</replaceable></literal> mà không thật sự chạy chúng "
+"bởi gọi <literal>dh --no-act <replaceable>target</replaceable></literal> hoặc "
+"<literal>debian/rules -- '--no-act <replaceable>target</replaceable>'</literal>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4339,12 +4391,20 @@ msgid ""
 "of <command>dh_*</command> programs depending on its argument.  <placeholder type="
 "\"footnote\" id=\"1\"/>"
 msgstr ""
+"Các dòng 20 và 21 là nơi mà tất cả công việc được thực hiện với một quy tắc ngầm định "
+"sử dụng quy tắc mẫu. Dấu hiệu phần trăm có nghĩa là\"bất kỳ mục tiêu\" nào, sau đó "
+"gọi một chương trình duy nhất, <command>dh</command>, với tên mục tiêu.  <placeholder "
+"type=\"footnote\" id=\"0\"/> Lệnh <command>dh</command> là một gói tập lệnh bao gồm "
+"các trình tự thích hợp của các chương trình <command>dh_*</command> tùy thuộc vào "
+"đối số của nó.  <placeholder type=\"footnote\" id=\"1\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>debian/rules clean</literal> runs <literal>dh clean</literal>, which in turn "
 "runs the following:"
 msgstr ""
+"<literal>debian/rules clean</literal> chạy <literal>dh clean</literal>, chúng bao gồm "
+"chạy các lệnh sau:"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
@@ -4353,12 +4413,17 @@ msgid ""
 "dh_auto_clean\n"
 "dh_clean\n"
 msgstr ""
+"dh_testdir\n"
+"dh_auto_clean\n"
+"dh_clean\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>debian/rules build</literal> runs <literal>dh build</literal>; which in turn "
 "runs the following:"
 msgstr ""
+"<literal>debian/rules build</literal> chạy <literal>dh build</literal>; chúng bao gồm "
+"chạy các lệnh sau:"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
@@ -4368,18 +4433,26 @@ msgid ""
 "dh_auto_build\n"
 "dh_auto_test\n"
 msgstr ""
+"dh_testdir\n"
+"dh_auto_configure\n"
+"dh_auto_build\n"
+"dh_auto_test\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
 "The following example assumes your <filename>debian/compat</filename> has a value equal "
 "or more than 9 to avoid invoking any python support commands automatically."
 msgstr ""
+"Ví dụ sau đây giả định tệp <filename>debian/compat</filename> của bạn có một giá trị "
+"bằng hoặc lớn hơn 9 để tránh gọi bất kỳ câu lệnh hỗ trợ từ python tự động."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<literal>fakeroot debian/rules binary</literal> runs <literal>fakeroot dh binary</"
 "literal>; which in turn runs the following<placeholder type=\"footnote\" id=\"0\"/>:"
 msgstr ""
+"<literal>fakeroot debian/rules binary</literal> chạy <literal>fakeroot dh binary</"
+"literal>; chúng bao gồm chạy các lệnh sau<placeholder type=\"footnote\" id=\"0\"/>:"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
@@ -4427,6 +4500,48 @@ msgid ""
 "dh_md5sums\n"
 "dh_builddeb\n"
 msgstr ""
+"dh_testroot\n"
+"dh_prep\n"
+"dh_installdirs\n"
+"dh_auto_install\n"
+"dh_install\n"
+"dh_installdocs\n"
+"dh_installchangelogs\n"
+"dh_installexamples\n"
+"dh_installman\n"
+"dh_installcatalogs\n"
+"dh_installcron\n"
+"dh_installdebconf\n"
+"dh_installemacsen\n"
+"dh_installifupdown\n"
+"dh_installinfo\n"
+"dh_installinit\n"
+"dh_installmenu\n"
+"dh_installmime\n"
+"dh_installmodules\n"
+"dh_installlogcheck\n"
+"dh_installlogrotate\n"
+"dh_installpam\n"
+"dh_installppp\n"
+"dh_installudev\n"
+"dh_installwm\n"
+"dh_installxfonts\n"
+"dh_bugfiles\n"
+"dh_lintian\n"
+"dh_gconf\n"
+"dh_icons\n"
+"dh_perl\n"
+"dh_usrlocal\n"
+"dh_link\n"
+"dh_compress\n"
+"dh_fixperms\n"
+"dh_strip\n"
+"dh_makeshlibs\n"
+"dh_shlibdeps\n"
+"dh_installdeb\n"
+"dh_gencontrol\n"
+"dh_md5sums\n"
+"dh_builddeb\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4434,6 +4549,9 @@ msgid ""
 "arch</literal>; which in turn runs the same sequence as <literal>fakeroot dh binary</"
 "literal> but with the <literal>-a</literal> option appended for each command."
 msgstr ""
+"<literal>fakeroot debian/rules binary-arch</literal> chạy <literal>fakeroot dh binary-"
+"arch</literal>; chúng bao gồm chạy các lệnh tương tự như <literal>fakeroot dh binary</"
+"literal> nhưng với tuỳ chọn <literal>-a</literal> cho mỗi câu lệnh."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4443,6 +4561,10 @@ msgid ""
 "command>, and <command>dh_shlibdeps</command> with the <literal>-i</literal> option "
 "appended for each remaining command."
 msgstr ""
+"<literal>fakeroot debian/rules binary-indep</literal> chạy <literal>fakeroot dh binary-"
+"indep</literal>; chúng bao gồm hầu hết các lệnh tương tự như  <literal>fakeroot dh "
+"binary</literal> nhưng trừ các lệnh <command>dh_strip</command>, <command>dh_makeshlibs"
+"</command>, và <command>dh_shlibdeps</command> và với tuỳ chọn -i cho mỗi lệnh còn lại."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4450,6 +4572,9 @@ msgid ""
 "and what their other options are, please read their respective manual pages and the "
 "<systemitem role=\"package\">debhelper</systemitem> documentation."
 msgstr ""
+"Để có thông tin đầy đủ về những gì các tập lệnh <command>dh_*</command> thực hiện "
+"chính xác, và các tùy chọn khác của chúng là gì, vui lòng đọc các trang hướng dẫn "
+"tương ứng và tài liệu <systemitem role=\"package\">debhelper</systemitem>."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4457,6 +4582,9 @@ msgid ""
 "which can be listed by executing <literal>dh_auto_build --list</literal> in a package "
 "source directory."
 msgstr ""
+"Các lệnh hỗ trợ các môi trường xây dựng khác như <filename>setup.py</filename> có thể "
+"được liệt kê bằng cách thực thi <literal>dh_auto_build --list</literal> trong thư mục "
+"mã nguồn gói."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4465,6 +4593,10 @@ msgid ""
 "worth giving (over)simplified explanations here assuming a typical build environment "
 "based on a <filename>Makefile</filename>: <placeholder type=\"footnote\" id=\"1\"/>"
 msgstr ""
+"Các chức năng của lệnh <command>dh_*</command> phần lớn chính là tên của chúng "
+" <placeholder type=\"footnote\" id=\"0\"/> Có một vài điểm nổi bật có thể giải thích "
+"một cách đơn giản ở đây là giả sử một môi trường xây dựng điển hình dựa trên một <filename>"
+"Makefile</filename>: <placeholder type=\"footnote\" id=\"1\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
@@ -4472,6 +4604,9 @@ msgid ""
 "out of <literal>distclean</literal>, <literal>realclean</literal>, or <literal>clean</"
 "literal>, and executes that."
 msgstr ""
+"Nó thực sự tìm kiếm target có sẵn đầu tiên trong <filename>Makefile</filename> "
+"trong số  <literal>distclean</literal>, <literal>realclean</literal>, hoặc <literal>clean</"
+"literal>, và thực hiện điều đó."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4479,39 +4614,48 @@ msgid ""
 "<filename>Makefile</filename> exists with the <literal>distclean</literal> target.  "
 "<placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"<command>dh_auto_clean</command> thường thực hiện như sau nếu một tệp "
+"<filename>Makefile</filename> tồn tại với target là <literal>distclean</literal>.  "
+"<placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
 msgid "make distclean\n"
-msgstr ""
+msgstr "make distclean\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<command>dh_auto_configure</command> usually executes the following if <filename>./"
 "configure</filename> exists (arguments abbreviated for readability)."
 msgstr ""
+"<command>dh_auto_configure</command> thường thực hiện như sau nếu  <filename>./"
+"configure</filename> tồn tại (các đối số được viết tắt cho dễ đọc)."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
 msgid "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var ...\n"
-msgstr ""
+msgstr "/configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var ...\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "<command>dh_auto_build</command> usually executes the following to execute the first "
 "target of <filename>Makefile</filename> if it exists."
 msgstr ""
+"<command>dh_auto_build</command> thường thực hiện target đầu tiền của tệp  "
+" <filename>Makefile</filename> nếu nó tồn tại."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
 msgid "make\n"
-msgstr ""
+msgstr "make\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
 "It actually looks for the first available target in the <filename>Makefile</filename> "
 "out of <literal>test</literal> or <literal>check</literal>, and executes that."
 msgstr ""
+"Nó thực sự tìm kiếm target đầu tiên có sẵn trong tệp <filename>Makefile</filename> "
+"trong số <literal>test</literal> hoặc <literal>check</literal>, và thực hiện nó."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4519,11 +4663,14 @@ msgid ""
 "filename> exists with the <literal>test</literal> target.  <placeholder type=\"footnote"
 "\" id=\"0\"/>"
 msgstr ""
+"<command>dh_auto_test</command> thường thực hiện như sau nếu <filename>Makefile</"
+"filename> tồn tại target <literal>test</literal>.  <placeholder type=\"footnote"
+"\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
 msgid "make test\n"
-msgstr ""
+msgstr "make test\n"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -4531,6 +4678,8 @@ msgid ""
 "<filename>Makefile</filename> exists with the <literal>install</literal> target (line "
 "folded for readability)."
 msgstr ""
+"<command>dh_auto_install</command>thường thực hiện như sau nếu <filename>Makefile"
+"</filename> tồn tại với target <literal>install</literal> (dòng căn chỉnh cho dễ đọc) "
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
@@ -4538,6 +4687,8 @@ msgid ""
 "make install \\\n"
 "  DESTDIR=<replaceable>/path/to</replaceable>/<replaceable>package</replaceable>_<replaceable>version</replaceable>-<replaceable>revision</replaceable>/debian/<replaceable>package</replaceable>\n"
 msgstr ""
+"make install \\\n"
+"  DESTDIR=<replaceable>/path/to</replaceable>/<replaceable>package</replaceable>_<replaceable>version</replaceable>-<replaceable>revision</replaceable>/debian/<replaceable>package</replaceable>\n"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4545,6 +4696,8 @@ msgid ""
 "<command>dh_testroot</command>, which exits with an error if you are not using this "
 "command to pretend to be root."
 msgstr ""
+"Tất cả các target yêu cầu lệnh <command>fakeroot</command> sẽ được chứa <command>"
+"dh_testroot</command>, nó sẽ xuất hiện lỗi nếu bạn không sử dụng lệnh này để giả vờ là root."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4553,6 +4706,10 @@ msgid ""
 "packages but for more complicated ones, don't be afraid to customize it to fit your "
 "needs."
 msgstr ""
+"Phần quan trọng cần biết là tệp <filename>rules</filename> được tạo bởi <command>"
+"dh_make</command> và nó chỉ là một đề xuất. Nó sẽ làm việc cho hầu hết các gói "
+"nhưng đối với những thứ phức tạp hơn, đừng ngại tùy chỉnh nó để phù hợp với nhu cầu "
+"của bạn."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4560,16 +4717,21 @@ msgid ""
 "<literal>fakeroot dh install</literal> behaves like <literal>fakeroot dh binary</"
 "literal> but stops after <command>dh_fixperms</command>."
 msgstr ""
+"Mặc dù <literal>install</literal> không phải là target bắt buộc, nó hỗ trợ.  "
+"<literal>fakeroot dh install</literal> hành động như <literal>fakeroot dh binary</"
+"literal> nhưng dừng lại sau <command>dh_fixperms</command>."
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "Customization of <filename>rules</filename> file"
-msgstr ""
+msgstr "Tuỳ chỉnh tệp <filename>rules</filename>"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "There are many ways to customize the <filename>rules</filename> file created with the "
 "new <command>dh</command> command."
 msgstr ""
+"Có nhiều cách để tuỳ chỉnh tệp <filename>rules</filename> đã được tạo ra bởi "
+"lệnh  <command>dh</command>"
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4578,12 +4740,18 @@ msgid ""
 "customization function by <literal>dh $@ --with <replaceable>custom-name</replaceable></"
 "literal>."
 msgstr ""
+"Nếu một gói cài đặt tệp với đường dẫn <filename>/usr/share/perl5/Debian/"
+"Debhelper/Sequence/<replaceable>custom_name</replaceable>.pm</filename>, bạn "
+"nên kích hoạt chức năng tuỳ chỉnh của nó bằng <literal>dh $@ --with "
+"<replaceable>custom-name</replaceable></literal>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "The <literal>dh $@</literal> command can be customized as follows: <placeholder type="
 "\"footnote\" id=\"0\"/>"
 msgstr ""
+"Lệnh <literal>dh $@</literal> có thể được tuỳ chỉnh như sau: <placeholder "
+"type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para><footnote><para>
 msgid ""
@@ -4591,106 +4759,132 @@ msgid ""
 "<command>dh_pysupport</command> or <command>dh_pycentral</command> commands.  Do not "
 "use the <command>dh_python</command> command."
 msgstr ""
+"Việc sử dụng <command>dh_python2</command> được yêu thích hơn là sử dụng "
+"<command>dh_pysupport</command> và <command>dh_pycentral</command>. Đừng sử "
+"dụng <command>dh_python</command>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "Add support for the <command>dh_python2</command> command.  (The best choice for "
 "Python.) <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Thêm lệnh hỗ trợ <command>dh_python2</command>.  (Tuỳ chọn tốt nhất cho "
+"Python.) <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">python</systemitem> package in <literal>Build-"
 "Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">python</systemitem> trong trường "
+"<literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with python2</literal>."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with python2</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "This handles Python modules using the <systemitem role=\"package\">python</systemitem> "
 "framework."
 msgstr ""
+"Việc này xử lý các mô-đun Python sử dụng framework <systemitem role=\"package"
+"\">python</systemitem>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "Add support for the <command>dh_pysupport</command> command. (deprecated)"
-msgstr ""
+msgstr "Thêm lệnh hỗ trợ <command>dh_pysupport</command>. "
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">python-support</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">python-support</systemitem> trong "
+"trường <literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with pysupport</literal>."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with pysupport</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "This handles Python modules using the <systemitem role=\"package\">python-support</"
 "systemitem> framework."
 msgstr ""
+"Việc này xử lý các mô-đun Python sử dụng framework <systemitem role=\"package"
+"\">python-support</systemitem>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "Add support for the <command>dh_pycentral</command> command. (deprecated)"
 msgstr ""
+"Thêm lệnh hỗ trợ <command>dh_pycentral</command>. (không dùng nữa)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">python-central</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">python-central</systemitem> trong "
+"trường <literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with python-central</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with python-central</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "This also deactivates the <command>dh_pysupport</command> command."
-msgstr ""
+msgstr "Nó cũng bỏ kích hoạt lệnh <command>dh_pysupport</command>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "This handles Python modules using the <systemitem role=\"package\">python-central</"
 "systemitem> framework."
 msgstr ""
+"Việc này xử lý các mô-đun Python sử dụng framework <systemitem role=\"package"
+"\">python-central</systemitem>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "Add support for the <command>dh_installtex</command> command."
-msgstr ""
+msgstr "Thêm lệnh hỗ trợ <command>dh_installtex</command>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">tex-common</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">tex-common</systemitem> trong "
+"trường <literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with tex</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with tex</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "This registers Type 1 fonts, hyphenation patterns, and formats with TeX."
 msgstr ""
+"Thao tác này sẽ đăng ký các phông chữ Loại 1, các mẫu phân đoạn và các định "
+"dạng với TeX."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "Add support for the <command>dh_quilt_patch</command> and <command>dh_quilt_unpatch</"
 "command> commands."
 msgstr ""
+"Thêm 2 lệnh hỗ trợ <command>dh_quilt_patch</command> và "
+"<command>dh_quilt_unpatch</command>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">quilt</systemitem> package in <literal>Build-"
 "Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">quilt</systemitem> trong trường "
+"<literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with quilt</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with quilt</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
@@ -4698,86 +4892,106 @@ msgid ""
 "<filename>debian/patches</filename> directory for a source package in the <literal>1.0</"
 "literal> format."
 msgstr ""
+"Nó áp dụng và bỏ áp dụng các bản vá cho mã nguồn ở thượng nguồn từ các tệp "
+"tin trong thư mục  <filename>debian/patches</filename> cho gói nguồn với "
+"định dạng <literal>1.0</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "This is not needed if you use the new <literal>3.0 (quilt)</literal> source package "
 "format."
 msgstr ""
+"Điều này là không cần thiết nếu bạn sử dụng định dạng gói nguồn mới "
+"<literal>3.0 (quilt)</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "Add support for the <command>dh_dkms</command> command."
-msgstr ""
+msgstr "Thêm lệnh hỗ trợ <command>dh_dkms</command>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">dkms</systemitem> package in <literal>Build-"
 "Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">dkms</systemitem> trong trường "
+"<literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with dkms</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with dkms</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "This correctly handles DKMS usage by kernel module packages."
-msgstr ""
+msgstr "Điều này xử lý chính xác việc sử dụng DKMS của gói mô-đun hạt nhân."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "Add support for the <command>dh_autotools-dev_updateconfig</command> and "
 "<command>dh_autotools-dev_restoreconfig</command> commands."
 msgstr ""
+"Thêm lệnh hỗ trợ <command>dh_autotools-dev_updateconfig</command> "
+"và <command>dh_autotools-dev_restoreconfig</command>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">autotools-dev</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">autotools-dev</systemitem> trong "
+"trường <literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with autotools-dev</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with autotools-dev</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "This updates and restores <filename>config.sub</filename> and <filename>config.guess</"
 "filename>."
 msgstr ""
+"Việc này cập nhật và khôi phục tệp <filename>config.sub</filename> và "
+"<filename>config.guess</filename>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "Add support for the <command>dh_autoreconf</command> and <command>dh_autoreconf_clean</"
 "command> commands."
 msgstr ""
+"Thêm lệnh hỗ trợ <command>dh_autoreconf</command> và "
+"<command>dh_autoreconf_clean</command>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Include the <systemitem role=\"package\">dh-autoreconf</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói  <systemitem role=\"package\">dh-autoreconf</systemitem> package "
+"in <literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with autoreconf</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with autoreconf</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "This updates the GNU Build System files and restores them after the build."
 msgstr ""
+"Nó cập nhật các tệp GNU Build System và khôi phục chúng sau khi xây dựng."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "Add support for the <command>dh_girepository</command> command."
-msgstr ""
+msgstr "Thêm lệnh hỗ trợ <command>dh_girepository</command>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Includes the <systemitem role=\"package\">gobject-introspection</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">gobject-introspection</systemitem> "
+"trong trường <literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with gir</literal> instead."
-msgstr ""
+msgstr "Use <literal>dh $@ --with gir</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
@@ -4785,26 +4999,32 @@ msgid ""
 "generates the <literal>${gir:Depends}</literal> substitution variable for the package "
 "dependency."
 msgstr ""
+"Điều này tính toán các gói phụ thuộc cho các gói truyền dữ liệu đối tượng GObject và tạo ra "
+"tên các gói thay thế cho <literal>${gir:Depends}</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "Add support for the <command>bash</command> completion feature."
-msgstr ""
+msgstr "Thêm hỗ trợ cho tính năng gõ nhanh trong <command>bash</command>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "Includes the <systemitem role=\"package\">bash-completion</systemitem> package in "
 "<literal>Build-Depends</literal>."
 msgstr ""
+"Bao gồm gói <systemitem role=\"package\">bash-completion</systemitem> trong trường "
+"<literal>Build-Depends</literal>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid "Use <literal>dh $@ --with bash-completion</literal> instead."
-msgstr ""
+msgstr "Sử dụng <literal>dh $@ --with bash-completion</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><itemizedlist><listitem><para>
 msgid ""
 "This installs <command>bash</command> completions using a configuration file at "
 "<filename>debian/<replaceable>package</replaceable>.bash-completion</filename>."
 msgstr ""
+"Cài đặt <command>bash</command> completions sử dụng một tệp cấu hình tại "
+"<filename>debian/<replaceable>package</replaceable>.bash-completion</filename>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4813,6 +5033,10 @@ msgid ""
 "filename> directory.  See <xref linkend=\"dother\"/> and the manpage of each command "
 "for the customization of such features."
 msgstr ""
+"Nhiều lệnh <command>dh_*</command> được gọi từ <command>dh</command> mới "
+"có thể tuỳ chỉnh các tệp cấu hình tương ứng trong thư mục <filename>debian</"
+"filename>.  Xem <xref linkend=\"dother\"/> và sách hướng dẫn của mỗi lệnh "
+"cho việc tùy chỉnh tính năng như vậy."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4820,6 +5044,9 @@ msgid ""
 "<command>dh_*</command> script you found the relevant line in the <filename>rules</"
 "filename> file and adjusted it."
 msgstr ""
+"Trong phiên bản <literal>lenny</literal>, nếu bạn muốn thay đổi hành vi của một tập lệnh "
+"<command>dh_*</command>, bạn sẽ phải tìm thấy dòng liên quan trong <filename>rules</"
+"filename> và tự điều chỉnh nó."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4832,6 +5059,14 @@ msgid ""
 "It basically says <emphasis>run me instead</emphasis>.  <placeholder type=\"footnote\" "
 "id=\"0\"/>"
 msgstr ""
+"Bạn có thể cần phải chạy lệnh <command>dh_*</command> được gọi qua <command>dh</command> "
+"mới với các đối số được thêm vào, hoặc để chạy các lệnh bổ sung với chúng, hoặc bỏ qua "
+"chúng.  Đối với các trường hợp như vậy, bạn tạo một target mới là <literal>override_dh_"
+"<replaceable>foo</replaceable></literal> bằng quy tắc của nó trong tệp <filename>rules"
+"</filename> địng nghĩa một target <literal>override_dh_<replaceable>foo</replaceable>"
+"</literal> cho lệnh <command>dh_<replaceable>foo</replaceable></command> bạn muốn thay đổi. "
+"Về cơ bản có nghĩa là <emphasis>chạy tôi thay vì mặc định</emphasis>. <placeholder type="
+"\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4842,6 +5077,12 @@ msgid ""
 "literal> target) since it may bypass such smart <systemitem role=\"package\">debhelper</"
 "systemitem> features."
 msgstr ""
+"Xin lưu ý rằng các lệnh <command>dh_auto_*</command> có xu hứng làm nhiều hơn những gì "
+"đã giải thích một cách đơn giản ở đây nhằm có thể quản lý toàn bộ trường hợp có thể xảy ra.  "
+"Nó sẽ là một ý tưởng tồi để sử dụng các target <literal>override_dh_*</literal> để thay thế "
+"các lệnh tương đương đã đơn giản hoá (ngoại trừ target <literal>override_dh_auto_clean</"
+"literal> target) vì nó có thể bỏ qua những tính năng thông minh từ gói <systemitem role="
+"\"package\">debhelper</systemitem> features."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4852,6 +5093,11 @@ msgid ""
 "given by the <command>dh_auto_configure</command> command to the <command>./configure</"
 "command> command by the following:"
 msgstr ""
+"Ví dụ: Nếu bạn muốn lưu dữ liệu cấu hình hệ thống vào thư mục <filename>/etc/"
+"gentoo</filename> thay vì thư mục cha <filename>/etc</filename> cho gói <systemitem role="
+"\"package\">gentoo</systemitem> hãy sử dụng Autotools, bạn có thể viết đè đối số mặc định "
+"<literal>--sysconfig=/etc</literal> được sử dụng bởi lệnh <command>dh_auto_configure</command>"
+"để chaỵ lệnh <command>./configure</command> như sau:"
 
 #. type: Content of: <book><chapter><section><section><screen>
 #, no-wrap
@@ -4859,6 +5105,8 @@ msgid ""
 "override_dh_auto_configure:\n"
 "        dh_auto_configure -- --sysconfig=/etc/gentoo\n"
 msgstr ""
+"override_dh_auto_configure:\n"
+"        dh_auto_configure -- --sysconfig=/etc/gentoo\n"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4868,12 +5116,19 @@ msgid ""
 "command here since it will only override the <literal>--sysconfig</literal> argument "
 "and retains any other, benign arguments to the <command>./configure</command> command."
 msgstr ""
+"Các đối số được truyền vào <literal>--</literal> sẽ được nối vào đối số mặc định của "
+"chương trình \"tự động-thực hiện\" để ghi đè chúng.  Sử dụng lệnh <command>dh_auto_"
+"configure</command> sẽ tốt hơn so với việc trực tiếp gọi lệnh <command>./configure"
+"</command> ở đây vì nó sẽ chỉ ghi đè đối số <literal>--sysconfig</literal> mà giữ "
+"lại bất kỳ đối số hữu ích nào khác cho lệnh <command>./configure </command>."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
 "<command>dh_auto_build</command> without any arguments will execute the first target in "
 "the <filename>Makefile</filename>."
 msgstr ""
+"<command>dh_auto_build</command> với không có đối số sẽ thực hiện target đầu tiên trong "
+"tệp <filename>Makefile</filename>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4882,6 +5137,10 @@ msgid ""
 "to build it <placeholder type=\"footnote\" id=\"0\"/>, you create an "
 "<literal>override_dh_auto_build</literal> target to enable this."
 msgstr ""
+"Nếu tệp <filename>Makefile</filename> trong mã nguồn của gói <systemitem role=\"package"
+"\">gentoo</systemitem> yêu cầu bạn chỉ định target <literal>build</literal> là target "
+"để xây dựng chương trình đó <placeholder type=\"footnote\" id=\"0\"/>, bạn có thể tạo "
+"một target <literal>override_dh_auto_build</literal> để kích hoạt điều này."
 
 #. type: Content of: <book><chapter><section><section><screen>
 #, no-wrap
@@ -4889,12 +5148,16 @@ msgid ""
 "override_dh_auto_build:\n"
 "        dh_auto_build -- build\n"
 msgstr ""
+"override_dh_auto_build:\n"
+"        dh_auto_build -- build\n"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "This ensures <literal>$(MAKE)</literal> is run with all the default arguments given by "
 "the <command>dh_auto_build</command> command plus the <literal>build</literal> argument."
 msgstr ""
+"Điều này đảm bảo <literal>$(MAKE)</literal> được chạy với tất cả các đối số mặc định được "
+"cung cấp bởi lệnh <command>dh_auto_build</command> cộng với đối số <literal>build</literal>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4904,6 +5167,11 @@ msgid ""
 "or <literal>clean</literal> targets, you can create an <literal>override_dh_auto_clean</"
 "literal> target to enable it."
 msgstr ""
+"Nếu tệp <filename>Makefile</filename> trong mã nguồn cho <systemitem role=\"package"
+"\">gentoo</systemitem> yêu cầu bạn chỉ định target <literal>packageclean</literal> để "
+"làm sạch môi trường xây dựng cho gói Debian package thay vì sử dụng <literal>distclean</literal> "
+"hoặc <literal>clean</literal>, bạn có thể tạo một target <literal>override_dh_auto_clean</"
+"literal> để kích hoạt chúng."
 
 #. type: Content of: <book><chapter><section><section><screen>
 #, no-wrap
@@ -4911,6 +5179,8 @@ msgid ""
 "override_dh_auto_clean:\n"
 "        $(MAKE) packageclean\n"
 msgstr ""
+"override_dh_auto_clean:\n"
+"        $(MAKE) packageclean\n"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4919,11 +5189,15 @@ msgid ""
 "to run for the Debian package building process, you can use an empty "
 "<literal>override_dh_auto_test</literal> target to skip it."
 msgstr ""
+"Nếu tệp <filename>Makefile</filename> trong mã nguồn cho <systemitem role=\"package"
+"\">gentoo</systemitem> chứa một target <literal>test</literal> mà bạn không muốn "
+"chạy nó trong quá trình xây dựng gói Debian, bạn có thể sử dụng một target "
+"<literal>override_dh_auto_test</literal> trống để bỏ qua nó."
 
 #. type: Content of: <book><chapter><section><section><screen>
 #, no-wrap
 msgid "override_dh_auto_test:\n"
-msgstr ""
+msgstr "override_dh_auto_test:\n"
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -4933,6 +5207,10 @@ msgid ""
 "<filename>changes</filename>, <filename>changelog.txt</filename>, and <filename>changes."
 "txt</filename>."
 msgstr ""
+"Các tệp tin <filename>debian/changelog</filename> và <filename>debian/NEWS</filename> "
+"luôn luôn được cài đặt tự động. Lịch sử sửa đổi của thượng nguồn được tìm thấy được chuyển "
+"thành tệp chữ thường <filename>changelog</filename>, <filename>changes</filename>, <filename>changelog.txt</filename>, và <filename>changes."
+"txt</filename>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4942,6 +5220,11 @@ msgid ""
 "requires <filename>FIXES</filename> as its argument to install it.  <placeholder type="
 "\"footnote\" id=\"0\"/>"
 msgstr ""
+"Nếu <systemitem role=\"package\">gentoo</systemitem> có chứa changelog từ thượng nguồn "
+"khác thường như  tệp <filename>FIXES</filename>, <command>dh_installchangelogs</command> "
+"mặc định sẽ không cài đặt tệp này. Lệnh <command>dh_installchangelogs</command> yêu cầu "
+"<filename>FIXES</filename> như là đối số của nó để cài đặt tệp này.  <placeholder type="
+"\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><screen>
 #, no-wrap
@@ -4949,6 +5232,8 @@ msgid ""
 "override_dh_installchangelogs:\n"
 "        dh_installchangelogs FIXES\n"
 msgstr ""
+"override_dh_installchangelogs:\n"
+"        dh_installchangelogs FIXES\n"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -4958,6 +5243,10 @@ msgid ""
 "explicit targets to <literal>override_dh_*</literal> targets and completely independent "
 "ones, if possible."
 msgstr ""
+"Khi bạn sử dụng lệnh <command>dh</command> mới, hãy sử dụng các target rõ ràng được liệt "
+"kê trong <xref linkend=\"targets\"/>, khác với target <literal>get-orig-source</literal> "
+", có thể khó khăn để hiểu được chính xác hiệu quả. Vui lòng hạn chế target rõ ràng đối với "
+"các target <literal>override_dh_*</literal> và các target độc lập, nếu có thể."
 
 #. type: Content of: <book><chapter><title>
 msgid "Other files under the <filename>debian</filename> directory"
