@@ -62,17 +62,17 @@
             <dl>
               <dt>
                 <span class="section">
-                  <a href="dreq.vi.html#targets">4.4.1. Targets of the <code class="filename">rules</code> file</a>
+                  <a href="dreq.vi.html#targets">4.4.1. Các target của tệp <code class="filename">rules</code></a>
                 </span>
               </dt>
               <dt>
                 <span class="section">
-                  <a href="dreq.vi.html#defaultrules">4.4.2. Default <code class="filename">rules</code> file</a>
+                  <a href="dreq.vi.html#defaultrules">4.4.2. Tệp <code class="filename">rules</code> mặc định</a>
                 </span>
               </dt>
               <dt>
                 <span class="section">
-                  <a href="dreq.vi.html#customrules">4.4.3. Customization of <code class="filename">rules</code> file</a>
+                  <a href="dreq.vi.html#customrules">4.4.3. Tuỳ chỉnh tệp <code class="filename">rules</code></a>
                 </span>
               </dt>
             </dl>
@@ -562,29 +562,28 @@ Cuối cùng, đây là tệp <code class="filename">control</code> đã đượ
           </div>
         </div>
         <p>
-This file contains information about the copyright and license of the
-upstream sources.  <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-docs.html#s-copyrightfile">Debian Policy Manual,
-12.5 "Copyright information"</a> dictates its content and <a class="ulink" href="http://dep.debian.net/deps/dep5/">DEP-5: Machine-parseable
-<code class="filename">debian/copyright</code></a> provides guidelines for its
-format.
+Tập tin này chứa thông tin về bản quyền và giấy phép của các nguồn thượng
+nguồn  <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-docs.html#s-copyrightfile">Debian Policy Manual, 12.5 "Copyright
+information"</a> kiểm soát nội dung của nó và <a class="ulink" href="http://dep.debian.net/deps/dep5/">DEP-5:
+Machine-parseable <code class="filename">debian/copyright</code></a> cung cấp các
+chỉ dẫn cho định dạng của nó
 </p>
         <p>
-<span class="command"><strong>dh_make</strong></span> can give you a template
-<code class="filename">copyright</code> file.  Let's use the <code class="literal">--copyright
-gpl2</code> option here to get a template file for the <code class="systemitem">gentoo</code> package released under GPL-2.
+<span class="command"><strong>dh_make</strong></span> có thể cho bạn một tệp mẫu
+<code class="filename">copyright</code> . Hãy sử dụng tuỳ chọn <code class="literal">--copyright
+gpl2</code> để lấy tệp mẫu cho  gói  <code class="systemitem">gentoo</code> phát hành dưói giấy phép GPL-2.
 </p>
         <p>
-You must fill in missing information to complete this file, such as the
-place you got the package from, the actual copyright notice, and the
-license.  For certain common free software licenses (GNU GPL-1, GNU GPL-2,
-GNU GPL-3, LGPL-2, LGPL-2.1, LGPL-3, GNU FDL-1.2, GNU FDL-1.3, Apache-2.0,
-or the Artistic license), you can just refer to the appropriate file in the
-<code class="filename">/usr/share/common-licenses/</code> directory that exists on
-every Debian system.  Otherwise, you must include the complete license.
+Bạn phải điền thông tin còn thiếu để hoàn thành tệp này, chẳng hạn như nơi
+tạo ra gói ,thông báo bản quyền thực tế, và giấy phép. Đối với một số giấy
+phép phần mềm tự do thông thường (GNU GPL-1, GNU GPL-2, GNU GPL-3, LGPL-2,
+LGPL-2.1, LGPL-3, GNU FDL-1.2, GNU FDL-1.3, Apache-2.0, hoặc Artistic
+license), bạn chỉ cần tham khảo các tệp thích hợp trong thư mục
+<code class="filename">/usr/share/common-licenses/</code> tồn tại trên bất kỳ hệ
+thống Debian. Nếu không, bạn phải bao gồm giấy phép đầy đủ.
 </p>
         <p>
-In short, here's what <code class="systemitem">gentoo</code>'s
-<code class="filename">copyright</code> file should look like:
+Tóm lại, tệp <code class="filename">copyright</code> của gói <code class="systemitem">gentoo</code> trông sẽ như sau:
 </p>
         <pre class="screen">
  1 Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&amp;rev=135
@@ -626,8 +625,8 @@ In short, here's what <code class="systemitem">gentoo</code>'s
 (Tôi đã thêm các số dòng.)
 </p>
         <p>
-Please follow the HOWTO provided by the ftpmasters and sent to
-debian-devel-announce: <a class="ulink" href="http://lists.debian.org/debian-devel-announce/2006/03/msg00023.html">http://lists.debian.org/debian-devel-announce/2006/03/msg00023.html</a>.
+Hãy làm theo HOWTO cung cấp bởi ftpmasters và gửi tới debian-devel-announce:
+<a class="ulink" href="http://lists.debian.org/debian-devel-announce/2006/03/msg00023.html">http://lists.debian.org/debian-devel-announce/2006/03/msg00023.html</a>.
 </p>
       </div>
       <div class="section">
@@ -639,22 +638,20 @@ debian-devel-announce: <a class="ulink" href="http://lists.debian.org/debian-dev
           </div>
         </div>
         <p>
-This is a required file, which has a special format described in <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-dpkgchangelog">Debian Policy Manual, 4.4
-"debian/changelog"</a>.  This format is used by <span class="command"><strong>dpkg</strong></span>
-and other programs to obtain the version number, revision, distribution, and
-urgency of your package.
+Đây là tệp yêu cầu, có định dạng đặc biệt được mô tả trong <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-dpkgchangelog">Debian Policy Manual, 4.4
+"debian/changelog"</a>. Định dạng này được sử dụng bởi
+<span class="command"><strong>dpkg</strong></span> và các chương trình khác để đọc số phiên bản, số sửa
+đổi, bản phân phối và tính khẩn cấp của gói
 </p>
         <p>
-For you, it is also important, since it is good to have documented all
-changes you have done.  It will help people downloading your package to see
-whether there are issues with the package that they should know about.  It
-will be saved as
-<code class="filename">/usr/share/doc/gentoo/changelog.Debian.gz</code> in the binary
-package.
+Đối với bạn, điều này cũng rất quan trọng vì bạn nên ghi lại tất cả những
+thay đổi bạn đã làm. Nó sẽ giúp mọi người tải gói của bạn và xem liệu có vấn
+đề gì với gói mà họ cần biết hay không. Nó sẽ được lưu lại như
+<code class="filename">/usr/share/doc/gentoo/changelog.Debian.gz</code> trong gói nhị
+phân.
 </p>
         <p>
-<span class="command"><strong>dh_make</strong></span> created a default one, and this is what it looks
-like:
+<span class="command"><strong>dh_make</strong></span> tạo ra tệp mặc định, và nó sẽ trông như sau:
 </p>
         <pre class="screen">
 1  gentoo (0.9.12-1) unstable; urgency=low
@@ -668,28 +665,29 @@ like:
 (Tôi đã thêm các số dòng.)
 </p>
         <p>
-Line 1 is the package name, version, distribution, and urgency.  The name
-must match the source package name; distribution should be
-<code class="literal">unstable</code>, and urgency shouldn't be changed to anything
-higher than <code class="literal">low</code>.  :-)
+Dòng 1 là tên gói, phiên bản, phân phối và mức độ khẩn cấp. Tên phải khớp
+với tên gói nguồn; Phân phối nên là <code class="literal">unstable</code>, và không
+nên thay đổi mức độ khẩn cấp lên bất cứ điều gì cao hơn
+<code class="literal">low</code>.  :-)
 </p>
         <p>
-Lines 3-5 are a log entry, where you document changes made in this package
-revision (not the upstream changes - there is a special file for that
-purpose, created by the upstream authors, which you will later install as
-<code class="filename">/usr/share/doc/gentoo/changelog.gz</code>).  Let's assume your
-ITP (Intent To Package) bug report number was <code class="literal">12345</code>.  New
-lines must be inserted just below the uppermost line that begins with
-<code class="literal">*</code> (asterisk).  You can do it with <span class="citerefentry"><span class="refentrytitle">dch</span>(1)</span>,
-or manually with a text editor.
+Dòng 3-5 là một mục thông tin, nơi bạn ghi lại những thay đổi được thực hiện
+trong bản sửa đổi gói này (không phải là những thay đổi ở thượng nguồn - có
+một tệp tin đặc biệt cho mục đích đó được tạo ra bởi các tác giả thượng
+nguồn, mà sau này bạn sẽ cài đặt dưới dạng
+<code class="filename">/usr/share/doc/gentoo/changelog.gz</code>). Hãy giả sử báo lỗi
+ITP (Intent To Package) của bạn có số là <code class="literal">12345</code>. Các dòng
+mới chèn trên dòng trên cùng nhất của mục nội dung này và bắt đầu với
+<code class="literal">*</code> (dấu sao).  Bạn có thể  thực hiện điều này với
+<span class="citerefentry"><span class="refentrytitle">dch</span>(1)</span>, hoặc bằng tay với một trình soạn thảo
 </p>
         <p>
-In order to prevent a package being accidentally uploaded before completing
-the package, it is good idea to change the distribution value to an invalid
-distribution value <code class="literal">UNRELEASED</code>.
+Để ngăn chặn một gói bị vô tình tải lên trước khi hoàn thành gói, bạn nên
+thay đổi giá trị phân phối thành chưa phát hành
+<code class="literal">UNRELEASED</code>.
 </p>
         <p>
-You will end up with something like this:
+Bạn sẽ kết thúc với một cái gì đó như thế này:
 </p>
         <pre class="screen">
 1  gentoo (0.9.12-1) UNRELEASED; urgency=low
@@ -705,15 +703,13 @@ You will end up with something like this:
 (Tôi đã thêm các số dòng.)
 </p>
         <p>
-Once you are satisfied with all the changes and documented them in
-<code class="filename">changelog</code>, you should change the distribution value
-from <code class="literal">UNRELEASED</code> to the target distribution value
-<code class="literal">unstable</code> (or even <code class="literal">experimental</code>).
-<a href="#ftn.idm1496" class="footnote" id="idm1496"><sup class="footnote">[36]</sup></a>
+Khi bạn đã hài lòng với tất cả các thay đổi và ghi lại chúng trong
+<code class="filename">changelog</code>, bạn nên thay đổi giá trị phân phối từ
+<code class="literal">UNRELEASED</code> sang  <code class="literal">unstable</code> (hoặc ngay
+cả <code class="literal">experimental</code>).  <a href="#ftn.idm1496" class="footnote" id="idm1496"><sup class="footnote">[36]</sup></a>
 </p>
         <p>
-You can read more about updating the <code class="filename">changelog</code> file
-later in <a class="xref" href="update.vi.html" title="Chương 8. Cập nhật gói phần mềm">Chương 8, <em>Cập nhật gói phần mềm</em></a>.
+Bạn có thể đọc về cập nhật tệp <code class="filename">changelog</code> tại <a class="xref" href="update.vi.html" title="Chương 8. Cập nhật gói phần mềm">Chương 8, <em>Cập nhật gói phần mềm</em></a>.
 </p>
       </div>
       <div class="section">
@@ -725,124 +721,123 @@ later in <a class="xref" href="update.vi.html" title="Chương 8. Cập nhật
           </div>
         </div>
         <p>
-Now we need to take a look at the exact rules which <span class="citerefentry"><span class="refentrytitle">dpkg-buildpackage</span>(1)</span> will use to actually create the package.  This file is in
-fact another <code class="filename">Makefile</code>, but different from the one(s) in
-the upstream source.  Unlike other files in <code class="filename">debian</code>,
-this one is marked as executable.
+Bây giờ chúng ta cần phải xem xét các quy tắc chính xác mà <span class="citerefentry"><span class="refentrytitle">dpkg-buildpackage</span>(1)</span> sẽ thực sự sử dụng để tạo gói. Tệp này thật sự là tệp
+<code class="filename">Makefile</code>, nhưng nó khác với (các) tệp Makefile trong
+nguồn của thượng nguồn. Và không giống các tệp khác trong thư mục
+<code class="filename">debian</code>, đây là tệp thực thi
 </p>
         <div class="section">
           <div class="titlepage">
             <div>
               <div>
-                <h3 class="title"><a id="targets"/>4.4.1. Targets of the <code class="filename">rules</code> file</h3>
+                <h3 class="title"><a id="targets"/>4.4.1. Các target của tệp <code class="filename">rules</code></h3>
               </div>
             </div>
           </div>
           <p>
-Every <code class="filename">rules</code> file, like any other
-<code class="filename">Makefile</code>, consists of several rules, each of which
-defines a target and how it is carried out.  <a href="#ftn.idm1518" class="footnote" id="idm1518"><sup class="footnote">[37]</sup></a> A new rule begins with its target declaration in the first column.
-The following lines beginning with the TAB code (ASCII 9) specify the recipe
-for carrying out that target.  Empty lines and lines beginning with
-<code class="literal">#</code> (hash) are treated as comments and ignored.
-<a href="#ftn.idm1526" class="footnote" id="idm1526"><sup class="footnote">[38]</sup></a>
+Mọi tệp <code class="filename">rules</code>, giống bất kỳ
+<code class="filename">Makefile</code> khác, bao gồm một vài quy tắc, địng nghĩa nên
+target và cách nó thực hiện như thế nào. <a href="#ftn.idm1518" class="footnote" id="idm1518"><sup class="footnote">[37]</sup></a> Một quy tắc mới bắt đầu với tuyên bố tên target của nó trong cột
+đầu tiên. Các dòng theo sau bắt đầu với phím TAB (ASCII 9) để chỉ định công
+thức thực hiện target đó. Các dòng trống và các dòng bắt đầu với
+<code class="literal">#</code> (thăng) được xem là nhận xét và bị bỏ qua. <a href="#ftn.idm1526" class="footnote" id="idm1526"><sup class="footnote">[38]</sup></a>
 </p>
           <p>
-A rule that you want to execute is invoked by its target name as a command
-line argument.  For example, <code class="literal">debian/rules
-<em class="replaceable"><code>build</code></em></code> and <code class="literal">fakeroot make -f
-debian/rules <em class="replaceable"><code>binary</code></em></code> execute rules for
-<code class="literal"><em class="replaceable"><code>build</code></em></code> and
-<code class="literal"><em class="replaceable"><code>binary</code></em></code> targets respectively.
+Một quy tắc mà bạn muốn thực hiện được gọi bởi tên target của nó như là một
+đối số dòng lệnh. Ví dụ,  <code class="literal">debian/rules
+<em class="replaceable"><code>build</code></em></code> và <code class="literal">fakeroot make -f
+debian/rules <em class="replaceable"><code>binary</code></em></code> thực hiện các quy
+tắc cho các target là <code class="literal"><em class="replaceable"><code>build</code></em></code> và
+<code class="literal"><em class="replaceable"><code>binary</code></em></code>.
 </p>
           <p>
-Here is a simplified explanation of the targets:
+Đây là một giải thích đơn giản của các target
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
-<code class="literal">clean</code> target: to clean all compiled, generated, and
-useless files in the build-tree.  (Required)
+<code class="literal">clean</code>: làm sạch tất cả các tệp đã biên dịch, sinh ra và
+vô ích trong build-tree(Yêu cầu)
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">build</code> target: to build the source into compiled programs
-and formatted documents in the build-tree.  (Required)
+<code class="literal">build</code>: xây dựng từ mã nguồn thành các chương trình và
+sinh các tài liệu trong build-tree.  (Bắt buộc)
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">build-arch</code> target: to build the source into
-arch-dependent compiled programs in the build-tree.  (Required)
+<code class="literal">build-arch</code>: xây dựng mã nguồn thành các chuơng trình phụ
+thuộc vào kiến trúc trong build-tree.  (Bắt buộc)
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">build-indep</code> target: to build the source into
-arch-independent formatted documents in the build-tree.  (Required)
+<code class="literal">build-indep</code>: xây dựng mã nguổn thành các tài liệu không
+phụ thuộc và kiến trúc trong build-tree. (Bắt buộc)
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">install</code> target: to install files into a file tree for
-each binary package under the <code class="filename">debian</code> directory.  If
-defined, <code class="literal">binary*</code> targets effectively depend on this
-target.  (Optional)
+<code class="literal">install</code>: cài đặt các tệp tin vào hệ thống giả cho mỗi gói
+nhị phần dưới thư mục <code class="filename">debian</code>.  Nếu địng nghĩa target
+<code class="literal">binary*</code> sẽ có hiệu quả phụ thuộc vào target này.  (Tuỳ
+chọn)
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">binary</code> target: to create all binary packages (effectively
-a combination of <code class="literal">binary-arch</code> and
-<code class="literal">binary-indep</code> targets).  (Required)<a href="#ftn.idm1562" class="footnote" id="idm1562"><sup class="footnote">[39]</sup></a>
+<code class="literal">binary</code>: tạo tất cả gói nhị phân ( sẽ hiểu quả khi là sự
+kết hợp của <code class="literal">binary-arch</code> và
+<code class="literal">binary-indep</code> .  (Bắt buộc)<a href="#ftn.idm1562" class="footnote" id="idm1562"><sup class="footnote">[39]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">binary-arch</code> target: to create arch-dependent
-(<code class="literal">Architecture: any</code>) binary packages in the parent
-directory.  (Required)<a href="#ftn.idm1570" class="footnote" id="idm1570"><sup class="footnote">[40]</sup></a>
+<code class="literal">binary-arch</code>: tạo các gói nhị phân phụ thuộc
+(<code class="literal">Architecture: any</code>) trong thụ mục cha.  (Bắt
+buộc)<a href="#ftn.idm1570" class="footnote" id="idm1570"><sup class="footnote">[40]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">binary-indep</code> target: to create arch-independent
-(<code class="literal">Architecture: all</code>) binary packages in the parent
-directory.  (Required)<a href="#ftn.idm1578" class="footnote" id="idm1578"><sup class="footnote">[41]</sup></a>
+<code class="literal">binary-indep</code>: để tạo ra các gói nhị phân không phụ thuộc
+(arch-independent)(<code class="literal">Architecture: all</code>) trong thu mục
+cha. (Bắt buộc)<a href="#ftn.idm1578" class="footnote" id="idm1578"><sup class="footnote">[41]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">get-orig-source</code> target: to obtain the most recent version
-of the original source package from an upstream archive.  (Optional)
+<code class="literal">get-orig-source</code>: để lấy phiên bản gần nhất của gói nguồn
+gốc từ một bản lưu trữ thượng nguồn.  (Tuỳ chọn)
 </p>
               </li>
             </ul>
           </div>
           <p>
-You are probably overwhelmed by now, but things are much simpler upon
-examination of the <code class="filename">rules</code> file that
-<span class="command"><strong>dh_make</strong></span> gives us as a default.
+Bạn bây giờ có thể bị choáng ngợp, nhưng mọi thứ đơn giản hơn nhiều khi kiểm
+tra tệp <code class="filename">rules</code> mà <span class="command"><strong>dh_make</strong></span> sử dụng làm
+mặc định.
 </p>
         </div>
         <div class="section">
           <div class="titlepage">
             <div>
               <div>
-                <h3 class="title"><a id="defaultrules"/>4.4.2. Default <code class="filename">rules</code> file</h3>
+                <h3 class="title"><a id="defaultrules"/>4.4.2. Tệp <code class="filename">rules</code> mặc định</h3>
               </div>
             </div>
           </div>
           <p>
-Newer <span class="command"><strong>dh_make</strong></span> generates a very simple but powerful
-default <code class="filename">rules</code> file using the <span class="command"><strong>dh</strong></span>
-command:
+Phiên bản <span class="command"><strong>dh_make</strong></span> mới nhất tạo một tệp
+<code class="filename">rules</code> đơn giản nhưng mạnh mẽ bằng sử dụng lệnh
+<span class="command"><strong>dh</strong></span>:
 </p>
           <pre class="screen">
  1 #!/usr/bin/make -f
- 2 # See debhelper(7) (uncomment to enable)
+ 2 # Xem debhelper(7) (bỏ chú thích để kích hoạt)
  3 # output every command that modifies files on the build system.
  4 #DH_VERBOSE = 1
  5 
@@ -864,38 +859,41 @@ command:
 21         dh $@ 
 </pre>
           <p>
-(I've added the line numbers and trimmed some comments.  In the actual
-<code class="filename">rules</code> file, the leading spaces are a TAB code.)
+(Tôi đã thêm các số dòng và thêm một số chú thích. Trong tệp tin
+<code class="filename">rules</code> thực tế, các ký tự khoảng cách là một mã TAB.)
 </p>
           <p>
-You are probably familiar with lines like line 1 from shell and Perl
-scripts.  It tells the operating system that this file is to be processed
-with <code class="filename">/usr/bin/make</code>.
+Có thể bạn đã quen thuộc với các dòng như dòng 1 từ kịch bản shell hay
+Perl. Nó nói với hệ điều hành rằng tập tin này sẽ được xử lý với
+<code class="filename">/usr/bin/make</code>.
 </p>
           <p>
-Line 4 can be uncommented to set the <code class="literal">DH_VERBOSE</code> variable
-to 1, so that the <span class="command"><strong>dh</strong></span> command outputs which
-<span class="command"><strong>dh_*</strong></span> commands it is executing.  You can also add a line
-<code class="literal">export DH_OPTIONS=-v</code> here, so that each
-<span class="command"><strong>dh_*</strong></span> command outputs which commands it is executing.
-This helps you to understand exactly what is going on behind this simple
-<code class="filename">rules</code> file and to debug its problems.  This new
-<span class="command"><strong>dh</strong></span> is designed to form a core part of the <code class="systemitem">debhelper</code> tools, and not to hide anything from
-you.
+Dòng 4 có thể bỏ ghi chú để đặt biến <code class="literal">DH_VERBOSE</code> thành 1,
+sao cho các lệnh <span class="command"><strong>dh</strong></span> hiển thị các lệnh
+<span class="command"><strong>dh_*</strong></span> được thực hiện.  Bạn cũng có thể thêm một dòng
+<code class="literal">export DH_OPTIONS=-v</code> ở đây, để mỗi
+<span class="command"><strong>dh_*</strong></span> hiển thị thêm nhiểu kết quả đầu ra mà lệnh được thực
+hiện như thế nào. Điều này giúp bạn hiểu chính xác điều gì đang xảy ra đằng
+sau tệp tin đơn giản <code class="filename">rules</code> này và để gỡ lỗi các vấn đề
+gặp phải. <span class="command"><strong>dh</strong></span> là công cụ mới được thiết kế để trở thành
+một phần cốt lõi của công cụ <code class="systemitem">debhelper</code>, và không che giấu bất cứ điều gì từ
+bạn.
 </p>
           <p>
-Lines 20 and 21 are where all the work is done with an implicit rule using
-the pattern rule.  The percent sign means "any targets", which then call a
-single program, <span class="command"><strong>dh</strong></span>, with the target name.  <a href="#ftn.idm1610" class="footnote" id="idm1610"><sup class="footnote">[42]</sup></a> The <span class="command"><strong>dh</strong></span> command is a wrapper
-script which runs appropriate sequences of <span class="command"><strong>dh_*</strong></span> programs
-depending on its argument.  <a href="#ftn.idm1626" class="footnote" id="idm1626"><sup class="footnote">[43]</sup></a>
+Các dòng 20 và 21 là nơi mà tất cả công việc được thực hiện với một quy tắc
+ngầm định sử dụng quy tắc mẫu. Dấu hiệu phần trăm có nghĩa là"bất kỳ mục
+tiêu" nào, sau đó gọi một chương trình duy nhất, <span class="command"><strong>dh</strong></span>, với
+tên mục tiêu.  <a href="#ftn.idm1610" class="footnote" id="idm1610"><sup class="footnote">[42]</sup></a> Lệnh
+<span class="command"><strong>dh</strong></span> là một gói tập lệnh bao gồm các trình tự thích hợp của
+các chương trình <span class="command"><strong>dh_*</strong></span> tùy thuộc vào đối số của nó.
+<a href="#ftn.idm1626" class="footnote" id="idm1626"><sup class="footnote">[43]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
-<code class="literal">debian/rules clean</code> runs <code class="literal">dh clean</code>,
-which in turn runs the following:
+<code class="literal">debian/rules clean</code> chạy <code class="literal">dh clean</code>,
+chúng bao gồm chạy các lệnh sau:
 </p>
                 <pre class="screen">
 dh_testdir
@@ -905,8 +903,8 @@ dh_clean
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">debian/rules build</code> runs <code class="literal">dh build</code>;
-which in turn runs the following:
+<code class="literal">debian/rules build</code> chạy <code class="literal">dh build</code>;
+chúng bao gồm chạy các lệnh sau:
 </p>
                 <pre class="screen">
 dh_testdir
@@ -917,8 +915,8 @@ dh_auto_test
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">fakeroot debian/rules binary</code> runs <code class="literal">fakeroot dh
-binary</code>; which in turn runs the following<a href="#ftn.idm1650" class="footnote" id="idm1650"><sup class="footnote">[44]</sup></a>:
+<code class="literal">fakeroot debian/rules binary</code> chạy <code class="literal">fakeroot dh
+binary</code>; chúng bao gồm chạy các lệnh sau<a href="#ftn.idm1650" class="footnote" id="idm1650"><sup class="footnote">[44]</sup></a>:
 </p>
                 <pre class="screen">
 dh_testroot
@@ -967,38 +965,36 @@ dh_builddeb
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">fakeroot debian/rules binary-arch</code> runs <code class="literal">fakeroot
-dh binary-arch</code>; which in turn runs the same sequence as
-<code class="literal">fakeroot dh binary</code> but with the <code class="literal">-a</code>
-option appended for each command.
+<code class="literal">fakeroot debian/rules binary-arch</code> chạy <code class="literal">fakeroot
+dh binary-arch</code>; chúng bao gồm chạy các lệnh tương tự như
+<code class="literal">fakeroot dh binary</code> nhưng với tuỳ chọn
+<code class="literal">-a</code> cho mỗi câu lệnh.
 </p>
               </li>
               <li class="listitem">
                 <p>
-<code class="literal">fakeroot debian/rules binary-indep</code> runs <code class="literal">fakeroot
-dh binary-indep</code>; which in turn runs almost the same sequence as
-<code class="literal">fakeroot dh binary</code> but excluding
-<span class="command"><strong>dh_strip</strong></span>, <span class="command"><strong>dh_makeshlibs</strong></span>, and
-<span class="command"><strong>dh_shlibdeps</strong></span> with the <code class="literal">-i</code> option
-appended for each remaining command.
+<code class="literal">fakeroot debian/rules binary-indep</code> chạy <code class="literal">fakeroot
+dh binary-indep</code>; chúng bao gồm hầu hết các lệnh tương tự như
+<code class="literal">fakeroot dh binary</code> nhưng trừ các lệnh
+<span class="command"><strong>dh_strip</strong></span>, <span class="command"><strong>dh_makeshlibs</strong></span>, và
+<span class="command"><strong>dh_shlibdeps</strong></span> và với tuỳ chọn -i cho mỗi lệnh còn lại.
 </p>
               </li>
             </ul>
           </div>
           <p>
-The functions of <span class="command"><strong>dh_*</strong></span> commands are largely self-evident
-from their names.  <a href="#ftn.idm1671" class="footnote" id="idm1671"><sup class="footnote">[45]</sup></a> There are a few
-notable ones that are worth giving (over)simplified explanations here
-assuming a typical build environment based on a
-<code class="filename">Makefile</code>: <a href="#ftn.idm1676" class="footnote" id="idm1676"><sup class="footnote">[46]</sup></a>
+Các chức năng của lệnh <span class="command"><strong>dh_*</strong></span> phần lớn chính là tên của
+chúng  <a href="#ftn.idm1670" class="footnote" id="idm1670"><sup class="footnote">[45]</sup></a> Có một vài điểm nổi bật có thể
+giải thích một cách đơn giản ở đây là giả sử một môi trường xây dựng điển
+hình dựa trên một <code class="filename">Makefile</code>: <a href="#ftn.idm1675" class="footnote" id="idm1675"><sup class="footnote">[46]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
-<span class="command"><strong>dh_auto_clean</strong></span> usually executes the following if a
-<code class="filename">Makefile</code> exists with the <code class="literal">distclean</code>
-target.  <a href="#ftn.idm1686" class="footnote" id="idm1686"><sup class="footnote">[47]</sup></a>
+<span class="command"><strong>dh_auto_clean</strong></span> thường thực hiện như sau nếu một tệp
+<code class="filename">Makefile</code> tồn tại với target là
+<code class="literal">distclean</code>.  <a href="#ftn.idm1685" class="footnote" id="idm1685"><sup class="footnote">[47]</sup></a>
 </p>
                 <pre class="screen">
 make distclean
@@ -1006,18 +1002,18 @@ make distclean
               </li>
               <li class="listitem">
                 <p>
-<span class="command"><strong>dh_auto_configure</strong></span> usually executes the following if
-<code class="filename">./configure</code> exists (arguments abbreviated for
-readability).
+<span class="command"><strong>dh_auto_configure</strong></span> thường thực hiện như sau nếu
+<code class="filename">./configure</code> tồn tại (các đối số được viết tắt cho dễ
+đọc).
 </p>
                 <pre class="screen">
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var ...
+/configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var ...
 </pre>
               </li>
               <li class="listitem">
                 <p>
-<span class="command"><strong>dh_auto_build</strong></span> usually executes the following to execute
-the first target of <code class="filename">Makefile</code> if it exists.
+<span class="command"><strong>dh_auto_build</strong></span> thường thực hiện target đầu tiền của tệp
+<code class="filename">Makefile</code> nếu nó tồn tại.
 </p>
                 <pre class="screen">
 make
@@ -1025,9 +1021,9 @@ make
               </li>
               <li class="listitem">
                 <p>
-<span class="command"><strong>dh_auto_test</strong></span> usually executes the following if a
-<code class="filename">Makefile</code> exists with the <code class="literal">test</code>
-target.  <a href="#ftn.idm1708" class="footnote" id="idm1708"><sup class="footnote">[48]</sup></a>
+<span class="command"><strong>dh_auto_test</strong></span> thường thực hiện như sau nếu
+<code class="filename">Makefile</code> tồn tại target <code class="literal">test</code>.
+<a href="#ftn.idm1707" class="footnote" id="idm1707"><sup class="footnote">[48]</sup></a>
 </p>
                 <pre class="screen">
 make test
@@ -1035,9 +1031,9 @@ make test
               </li>
               <li class="listitem">
                 <p>
-<span class="command"><strong>dh_auto_install</strong></span> usually executes the following if a
-<code class="filename">Makefile</code> exists with the <code class="literal">install</code>
-target (line folded for readability).
+<span class="command"><strong>dh_auto_install</strong></span>thường thực hiện như sau nếu
+<code class="filename">Makefile</code> tồn tại với target <code class="literal">install</code>
+(dòng căn chỉnh cho dễ đọc) 
 </p>
                 <pre class="screen">
 make install \
@@ -1047,87 +1043,60 @@ make install \
             </ul>
           </div>
           <p>
-All targets which require the <span class="command"><strong>fakeroot</strong></span> command will
-contain <span class="command"><strong>dh_testroot</strong></span>, which exits with an error if you are
-not using this command to pretend to be root.
+Tất cả các target yêu cầu lệnh <span class="command"><strong>fakeroot</strong></span> sẽ được chứa
+<span class="command"><strong>dh_testroot</strong></span>, nó sẽ xuất hiện lỗi nếu bạn không sử dụng
+lệnh này để giả vờ là root.
 </p>
           <p>
-The important part to know about the <code class="filename">rules</code> file created
-by <span class="command"><strong>dh_make</strong></span> is that it is just a suggestion.  It will work
-for most packages but for more complicated ones, don't be afraid to
-customize it to fit your needs.
+Phần quan trọng cần biết là tệp <code class="filename">rules</code> được tạo bởi
+<span class="command"><strong>dh_make</strong></span> và nó chỉ là một đề xuất. Nó sẽ làm việc cho hầu
+hết các gói nhưng đối với những thứ phức tạp hơn, đừng ngại tùy chỉnh nó để
+phù hợp với nhu cầu của bạn.
 </p>
           <p>
-Although <code class="literal">install</code> is not a required target, it is
-supported.  <code class="literal">fakeroot dh install</code> behaves like
-<code class="literal">fakeroot dh binary</code> but stops after
-<span class="command"><strong>dh_fixperms</strong></span>.
+Mặc dù <code class="literal">install</code> không phải là target bắt buộc, nó hỗ trợ.
+<code class="literal">fakeroot dh install</code> hành động như <code class="literal">fakeroot dh
+binary</code> nhưng dừng lại sau <span class="command"><strong>dh_fixperms</strong></span>.
 </p>
         </div>
         <div class="section">
           <div class="titlepage">
             <div>
               <div>
-                <h3 class="title"><a id="customrules"/>4.4.3. Customization of <code class="filename">rules</code> file</h3>
+                <h3 class="title"><a id="customrules"/>4.4.3. Tuỳ chỉnh tệp <code class="filename">rules</code></h3>
               </div>
             </div>
           </div>
           <p>
-There are many ways to customize the <code class="filename">rules</code> file created
-with the new <span class="command"><strong>dh</strong></span> command.
+Có nhiều cách để tuỳ chỉnh tệp <code class="filename">rules</code> đã được tạo ra bởi
+lệnh  <span class="command"><strong>dh</strong></span>
 </p>
           <p>
-The <code class="literal">dh $@</code> command can be customized as follows:
-<a href="#ftn.idm1744" class="footnote" id="idm1744"><sup class="footnote">[49]</sup></a>
+Lệnh <code class="literal">dh $@</code> có thể được tuỳ chỉnh như sau: <a href="#ftn.idm1743" class="footnote" id="idm1743"><sup class="footnote">[49]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
-Add support for the <span class="command"><strong>dh_python2</strong></span> command.  (The best choice
-for Python.) <a href="#ftn.idm1754" class="footnote" id="idm1754"><sup class="footnote">[50]</sup></a>
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_python2</strong></span>.  (Tuỳ chọn tốt nhất cho
+Python.) <a href="#ftn.idm1753" class="footnote" id="idm1753"><sup class="footnote">[50]</sup></a>
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
                     <li class="listitem">
                       <p>
-Include the <code class="systemitem">python</code> package in
+Bao gồm gói <code class="systemitem">python</code> trong trường
 <code class="literal">Build-Depends</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-Use <code class="literal">dh $@ --with python2</code>.
+Sử dụng <code class="literal">dh $@ --with python2</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-This handles Python modules using the <code class="systemitem">python</code> framework.
-</p>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="listitem">
-                <p>
-Add support for the <span class="command"><strong>dh_pysupport</strong></span> command. (deprecated)
-</p>
-                <div class="itemizedlist">
-                  <ul class="itemizedlist">
-                    <li class="listitem">
-                      <p>
-Include the <code class="systemitem">python-support</code> package
-in <code class="literal">Build-Depends</code>.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-Use <code class="literal">dh $@ --with pysupport</code>.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-This handles Python modules using the <code class="systemitem">python-support</code> framework.
+Việc này xử lý các mô-đun Python sử dụng framework <code class="systemitem">python</code>
 </p>
                     </li>
                   </ul>
@@ -1135,29 +1104,24 @@ This handles Python modules using the <code class="systemitem">python-support</c
               </li>
               <li class="listitem">
                 <p>
-Add support for the <span class="command"><strong>dh_pycentral</strong></span> command. (deprecated)
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_pysupport</strong></span>. 
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
                     <li class="listitem">
                       <p>
-Include the <code class="systemitem">python-central</code> package
-in <code class="literal">Build-Depends</code>.
+Bao gồm gói <code class="systemitem">python-support</code> trong
+trường <code class="literal">Build-Depends</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-Use <code class="literal">dh $@ --with python-central</code> instead.
+Sử dụng <code class="literal">dh $@ --with pysupport</code>
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-This also deactivates the <span class="command"><strong>dh_pysupport</strong></span> command.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-This handles Python modules using the <code class="systemitem">python-central</code> framework.
+Việc này xử lý các mô-đun Python sử dụng framework <code class="systemitem">python-support</code>
 </p>
                     </li>
                   </ul>
@@ -1165,58 +1129,55 @@ This handles Python modules using the <code class="systemitem">python-central</c
               </li>
               <li class="listitem">
                 <p>
-Add support for the <span class="command"><strong>dh_installtex</strong></span> command.
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_pycentral</strong></span>. (không dùng nữa)
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
                     <li class="listitem">
                       <p>
-Include the <code class="systemitem">tex-common</code> package in
+Bao gồm gói <code class="systemitem">python-central</code> trong
+trường <code class="literal">Build-Depends</code>.
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Sử dụng <code class="literal">dh $@ --with python-central</code>
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Nó cũng bỏ kích hoạt lệnh <span class="command"><strong>dh_pysupport</strong></span>
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Việc này xử lý các mô-đun Python sử dụng framework <code class="systemitem">python-central</code>
+</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="listitem">
+                <p>
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_installtex</strong></span>
+</p>
+                <div class="itemizedlist">
+                  <ul class="itemizedlist">
+                    <li class="listitem">
+                      <p>
+Bao gồm gói <code class="systemitem">tex-common</code> trong trường
 <code class="literal">Build-Depends</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-Use <code class="literal">dh $@ --with tex</code> instead.
+Sử dụng <code class="literal">dh $@ --with tex</code>
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-This registers Type 1 fonts, hyphenation patterns, and formats with TeX.
-</p>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="listitem">
-                <p>
-Add support for the <span class="command"><strong>dh_quilt_patch</strong></span> and
-<span class="command"><strong>dh_quilt_unpatch</strong></span> commands.
-</p>
-                <div class="itemizedlist">
-                  <ul class="itemizedlist">
-                    <li class="listitem">
-                      <p>
-Include the <code class="systemitem">quilt</code> package in
-<code class="literal">Build-Depends</code>.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-Use <code class="literal">dh $@ --with quilt</code> instead.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-This applies and un-applies patches to the upstream source from files in the
-<code class="filename">debian/patches</code> directory for a source package in the
-<code class="literal">1.0</code> format.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-This is not needed if you use the new <code class="literal">3.0 (quilt)</code> source
-package format.
+Thao tác này sẽ đăng ký các phông chữ Loại 1, các mẫu phân đoạn và các định
+dạng với TeX.
 </p>
                     </li>
                   </ul>
@@ -1224,24 +1185,33 @@ package format.
               </li>
               <li class="listitem">
                 <p>
-Add support for the <span class="command"><strong>dh_dkms</strong></span> command.
+Thêm 2 lệnh hỗ trợ <span class="command"><strong>dh_quilt_patch</strong></span> và
+<span class="command"><strong>dh_quilt_unpatch</strong></span>
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
                     <li class="listitem">
                       <p>
-Include the <code class="systemitem">dkms</code> package in
+Bao gồm gói <code class="systemitem">quilt</code> trong trường
 <code class="literal">Build-Depends</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-Use <code class="literal">dh $@ --with dkms</code> instead.
+Sử dụng <code class="literal">dh $@ --with quilt</code>
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-This correctly handles DKMS usage by kernel module packages.
+Nó áp dụng và bỏ áp dụng các bản vá cho mã nguồn ở thượng nguồn từ các tệp
+tin trong thư mục  <code class="filename">debian/patches</code> cho gói nguồn với
+định dạng <code class="literal">1.0</code>.
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Điều này là không cần thiết nếu bạn sử dụng định dạng gói nguồn mới
+<code class="literal">3.0 (quilt)</code>.
 </p>
                     </li>
                   </ul>
@@ -1249,25 +1219,50 @@ This correctly handles DKMS usage by kernel module packages.
               </li>
               <li class="listitem">
                 <p>
-Add support for the <span class="command"><strong>dh_autotools-dev_updateconfig</strong></span> and
-<span class="command"><strong>dh_autotools-dev_restoreconfig</strong></span> commands.
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_dkms</strong></span>
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
                     <li class="listitem">
                       <p>
-Include the <code class="systemitem">autotools-dev</code> package in
+Bao gồm gói <code class="systemitem">dkms</code> trong trường
 <code class="literal">Build-Depends</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-Use <code class="literal">dh $@ --with autotools-dev</code> instead.
+Sử dụng <code class="literal">dh $@ --with dkms</code>
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-This updates and restores <code class="filename">config.sub</code> and
+Điều này xử lý chính xác việc sử dụng DKMS của gói mô-đun hạt nhân.
+</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="listitem">
+                <p>
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_autotools-dev_updateconfig</strong></span> và
+<span class="command"><strong>dh_autotools-dev_restoreconfig</strong></span>.
+</p>
+                <div class="itemizedlist">
+                  <ul class="itemizedlist">
+                    <li class="listitem">
+                      <p>
+Bao gồm gói <code class="systemitem">autotools-dev</code> trong
+trường <code class="literal">Build-Depends</code>.
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Sử dụng <code class="literal">dh $@ --with autotools-dev</code>
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Việc này cập nhật và khôi phục tệp <code class="filename">config.sub</code> và
 <code class="filename">config.guess</code>.
 </p>
                     </li>
@@ -1276,78 +1271,76 @@ This updates and restores <code class="filename">config.sub</code> and
               </li>
               <li class="listitem">
                 <p>
-Add support for the <span class="command"><strong>dh_autoreconf</strong></span> and
-<span class="command"><strong>dh_autoreconf_clean</strong></span> commands.
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_autoreconf</strong></span> và
+<span class="command"><strong>dh_autoreconf_clean</strong></span>.
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
                     <li class="listitem">
                       <p>
-Include the <code class="systemitem">dh-autoreconf</code> package in
-<code class="literal">Build-Depends</code>.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-Use <code class="literal">dh $@ --with autoreconf</code> instead.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-This updates the GNU Build System files and restores them after the build.
-</p>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="listitem">
-                <p>
-Add support for the <span class="command"><strong>dh_girepository</strong></span> command.
-</p>
-                <div class="itemizedlist">
-                  <ul class="itemizedlist">
-                    <li class="listitem">
-                      <p>
-Includes the <code class="systemitem">gobject-introspection</code>
-package in <code class="literal">Build-Depends</code>.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-Use <code class="literal">dh $@ --with gir</code> instead.
-</p>
-                    </li>
-                    <li class="listitem">
-                      <p>
-This computes dependencies for packages shipping GObject introspection data
-and generates the <code class="literal">${gir:Depends}</code> substitution variable
-for the package dependency.
-</p>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="listitem">
-                <p>
-Add support for the <span class="command"><strong>bash</strong></span> completion feature.
-</p>
-                <div class="itemizedlist">
-                  <ul class="itemizedlist">
-                    <li class="listitem">
-                      <p>
-Includes the <code class="systemitem">bash-completion</code> package
+Bao gồm gói  <code class="systemitem">dh-autoreconf</code> package
 in <code class="literal">Build-Depends</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-Use <code class="literal">dh $@ --with bash-completion</code> instead.
+Sử dụng <code class="literal">dh $@ --with autoreconf</code>.
 </p>
                     </li>
                     <li class="listitem">
                       <p>
-This installs <span class="command"><strong>bash</strong></span> completions using a configuration file
-at
+Nó cập nhật các tệp GNU Build System và khôi phục chúng sau khi xây dựng.
+</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="listitem">
+                <p>
+Thêm lệnh hỗ trợ <span class="command"><strong>dh_girepository</strong></span>.
+</p>
+                <div class="itemizedlist">
+                  <ul class="itemizedlist">
+                    <li class="listitem">
+                      <p>
+Bao gồm gói <code class="systemitem">gobject-introspection</code>
+trong trường <code class="literal">Build-Depends</code>.
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Use <code class="literal">dh $@ --with gir</code>.
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Điều này tính toán các gói phụ thuộc cho các gói truyền dữ liệu đối tượng
+GObject và tạo ra tên các gói thay thế cho <code class="literal">${gir:Depends}</code>
+</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="listitem">
+                <p>
+Thêm hỗ trợ cho tính năng gõ nhanh trong <span class="command"><strong>bash</strong></span>
+</p>
+                <div class="itemizedlist">
+                  <ul class="itemizedlist">
+                    <li class="listitem">
+                      <p>
+Bao gồm gói <code class="systemitem">bash-completion</code> trong
+trường <code class="literal">Build-Depends</code>.
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Sử dụng <code class="literal">dh $@ --with bash-completion</code>
+</p>
+                    </li>
+                    <li class="listitem">
+                      <p>
+Cài đặt <span class="command"><strong>bash</strong></span> completions sử dụng một tệp cấu hình tại
 <code class="filename">debian/<em class="replaceable"><code>package</code></em>.bash-completion</code>.
 </p>
                     </li>
@@ -1357,101 +1350,102 @@ at
             </ul>
           </div>
           <p>
-Many <span class="command"><strong>dh_*</strong></span> commands invoked by the new
-<span class="command"><strong>dh</strong></span> command can be customized by the corresponding
-configuration files in the <code class="filename">debian</code> directory.  See <a class="xref" href="dother.vi.html" title="Chương 5. Other files under the debian directory">Chương 5, <em>Other files under the <code class="filename">debian</code> directory</em></a> and the manpage of each command for the customization of
-such features.
+Nhiều lệnh <span class="command"><strong>dh_*</strong></span> được gọi từ <span class="command"><strong>dh</strong></span> mới có
+thể tuỳ chỉnh các tệp cấu hình tương ứng trong thư mục
+<code class="filename">debian</code>.  Xem <a class="xref" href="dother.vi.html" title="Chương 5. Other files under the debian directory">Chương 5, <em>Other files under the <code class="filename">debian</code> directory</em></a> và sách hướng dẫn
+của mỗi lệnh cho việc tùy chỉnh tính năng như vậy.
 </p>
           <p>
-You may need to run <span class="command"><strong>dh_*</strong></span> commands invoked via the new
-<span class="command"><strong>dh</strong></span> with added arguments, or to run additional commands
-with them, or to skip them.  For such cases, you create an
-<code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> target with
-its rule in the <code class="filename">rules</code> file defining an
-<code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> target for the
-<span class="command"><strong>dh_<em class="replaceable"><code>foo</code></em></strong></span> command you want to
-change.  It basically says <span class="emphasis"><em>run me instead</em></span>.
-<a href="#ftn.idm1923" class="footnote" id="idm1923"><sup class="footnote">[51]</sup></a>
+Bạn có thể cần phải chạy lệnh <span class="command"><strong>dh_*</strong></span> được gọi qua
+<span class="command"><strong>dh</strong></span> mới với các đối số được thêm vào, hoặc để chạy các
+lệnh bổ sung với chúng, hoặc bỏ qua chúng.  Đối với các trường hợp như vậy,
+bạn tạo một target mới là
+<code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> bằng quy tắc
+của nó trong tệp <code class="filename">rules</code> địng nghĩa một target
+<code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> cho lệnh
+<span class="command"><strong>dh_<em class="replaceable"><code>foo</code></em></strong></span> bạn muốn thay đổi. Về
+cơ bản có nghĩa là <span class="emphasis"><em>chạy tôi thay vì mặc
+định</em></span>. <a href="#ftn.idm1922" class="footnote" id="idm1922"><sup class="footnote">[51]</sup></a>
 </p>
           <p>
-Please note that the <span class="command"><strong>dh_auto_*</strong></span> commands tend to do more
-than what has been discussed in this (over)simplified explanation to take
-care of all the corner cases.  It is a bad idea to use
-<code class="literal">override_dh_*</code> targets to substitute simplified equivalent
-commands (except for the <code class="literal">override_dh_auto_clean</code> target)
-since it may bypass such smart <code class="systemitem">debhelper</code> features.
+Xin lưu ý rằng các lệnh <span class="command"><strong>dh_auto_*</strong></span> có xu hứng làm nhiều
+hơn những gì đã giải thích một cách đơn giản ở đây nhằm có thể quản lý toàn
+bộ trường hợp có thể xảy ra.  Nó sẽ là một ý tưởng tồi để sử dụng các target
+<code class="literal">override_dh_*</code> để thay thế các lệnh tương đương đã đơn
+giản hoá (ngoại trừ target <code class="literal">override_dh_auto_clean</code> target)
+vì nó có thể bỏ qua những tính năng thông minh từ gói <code class="systemitem">debhelper</code> features.
 </p>
           <p>
-So, for instance, if you want to store system configuration data in the
-<code class="filename">/etc/gentoo</code> directory instead of the usual
-<code class="filename">/etc</code> directory for the recent <code class="systemitem">gentoo</code> package using Autotools, you can override
-the default <code class="literal">--sysconfig=/etc</code> argument given by the
-<span class="command"><strong>dh_auto_configure</strong></span> command to the
-<span class="command"><strong>./configure</strong></span> command by the following:
+Ví dụ: Nếu bạn muốn lưu dữ liệu cấu hình hệ thống vào thư mục
+<code class="filename">/etc/gentoo</code> thay vì thư mục cha
+<code class="filename">/etc</code> cho gói <code class="systemitem">gentoo</code> hãy sử dụng Autotools, bạn có thể viết đè
+đối số mặc định <code class="literal">--sysconfig=/etc</code> được sử dụng bởi lệnh
+<span class="command"><strong>dh_auto_configure</strong></span>để chaỵ lệnh
+<span class="command"><strong>./configure</strong></span> như sau:
 </p>
           <pre class="screen">
 override_dh_auto_configure:
         dh_auto_configure -- --sysconfig=/etc/gentoo
 </pre>
           <p>
-The arguments given after <code class="literal">--</code> are appended to the default
-arguments of the auto-executed program to override them.  Using the
-<span class="command"><strong>dh_auto_configure</strong></span> command is better than directly
-invoking the <span class="command"><strong>./configure</strong></span> command here since it will only
-override the <code class="literal">--sysconfig</code> argument and retains any other,
-benign arguments to the <span class="command"><strong>./configure</strong></span> command.
+Các đối số được truyền vào <code class="literal">--</code> sẽ được nối vào đối số mặc
+định của chương trình "tự động-thực hiện" để ghi đè chúng.  Sử dụng lệnh
+<span class="command"><strong>dh_auto_configure</strong></span> sẽ tốt hơn so với việc trực tiếp gọi
+lệnh <span class="command"><strong>./configure</strong></span> ở đây vì nó sẽ chỉ ghi đè đối số
+<code class="literal">--sysconfig</code> mà giữ lại bất kỳ đối số hữu ích nào khác cho
+lệnh <span class="command"><strong>./configure </strong></span>.
 </p>
           <p>
-If the <code class="filename">Makefile</code> in the source for <code class="systemitem">gentoo</code> requires you to specify
-<code class="literal">build</code> as its target to build it <a href="#ftn.idm1951" class="footnote" id="idm1951"><sup class="footnote">[52]</sup></a>, you create an
-<code class="literal">override_dh_auto_build</code> target to enable this.
+Nếu tệp <code class="filename">Makefile</code> trong mã nguồn của gói <code class="systemitem">gentoo</code> yêu cầu bạn chỉ định target
+<code class="literal">build</code> là target để xây dựng chương trình đó <a href="#ftn.idm1950" class="footnote" id="idm1950"><sup class="footnote">[52]</sup></a>, bạn có thể tạo một target
+<code class="literal">override_dh_auto_build</code> để kích hoạt điều này.
 </p>
           <pre class="screen">
 override_dh_auto_build:
         dh_auto_build -- build
 </pre>
           <p>
-This ensures <code class="literal">$(MAKE)</code> is run with all the default
-arguments given by the <span class="command"><strong>dh_auto_build</strong></span> command plus the
-<code class="literal">build</code> argument.
+Điều này đảm bảo <code class="literal">$(MAKE)</code> được chạy với tất cả các đối số
+mặc định được cung cấp bởi lệnh <span class="command"><strong>dh_auto_build</strong></span> cộng với
+đối số <code class="literal">build</code>.
 </p>
           <p>
-If the <code class="filename">Makefile</code> in the source for <code class="systemitem">gentoo</code> requires you to specify the
-<code class="literal">packageclean</code> target to clean it for the Debian package
-instead of using <code class="literal">distclean</code> or <code class="literal">clean</code>
-targets, you can create an <code class="literal">override_dh_auto_clean</code> target
-to enable it.
+Nếu tệp <code class="filename">Makefile</code> trong mã nguồn cho <code class="systemitem">gentoo</code> yêu cầu bạn chỉ định target
+<code class="literal">packageclean</code> để làm sạch môi trường xây dựng cho gói
+Debian package thay vì sử dụng <code class="literal">distclean</code> hoặc
+<code class="literal">clean</code>, bạn có thể tạo một target
+<code class="literal">override_dh_auto_clean</code> để kích hoạt chúng.
 </p>
           <pre class="screen">
 override_dh_auto_clean:
         $(MAKE) packageclean
 </pre>
           <p>
-If the <code class="filename">Makefile</code> in the source for <code class="systemitem">gentoo</code> contains a <code class="literal">test</code> target
-which you do not want to run for the Debian package building process, you
-can use an empty <code class="literal">override_dh_auto_test</code> target to skip it.
+Nếu tệp <code class="filename">Makefile</code> trong mã nguồn cho <code class="systemitem">gentoo</code> chứa một target <code class="literal">test</code>
+mà bạn không muốn chạy nó trong quá trình xây dựng gói Debian, bạn có thể sử
+dụng một target <code class="literal">override_dh_auto_test</code> trống để bỏ qua nó.
 </p>
           <pre class="screen">
 override_dh_auto_test:
 </pre>
           <p>
-If <code class="systemitem">gentoo</code> has an unusual upstream
-changelog file called <code class="filename">FIXES</code>,
-<span class="command"><strong>dh_installchangelogs</strong></span> will not install that file by
-default.  The <span class="command"><strong>dh_installchangelogs</strong></span> command requires
-<code class="filename">FIXES</code> as its argument to install it.  <a href="#ftn.idm1981" class="footnote" id="idm1981"><sup class="footnote">[53]</sup></a>
+Nếu <code class="systemitem">gentoo</code> có chứa changelog từ
+thượng nguồn khác thường như  tệp <code class="filename">FIXES</code>,
+<span class="command"><strong>dh_installchangelogs</strong></span> mặc định sẽ không cài đặt tệp
+này. Lệnh <span class="command"><strong>dh_installchangelogs</strong></span> yêu cầu
+<code class="filename">FIXES</code> như là đối số của nó để cài đặt tệp này.
+<a href="#ftn.idm1980" class="footnote" id="idm1980"><sup class="footnote">[53]</sup></a>
 </p>
           <pre class="screen">
 override_dh_installchangelogs:
         dh_installchangelogs FIXES
 </pre>
           <p>
-When you use the new <span class="command"><strong>dh</strong></span> command, use of explicit targets
-such as the ones listed in <a class="xref" href="dreq.vi.html#targets" title="4.4.1. Targets of the rules file">Phần 4.4.1, “Targets of the <code class="filename">rules</code> file”</a>, other than the
-<code class="literal">get-orig-source</code> target, may make it difficult to
-understand their exact effects.  Please limit explicit targets to
-<code class="literal">override_dh_*</code> targets and completely independent ones, if
-possible.
+Khi bạn sử dụng lệnh <span class="command"><strong>dh</strong></span> mới, hãy sử dụng các target rõ
+ràng được liệt kê trong <a class="xref" href="dreq.vi.html#targets" title="4.4.1. Các target của tệp rules">Phần 4.4.1, “Các target của tệp <code class="filename">rules</code>”</a>, khác với target
+<code class="literal">get-orig-source</code> , có thể khó khăn để hiểu được chính xác
+hiệu quả. Vui lòng hạn chế target rõ ràng đối với các target
+<code class="literal">override_dh_*</code> và các target độc lập, nếu có thể.
 </p>
         </div>
       </div>
@@ -1510,109 +1504,107 @@ DDTP</a>.</p>
 </p>
         </div>
         <div id="ftn.idm1496" class="footnote">
-          <p><a href="#idm1496" class="para"><sup class="para">[36] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
-please make sure to save the <code class="filename">changelog</code> file explicitly
-by the editor.</p>
+          <p><a href="#idm1496" class="para"><sup class="para">[36] </sup></a>Nếu bạn sử dụng lệnh <code class="literal">dch -r</code> để tạo thay đổi cuối này, vui
+lòng đảm bảo bạn đã lưu tệp <code class="filename">changelog</code> một cách rõ ràng
+bởi trình soạn thảo</p>
         </div>
         <div id="ftn.idm1518" class="footnote">
-          <p><a href="#idm1518" class="para"><sup class="para">[37] </sup></a>You can start learning how to write <code class="filename">Makefile</code> from
-<a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch12#_make">Debian Reference, 12.2. "Make"</a>.  The full
-documentation is available as <a class="ulink" href="http://www.gnu.org/software/make/manual/html_node/index.html">http://www.gnu.org/software/make/manual/html_node/index.html</a> or as the
-<code class="systemitem">make-doc</code> package in the
-<code class="literal">non-free</code> archive area.
+          <p><a href="#idm1518" class="para"><sup class="para">[37] </sup></a>Bạn có thể bắt đầu học cách viết <code class="filename">Makefile</code> từ <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch12#_make">Debian Reference, 12.2. "Make"</a>.  Tài liệu khả
+dụng như <a class="ulink" href="http://www.gnu.org/software/make/manual/html_node/index.html">http://www.gnu.org/software/make/manual/html_node/index.html</a> hoặc như gói <code class="systemitem">make-doc</code> trong <code class="literal">non-free</code>.
 </p>
         </div>
         <div id="ftn.idm1526" class="footnote">
           <p><a href="#idm1526" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
-script: debian/rules"</a> explains the details.</p>
+script: debian/rules"</a> giải thích chi tiết.</p>
         </div>
         <div id="ftn.idm1562" class="footnote">
-          <p><a href="#idm1562" class="para"><sup class="para">[39] </sup></a> This target is used by <code class="literal">dpkg-buildpackage</code> as in <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
+          <p><a href="#idm1562" class="para"><sup class="para">[39] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage</code> như trong
+<a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
         </div>
         <div id="ftn.idm1570" class="footnote">
-          <p><a href="#idm1570" class="para"><sup class="para">[40] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -B</code> as in <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
+          <p><a href="#idm1570" class="para"><sup class="para">[40] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage -B</code> như
+trọng <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
         </div>
         <div id="ftn.idm1578" class="footnote">
-          <p><a href="#idm1578" class="para"><sup class="para">[41] </sup></a> This target is used by <code class="literal">dpkg-buildpackage -A</code>.  </p>
+          <p><a href="#idm1578" class="para"><sup class="para">[41] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage -A</code>.  </p>
         </div>
         <div id="ftn.idm1610" class="footnote">
-          <p><a href="#idm1610" class="para"><sup class="para">[42] </sup></a> This uses the new <code class="systemitem">debhelper</code> v7+
-features.  Its design concepts are explained in <a class="ulink" href="http://joey.kitenet.net/talks/debhelper/debhelper-slides.pdf">Not Your Grandpa's Debhelper</a> presented at
-DebConf9 by the <code class="systemitem">debhelper</code> upstream.
-Under <code class="literal">lenny</code>, <span class="command"><strong>dh_make</strong></span> created a much
-more complicated <code class="filename">rules</code> file with explicit rules and
-many <span class="command"><strong>dh_*</strong></span> scripts listed for each one, most of which are
-now unnecessary (and show the package's age). The new <span class="command"><strong>dh</strong></span>
-command is simpler and frees us from doing the routine work "manually". You
-still have full power to customize the process with
-<code class="literal">override_dh_*</code> targets. See <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Customization of rules file">Phần 4.4.3, “Customization of <code class="filename">rules</code> file”</a>.  It is based only on the <code class="systemitem">debhelper</code> package and does not obfuscate the
-package building process as the <code class="systemitem">cdbs</code>
-package tends to.  </p>
+          <p><a href="#idm1610" class="para"><sup class="para">[42] </sup></a> Thao tác này sử dụng tính năng mới của <code class="systemitem">debhelper</code> v7+. Các khái niệm thiết kế của nó
+được giải thích tại <a class="ulink" href="http://joey.kitenet.net/talks/debhelper/debhelper-slides.pdf">Not Your Grandpa's
+Debhelper</a> được trình bày ở DebConf9 bởi tác giả <code class="systemitem">debhelper</code>.  Từ phiên bản
+<code class="literal">lenny</code>, <span class="command"><strong>dh_make</strong></span> đã tạo ra một tệp
+<code class="filename">rules</code> phức tạp hơn nhiều với các quy tắc và nhiều kịch
+bản <span class="command"><strong>dh_*</strong></span> cho mỗi quy tắc, hầu hết trong số chúng hiện
+không cần thiết  (và hiểu thị tuổi của gói). Lệnh <span class="command"><strong>dh</strong></span> mới
+đơn giản và giải phóng chúng ta khỏi các công việc thường xuyên làm "thủ
+công". Bạn vẫn có đủ sức mạnh để tùy biến quá trình với các target là
+<code class="literal">override_dh_*</code>. Xem <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Tuỳ chỉnh tệp rules">Phần 4.4.3, “Tuỳ chỉnh tệp <code class="filename">rules</code>”</a>.  Nó chỉ
+dựa trên gói <code class="systemitem">debhelper</code> và không làm
+xáo trộn tiến trình xây dựng gói như cách mà gói <code class="systemitem">cdbs</code> có xu hướng.  </p>
         </div>
         <div id="ftn.idm1626" class="footnote">
-          <p><a href="#idm1626" class="para"><sup class="para">[43] </sup></a> You can verify the actual sequences of <span class="command"><strong>dh_*</strong></span> programs
-invoked for a given <code class="literal"><em class="replaceable"><code>target</code></em></code>
-without really running them by invoking <code class="literal">dh --no-act
-<em class="replaceable"><code>target</code></em></code> or <code class="literal">debian/rules --
+          <p><a href="#idm1626" class="para"><sup class="para">[43] </sup></a> Bạn có thể xác minh trình tự thực tế của các chương trình
+<span class="command"><strong>dh_*</strong></span> bằng gọi một
+<code class="literal"><em class="replaceable"><code>target</code></em></code> mà không thật sự chạy
+chúng bởi gọi <code class="literal">dh --no-act
+<em class="replaceable"><code>target</code></em></code> hoặc <code class="literal">debian/rules --
 '--no-act <em class="replaceable"><code>target</code></em>'</code>.  </p>
         </div>
         <div id="ftn.idm1650" class="footnote">
-          <p><a href="#idm1650" class="para"><sup class="para">[44] </sup></a>The following example assumes your <code class="filename">debian/compat</code> has a
-value equal or more than 9 to avoid invoking any python support commands
-automatically.
+          <p><a href="#idm1650" class="para"><sup class="para">[44] </sup></a>Ví dụ sau đây giả định tệp <code class="filename">debian/compat</code> của bạn có một
+giá trị bằng hoặc lớn hơn 9 để tránh gọi bất kỳ câu lệnh hỗ trợ từ python tự
+động.
 </p>
         </div>
-        <div id="ftn.idm1671" class="footnote">
-          <p><a href="#idm1671" class="para"><sup class="para">[45] </sup></a> For complete information on what all these <span class="command"><strong>dh_*</strong></span> scripts
-do exactly, and what their other options are, please read their respective
-manual pages and the <code class="systemitem">debhelper</code>
-documentation.  </p>
+        <div id="ftn.idm1670" class="footnote">
+          <p><a href="#idm1670" class="para"><sup class="para">[45] </sup></a> Để có thông tin đầy đủ về những gì các tập lệnh <span class="command"><strong>dh_*</strong></span> thực
+hiện chính xác, và các tùy chọn khác của chúng là gì, vui lòng đọc các trang
+hướng dẫn tương ứng và tài liệu <code class="systemitem">debhelper</code>.  </p>
         </div>
-        <div id="ftn.idm1676" class="footnote">
-          <p><a href="#idm1676" class="para"><sup class="para">[46] </sup></a> These commands support other build environments such as
-<code class="filename">setup.py</code> which can be listed by executing
-<code class="literal">dh_auto_build --list</code> in a package source directory.  </p>
+        <div id="ftn.idm1675" class="footnote">
+          <p><a href="#idm1675" class="para"><sup class="para">[46] </sup></a> Các lệnh hỗ trợ các môi trường xây dựng khác như
+<code class="filename">setup.py</code> có thể được liệt kê bằng cách thực thi
+<code class="literal">dh_auto_build --list</code> trong thư mục mã nguồn gói.  </p>
         </div>
-        <div id="ftn.idm1686" class="footnote">
-          <p><a href="#idm1686" class="para"><sup class="para">[47] </sup></a> It actually looks for the first available target in the
-<code class="filename">Makefile</code> out of <code class="literal">distclean</code>,
-<code class="literal">realclean</code>, or <code class="literal">clean</code>, and executes
-that.
+        <div id="ftn.idm1685" class="footnote">
+          <p><a href="#idm1685" class="para"><sup class="para">[47] </sup></a> Nó thực sự tìm kiếm target có sẵn đầu tiên trong
+<code class="filename">Makefile</code> trong số  <code class="literal">distclean</code>,
+<code class="literal">realclean</code>, hoặc <code class="literal">clean</code>, và thực hiện
+điều đó.
 </p>
         </div>
-        <div id="ftn.idm1708" class="footnote">
-          <p><a href="#idm1708" class="para"><sup class="para">[48] </sup></a> It actually looks for the first available target in the
-<code class="filename">Makefile</code> out of <code class="literal">test</code> or
-<code class="literal">check</code>, and executes that.</p>
+        <div id="ftn.idm1707" class="footnote">
+          <p><a href="#idm1707" class="para"><sup class="para">[48] </sup></a> Nó thực sự tìm kiếm target đầu tiên có sẵn trong tệp
+<code class="filename">Makefile</code> trong số <code class="literal">test</code> hoặc
+<code class="literal">check</code>, và thực hiện nó.</p>
         </div>
-        <div id="ftn.idm1744" class="footnote">
-          <p><a href="#idm1744" class="para"><sup class="para">[49] </sup></a> If a package installs the
-<code class="filename">/usr/share/perl5/Debian/Debhelper/Sequence/<em class="replaceable"><code>custom_name</code></em>.pm</code>
-file, you should activate its customization function by <code class="literal">dh $@
---with <em class="replaceable"><code>custom-name</code></em></code>.  </p>
+        <div id="ftn.idm1743" class="footnote">
+          <p><a href="#idm1743" class="para"><sup class="para">[49] </sup></a> Nếu một gói cài đặt tệp với đường dẫn
+<code class="filename">/usr/share/perl5/Debian/Debhelper/Sequence/<em class="replaceable"><code>custom_name</code></em>.pm</code>,
+bạn nên kích hoạt chức năng tuỳ chỉnh của nó bằng <code class="literal">dh $@ --with
+<em class="replaceable"><code>custom-name</code></em></code>.  </p>
         </div>
-        <div id="ftn.idm1754" class="footnote">
-          <p><a href="#idm1754" class="para"><sup class="para">[50] </sup></a> Use of the <span class="command"><strong>dh_python2</strong></span> command is preferred over use of
-<span class="command"><strong>dh_pysupport</strong></span> or <span class="command"><strong>dh_pycentral</strong></span>
-commands.  Do not use the <span class="command"><strong>dh_python</strong></span> command.  </p>
+        <div id="ftn.idm1753" class="footnote">
+          <p><a href="#idm1753" class="para"><sup class="para">[50] </sup></a> Việc sử dụng <span class="command"><strong>dh_python2</strong></span> được yêu thích hơn là sử dụng
+<span class="command"><strong>dh_pysupport</strong></span> và <span class="command"><strong>dh_pycentral</strong></span>. Đừng sử
+dụng <span class="command"><strong>dh_python</strong></span>  </p>
         </div>
-        <div id="ftn.idm1923" class="footnote">
-          <p><a href="#idm1923" class="para"><sup class="para">[51] </sup></a> Under <code class="literal">lenny</code>, if you wanted to change the behavior of a
-<span class="command"><strong>dh_*</strong></span> script you found the relevant line in the
-<code class="filename">rules</code> file and adjusted it.  </p>
+        <div id="ftn.idm1922" class="footnote">
+          <p><a href="#idm1922" class="para"><sup class="para">[51] </sup></a> Trong phiên bản <code class="literal">lenny</code>, nếu bạn muốn thay đổi hành vi của
+một tập lệnh <span class="command"><strong>dh_*</strong></span>, bạn sẽ phải tìm thấy dòng liên quan
+trong <code class="filename">rules</code> và tự điều chỉnh nó.  </p>
         </div>
-        <div id="ftn.idm1951" class="footnote">
-          <p><a href="#idm1951" class="para"><sup class="para">[52] </sup></a>
-<span class="command"><strong>dh_auto_build</strong></span> without any arguments will execute the
-first target in the <code class="filename">Makefile</code>.  </p>
+        <div id="ftn.idm1950" class="footnote">
+          <p><a href="#idm1950" class="para"><sup class="para">[52] </sup></a>
+<span class="command"><strong>dh_auto_build</strong></span> với không có đối số sẽ thực hiện target đầu
+tiên trong tệp <code class="filename">Makefile</code>.  </p>
         </div>
-        <div id="ftn.idm1981" class="footnote">
-          <p><a href="#idm1981" class="para"><sup class="para">[53] </sup></a> The <code class="filename">debian/changelog</code> and
-<code class="filename">debian/NEWS</code> files are always automatically installed.
-The upstream changelog is found by converting filenames to lower case and
-matching them against <code class="filename">changelog</code>,
-<code class="filename">changes</code>, <code class="filename">changelog.txt</code>, and
-<code class="filename">changes.txt</code>.
+        <div id="ftn.idm1980" class="footnote">
+          <p><a href="#idm1980" class="para"><sup class="para">[53] </sup></a> Các tệp tin <code class="filename">debian/changelog</code> và
+<code class="filename">debian/NEWS</code> luôn luôn được cài đặt tự động. Lịch sử sửa
+đổi của thượng nguồn được tìm thấy được chuyển thành tệp chữ thường
+<code class="filename">changelog</code>, <code class="filename">changes</code>,
+<code class="filename">changelog.txt</code>, và <code class="filename">changes.txt</code>.
 </p>
         </div>
       </div>

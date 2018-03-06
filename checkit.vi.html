@@ -105,7 +105,7 @@ không dựa trên nền tảng máy bạn dưới định dạng <code class="l
 (quilt)</code>, rất có thể bạn đã thay đổi vài tập tin vô ý hoặc kịch bản
 biên dịch đã thay đổi mã nguồn của thượng nguồn.  Nếu đây là lỗi của bạn,
 hãy sửa nó.  Nếu đây là lỗi gây ra bởi kịch bản biên dịch, sửa nguyên nhân
-gốc với lệnh <span class="command"><strong>dh-autoreconf</strong></span> như trong <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Customization of rules file">Phần 4.4.3, “Customization of <code class="filename">rules</code> file”</a> hoặc đi vòng qua nó với tập tin
+gốc với lệnh <span class="command"><strong>dh-autoreconf</strong></span> như trong <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Tuỳ chỉnh tệp rules">Phần 4.4.3, “Tuỳ chỉnh tệp <code class="filename">rules</code>”</a> hoặc đi vòng qua nó với tập tin
 <code class="filename">source/options</code> như trong <a class="xref" href="dother.vi.html#sourceopt" title="5.24. source/options">Phần 5.24, “<code class="filename">source/options</code>”</a>.
 </p>
       </div>
@@ -243,7 +243,7 @@ thiện.
         <p>
 Chạy <span class="citerefentry"><span class="refentrytitle">lintian</span>(1)</span> qua tập tin
 <code class="filename">.changes</code> của bạn.  Lệnh <span class="command"><strong>lintian</strong></span> chạy
-nhiều kịch bản kiểm tra các lỗi đóng gói thường gặp.  <a href="#ftn.idm3207" class="footnote" id="idm3207"><sup class="footnote">[76]</sup></a>
+nhiều kịch bản kiểm tra các lỗi đóng gói thường gặp.  <a href="#ftn.idm3206" class="footnote" id="idm3206"><sup class="footnote">[76]</sup></a>
 </p>
         <pre class="screen">
 $ lintian -i -I --show-overrides gentoo_0.9.12-1_i386.changes
@@ -393,8 +393,8 @@ phần thừa không được dọn dẹp sạch sẽ; thay đổi tập tin
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm3207" class="footnote">
-          <p><a href="#idm3207" class="para"><sup class="para">[76] </sup></a> Bạn không cần phải cung cấp <span class="command"><strong>lintian</strong></span> tham số <code class="literal">-i
+        <div id="ftn.idm3206" class="footnote">
+          <p><a href="#idm3206" class="para"><sup class="para">[76] </sup></a> Bạn không cần phải cung cấp <span class="command"><strong>lintian</strong></span> tham số <code class="literal">-i
 -I --show-overrides</code> nếu bạn tùy chỉnh
 <code class="filename">/etc/devscripts.conf</code> hoặc
 <code class="filename">~/.devscripts</code> như mô tả trong <a class="xref" href="build.vi.html#debuild" title="6.3. Lệnh debuild">Phần 6.3, “Lệnh <span class="command"><strong>debuild</strong></span>”</a>.

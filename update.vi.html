@@ -170,7 +170,7 @@ Thêm một bản tu chỉnh mới vào đầu của tập tin Debian
 -i</code>, hoặc cụ thể hơn với lệnh <code class="literal">dch -v
 <em class="replaceable"><code>version</code></em>-<em class="replaceable"><code>revision</code></em></code>
 và sau đó chèn ghi chú vào bằng trình soạn thảo văn bản bạn thích.
-<a href="#ftn.idm3367" class="footnote" id="idm3367"><sup class="footnote">[77]</sup></a>
+<a href="#ftn.idm3366" class="footnote" id="idm3366"><sup class="footnote">[77]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -198,7 +198,7 @@ Lặp lại những gì bạn đã làm ở <a class="xref" href="build.vi.html#
 Khi bạn đã hài lòng, bạn nên thay đổi giá trị bản phân phối trong tập tin
 <code class="filename">changelog</code> từ <code class="literal">UNRELEASED</code> sang giá trị
 bản phân phối đích <code class="literal">unstable</code> (hoặc thậm chí
-<code class="literal">experimental</code>).<a href="#ftn.idm3388" class="footnote" id="idm3388"><sup class="footnote">[78]</sup></a>
+<code class="literal">experimental</code>).<a href="#ftn.idm3387" class="footnote" id="idm3387"><sup class="footnote">[78]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -278,7 +278,7 @@ yếu chỉ là di chuyển thư mục <code class="filename">debian</code> cũ 
 mới.  Công việc này có thể được thực hiện bằng cách chạy lệnh <code class="literal">tar
 xvzf
 /<em class="replaceable"><code>path</code></em>/<em class="replaceable"><code>to</code></em>/<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>.debian.tar.gz</code>
-tại nơi giải nén mã nguồn mới.  <a href="#ftn.idm3443" class="footnote" id="idm3443"><sup class="footnote">[79]</sup></a> Dĩ
+tại nơi giải nén mã nguồn mới.  <a href="#ftn.idm3442" class="footnote" id="idm3442"><sup class="footnote">[79]</sup></a> Dĩ
 nhiên, bạn cần phải làm một số công việc chắc chắn phải làm sau:
 </p>
         <div class="itemizedlist">
@@ -415,7 +415,7 @@ Nếu bạn tạo một tập tin <code class="filename">debian/watch</code> nh�
 <code class="filename"><em class="replaceable"><code>foo</code></em>-<em class="replaceable"><code>oldversion</code></em></code>
 thay vì lệnh <span class="command"><strong>uupdate</strong></span>.  Hành động này <span class="emphasis"><em>tự
 động</em></span> tìm mã nguồn mới, tải về, và chạy lệnh
-<span class="command"><strong>uupdate</strong></span>.  <a href="#ftn.idm3555" class="footnote" id="idm3555"><sup class="footnote">[80]</sup></a>
+<span class="command"><strong>uupdate</strong></span>.  <a href="#ftn.idm3554" class="footnote" id="idm3554"><sup class="footnote">[80]</sup></a>
 </p>
         <p>
 Bạn có thể phát hành mã nguồn mới này bằng việc lặp lại những gì bạn đã làm
@@ -434,7 +434,7 @@ Bạn có thể phát hành mã nguồn mới này bằng việc lặp lại nh�
 Cập nhật cách đóng gói không phải là một hành động bắt buộc cho việc cập
 nhật một gói phần mềm.  Tuy nhiên, làm vậy sẽ cho phép bạn sử dụng toàn bộ
 khả năng của hệ thống <code class="systemitem">debhelper</code> hiện
-đại và định dạng gói nguồn <code class="literal">3.0</code>.  <a href="#ftn.idm3570" class="footnote" id="idm3570"><sup class="footnote">[81]</sup></a>
+đại và định dạng gói nguồn <code class="literal">3.0</code>.  <a href="#ftn.idm3569" class="footnote" id="idm3569"><sup class="footnote">[81]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -498,7 +498,7 @@ việc tạo tập tin <code class="filename">debian/source/format</code> chứa
 còn lại có thể được sao chép sang.  Nhập tập tin
 <code class="filename">big.diff</code> được tạo ra bởi lệnh <code class="literal">filterdiff -z -x
 '*/debian/*' <em class="replaceable"><code>foo</code></em>.diff.gz &gt; big.diff</code>
-vào hệ thống <span class="command"><strong>quilt</strong></span> của bạn, nếu cần thiết.  <a href="#ftn.idm3620" class="footnote" id="idm3620"><sup class="footnote">[82]</sup></a>
+vào hệ thống <span class="command"><strong>quilt</strong></span> của bạn, nếu cần thiết.  <a href="#ftn.idm3619" class="footnote" id="idm3619"><sup class="footnote">[82]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -626,36 +626,36 @@ tập tin phải được ký bằng GPG, v.v.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm3367" class="footnote">
-          <p><a href="#idm3367" class="para"><sup class="para">[77] </sup></a>Để lấy thông tin ngày dưới định dạng bị bắt buộc, dùng <code class="literal">LANG=C date
+        <div id="ftn.idm3366" class="footnote">
+          <p><a href="#idm3366" class="para"><sup class="para">[77] </sup></a>Để lấy thông tin ngày dưới định dạng bị bắt buộc, dùng <code class="literal">LANG=C date
 -R</code>.
 </p>
         </div>
-        <div id="ftn.idm3388" class="footnote">
-          <p><a href="#idm3388" class="para"><sup class="para">[78] </sup></a>If you use the <code class="literal">dch -r</code> command to make this last change,
-please make sure to save the <code class="filename">changelog</code> file explicitly
-by the editor.</p>
+        <div id="ftn.idm3387" class="footnote">
+          <p><a href="#idm3387" class="para"><sup class="para">[78] </sup></a>Nếu bạn sử dụng lệnh <code class="literal">dch -r</code> để tạo thay đổi cuối này, vui
+lòng đảm bảo bạn đã lưu tệp <code class="filename">changelog</code> một cách rõ ràng
+bởi trình soạn thảo</p>
         </div>
-        <div id="ftn.idm3443" class="footnote">
-          <p><a href="#idm3443" class="para"><sup class="para">[79] </sup></a> Nếu một gói phần mềm <code class="systemitem"><em class="replaceable"><code>foo</code></em></code> được đóng gói
+        <div id="ftn.idm3442" class="footnote">
+          <p><a href="#idm3442" class="para"><sup class="para">[79] </sup></a> Nếu một gói phần mềm <code class="systemitem"><em class="replaceable"><code>foo</code></em></code> được đóng gói
 theo định dạng cũ <code class="literal">1.0</code>, công việc này có thể được hoàn
 thành bằng việc chạy lệnh <code class="literal">zcat
 /<em class="replaceable"><code>path</code></em>/<em class="replaceable"><code>to</code></em>/<em class="replaceable"><code>foo</code></em>_<em class="replaceable"><code>oldversion</code></em>.diff.gz|patch
 -p1</code>  </p>
         </div>
-        <div id="ftn.idm3555" class="footnote">
-          <p><a href="#idm3555" class="para"><sup class="para">[80] </sup></a> Nếu lệnh <span class="command"><strong>uscan</strong></span> tải về mã nguồn mới nhưng nó không chạy
+        <div id="ftn.idm3554" class="footnote">
+          <p><a href="#idm3554" class="para"><sup class="para">[80] </sup></a> Nếu lệnh <span class="command"><strong>uscan</strong></span> tải về mã nguồn mới nhưng nó không chạy
 lệnh <span class="command"><strong>uupdate</strong></span>, bạn nên sửa tập tin
 <code class="filename">debian/watch</code> để có dòng <code class="literal">debian
 uupdate</code> tại cuối của đường dẫn URL.  </p>
         </div>
-        <div id="ftn.idm3570" class="footnote">
-          <p><a href="#idm3570" class="para"><sup class="para">[81] </sup></a> Nếu nhà tài trợ của bạn hoặc các nhà bảo trì khác phản đối việc cập nhật
+        <div id="ftn.idm3569" class="footnote">
+          <p><a href="#idm3569" class="para"><sup class="para">[81] </sup></a> Nếu nhà tài trợ của bạn hoặc các nhà bảo trì khác phản đối việc cập nhật
 cách đóng gói hiện tại, đừng phí thời gian tranh cãi.  Có nhiều việc quan
 trọng hơn cần phải làm.  </p>
         </div>
-        <div id="ftn.idm3620" class="footnote">
-          <p><a href="#idm3620" class="para"><sup class="para">[82] </sup></a>
+        <div id="ftn.idm3619" class="footnote">
+          <p><a href="#idm3619" class="para"><sup class="para">[82] </sup></a>
 Bạn có thể chặt tập tin <code class="filename">big.diff</code> ra nhiều bản vá nhỏ
 liên tiếp dùng lệnh <span class="command"><strong>splitdiff</strong></span>.  </p>
         </div>
