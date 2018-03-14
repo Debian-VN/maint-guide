@@ -2340,6 +2340,7 @@ msgstr ""
 "Xem <citerefentry> <refentrytitle>quilt</refentrytitle> <manvolnum>1</manvolnum> </"
 "citerefentry> và <filename>&quilt-pdf;</filename> để biết cách sử dụng <command>quilt</"
 "command>."
+
 #. type: Content of: <book><chapter><section><title>
 msgid "Fixing upstream bugs"
 msgstr "Sửa lỗi ở thượng nguồn"
