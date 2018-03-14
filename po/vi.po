@@ -2832,14 +2832,15 @@ msgstr "Bây giờ bạn có một loạt các bản vá."
 
 #. type: Content of: <book><chapter><section><orderedlist><listitem><para>
 msgid "Upstream bug fix: <filename>debian/patches/fix-gentoo-target.patch</filename>"
-msgstr "Upstream bug fix: <filename>debian/patches/fix-gentoo-target.patch</filename>"
+msgstr "Bản vá thượng nguồn: <filename>debian/patches/fix-gentoo-target.patch"
+"</filename>"
 
 #. type: Content of: <book><chapter><section><orderedlist><listitem><para>
 msgid ""
 "Debian specific packaging modification: <filename>debian/patches/install.patch</"
 "filename>"
 msgstr ""
-"Debian specific packaging modification: <filename>debian/patches/install.patch</"
+"Bản vá việc đóng gói riêng cho Debian: <filename>debian/patches/install.patch</"
 "filename>"
 
 #. type: Content of: <book><chapter><section><para>
