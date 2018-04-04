@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Chương 5. Other files under the debian directory</title>
+    <title>Chương 5. Các tệp khác trong thư mục debian</title>
     <link rel="stylesheet" type="text/css" href="debian.css"/>
     <meta name="generator" content="DocBook XSL Stylesheets V1.79.1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -15,7 +15,7 @@
     <div class="navheader">
       <table width="100%" summary="Navigation header">
         <tr>
-          <th colspan="3" align="center">Chương 5. Other files under the <code class="filename">debian</code> directory</th>
+          <th colspan="3" align="center">Chương 5. Các tệp khác trong thư mục <code class="filename">debian</code></th>
         </tr>
         <tr>
           <td align="left"><a accesskey="p" href="dreq.vi.html"><img src="images/prev.png" alt="Trước đó"/></a> </td>
@@ -29,7 +29,7 @@
       <div class="titlepage">
         <div>
           <div>
-            <h1 class="title"><a id="dother"/>Chương 5. Other files under the <code class="filename">debian</code> directory</h1>
+            <h1 class="title"><a id="dother"/>Chương 5. Các tệp khác trong thư mục <code class="filename">debian</code></h1>
           </div>
         </div>
       </div>
@@ -186,73 +186,75 @@
         </dl>
       </div>
       <p>
-To control most of what <code class="systemitem">debhelper</code>
-does while building the package, you put optional configuration files under
-the <code class="filename">debian</code> directory.  This chapter will provide an
-overview of what each of these does and its format.  Please read the <a class="ulink" href="http://www.debian.org/doc/devel-manuals#policy">Debian Policy Manual</a> and <a class="ulink" href="http://www.debian.org/doc/devel-manuals#devref">Debian Developer's Reference</a> for
-guidelines for packaging.
+Để kiểm soát hầu hết những gì <code class="systemitem">debhelper</code> thực hiện khi xây dựng gói, bạn thêm
+các tệp cấu hình tuỳ chọn trong thư mục <code class="filename">debian</code>. Chương
+này sẽ cung cấp một cái nhìn tổng quan về những tệp tin này và định dạng của
+nó.  Vui lòng tham khảo thêm <a class="ulink" href="http://www.debian.org/doc/devel-manuals#policy">Debian Policy
+Manual</a> và <a class="ulink" href="http://www.debian.org/doc/devel-manuals#devref">Debian Developer's
+Reference</a>.
 </p>
       <p>
-The <span class="command"><strong>dh_make</strong></span> command will create some template
-configuration files under the <code class="filename">debian</code> directory.  Most
-of them come with filenames suffixed by <code class="literal">.ex</code>.  Some of
-them come with filenames prefixed by the binary package name such as
-<code class="literal"><em class="replaceable"><code>package</code></em></code>.  Take a look at all
-of them.  <a href="#ftn.idm2008" class="footnote" id="idm2008"><sup class="footnote">[54]</sup></a>
+Lệnh <span class="command"><strong>dh_make</strong></span> sẽ tạo một số tệp cấu hình mẫu dưới thư mục
+<code class="filename">debian</code>.  Hầu hết tên các tập tin có hậu tố là
+<code class="literal">.ex</code>.  Một số chúng có các tên tệp bắt đầu bằng tên gói
+nhị phân như <code class="literal"><em class="replaceable"><code>package</code></em></code>. Hãy xem
+tất cả tại. <a href="#ftn.idm2008" class="footnote" id="idm2008"><sup class="footnote">[54]</sup></a>
 </p>
       <p>
-Some template configuration files for <code class="systemitem">debhelper</code> may not be created by the
-<span class="command"><strong>dh_make</strong></span> command.  In such cases, you need to create them
-with an editor.
+Một số tệp cấu hình mẫu cho <code class="systemitem">debhelper</code> có thể không được tạo bởi lệnh
+<span class="command"><strong>dh_make</strong></span>. Trong các trường hợp này, bạn cần phải tự tạo
+chúng bằng trình soạn thảo.
 </p>
       <p>
-If you wish or need to activate any of these, please do the following:
+Nếu bạn muốn hoặc cần kích hoạt bất kỳ tệp nào, hãy làm như sau:
 </p>
       <div class="itemizedlist">
         <ul class="itemizedlist">
           <li class="listitem">
             <p>
-rename template files by removing the <code class="literal">.ex</code> or
-<code class="literal">.EX</code> suffix if they have one;
+Đổi tên các tệp mẫu bằng cách xoá bỏ hậu tố <code class="literal">.ex</code> hoặc
+<code class="literal">.EX</code> nếu có;
 </p>
           </li>
           <li class="listitem">
             <p>
-rename the configuration files to use the actual binary package name in
-place of <code class="literal"><em class="replaceable"><code>package</code></em></code>;
+Đổi tên các tệp cấu hình để sử dụng tên gói thực sự của thay cho
+<code class="literal"><em class="replaceable"><code>package</code></em></code>;
 </p>
           </li>
           <li class="listitem">
             <p>
-modify template file contents to suit your needs;
+sửa đổi nội dung tệp mẫu theo ý bạn muốn;
 </p>
           </li>
           <li class="listitem">
             <p>
-remove template files which you do not need;
+loại bỏ các tập tin mẫu mà bạn không cần;
 </p>
           </li>
           <li class="listitem">
             <p>
-modify the <code class="filename">control</code> file (see <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>), if necessary;
+sửa đổi tệp <code class="filename">control</code> (xem <a class="xref" href="dreq.vi.html#control" title="4.1. control">Phần 4.1, “<code class="filename">control</code>”</a>),
+nếu bạn cần;
 </p>
           </li>
           <li class="listitem">
             <p>
-modify the <code class="filename">rules</code> file (see <a class="xref" href="dreq.vi.html#rules" title="4.4. rules">Phần 4.4, “<code class="filename">rules</code>”</a>), if
-necessary.
+chỉnh sửa tệp <code class="filename">rules</code> (xem <a class="xref" href="dreq.vi.html#rules" title="4.4. rules">Phần 4.4, “<code class="filename">rules</code>”</a>), nếu
+bạn cần.
 </p>
           </li>
         </ul>
       </div>
       <p>
-Any <code class="systemitem">debhelper</code> configuration files
-without a <code class="filename"><em class="replaceable"><code>package</code></em></code> prefix,
-such as <code class="filename">install</code>, apply to the first binary package.
-When there are many binary packages, their configurations can be specified
-by prefixing their name to their configuration filenames such as
+Bất kỳ tệp tin cấu hình <code class="systemitem">debhelper</code>
+nào mà không có tiền tố
+<code class="filename"><em class="replaceable"><code>package</code></em></code>, chẳng hạn như
+<code class="filename"> install </code>, sẽ áp dụng cho gói nhị phân đầu tiên. Khi có
+nhiều gói nhị phân, các cấu hình của chúng được xác định bằng các tệp chứa
+tiền tố là tên gói nhị phân đấy như
 <code class="filename"><em class="replaceable"><code>package-1</code></em>.install</code>,
-<code class="filename"><em class="replaceable"><code>package-2</code></em>.install</code>, etc.
+<code class="filename"><em class="replaceable"><code>package-2</code></em>.install</code>, vân vân.
 </p>
       <div class="section">
         <div class="titlepage">
