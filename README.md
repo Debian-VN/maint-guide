@@ -1,14 +1,14 @@
 ## Dịch Debian New Maintainers' Guide
 
-#### Xem trực tiếp [bản dịch bằng html](https://rawgit.com/Debian-VN/maint-guide/html/index.vi.html)
-Sách được cung cấp tại trang chủ [Debian#main-guide](http://www.debian.org/doc/devel-manuals#maint-guide)
+#### Xem trực tiếp bản đã dịch tại [debian-vn.github.io/maint-guide](https://debian-vn.github.io/maint-guide/)
+Sách được cung cấp tại trang chủ [debian.org#main-guide](http://www.debian.org/doc/devel-manuals#maint-guide)
 
 Chi tiết tại `README.source`
 ### Hướng dẫn dịch giống với [Debian Handbook](https://debian-vn.github.io/2016/04/huong-dan-dong-gop-ban-dich-debian-handbook.html)
 
 
 - `po/vi.po` Tất cả nội dụng cần dịch ở đây
-- `po/vi.pobot` Bản dịch gợi ý do [Pobot](https://github.com/Debian-VN/pobot) dịch 
+- `po/vi.pobot` Bản dịch gợi ý do [Pobot](https://github.com/Debian-VN/pobot) dịch
 
 ### Thành viên nhận dịch
 *Cập nhật tại đây nếu bạn muốn tham gia*
