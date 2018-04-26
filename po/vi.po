@@ -5354,17 +5354,19 @@ msgstr ""
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>README.Debian</filename>"
-msgstr ""
+msgstr "<filename>README.Debian</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Any extra details or discrepancies between the original package and your Debian version "
 "should be documented here."
 msgstr ""
+"Bất kỳ chi tiết bổ sung hoặc sự khác biệt giữa gói gốc ban đầu và phiên bản Debian của "
+"bạn nên được ghi lại ở đây"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "<command>dh_make</command> created a default one; this is what it looks like:"
-msgstr ""
+msgstr "<command>dh_make</command> đã tạo ra một tệp mặc định, giống như thế này:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -5374,16 +5376,22 @@ msgid ""
 "&lt;possible notes regarding this package - if none, delete this file&gt;\n"
 " -- Josip Rodin &lt;joy-mg@debian.org&gt;, Wed, 11 Nov 1998 21:02:14 +0100\n"
 msgstr ""
+"gentoo for Debian\n"
+"-----------------\n"
+"&lt;possible notes regarding this package - if none, delete this file&gt;\n"
+" -- Josip Rodin &lt;joy-mg@debian.org&gt;, Wed, 11 Nov 1998 21:02:14 +0100\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If you have nothing to be documented, remove this file.  See <citerefentry> "
 "<refentrytitle>dh_installdocs</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>."
 msgstr ""
+"Nếu bạn không có gì để ghi chú, hãy xoá tệp này. Xem <citerefentry><refentrytitle>"
+"dh_installdocs</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>compat</filename>"
-msgstr ""
+msgstr "<filename>compat</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5391,15 +5399,18 @@ msgid ""
 "\">debhelper</systemitem> compatibility level.  Currently, you should set it to the "
 "<systemitem role=\"package\">debhelper</systemitem> v9 as follows:"
 msgstr ""
+"Tệp <filename>compat</filename> định nghĩa mức độ tương thích với <systemitem role=\"package"
+"\">debhelper</systemitem>.  Hiện tại, bạn nên để nó là "
+"<systemitem role=\"package\">debhelper</systemitem> v9 như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "$ echo 9 &gt; debian/compat\n"
-msgstr ""
+msgstr "$ echo 9 &gt; debian/compat\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>conffiles</filename>"
-msgstr ""
+msgstr "<filename>conffiles</filename>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -5407,6 +5418,9 @@ msgid ""
 "citerefentry> and <ulink url=\"&policy-conffiles;\">Debian Policy Manual, \"D.2.5 "
 "Conffiles\"</ulink>."
 msgstr ""
+"Xem <citerefentry> <refentrytitle>dpkg</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> và <ulink url=\"&policy-conffiles;\">Debian Policy Manual, \"D.2.5 "
+"Conffiles\"</ulink>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5416,6 +5430,11 @@ msgid ""
 "<placeholder type=\"footnote\" id=\"0\"/> When you upgrade a package, you'll be asked "
 "whether you want to keep your old configuration files or not."
 msgstr ""
+"Một trong những điều gây phiền phức nhất về phần mềm là khi bạn đã dành rất nhiều thời gian "
+"và nỗ lực để cấu hình một chương trình, và khi nâng cấp phần mềm thì mọi thay đổi của bạn "
+"bị đè.  Debian giải quyết vấn đề này bằng cách gọi các tập tin cấu hình trong gói là "
+"conffiles.  <placeholder type=\"footnote\" id=\"0\"/> Khi bạn nâng cấp một gói, bạn sẽ được "
+"hỏi rằng bạn có muốn giữ các tệp cấu hình cũ (hiện tại) hay không."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5426,6 +5445,11 @@ msgid ""
 "conffiles should ever be is under <filename>/etc</filename>, and so this file doesn't "
 "need to exist."
 msgstr ""
+"<citerefentry><refentrytitle>dh_installdeb</refentrytitle> <manvolnum>1</manvolnum> </"
+"citerefentry> <emphasis>tự động</emphasis> đánh dâu bất kỳ tệp nào trong thư mục <filename>/"
+"etc</filename> là conffiles, vậy nếu chương trình của bạn có conffiles ở đây, bạn không cần "
+"thiết phải thêm chúng vào trong tệp này. Hầu hết các loại gói, nơi lưu trữ conffiles duy nhất nên "
+"là <filename>/etc</filename>, và vì thế tệp này không cần thiết phải tồn tại"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5433,6 +5457,9 @@ msgid ""
 "not to make them conffiles because <command>dpkg</command> will then prompt users to "
 "verify the changes all the time."
 msgstr ""
+"Nếu chương trình của bạn sử dụng các tệp cấu hình nhưng cũng viết lại chúng như là cơ sở dư liệu, "
+"tốt nhất bạn không nên định nghĩa chúng là conffiles vì ​​<command>dpkg</command> sẽ nhắc "
+"nhở người dùng xác minh các thay đổi mọi lúc."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5440,26 +5467,32 @@ msgid ""
 "in the <filename>/etc</filename> directory, there are two popular ways to arrange for "
 "them to not be conffiles, keeping <command>dpkg</command> quiet:"
 msgstr ""
+"Nếu chương trình bạn đang đóng gói đòi hỏi mỗi người dùng chỉnh sửa các tập tin "
+"cấu hình trong thư mục <filename>/etc</filename>, có hai cách phổ biến để định nghĩ chúng "
+"không phải là conffiles, giữ <command>dpkg</command> yên tĩnh:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "Create a symlink under the <filename>/etc</filename> directory pointing to a file under "
 "the <filename>/var</filename> directory generated by the maintainer scripts."
 msgstr ""
+"Tạo một liêt kết tượng trưng trong thư mục <filename>/etc</filename> trỏ tới tệp ở thư mục "
+"<filename>/var</filename> được sinh ra bởi maintainer scripts."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "Create a file generated by the maintainer scripts under the <filename>/etc</filename> "
 "directory."
 msgstr ""
+"Tạo một tệp bở maintainer scripts dưới thư mục <filename>/etc</filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "For information on maintainer scripts, see <xref linkend=\"maintscripts\"/>."
-msgstr ""
+msgstr "Để biêt thêm thông tin về maintainer scripts, xem <xref linkend=\"maintscripts\"/>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.cron.*</filename>"
-msgstr ""
+msgstr "<filename><replaceable>package</replaceable>.cron.*</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
