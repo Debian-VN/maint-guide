@@ -265,12 +265,11 @@ tiền tố là tên gói nhị phân đấy như
           </div>
         </div>
         <p>
-Any extra details or discrepancies between the original package and your
-Debian version should be documented here.
+Bất kỳ chi tiết bổ sung hoặc sự khác biệt giữa gói gốc ban đầu và phiên bản
+Debian của bạn nên được ghi lại ở đây
 </p>
         <p>
-<span class="command"><strong>dh_make</strong></span> created a default one; this is what it looks
-like:
+<span class="command"><strong>dh_make</strong></span> đã tạo ra một tệp mặc định, giống như thế này:
 </p>
         <pre class="screen">
 gentoo for Debian
@@ -279,7 +278,8 @@ gentoo for Debian
  -- Josip Rodin &lt;joy-mg@debian.org&gt;, Wed, 11 Nov 1998 21:02:14 +0100
 </pre>
         <p>
-If you have nothing to be documented, remove this file.  See <span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span>.
+Nếu bạn không có gì để ghi chú, hãy xoá tệp này. Xem
+<span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span>.
 </p>
       </div>
       <div class="section">
@@ -291,9 +291,9 @@ If you have nothing to be documented, remove this file.  See <span class="citere
           </div>
         </div>
         <p>
-The <code class="filename">compat</code> file defines the <code class="systemitem">debhelper</code> compatibility level.  Currently, you
-should set it to the <code class="systemitem">debhelper</code> v9 as
-follows:
+Tệp <code class="filename">compat</code> định nghĩa mức độ tương thích với
+<code class="systemitem">debhelper</code>.  Hiện tại, bạn nên để nó
+là <code class="systemitem">debhelper</code> v9 như sau:
 </p>
         <pre class="screen">
 $ echo 9 &gt; debian/compat
@@ -308,51 +308,49 @@ $ echo 9 &gt; debian/compat
           </div>
         </div>
         <p>
-One of the most annoying things about software is when you spend a great
-deal of time and effort customizing a program, only to have an upgrade stomp
-all over your changes.  Debian solves this problem by marking such
-configuration files as conffiles.  <a href="#ftn.idm2069" class="footnote" id="idm2069"><sup class="footnote">[55]</sup></a>
-When you upgrade a package, you'll be asked whether you want to keep your
-old configuration files or not.
+Một trong những điều gây phiền phức nhất về phần mềm là khi bạn đã dành rất
+nhiều thời gian và nỗ lực để cấu hình một chương trình, và khi nâng cấp phần
+mềm thì mọi thay đổi của bạn bị đè.  Debian giải quyết vấn đề này bằng cách
+gọi các tập tin cấu hình trong gói là conffiles.  <a href="#ftn.idm2069" class="footnote" id="idm2069"><sup class="footnote">[55]</sup></a> Khi bạn nâng cấp một gói, bạn sẽ được hỏi rằng bạn
+có muốn giữ các tệp cấu hình cũ (hiện tại) hay không.
 </p>
         <p>
-<span class="citerefentry"><span class="refentrytitle">dh_installdeb</span>(1)</span> <span class="emphasis"><em>automatically</em></span>
-flags any files under the <code class="filename">/etc</code> directory as conffiles,
-so if your program only has conffiles there you do not need to specify them
-in this file.  For most package types, the only place conffiles should ever
-be is under <code class="filename">/etc</code>, and so this file doesn't need to
-exist.
+<span class="citerefentry"><span class="refentrytitle">dh_installdeb</span>(1)</span> <span class="emphasis"><em>tự động</em></span> đánh
+dâu bất kỳ tệp nào trong thư mục <code class="filename">/etc</code> là conffiles, vậy
+nếu chương trình của bạn có conffiles ở đây, bạn không cần thiết phải thêm
+chúng vào trong tệp này. Hầu hết các loại gói, nơi lưu trữ conffiles duy
+nhất nên là <code class="filename">/etc</code>, và vì thế tệp này không cần thiết
+phải tồn tại
 </p>
         <p>
-If your program uses configuration files but also rewrites them on its own,
-it's best not to make them conffiles because <span class="command"><strong>dpkg</strong></span> will
-then prompt users to verify the changes all the time.
+Nếu chương trình của bạn sử dụng các tệp cấu hình nhưng cũng viết lại chúng
+như là cơ sở dư liệu, tốt nhất bạn không nên định nghĩa chúng là conffiles
+vì ​​<span class="command"><strong>dpkg</strong></span> sẽ nhắc nhở người dùng xác minh các thay đổi
+mọi lúc.
 </p>
         <p>
-If the program you're packaging requires every user to modify the
-configuration files in the <code class="filename">/etc</code> directory, there are
-two popular ways to arrange for them to not be conffiles, keeping
-<span class="command"><strong>dpkg</strong></span> quiet:
+Nếu chương trình bạn đang đóng gói đòi hỏi mỗi người dùng chỉnh sửa các tập
+tin cấu hình trong thư mục <code class="filename">/etc</code>, có hai cách phổ biến
+để định nghĩ chúng không phải là conffiles, giữ <span class="command"><strong>dpkg</strong></span> yên
+tĩnh:
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
             <li class="listitem">
               <p>
-Create a symlink under the <code class="filename">/etc</code> directory pointing to a
-file under the <code class="filename">/var</code> directory generated by the
-maintainer scripts.
+Tạo một liêt kết tượng trưng trong thư mục <code class="filename">/etc</code> trỏ tới
+tệp ở thư mục <code class="filename">/var</code> được sinh ra bởi maintainer scripts.
 </p>
             </li>
             <li class="listitem">
               <p>
-Create a file generated by the maintainer scripts under the
-<code class="filename">/etc</code> directory.
+Tạo một tệp bở maintainer scripts dưới thư mục <code class="filename">/etc</code>.
 </p>
             </li>
           </ul>
         </div>
         <p>
-For information on maintainer scripts, see <a class="xref" href="dother.vi.html#maintscripts" title="5.18. {pre,post}{inst,rm}">Phần 5.18, “<code class="filename">{pre,post}{inst,rm}</code>”</a>.
+Để biêt thêm thông tin về maintainer scripts, xem <a class="xref" href="dother.vi.html#maintscripts" title="5.18. {pre,post}{inst,rm}">Phần 5.18, “<code class="filename">{pre,post}{inst,rm}</code>”</a>.
 </p>
       </div>
       <div class="section">
@@ -364,62 +362,62 @@ For information on maintainer scripts, see <a class="xref" href="dother.vi.html#
           </div>
         </div>
         <p>
-If your package requires regularly scheduled tasks to operate properly, you
-can use these files to set that up.  You can set up regular tasks that
-either happen hourly, daily, weekly, or monthly, or alternatively happen at
-any other time that you wish.  The filenames are:
+Nếu gói của bạn yêu cầu các tác vụ được lên lịch thường xuyên để hoạt động
+đúng, bạn có thể sử dụng các tệp này để làm điều đó. Bạn có thể thiết lập
+các tác vụ thường xuyên hoặc xảy ra hàng giờ, hàng ngày, hàng tuần, hàng
+tháng, hoặc bất cứ lúc nào bạn muốn.  Các tên tập tin là:
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
             <li class="listitem">
               <p>
-<code class="filename"><em class="replaceable"><code>package</code></em>.cron.hourly</code> -
-Installed as
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.hourly</code> - Được
+cài đặt tại
 <code class="filename">/etc/cron.hourly/<em class="replaceable"><code>package</code></em></code>;
-run once an hour.
+chạy mỗi giờ một lần.
 </p>
             </li>
             <li class="listitem">
               <p>
-<code class="filename"><em class="replaceable"><code>package</code></em>.cron.daily</code> -
-Installed as
-<code class="filename">/etc/cron.daily/<em class="replaceable"><code>package</code></em></code>; run
-once a day.
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.daily</code> - Được
+cài đặt tại
+<code class="filename">/etc/cron.daily/<em class="replaceable"><code>package</code></em></code>;
+chạy mỗi ngày một lần.
 </p>
             </li>
             <li class="listitem">
               <p>
-<code class="filename"><em class="replaceable"><code>package</code></em>.cron.weekly</code> -
-Installed as
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.weekly</code> - Được
+cài đặt tại
 <code class="filename">/etc/cron.weekly/<em class="replaceable"><code>package</code></em></code>;
-run once a week.
+chạy mỗi tuần một lần.
 </p>
             </li>
             <li class="listitem">
               <p>
-<code class="filename"><em class="replaceable"><code>package</code></em>.cron.monthly</code> -
-Installed as
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.monthly</code> - Được
+cài đặt tại
 <code class="filename">/etc/cron.monthly/<em class="replaceable"><code>package</code></em></code>:
-run once a month.
+chạy mỗi tháng một lần.
 </p>
             </li>
             <li class="listitem">
               <p>
-<code class="filename"><em class="replaceable"><code>package</code></em>.cron.d</code> - Installed
-as <code class="filename">/etc/cron.d/<em class="replaceable"><code>package</code></em></code>: for
-any other time.
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.d</code> - Được cài
+đặt tại <code class="filename">/etc/cron.d/<em class="replaceable"><code>package</code></em></code>:
+cho bất kỳ thời gian khác.
 </p>
             </li>
           </ul>
         </div>
         <p>
-Most of these files are shell scripts, with the exception of
-<code class="filename"><em class="replaceable"><code>package</code></em>.cron.d</code> which follows
-the format of <span class="citerefentry"><span class="refentrytitle">crontab</span>(5)</span>.
+Hầu hết các tệp này là kịch bản shell, ngoại trừ tệp trong
+<code class="filename"><em class="replaceable"><code>package</code></em>.cron.d</code> tuân thủ theo
+định dạng của <span class="citerefentry"><span class="refentrytitle">crontab</span>(5)</span>.
 </p>
         <p>
-No explicit <code class="filename">cron.*</code> file is needed to set up log
-rotation; for that, see
+Không cần chỉ định tệp <code class="filename">cron.*</code> cho cài đặt ghi chép nhật
+ký (log rotation); để làm điều này, xem
 <span class="citerefentry"><span class="refentrytitle">dh_installlogrotate</span>(1)</span> and
 <span class="citerefentry"><span class="refentrytitle">logrotate</span>(8)</span>.
 </p>
@@ -433,19 +431,19 @@ rotation; for that, see
           </div>
         </div>
         <p>
-This file specifies any directories which we need but which are not created
-by the normal installation procedure (<code class="literal">make install
-DESTDIR=...</code> invoked by <code class="literal">dh_auto_install</code>).  This
-generally means there is a problem with the <code class="filename">Makefile</code>.
+Tệp này chỉ định bất kỳ thư mục nào chúng ta cần nhưng không tạo theo quy
+trình cài đặt thông thường (<code class="literal">make install DESTDIR=...</code> được
+gọi bởi <code class="literal">dh_auto_install</code>).  Điều này có nghĩa sẽ có vấn đề
+với <code class="filename">Makefile</code>.
 </p>
         <p>
-Files listed in an <code class="filename">install</code> file don't need their
-directories created first.  See <a class="xref" href="dother.vi.html#install" title="5.11. install">Phần 5.11, “<code class="filename">install</code>”</a>.
+Các tệp này được liệt kê trong tệp <code class="filename">install</code> không cần
+thư mục của chúng đuợc tạo trước.  Xem <a class="xref" href="dother.vi.html#install" title="5.11. install">Phần 5.11, “<code class="filename">install</code>”</a>.
 </p>
         <p>
-It is best to try to run the installation first and only use this if you run
-into trouble.  There is no preceding slash on the directory names listed in
-the <code class="filename">dirs</code> file.
+Tốt nhất là thử cài đặt trước và chỉ sửa dụng điều này nếu bạn gặp rắc
+rối. Không có dấu gạch chéo trước tên thư mục được liệt kê trong
+<code class="filename">dirs</code>
 </p>
       </div>
       <div class="section">
@@ -457,17 +455,17 @@ the <code class="filename">dirs</code> file.
           </div>
         </div>
         <p>
-If your package has documentation other than manual and info pages, you
-should use the <code class="systemitem">doc-base</code> file to
-register it, so the user can find it with e.g.  <span class="citerefentry"><span class="refentrytitle">dhelp</span>(1)</span>, <span class="citerefentry"><span class="refentrytitle">dwww</span>(1)</span>, or <span class="citerefentry"><span class="refentrytitle">doccentral</span>(1)</span>.
+Nếu gói của bạn có tài liệu khác với trang hướng dẫn sử dụng và thông tin
+(man, info), bạn nên sử dụng tệp <code class="systemitem">doc-base</code> để đăng ký, để người dùng có thể tìm
+thấy nó bằng như:  <span class="citerefentry"><span class="refentrytitle">dhelp</span>(1)</span>, <span class="citerefentry"><span class="refentrytitle">dwww</span>(1)</span>, or <span class="citerefentry"><span class="refentrytitle">doccentral</span>(1)</span>.
 </p>
         <p>
-This usually includes HTML, PS and PDF files, shipped in
+Thường bao gồm các tệp HTML, PS và PDF, được đặt tại
 <code class="filename">/usr/share/doc/<em class="replaceable"><code>packagename</code></em>/</code>.
 </p>
         <p>
-This is what <code class="systemitem">gentoo</code>'s doc-base file
-<code class="filename">gentoo.doc-base</code> looks like:
+Đây là tệp doc-base của gói <code class="systemitem">gentoo</code>
+<code class="filename">gentoo.doc-base</code> trong giống như sau:
 </p>
         <pre class="screen">
 Document: gentoo
@@ -480,11 +478,12 @@ Index: /usr/share/doc/gentoo/html/index.html
 Files: /usr/share/doc/gentoo/html/*.html
 </pre>
         <p>
-For information on the file format, see <span class="citerefentry"><span class="refentrytitle">install-docs</span>(8)</span> and the Debian <code class="systemitem">doc-base</code> manual at the local copy
-<code class="filename">/usr/share/doc/doc-base/doc-base.html/index.html</code> provided by the <code class="systemitem">doc-base</code> package.
+Thông tin về định dạng tệp tin này, xem <span class="citerefentry"><span class="refentrytitle">install-docs</span>(8)</span> và the Debian <code class="systemitem">doc-base</code> manual ở bản copy
+<code class="filename">/usr/share/doc/doc-base/doc-base.html/index.html</code> trên máy của bạn  được cung cấp bởi gói
+<code class="systemitem">doc-base</code> .
 </p>
         <p>
-For more details on installing additional documentation, look in <a class="xref" href="modify.vi.html#destdir" title="3.3. Cài đặt các tệp tin đến đích của chúng">Phần 3.3, “Cài đặt các tệp tin đến đích của chúng”</a>.
+Để biết thêm chi tiết về cài đặt tài liệu bổ sung, vui lòng xem <a class="xref" href="modify.vi.html#destdir" title="3.3. Cài đặt các tệp tin đến đích của chúng">Phần 3.3, “Cài đặt các tệp tin đến đích của chúng”</a>
 </p>
       </div>
       <div class="section">
@@ -496,18 +495,18 @@ For more details on installing additional documentation, look in <a class="xref"
           </div>
         </div>
         <p>
-This file specifies the file names of documentation files we can have
-<span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span> install into the temporary
-directory for us.
+Tệp này chỉ định tên tệp của các tệp tài liệu mà chúng ta có thể
+<span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span> cài đặt vào thư mục tạm thời cho
+chúng.
 </p>
         <p>
-By default, it will include all existing files in the top-level source
-directory that are called <code class="filename">BUGS</code>,
-<code class="filename">README*</code>, <code class="filename">TODO</code> etc.
+Mặc định, nó sẽ bao gồm tất cả các tệp tồn tại ở trong thư mục top-level
+(không tính thư mục con) của mã nguồn bao gồm <code class="filename">BUGS</code>,
+<code class="filename">README*</code>, <code class="filename">TODO</code> vân vân.
 </p>
         <p>
-For <code class="systemitem">gentoo</code>, some other files are
-also included:
+Cho <code class="systemitem">gentoo</code>, vài tệp tin cũng được
+bao gồm:
 </p>
         <pre class="screen">
 BUGS
@@ -528,14 +527,14 @@ TODO
           </div>
         </div>
         <p>
-If your package supplies Emacs files that can be bytecompiled at package
-installation time, you can use these files to set it up.
+Nếu gói của bạn cung cấp các tệp Emacs có thể được cài tại thời điểm cài đặt
+gói, bạn có thể sử dụng những tệp này để thiết lập nó.
 </p>
         <p>
-They are installed into the temporary directory by <span class="citerefentry"><span class="refentrytitle">dh_installemacsen</span>(1)</span>.
+Chúng được cài đặt vào thư mục tạm thời bởi <span class="citerefentry"><span class="refentrytitle">dh_installemacsen</span>(1)</span>.
 </p>
         <p>
-If you don't need these, remove them.
+Nếu bạn không cần, hãy xoá chúng đi
 </p>
       </div>
       <div class="section">
@@ -1271,7 +1270,7 @@ khi nhắc tới.
 </p>
         </div>
         <div id="ftn.idm2069" class="footnote">
-          <p><a href="#idm2069" class="para"><sup class="para">[55] </sup></a>See <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> and <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
+          <p><a href="#idm2069" class="para"><sup class="para">[55] </sup></a>Xem <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
 </p>
         </div>
         <div id="ftn.idm2265" class="footnote">
