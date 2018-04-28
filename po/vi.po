@@ -5501,6 +5501,10 @@ msgid ""
 "daily, weekly, or monthly, or alternatively happen at any other time that you wish.  "
 "The filenames are:"
 msgstr ""
+"Nếu gói của bạn yêu cầu các tác vụ được lên lịch thường xuyên để hoạt động đúng, "
+"bạn có thể sử dụng các tệp này để làm điều đó. Bạn có thể thiết lập các tác "
+"vụ thường xuyên hoặc xảy ra hàng giờ, hàng ngày, hàng tuần, hàng tháng, hoặc "
+"bất cứ lúc nào bạn muốn.  Các tên tập tin là:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5508,12 +5512,16 @@ msgid ""
 "<filename>/etc/cron.hourly/<replaceable>package</replaceable></filename>; run once an "
 "hour."
 msgstr ""
+"<filename><replaceable>package</replaceable>.cron.hourly</filename> - Được cài đặt tại "
+"<filename>/etc/cron.hourly/<replaceable>package</replaceable></filename>; chạy mỗi giờ một lần."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<filename><replaceable>package</replaceable>.cron.daily</filename> - Installed as "
 "<filename>/etc/cron.daily/<replaceable>package</replaceable></filename>; run once a day."
 msgstr ""
+"<filename><replaceable>package</replaceable>.cron.daily</filename> - Được cài đặt tại "
+"<filename>/etc/cron.daily/<replaceable>package</replaceable></filename>; chạy mỗi ngày một lần."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5521,6 +5529,8 @@ msgid ""
 "<filename>/etc/cron.weekly/<replaceable>package</replaceable></filename>; run once a "
 "week."
 msgstr ""
+"<filename><replaceable>package</replaceable>.cron.weekly</filename> - Được cài đặt tại "
+"<filename>/etc/cron.weekly/<replaceable>package</replaceable></filename>; chạy mỗi tuần một lần."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
@@ -5528,12 +5538,16 @@ msgid ""
 "<filename>/etc/cron.monthly/<replaceable>package</replaceable></filename>: run once a "
 "month."
 msgstr ""
+"<filename><replaceable>package</replaceable>.cron.monthly</filename> - Được cài đặt tại "
+"<filename>/etc/cron.monthly/<replaceable>package</replaceable></filename>: chạy mỗi tháng một lần."
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid ""
 "<filename><replaceable>package</replaceable>.cron.d</filename> - Installed as "
 "<filename>/etc/cron.d/<replaceable>package</replaceable></filename>: for any other time."
 msgstr ""
+"<filename><replaceable>package</replaceable>.cron.d</filename> - Được cài đặt tại "
+"<filename>/etc/cron.d/<replaceable>package</replaceable></filename>: cho bất kỳ thời gian khác."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5542,6 +5556,9 @@ msgid ""
 "of <citerefentry> <refentrytitle>crontab</refentrytitle> <manvolnum>5</manvolnum> </"
 "citerefentry>."
 msgstr ""
+"Hầu hết các tệp này là kịch bản shell, ngoại trừ tệp trong <filename><replaceable>"
+"package</replaceable>.cron.d</filename> tuân thủ theo định dạng của <citerefentry> "
+"<refentrytitle>crontab</refentrytitle> <manvolnum>5</manvolnum> </citerefentry>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5550,10 +5567,14 @@ msgid ""
 "<manvolnum>1</manvolnum></citerefentry> and <citerefentry><refentrytitle>logrotate</"
 "refentrytitle><manvolnum>8</manvolnum></citerefentry>."
 msgstr ""
+"Không cần chỉ định tệp <filename>cron.*</filename> cho cài đặt ghi chép nhật ký (log rotation); "
+"để làm điều này, xem <citerefentry><refentrytitle>dh_installlogrotate</refentrytitle> "
+"<manvolnum>1</manvolnum></citerefentry> and <citerefentry><refentrytitle>logrotate</"
+"refentrytitle><manvolnum>8</manvolnum></citerefentry>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>dirs</filename>"
-msgstr ""
+msgstr "<filename>dirs</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5562,12 +5583,17 @@ msgid ""
 "<literal>dh_auto_install</literal>).  This generally means there is a problem with the "
 "<filename>Makefile</filename>."
 msgstr ""
+"Tệp này chỉ định bất kỳ thư mục nào chúng ta cần nhưng không tạo theo quy trình cài đặt thông thường "
+"(<literal>make install DESTDIR=...</literal> được gọi bởi <literal>dh_auto_install</literal>).  "
+"Điều này có nghĩa sẽ có vấn đề với <filename>Makefile</filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "Files listed in an <filename>install</filename> file don't need their directories "
 "created first.  See <xref linkend=\"install\"/>."
 msgstr ""
+"Các tệp này được liệt kê trong tệp <filename>install</filename> không cần thư mục "
+"của chúng đuợc tạo trước.  Xem <xref linkend=\"install\"/>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5575,10 +5601,12 @@ msgid ""
 "trouble.  There is no preceding slash on the directory names listed in the "
 "<filename>dirs</filename> file."
 msgstr ""
+"Tốt nhất là thử cài đặt trước và chỉ sửa dụng điều này nếu bạn gặp rắc rối. Không có "
+"dấu gạch chéo trước tên thư mục được liệt kê trong <filename>dirs</filename>"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.doc-base</filename>"
-msgstr ""
+msgstr "<filename><replaceable>package</replaceable>.doc-base</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5589,18 +5617,28 @@ msgid ""
 "<manvolnum>1</manvolnum> </citerefentry>, or <citerefentry> <refentrytitle>doccentral</"
 "refentrytitle> <manvolnum>1</manvolnum> </citerefentry>."
 msgstr ""
+"Nếu gói của bạn có tài liệu khác với trang hướng dẫn sử dụng và thông tin (man, info), "
+"bạn nên sử dụng tệp <systemitem role=\"package\">doc-base</systemitem> để đăng ký, "
+"để người dùng có thể tìm thấy nó bằng như:  <citerefentry> <refentrytitle>dhelp"
+"</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, <citerefentry> "
+"<refentrytitle>dwww</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, "
+"or <citerefentry> <refentrytitle>doccentral</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "This usually includes HTML, PS and PDF files, shipped in <filename>/usr/share/doc/"
 "<replaceable>packagename</replaceable>/</filename>."
 msgstr ""
+"Thường bao gồm các tệp HTML, PS và PDF, được đặt tại <filename>/usr/share/doc/"
+"<replaceable>packagename</replaceable>/</filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "This is what <systemitem role=\"package\">gentoo</systemitem>'s doc-base file "
 "<filename>gentoo.doc-base</filename> looks like:"
 msgstr ""
+"Đây là tệp doc-base của gói <systemitem role=\"package\">gentoo</systemitem> "
+"<filename>gentoo.doc-base</filename> trong giống như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -5614,6 +5652,14 @@ msgid ""
 "Index: /usr/share/doc/gentoo/html/index.html\n"
 "Files: /usr/share/doc/gentoo/html/*.html\n"
 msgstr ""
+"Document: gentoo\n"
+"Title: Gentoo Manual\n"
+"Author: Emil Brink\n"
+"Abstract: This manual describes what Gentoo is, and how it can be used.\n"
+"Section: File Management\n"
+"Format: HTML\n"
+"Index: /usr/share/doc/gentoo/html/index.html\n"
+"Files: /usr/share/doc/gentoo/html/*.html\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5622,16 +5668,21 @@ msgid ""
 "\"package\">doc-base</systemitem> manual at the local copy <filename>&doc-base;</"
 "filename> provided by the <systemitem role=\"package\">doc-base</systemitem> package."
 msgstr ""
+"Thông tin về định dạng tệp tin này, xem <citerefentry> <refentrytitle>install-docs</"
+"refentrytitle> <manvolnum>8</manvolnum> </citerefentry> và the Debian <systemitem role="
+"\"package\">doc-base</systemitem> manual ở bản copy <filename>&doc-base;</filename> trên máy của bạn "
+" được cung cấp bởi gói  <systemitem role=\"package\">doc-base</systemitem> ."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "For more details on installing additional documentation, look in <xref linkend=\"destdir"
 "\"/>."
 msgstr ""
+"Để biết thêm chi tiết về cài đặt tài liệu bổ sung, vui lòng xem <xref linkend=\"destdir\"/>"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>docs</filename>"
-msgstr ""
+msgstr "<filename>docs</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5639,6 +5690,9 @@ msgid ""
 "<refentrytitle>dh_installdocs</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> "
 "install into the temporary directory for us."
 msgstr ""
+"Tệp này chỉ định tên tệp của các tệp tài liệu mà chúng ta có thể <citerefentry> "
+"<refentrytitle>dh_installdocs</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> "
+"cài đặt vào thư mục tạm thời cho chúng."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5646,12 +5700,16 @@ msgid ""
 "are called <filename>BUGS</filename>, <filename>README*</filename>, <filename>TODO</"
 "filename> etc."
 msgstr ""
+"Mặc định, nó sẽ bao gồm tất cả các tệp tồn tại ở trong thư mục top-level (không tính "
+"thư mục con) của mã nguồn bao gồm <filename>BUGS</filename>, <filename>README*</filename>, "
+"<filename>TODO</filename> vân vân."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "For <systemitem role=\"package\">gentoo</systemitem>, some other files are also "
 "included:"
 msgstr ""
+"Cho <systemitem role=\"package\">gentoo</systemitem>, vài tệp tin cũng được bao gồm:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -5664,16 +5722,25 @@ msgid ""
 "README.gtkrc\n"
 "TODO\n"
 msgstr ""
+"BUGS\n"
+"CONFIG-CHANGES\n"
+"CREDITS\n"
+"NEWS\n"
+"README\n"
+"README.gtkrc\n"
+"TODO\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>emacsen-*</filename>"
-msgstr ""
+msgstr "<filename>emacsen-*</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If your package supplies Emacs files that can be bytecompiled at package installation "
 "time, you can use these files to set it up."
 msgstr ""
+"Nếu gói của bạn cung cấp các tệp Emacs có thể được cài tại thời điểm cài đặt gói, "
+"bạn có thể sử dụng những tệp này để thiết lập nó."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5681,10 +5748,12 @@ msgid ""
 "<refentrytitle>dh_installemacsen</refentrytitle> <manvolnum>1</manvolnum> </"
 "citerefentry>."
 msgstr ""
+"Chúng được cài đặt vào thư mục tạm thời bởi <citerefentry> <refentrytitle>"
+"dh_installemacsen</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "If you don't need these, remove them."
-msgstr ""
+msgstr "Nếu bạn không cần, hãy xoá chúng đi"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.examples</filename>"
