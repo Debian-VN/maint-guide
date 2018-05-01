@@ -5757,7 +5757,7 @@ msgstr "Nếu bạn không cần, hãy xoá chúng đi"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.examples</filename>"
-msgstr ""
+msgstr "<filename><replaceable>package</replaceable>.examples</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5765,18 +5765,25 @@ msgid ""
 "manvolnum> </citerefentry> command installs files and directories listed in this file "
 "as example files."
 msgstr ""
+"Lệnh <citerefentry> <refentrytitle>dh_installexamples</refentrytitle> <manvolnum>1</"
+"manvolnum> </citerefentry> cài các tệp và thư mục được liệt kê trong tệp này như là "
+"các tệp mẫu."
 
 #. type: Content of: <book><chapter><section><title>
 msgid ""
 "<filename><replaceable>package</replaceable>.init</filename> and "
 "<filename><replaceable>package</replaceable>.default</filename>"
 msgstr ""
+"<filename><replaceable>package</replaceable>.init</filename> và "
+"<filename><replaceable>package</replaceable>.default</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "If your package is a daemon that needs to be run at system start-up, you've obviously "
 "disregarded my initial recommendation, haven't you? :-)"
 msgstr ""
+"Nếu gói của bạn là một daemon cần được chạy tại thời điểm start-up của hệ thống, bạn bỏ qua "
+"đề xuất ban đầu của mình, phải không ? "
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5789,6 +5796,14 @@ msgid ""
 "temporary directory by <citerefentry> <refentrytitle>dh_installinit</refentrytitle> "
 "<manvolnum>1</manvolnum> </citerefentry>."
 msgstr ""
+"Tệp <filename><replaceable>package</replaceable>.init</filename> được cài đặt vào "
+"kịch bản <filename>/etc/init.d/<replaceable>package</replaceable></filename> mà có thể "
+"starts và stops tiếng trình daemon. Một bộ khung mẫu được cung cấp bởi lệnh "
+"<command>dh_make</command> là <filename>init.d.ex</filename>.  Bạn sẽ có thể phải "
+"đổi tên và chỉnh sửa nó, khá nhiều, trong khi đảm bảo cung cấp header phù hợp với "
+"<ulink url=\"&lsb;\">Linux Standard Base</ulink> (LSB). Nó được cài đặt vào thư mục "
+"tạm thời bởi <citerefentry> <refentrytitle>dh_installinit</refentrytitle> "
+"<manvolnum>1</manvolnum> </citerefentry>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5801,6 +5816,14 @@ msgid ""
 "<filename><replaceable>package</replaceable>.default</filename> file, instead of in the "
 "init script itself."
 msgstr ""
+"Tệp <filename><replaceable>package</replaceable>.default</filename> sẽ được cài đặt "
+"vào <filename>/etc/default/<replaceable>package</replaceable></filename>. "
+"Tệp này cài đặt mặc định được sử dụng bởi kịch bản init.  Tệp "
+"<filename><replaceable>package</replaceable>.default</filename> thường được sử dụng để "
+"vô hiệu hoá một daemon đang chạy, hoặc cài đặt vài tuỳ chọn mặc định hoặc độ trê.  Nếu "
+"kịch bản init của bạn có các tính năng cấu hình nhất định, bạn có thể cài chúng vào tệp"
+"<filename><replaceable>package</replaceable>.default</filename>, thay vì viết trực tiếp "
+"vào chính kịch bản init."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5812,6 +5835,12 @@ msgid ""
 "<command>dh_installinit</command> in the <filename>rules</filename> file with the "
 "following lines:"
 msgstr ""
+"Nếu chương trình của bạn cung cấp một tệp cho kịch bản init, bạn cũng có thể sử dụng nó "
+"hoặc không. Nếu bạn không sử dụng kịch bản init của họ thì hãy tạo một tệp là "
+"<filename><replaceable>package</replaceable>.init</filename>.  Tuy nhiên nếu kịch bản "
+"init của thượng nguồn trông ổn và để đúng vị trí, bạn vẫn cần cài đặt liên kết tượng trưng "
+"<filename>rc*</filename>. Để làm điểu này bạn cần phải ghi đè <command>dh_installinit"
+"</command> trong tệp <filename>rules</filename> với các dòng sau: "
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
@@ -5819,14 +5848,16 @@ msgid ""
 "override_dh_installinit:\n"
 "        dh_installinit --onlyscripts\n"
 msgstr ""
+"override_dh_installinit:\n"
+"        dh_installinit --onlyscripts\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid "If you don't need this, remove the files."
-msgstr ""
+msgstr "Nếu bạn không cần nó, hãy xoá những tệp này."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>install</filename>"
-msgstr ""
+msgstr "<filename>install</filename>"
 
 #. type: Content of: <book><chapter><section><para><footnote><para>
 msgid ""
@@ -5834,6 +5865,9 @@ msgid ""
 "<manvolnum>1</manvolnum> </citerefentry> command which is configured by the "
 "<filename>files</filename> file."
 msgstr ""
+"Tệp này sẽ thay thế lệnh <citerefentry> <refentrytitle>dh_movefiles</refentrytitle> "
+"<manvolnum>1</manvolnum> </citerefentry> không được dùng nữa, được cấu hình bởi tệp "
+"<filename>files</filename> ."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5845,6 +5879,13 @@ msgid ""
 "specific tool to use.  For example, documents should be in the <filename>docs</"
 "filename> file and not in this one."
 msgstr ""
+"Nếu những tệp tin này cần được cài đặt vào trong gói của bạn nhưng <literal>make install"
+"</literal> của bạn sẽ không làm điều đó. Vậy hãy đặt các tên tập tin và đích của nó vào tệp "
+"<filename>install</filename> này, chúng sẽ được cài đặt bởi <citerefentry><refentrytitle>"
+"dh_install</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>."
+"<placeholder type=\"footnote\" id=\"0\"/> Bạn nên kiểm tra có hay không cách khác cụ thể hơn "
+"để sử dụng trước. Ví dụ, các tài liệu nên đặt ở <filename>docs</filename> chứ không phải "
+"trong tệp này."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5854,17 +5895,24 @@ msgid ""
 "a binary <filename>src/<replaceable>bar</replaceable></filename> is left uninstalled; "
 "the <filename>install</filename> file might look like:"
 msgstr ""
+"Mỗi dòng trong tệp <filename>install</filename> thể hiện cho mỗi tệp được cài đặt, mỗi dòng "
+"bắt đầu với tên của tệp nguồn (tương đối với thư mục build) sao đó một dấu cách (phím space) "
+"và tiếp theo là vị trí thư mục đích sẽ được cài đặt (tương đối với thư mục cài đặt). Một ví dụ "
+"như tệp nhị phân <filename>src/<replaceable>bar</replaceable></filename> muốn cài đặt; "
+"tệp <filename>install</filename> trông giống như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "src/<replaceable>bar</replaceable> usr/bin\n"
-msgstr ""
+msgstr "src/<replaceable>bar</replaceable> usr/bin\n"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "This means when this package is installed, there will be an executable command "
 "<filename>/usr/bin/<replaceable>bar</replaceable></filename>."
 msgstr ""
+"Nghĩa là khi gói này được cài đặt, sẽ có một lệnh thực thi ở "
+"<filename>/usr/bin/<replaceable>bar</replaceable></filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5875,6 +5923,11 @@ msgid ""
 "install</filename>, <filename><replaceable>package-2</replaceable>.install</filename>, "
 "etc."
 msgstr ""
+"Ngoài ra, tệp <filename>install</filename> có thể chứa tên của tệp tin mà không có "
+"thư mục đích để cài đặt khi thư mục tương đối không thay đổi. Định dạng này thường "
+"được sử dụng cho một gói lớn phân chia đầu ra của gói của nó thành nhiều gói nhị phân "
+"bằng cách sử dụng <filename><replaceable>package-1</replaceable>.install</filename>, "
+"<filename><replaceable>package-2</replaceable>.install</filename>, vân vân."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5882,6 +5935,9 @@ msgid ""
 "tmp</filename> for files, if it doesn't find them in the current directory (or wherever "
 "you've told it to look using <literal>--sourcedir</literal>)."
 msgstr ""
+"Lệnh <command>dh_install</command> sẽ tìm laị trong thư mục <filename>debian/tmp</filename>"
+", nếu nó không tìm thấy chúng trong thư mục hiện tại, (hoặc bạn đã nói với nó qua tuỳ chọn "
+"<literal>--sourcedir</literal>)."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.info</filename>"
