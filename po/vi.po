@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-05-25 23:42+0900\n"
-"PO-Revision-Date: 2018-02-04 19:12+0700\n"
+"PO-Revision-Date: 2018-05-10 09:25+0700\n"
 "Last-Translator: Giap Tran <txgvnn@gmail.com>\n"
 "Language-Team: Debian-VN <debian-l10n-vietnamese@lists.debian.org>\n"
 "Language: vi_VN\n"
@@ -1978,7 +1978,7 @@ msgstr "$ dpkg --compare-versions <replaceable>ver1</replaceable> <replaceable>o
 
 #. type: Content of: <book><chapter><section><para>
 msgid "The version comparison rule can be summarized as:"
-msgstr "Quy tắc so sánh phiên bản có thể được tóm tắt như sau:\n"
+msgstr "Quy tắc so sánh phiên bản có thể được tóm tắt như sau:"
 
 #. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
 msgid "Strings are compared from the head to the tail."
@@ -5941,7 +5941,7 @@ msgstr ""
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.info</filename>"
-msgstr ""
+msgstr "<filename><replaceable>package</replaceable>.info</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5949,10 +5949,13 @@ msgid ""
 "<refentrytitle>dh_installinfo</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> "
 "by listing them in a <filename><replaceable>package</replaceable>.info</filename> file."
 msgstr ""
+"Nếu gói của bạn có các trang thông tin, bạn nên cài chúng bởi <citerefentry> "
+"<refentrytitle>dh_installinfo</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> "
+"bằng cách liệt kê chúng trong tệp <filename><replaceable>package</replaceable>.info</filename>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.links</filename>"
-msgstr ""
+msgstr "<filename><replaceable>package</replaceable>.links</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5962,11 +5965,16 @@ msgid ""
 "source and destination files in a <filename><replaceable>package</replaceable>.links</"
 "filename> file."
 msgstr ""
+"Nếu bạn cần tạo các liên kết tượng trưng trong thư mục gói như người bảo trì gói, bạn nên "
+"cài chúng bởi <citerefentry> <refentrytitle>dh_link</"
+"refentrytitle> <manvolnum>1</manvolnum> </citerefentry> bằng cách liệt kê đường dẫn đầy đủ "
+"của nguồn và đích trong tệp <filename><replaceable>package</replaceable>.links</filename>."
 
 #. type: Content of: <book><chapter><section><title>
 msgid ""
 "<filename>{<replaceable>package</replaceable>.,source/}lintian-overrides</filename>"
 msgstr ""
+"<filename>{<replaceable>package</replaceable>.,source/}lintian-overrides</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5976,6 +5984,11 @@ msgid ""
 "<filename>source/lintian-overrides</filename> to quieten it.  Please read Lintian "
 "User's Manual (<filename>&lintian-doc;</filename>) and refrain from abusing this."
 msgstr ""
+"Nếu chương trình <systemitem role=\"package\">lintian</systemitem> báo có một chuẩn đoán "
+"về lỗi cho trường hợp khi Debian policy chấp nhận ngoại lệ cho một số quy tắc, bạn có thể "
+"sử dụng tệp <filename><replaceable>package</replaceable>.lintian-overrides</filename> hoặc "
+"<filename>source/lintian-overrides</filename> để không còn báo lỗi từ lintian. Vui lòng đọc "
+"Lintian User's Manual (<filename>&lintian-doc;</filename>) và tránh lạm dụng điều này."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -5985,16 +5998,21 @@ msgid ""
 "<replaceable>package</replaceable></filename> by the <command>dh_lintian</command> "
 "command."
 msgstr ""
+"<filename><replaceable>package</replaceable>.lintian-overrides</filename> cho gói nhị phân "
+"có tên là <systemitem role=\"package\"><replaceable>package</replaceable></systemitem> "
+"và được cài đặt vào <filename>usr/share/lintian/overrides/<replaceable>package</replaceable>"
+"</filename> bởi lệnh <command>dh_lintian</command>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
 "<filename>source/lintian-overrides</filename> is for the source package.  This is not "
 "installed."
 msgstr ""
+"<filename>source/lintian-overrides</filename> là cho gói nguồn. Nó không phải cho cài đặt."
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>manpage.*</filename>"
-msgstr ""
+msgstr "<filename>manpage.*</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6003,10 +6021,14 @@ msgid ""
 "need to be copied and edited for each command missing its manual page.  Please make "
 "sure to remove unused templates."
 msgstr ""
+"Các chương trình của bạn nên có một trang hướng dẫn (manual page). Nếu không có, bạn "
+" có thể tạo mới chúng. Lệnh <command>dh_make</command> tạo vài mẫu tệp cho các trang "
+"hướng dẫn. Chúng cần được sao chép và chỉnh sửa cho mỗi lệnh thiếu trong trang hưỡng dẫn. "
+"Vui lòng đảm bảo xoá các mẫu không sử dụng."
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "<filename>manpage.1.ex</filename>"
-msgstr ""
+msgstr "<filename>manpage.1.ex</filename>"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -6016,6 +6038,11 @@ msgid ""
 "<refentrytitle>man</refentrytitle> <manvolnum>7</manvolnum> </citerefentry> manual page "
 "for a brief description of how to edit such a file."
 msgstr ""
+"Các trang hướng dẫn thường viết bằng <citerefentry> <refentrytitle>nroff</"
+"refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.  Mẫu <filename>manpage.1.ex</"
+"filename> cũng được viết bằng <command>nroff</command>.  Xem trang hướng dẫn <citerefentry> "
+"<refentrytitle>man</refentrytitle> <manvolnum>7</manvolnum> </citerefentry> để biết mô tả ngắn gọn "
+"về cách chỉnh sửa tệp đó."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -6025,126 +6052,131 @@ msgid ""
 "manual page for a user command.  Be sure to verify that this section is indeed the "
 "correct one.  Here's a short list of manual page sections:"
 msgstr ""
+"Cuối cùng, tên của tệp trang hướng dẫn nên là tên của chương trình mà tệp đó mô tả, "
+"vậy chúng ta sẽ đổi tên nó từ <literal>manpage</literal> thành <literal>gentoo</literal>. "
+"Tên tệp cũng bao gồm <literal>.1</literal> là đuôi cho loại một, điều đó có nghĩa là một "
+"trang hướng dẫn cho lệnh của người dùng. Hãy chắc chắn xác minh rằng mục này chính xác."
+"Đây là một danh sách ngắn của các mục:"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><thead><row><entry>
 msgid "Section"
-msgstr ""
+msgstr "Mục"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><thead><row><entry>
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><thead><row><entry>
 msgid "Notes"
-msgstr ""
+msgstr "Ghi chú"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "User commands"
-msgstr ""
+msgstr "Các lệnh người dùng"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Executable commands or scripts"
-msgstr ""
+msgstr "Lệnh hoặc kịch bản thực thi"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "System calls"
-msgstr ""
+msgstr "Lời gọi Hệ thống"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Functions provided by the kernel"
-msgstr ""
+msgstr "Chức năng được cung cấp từ nhân"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Library calls"
-msgstr ""
+msgstr "Lời gọi Thư viện"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Functions within system libraries"
-msgstr ""
+msgstr "Chức năng trong thư viện hệ thống"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Special files"
-msgstr ""
+msgstr "Các tệp đặc biệt"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Usually found in <filename>/dev</filename>"
-msgstr ""
+msgstr "Thường xuyên là tệp tại <filename>/dev</filename>"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "File formats"
-msgstr ""
+msgstr "Định dạng tệp"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "E.g. <filename>/etc/passwd</filename>'s format"
-msgstr ""
+msgstr "Ví dụ định dạng <filename>/etc/passwd</filename>"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Games"
-msgstr ""
+msgstr "Các trò chơi"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Games or other frivolous programs"
-msgstr ""
+msgstr "Trò chơi hoặc chương trình giải trí"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Macro packages"
-msgstr ""
+msgstr "Gói Macro"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Such as <command>man</command> macros"
-msgstr ""
+msgstr "Ví dụ như macros <command>man</command>"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "System administration"
-msgstr ""
+msgstr "Quản trị hệ thống"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Programs typically only run by root"
-msgstr ""
+msgstr "Các chương trình chỉ thực thi bởi root"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Kernel routines"
-msgstr ""
+msgstr "Chương trình của nhân"
 
 #. type: Content of: <book><chapter><section><section><informaltable><tgroup><tbody><row><entry>
 msgid "Non-standard calls and internals"
-msgstr ""
+msgstr "Các lời gọi không theo chuẩn"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
