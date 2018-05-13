@@ -8475,7 +8475,7 @@ msgid ""
 "You should check <ulink url=\"&dep;\">DEP - Debian Enhancement Proposals</ulink> and "
 "adopt ACCEPTED proposals."
 msgstr ""
-"Bạn nên kiểm tra <ulink url=\"&dep;\">DEP - Debian Enhancement Proposals</ulink>(Những đề nghị cải tiến Debian) and và sử dụng những đề nghị đã được CHẤP THUẬN."
+"Bạn nên kiểm tra <ulink url=\"&dep;\">DEP - Debian Enhancement Proposals</ulink>(Những đề nghị cải tiến Debian) và sử dụng những đề nghị đã được CHẤP THUẬN."
 
 #. type: Content of: <book><chapter><section><para>
 msgid "You need to do the other tasks described in <xref linkend=\"newupstream\"/>, too."
