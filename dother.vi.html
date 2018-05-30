@@ -85,7 +85,7 @@
           </dt>
           <dt>
             <span class="section">
-              <a href="dother.vi.html#initd">5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> and
+              <a href="dother.vi.html#initd">5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> và
 <code class="filename"><em class="replaceable"><code>package</code></em>.default</code></a>
             </span>
           </dt>
@@ -198,7 +198,7 @@ Lệnh <span class="command"><strong>dh_make</strong></span> sẽ tạo một s�
 <code class="filename">debian</code>.  Hầu hết tên các tập tin có hậu tố là
 <code class="literal">.ex</code>.  Một số chúng có các tên tệp bắt đầu bằng tên gói
 nhị phân như <code class="literal"><em class="replaceable"><code>package</code></em></code>. Hãy xem
-tất cả tại. <a href="#ftn.idm2008" class="footnote" id="idm2008"><sup class="footnote">[54]</sup></a>
+tất cả tại. <a href="#ftn.idm2006" class="footnote" id="idm2006"><sup class="footnote">[54]</sup></a>
 </p>
       <p>
 Một số tệp cấu hình mẫu cho <code class="systemitem">debhelper</code> có thể không được tạo bởi lệnh
@@ -311,7 +311,7 @@ $ echo 9 &gt; debian/compat
 Một trong những điều gây phiền phức nhất về phần mềm là khi bạn đã dành rất
 nhiều thời gian và nỗ lực để cấu hình một chương trình, và khi nâng cấp phần
 mềm thì mọi thay đổi của bạn bị đè.  Debian giải quyết vấn đề này bằng cách
-gọi các tập tin cấu hình trong gói là conffiles.  <a href="#ftn.idm2069" class="footnote" id="idm2069"><sup class="footnote">[55]</sup></a> Khi bạn nâng cấp một gói, bạn sẽ được hỏi rằng bạn
+gọi các tập tin cấu hình trong gói là conffiles.  <a href="#ftn.idm2067" class="footnote" id="idm2067"><sup class="footnote">[55]</sup></a> Khi bạn nâng cấp một gói, bạn sẽ được hỏi rằng bạn
 có muốn giữ các tệp cấu hình cũ (hiện tại) hay không.
 </p>
         <p>
@@ -546,61 +546,61 @@ Nếu bạn không cần, hãy xoá chúng đi
           </div>
         </div>
         <p>
-The <span class="citerefentry"><span class="refentrytitle">dh_installexamples</span>(1)</span> command installs files and
-directories listed in this file as example files.
+Lệnh <span class="citerefentry"><span class="refentrytitle">dh_installexamples</span>(1)</span> cài các tệp và thư mục được liệt kê
+trong tệp này như là các tệp mẫu.
 </p>
       </div>
       <div class="section">
         <div class="titlepage">
           <div>
             <div>
-              <h2 class="title"><a id="initd"/>5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> and
+              <h2 class="title"><a id="initd"/>5.10. <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> và
 <code class="filename"><em class="replaceable"><code>package</code></em>.default</code></h2>
             </div>
           </div>
         </div>
         <p>
-If your package is a daemon that needs to be run at system start-up, you've
-obviously disregarded my initial recommendation, haven't you? :-)
+Nếu gói của bạn là một daemon cần được chạy tại thời điểm start-up của hệ
+thống, bạn bỏ qua đề xuất ban đầu của mình, phải không ? 
 </p>
         <p>
-The <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> file is
-installed as the
-<code class="filename">/etc/init.d/<em class="replaceable"><code>package</code></em></code> script
-which starts and stops the daemon.  Its fairly generic skeleton template is
-provided by the <span class="command"><strong>dh_make</strong></span> command as
-<code class="filename">init.d.ex</code>.  You'll likely have to rename and edit it, a
-lot, while making sure to provide <a class="ulink" href="http://www.linuxfoundation.org/collaborate/workgroups/lsb">Linux Standard
-Base</a> (LSB) compliant headers.  It gets installed into the temporary
-directory by <span class="citerefentry"><span class="refentrytitle">dh_installinit</span>(1)</span>.
+Tệp <code class="filename"><em class="replaceable"><code>package</code></em>.init</code> được cài
+đặt vào kịch bản
+<code class="filename">/etc/init.d/<em class="replaceable"><code>package</code></em></code> mà có
+thể starts và stops tiếng trình daemon. Một bộ khung mẫu được cung cấp bởi
+lệnh <span class="command"><strong>dh_make</strong></span> là <code class="filename">init.d.ex</code>.  Bạn sẽ
+có thể phải đổi tên và chỉnh sửa nó, khá nhiều, trong khi đảm bảo cung cấp
+header phù hợp với <a class="ulink" href="http://www.linuxfoundation.org/collaborate/workgroups/lsb">Linux Standard Base</a> (LSB). Nó
+được cài đặt vào thư mục tạm thời bởi <span class="citerefentry"><span class="refentrytitle">dh_installinit</span>(1)</span>.
 </p>
         <p>
-The <code class="filename"><em class="replaceable"><code>package</code></em>.default</code> file
-will be installed as
-<code class="filename">/etc/default/<em class="replaceable"><code>package</code></em></code>.  This
-file sets defaults that are sourced by the init script.  This
-<code class="filename"><em class="replaceable"><code>package</code></em>.default</code> file is most
-often used to disable running a daemon, or to set some default flags or
-timeouts.  If your init script has certain configurable features, you can
-set them in the
-<code class="filename"><em class="replaceable"><code>package</code></em>.default</code> file,
-instead of in the init script itself.
+Tệp <code class="filename"><em class="replaceable"><code>package</code></em>.default</code> sẽ được
+cài đặt vào
+<code class="filename">/etc/default/<em class="replaceable"><code>package</code></em></code>. Tệp
+này cài đặt mặc định được sử dụng bởi kịch bản init.  Tệp
+<code class="filename"><em class="replaceable"><code>package</code></em>.default</code> thường được
+sử dụng để vô hiệu hoá một daemon đang chạy, hoặc cài đặt vài tuỳ chọn mặc
+định hoặc độ trê.  Nếu kịch bản init của bạn có các tính năng cấu hình nhất
+định, bạn có thể cài chúng vào
+tệp<code class="filename"><em class="replaceable"><code>package</code></em>.default</code>, thay vì
+viết trực tiếp vào chính kịch bản init.
 </p>
         <p>
-If your upstream program provides a file for the init script, you can either
-use it or not.  If you don't use their init script then create a new one in
-<code class="filename"><em class="replaceable"><code>package</code></em>.init</code>.  However if
-the upstream init script looks fine and installs in the right place you
-still need to set up the <code class="filename">rc*</code> symlinks.  To do this you
-will need to override <span class="command"><strong>dh_installinit</strong></span> in the
-<code class="filename">rules</code> file with the following lines:
+Nếu chương trình của bạn cung cấp một tệp cho kịch bản init, bạn cũng có thể
+sử dụng nó hoặc không. Nếu bạn không sử dụng kịch bản init của họ thì hãy
+tạo một tệp là
+<code class="filename"><em class="replaceable"><code>package</code></em>.init</code>.  Tuy nhiên nếu
+kịch bản init của thượng nguồn trông ổn và để đúng vị trí, bạn vẫn cần cài
+đặt liên kết tượng trưng <code class="filename">rc*</code>. Để làm điểu này bạn cần
+phải ghi đè <span class="command"><strong>dh_installinit</strong></span> trong tệp
+<code class="filename">rules</code> với các dòng sau: 
 </p>
         <pre class="screen">
 override_dh_installinit:
         dh_installinit --onlyscripts
 </pre>
         <p>
-If you don't need this, remove the files.
+Nếu bạn không cần nó, hãy xoá những tệp này.
 </p>
       </div>
       <div class="section">
@@ -612,40 +612,41 @@ If you don't need this, remove the files.
           </div>
         </div>
         <p>
-If there are files that need to be installed into your package but your
-standard <code class="literal">make install</code> won't do it, put the filenames and
-destinations into this <code class="filename">install</code> file.  They are
-installed by <span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2265" class="footnote" id="idm2265"><sup class="footnote">[56]</sup></a> You should first check there is not a more specific tool to use.
-For example, documents should be in the <code class="filename">docs</code> file and
-not in this one.
+Nếu những tệp tin này cần được cài đặt vào trong gói của bạn nhưng
+<code class="literal">make install</code> của bạn sẽ không làm điều đó. Vậy hãy đặt
+các tên tập tin và đích của nó vào tệp <code class="filename">install</code> này,
+chúng sẽ được cài đặt bởi
+<span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2263" class="footnote" id="idm2263"><sup class="footnote">[56]</sup></a> Bạn nên kiểm tra có hay không cách khác cụ thể hơn để sử dụng
+trước. Ví dụ, các tài liệu nên đặt ở <code class="filename">docs</code> chứ không
+phải trong tệp này.
 </p>
         <p>
-This <code class="filename">install</code> file has one line per file installed, with
-the name of the file (relative to the top build directory) then a space then
-the installation directory (relative to the install directory).  One example
-of where this is used is if a binary
-<code class="filename">src/<em class="replaceable"><code>bar</code></em></code> is left uninstalled;
-the <code class="filename">install</code> file might look like:
+Mỗi dòng trong tệp <code class="filename">install</code> thể hiện cho mỗi tệp được
+cài đặt, mỗi dòng bắt đầu với tên của tệp nguồn (tương đối với thư mục
+build) sao đó một dấu cách (phím space) và tiếp theo là vị trí thư mục đích
+sẽ được cài đặt (tương đối với thư mục cài đặt). Một ví dụ như tệp nhị phân
+<code class="filename">src/<em class="replaceable"><code>bar</code></em></code> muốn cài đặt; tệp
+<code class="filename">install</code> trông giống như sau:
 </p>
         <pre class="screen">
 src/<em class="replaceable"><code>bar</code></em> usr/bin
 </pre>
         <p>
-This means when this package is installed, there will be an executable
-command <code class="filename">/usr/bin/<em class="replaceable"><code>bar</code></em></code>.
+Nghĩa là khi gói này được cài đặt, sẽ có một lệnh thực thi ở
+<code class="filename">/usr/bin/<em class="replaceable"><code>bar</code></em></code>.
 </p>
         <p>
-Alternatively, this <code class="filename">install</code> can have the name of the
-file only without the installation directory when the relative directory
-path does not change.  This format is usually used for a large package that
-splits the output of its build into multiple binary packages using
+Ngoài ra, tệp <code class="filename">install</code> có thể chứa tên của tệp tin mà
+không có thư mục đích để cài đặt khi thư mục tương đối không thay đổi. Định
+dạng này thường được sử dụng cho một gói lớn phân chia đầu ra của gói của nó
+thành nhiều gói nhị phân bằng cách sử dụng
 <code class="filename"><em class="replaceable"><code>package-1</code></em>.install</code>,
-<code class="filename"><em class="replaceable"><code>package-2</code></em>.install</code>, etc.
+<code class="filename"><em class="replaceable"><code>package-2</code></em>.install</code>, vân vân.
 </p>
         <p>
-The <span class="command"><strong>dh_install</strong></span> command will fall back to looking in
-<code class="filename">debian/tmp</code> for files, if it doesn't find them in the
-current directory (or wherever you've told it to look using
+Lệnh <span class="command"><strong>dh_install</strong></span> sẽ tìm laị trong thư mục
+<code class="filename">debian/tmp</code>, nếu nó không tìm thấy chúng trong thư mục
+hiện tại, (hoặc bạn đã nói với nó qua tuỳ chọn
 <code class="literal">--sourcedir</code>).
 </p>
       </div>
@@ -658,8 +659,8 @@ current directory (or wherever you've told it to look using
           </div>
         </div>
         <p>
-If your package has info pages, you should install them using <span class="citerefentry"><span class="refentrytitle">dh_installinfo</span>(1)</span> by listing them in a
-<code class="filename"><em class="replaceable"><code>package</code></em>.info</code> file.
+Nếu gói của bạn có các trang thông tin, bạn nên cài chúng bởi <span class="citerefentry"><span class="refentrytitle">dh_installinfo</span>(1)</span> bằng cách liệt kê chúng trong tệp
+<code class="filename"><em class="replaceable"><code>package</code></em>.info</code>.
 </p>
       </div>
       <div class="section">
@@ -671,9 +672,9 @@ If your package has info pages, you should install them using <span class="citer
           </div>
         </div>
         <p>
-If you need to create additional symlinks in package build directories as
-package maintainer, you should install them using <span class="citerefentry"><span class="refentrytitle">dh_link</span>(1)</span> by listing their full paths of source and destination files
-in a <code class="filename"><em class="replaceable"><code>package</code></em>.links</code> file.
+Nếu bạn cần tạo các liên kết tượng trưng trong thư mục gói như người bảo trì
+gói, bạn nên cài chúng bởi <span class="citerefentry"><span class="refentrytitle">dh_link</span>(1)</span> bằng cách liệt kê đường dẫn đầy đủ của nguồn và đích trong
+tệp <code class="filename"><em class="replaceable"><code>package</code></em>.links</code>.
 </p>
       </div>
       <div class="section">
@@ -685,24 +686,24 @@ in a <code class="filename"><em class="replaceable"><code>package</code></em>.li
           </div>
         </div>
         <p>
-If <code class="systemitem">lintian</code> reports an erroneous
-diagnostic for a case where Debian policy allows exceptions to some rule,
-you can use
-<code class="filename"><em class="replaceable"><code>package</code></em>.lintian-overrides</code> or
-<code class="filename">source/lintian-overrides</code> to quieten it.  Please read
-Lintian User's Manual (<code class="filename">https://lintian.debian.org/manual/index.html</code>) and refrain from
-abusing this.
+Nếu chương trình <code class="systemitem">lintian</code> báo có một
+chuẩn đoán về lỗi cho trường hợp khi Debian policy chấp nhận ngoại lệ cho
+một số quy tắc, bạn có thể sử dụng tệp
+<code class="filename"><em class="replaceable"><code>package</code></em>.lintian-overrides</code>
+hoặc <code class="filename">source/lintian-overrides</code> để không còn báo lỗi từ
+lintian. Vui lòng đọc Lintian User's Manual
+(<code class="filename">https://lintian.debian.org/manual/index.html</code>) và tránh lạm dụng điều này.
 </p>
         <p>
-<code class="filename"><em class="replaceable"><code>package</code></em>.lintian-overrides</code> is
-for the binary package named <code class="systemitem"><em class="replaceable"><code>package</code></em></code> and is
-installed into
+<code class="filename"><em class="replaceable"><code>package</code></em>.lintian-overrides</code>
+cho gói nhị phân có tên là <code class="systemitem"><em class="replaceable"><code>package</code></em></code> và được cài
+đặt vào
 <code class="filename">usr/share/lintian/overrides/<em class="replaceable"><code>package</code></em></code>
-by the <span class="command"><strong>dh_lintian</strong></span> command.
+bởi lệnh <span class="command"><strong>dh_lintian</strong></span>.
 </p>
         <p>
-<code class="filename">source/lintian-overrides</code> is for the source package.
-This is not installed.
+<code class="filename">source/lintian-overrides</code> là cho gói nguồn. Nó không
+phải cho cài đặt.
 </p>
       </div>
       <div class="section">
@@ -714,10 +715,11 @@ This is not installed.
           </div>
         </div>
         <p>
-Your program(s) should have a manual page.  If they don't, you should create
-them.  The <span class="command"><strong>dh_make</strong></span> command creates some template files
-for manual pages.  These need to be copied and edited for each command
-missing its manual page.  Please make sure to remove unused templates.
+Các chương trình của bạn nên có một trang hướng dẫn (manual page). Nếu không
+có, bạn  có thể tạo mới chúng. Lệnh <span class="command"><strong>dh_make</strong></span> tạo vài mẫu
+tệp cho các trang hướng dẫn. Chúng cần được sao chép và chỉnh sửa cho mỗi
+lệnh thiếu trong trang hưỡng dẫn. Vui lòng đảm bảo xoá các mẫu không sử
+dụng.
 </p>
         <div class="section">
           <div class="titlepage">
@@ -728,17 +730,17 @@ missing its manual page.  Please make sure to remove unused templates.
             </div>
           </div>
           <p>
-Manual pages are normally written in <span class="citerefentry"><span class="refentrytitle">nroff</span>(1)</span>.  The <code class="filename">manpage.1.ex</code> template is written
-in <span class="command"><strong>nroff</strong></span>, too.  See the <span class="citerefentry"><span class="refentrytitle">man</span>(7)</span>
-manual page for a brief description of how to edit such a file.
+Các trang hướng dẫn thường viết bằng <span class="citerefentry"><span class="refentrytitle">nroff</span>(1)</span>.  Mẫu <code class="filename">manpage.1.ex</code> cũng được viết bằng
+<span class="command"><strong>nroff</strong></span>.  Xem trang hướng dẫn <span class="citerefentry"><span class="refentrytitle">man</span>(7)</span>
+để biết mô tả ngắn gọn về cách chỉnh sửa tệp đó.
 </p>
           <p>
-The final manual page file name should give the name of the program it is
-documenting, so we will rename it from <code class="literal">manpage</code> to
-<code class="literal">gentoo</code>.  The file name also includes
-<code class="literal">.1</code> as the first suffix, which means it's a manual page
-for a user command.  Be sure to verify that this section is indeed the
-correct one.  Here's a short list of manual page sections:
+Cuối cùng, tên của tệp trang hướng dẫn nên là tên của chương trình mà tệp đó
+mô tả, vậy chúng ta sẽ đổi tên nó từ <code class="literal">manpage</code> thành
+<code class="literal">gentoo</code>. Tên tệp cũng bao gồm <code class="literal">.1</code> là
+đuôi cho loại một, điều đó có nghĩa là một trang hướng dẫn cho lệnh của
+người dùng. Hãy chắc chắn xác minh rằng mục này chính xác.Đây là một danh
+sách ngắn của các mục:
 </p>
           <div class="informaltable">
             <a id="manpage-sections"/>
@@ -750,72 +752,73 @@ correct one.  Here's a short list of manual page sections:
               </colgroup>
               <thead>
                 <tr>
-                  <th style="text-align: left">Section</th>
-                  <th style="text-align: left">Description</th>
-                  <th style="text-align: left">Notes</th>
+                  <th style="text-align: left">Mục</th>
+                  <th style="text-align: left">Mô tả</th>
+                  <th style="text-align: left">Ghi chú</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td style="text-align: left">1</td>
-                  <td style="text-align: left">User commands</td>
-                  <td style="text-align: left">Executable commands or scripts</td>
+                  <td style="text-align: left">Các lệnh người dùng</td>
+                  <td style="text-align: left">Lệnh hoặc kịch bản thực thi</td>
                 </tr>
                 <tr>
                   <td style="text-align: left">2</td>
-                  <td style="text-align: left">System calls</td>
-                  <td style="text-align: left">Functions provided by the kernel</td>
+                  <td style="text-align: left">Lời gọi Hệ thống</td>
+                  <td style="text-align: left">Chức năng được cung cấp từ nhân</td>
                 </tr>
                 <tr>
                   <td style="text-align: left">3</td>
-                  <td style="text-align: left">Library calls</td>
-                  <td style="text-align: left">Functions within system libraries</td>
+                  <td style="text-align: left">Lời gọi Thư viện</td>
+                  <td style="text-align: left">Chức năng trong thư viện hệ thống</td>
                 </tr>
                 <tr>
                   <td style="text-align: left">4</td>
-                  <td style="text-align: left">Special files</td>
-                  <td style="text-align: left">Usually found in <code class="filename">/dev</code></td>
+                  <td style="text-align: left">Các tệp đặc biệt</td>
+                  <td style="text-align: left">Thường xuyên là tệp tại <code class="filename">/dev</code></td>
                 </tr>
                 <tr>
                   <td style="text-align: left">5</td>
-                  <td style="text-align: left">File formats</td>
-                  <td style="text-align: left">E.g. <code class="filename">/etc/passwd</code>'s format</td>
+                  <td style="text-align: left">Định dạng tệp</td>
+                  <td style="text-align: left">Ví dụ định dạng <code class="filename">/etc/passwd</code></td>
                 </tr>
                 <tr>
                   <td style="text-align: left">6</td>
-                  <td style="text-align: left">Games</td>
-                  <td style="text-align: left">Games or other frivolous programs</td>
+                  <td style="text-align: left">Các trò chơi</td>
+                  <td style="text-align: left">Trò chơi hoặc chương trình giải trí</td>
                 </tr>
                 <tr>
                   <td style="text-align: left">7</td>
-                  <td style="text-align: left">Macro packages</td>
-                  <td style="text-align: left">Such as <span class="command"><strong>man</strong></span> macros</td>
+                  <td style="text-align: left">Gói Macro</td>
+                  <td style="text-align: left">Ví dụ như macros <span class="command"><strong>man</strong></span></td>
                 </tr>
                 <tr>
                   <td style="text-align: left">8</td>
-                  <td style="text-align: left">System administration</td>
-                  <td style="text-align: left">Programs typically only run by root</td>
+                  <td style="text-align: left">Quản trị hệ thống</td>
+                  <td style="text-align: left">Các chương trình chỉ thực thi bởi root</td>
                 </tr>
                 <tr>
                   <td style="text-align: left">9</td>
-                  <td style="text-align: left">Kernel routines</td>
-                  <td style="text-align: left">Non-standard calls and internals</td>
+                  <td style="text-align: left">Chương trình của nhân</td>
+                  <td style="text-align: left">Các lời gọi không theo chuẩn</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p>
-So <code class="systemitem">gentoo</code>'s man page should be
-called <code class="filename">gentoo.1</code>.  If there was no
-<code class="filename">gentoo.1</code> man page in the original source, you should
-create it by renaming the <code class="filename">manpage.1.ex</code> template to
-<code class="filename">gentoo.1</code> and editing it using information from the
-example and from the upstream docs.
+Vì vậy trang man của <code class="systemitem">gentoo</code> nên được
+gọi là <code class="filename">gentoo.1</code>. Nếu không có tệp
+<code class="filename">gentoo.1</code> trong thượng nguồn, bạn nên tạo nó bằng cách
+đổi tên template <code class="filename">manpage.1.ex</code> thành
+<code class="filename">gentoo.1</code> và chỉnh sửa nó bằng cách sử dụng thông tin từ
+các ví dụ và tài liệu thượng nguồn.
 </p>
           <p>
-You can use the <span class="command"><strong>help2man</strong></span> command to generate a man page
-out of the <code class="literal">--help</code> and <code class="literal">--version</code> output
-of each program, too.  <a href="#ftn.idm2413" class="footnote" id="idm2413"><sup class="footnote">[57]</sup></a>
+Bạn có thể sử dụng lệnh <span class="command"><strong>help2man</strong></span> để tạo một manpage mới,
+help2man sử dụng các dữ liệu từ tuỳ chọn <code class="literal">--help</code> và
+<code class="literal">--version</code> của chương trình để tạo ra
+manpage. <a href="#ftn.idm2411" class="footnote" id="idm2411"><sup class="footnote">[57]</sup></a>
 </p>
         </div>
         <div class="section">
@@ -827,33 +830,32 @@ of each program, too.  <a href="#ftn.idm2413" class="footnote" id="idm2413"><sup
             </div>
           </div>
           <p>
-If on the other hand you prefer writing SGML instead of
-<span class="command"><strong>nroff</strong></span>, you can use the
-<code class="filename">manpage.sgml.ex</code> template.  If you do this, you have to:
+Mặt khác, nếu bạn thích viết SGML thay vì <span class="command"><strong>nroff</strong></span>, bạn có
+thể sử dụng tệp mẫu <code class="filename">manpage.sgml.ex</code>.  Nếu bạn làm điều
+này, bạn phải:
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
-rename the file to something like <code class="filename">gentoo.sgml</code>.
+đổi tên tệp tin thành <code class="filename">gentoo.sgml</code>.
 </p>
               </li>
               <li class="listitem">
                 <p>
-install the <code class="systemitem">docbook-to-man</code> package
+cài đặt gói <code class="systemitem">docbook-to-man</code>
 </p>
               </li>
               <li class="listitem">
                 <p>
-add <code class="literal">docbook-to-man</code> to the
-<code class="literal">Build-Depends</code> line in the <code class="filename">control</code>
-file
+thêm <code class="literal">docbook-to-man</code> vào dòng
+<code class="literal">Build-Depends</code> của tệp <code class="filename">control</code>
 </p>
               </li>
               <li class="listitem">
                 <p>
-add an <code class="literal">override_dh_auto_build</code> target to your
-<code class="filename">rules</code> file:
+thêm mục target <code class="literal">override_dh_auto_build</code> vào tệp
+<code class="filename">rules</code>:
 </p>
                 <pre class="screen">
 override_dh_auto_build:
@@ -873,34 +875,33 @@ override_dh_auto_build:
             </div>
           </div>
           <p>
-If you prefer XML over SGML, you can use the
-<code class="literal">manpage.xml.ex</code> template.  If you do this, you have to:
+Hoặc nếu bạn yêu thích XML hơn là SGML, bạn có thể sử dụng mẫu
+<code class="literal">manpage.xml.ex</code> .  Nếu bạn làm điều này, bạn phải:
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
-rename the source file to something like <code class="literal">gentoo.1.xml</code>
+đổi tên thành <code class="literal">gentoo.1.xml</code>
 </p>
               </li>
               <li class="listitem">
                 <p>
-install the <code class="systemitem">docbook-xsl</code> package and
-an XSLT processor like <code class="systemitem">xsltproc</code>
-(recommended)
+cài đặt gói <code class="systemitem">docbook-xsl</code> và một XSLT
+processor như <code class="systemitem">xsltproc</code> (khuyên dùng)
 </p>
               </li>
               <li class="listitem">
                 <p>
-add the <code class="literal">docbook-xsl</code>, <code class="literal">docbook-xml</code>, and
-<code class="literal">xsltproc</code> packages to the <code class="literal">Build-Depends</code>
-line in the <code class="literal">control</code> file
+thêm tên các gói <code class="literal">docbook-xsl</code>,
+<code class="literal">docbook-xml</code>, và <code class="literal">xsltproc</code> vào dòng
+<code class="literal">Build-Depends</code> trong tệp <code class="literal">control</code>
 </p>
               </li>
               <li class="listitem">
                 <p>
-add an <code class="literal">override_dh_auto_build</code> target to your
-<code class="filename">rules</code> file:
+thêm mục target <code class="literal">override_dh_auto_build</code> vào tệp
+<code class="filename">rules</code>:
 </p>
                 <pre class="screen">
 override_dh_auto_build:
@@ -927,14 +928,14 @@ http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl\
           </div>
         </div>
         <p>
-If your package has manual pages, you should install them using
-<span class="citerefentry"><span class="refentrytitle">dh_installman</span>(1)</span> by listing them in a
-<code class="filename"><em class="replaceable"><code>package</code></em>.manpages</code> file.
+Nếu gói của bạn có các trang hướng dẫn, bạn nên cài đặt chúng bởi
+<span class="citerefentry"><span class="refentrytitle">dh_installman</span>(1)</span> bằng cách liệt kê chúng trong tệp
+<code class="filename"><em class="replaceable"><code>package</code></em>.manpages</code>.
 </p>
         <p>
-To install <code class="filename">docs/gentoo.1</code> as a manpage for the
-<code class="systemitem">gentoo</code> package, create a
-<code class="filename">gentoo.manpages</code> file as follows:
+Để cài đặt <code class="filename">docs/gentoo.1</code> như một tệp manpage cho gói
+<code class="systemitem">gentoo</code>, hãy tạo tệp
+<code class="filename">gentoo.manpages</code> như sau:
 </p>
         <pre class="screen">
 docs/gentoo.1
@@ -963,7 +964,7 @@ The <span class="citerefentry"><span class="refentrytitle">dh_installchangelogs<
         <p>
 These <code class="filename">postinst</code>, <code class="filename">preinst</code>,
 <code class="filename">postrm</code>, and <code class="filename">prerm</code> files
-<a href="#ftn.idm2496" class="footnote" id="idm2496"><sup class="footnote">[58]</sup></a> are called <span class="emphasis"><em>maintainer
+<a href="#ftn.idm2494" class="footnote" id="idm2494"><sup class="footnote">[58]</sup></a> are called <span class="emphasis"><em>maintainer
 scripts</em></span>.  They are scripts which are put in the control area of
 the package and run by <span class="command"><strong>dpkg</strong></span> when your package is
 installed, upgraded, or removed.
@@ -1116,11 +1117,11 @@ single line indicating the desired format for the source package (check
 The newer <code class="literal">3.0 (quilt)</code> source format records modifications
 in a <span class="command"><strong>quilt</strong></span> patch series within
 <code class="filename">debian/patches</code>.  Those changes are then automatically
-applied during extraction of the source package.  <a href="#ftn.idm2597" class="footnote" id="idm2597"><sup class="footnote">[59]</sup></a> The Debian modifications are simply stored in a
+applied during extraction of the source package.  <a href="#ftn.idm2595" class="footnote" id="idm2595"><sup class="footnote">[59]</sup></a> The Debian modifications are simply stored in a
 <code class="filename">debian.tar.gz</code> archive containing all files under the
 <code class="filename">debian</code> directory.  This new format supports inclusion
 of binary files such as PNG icons by the package maintainer without
-requiring tricks.  <a href="#ftn.idm2604" class="footnote" id="idm2604"><sup class="footnote">[60]</sup></a>
+requiring tricks.  <a href="#ftn.idm2602" class="footnote" id="idm2602"><sup class="footnote">[60]</sup></a>
 </p>
         <p>
 When <span class="command"><strong>dpkg-source</strong></span> extracts a source package in
@@ -1217,7 +1218,7 @@ packaged as the <code class="filename">debian.tar.gz</code> file.  Since the
 <span class="command"><strong>dpkg-source</strong></span> command can handle <span class="command"><strong>quilt</strong></span>
 formatted patch data in the <code class="literal">3.0 (quilt)</code> source without
 the <code class="systemitem">quilt</code> package, it does not need
-a <code class="literal">Build-Depends</code> on <code class="systemitem">quilt</code>.  <a href="#ftn.idm2665" class="footnote" id="idm2665"><sup class="footnote">[61]</sup></a>
+a <code class="literal">Build-Depends</code> on <code class="systemitem">quilt</code>.  <a href="#ftn.idm2663" class="footnote" id="idm2663"><sup class="footnote">[61]</sup></a>
 </p>
         <p>
 The <span class="command"><strong>quilt</strong></span> command is explained in <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span>.  It records modifications to the source as a stack of
@@ -1226,7 +1227,7 @@ The <span class="command"><strong>quilt</strong></span> command is explained in 
 untouched outside of the <code class="filename">debian</code> directory.  The order
 of these patches is recorded in the
 <code class="filename">debian/patches/series</code> file.  You can apply (=push),
-un-apply (=pop), and refresh patches easily.  <a href="#ftn.idm2681" class="footnote" id="idm2681"><sup class="footnote">[62]</sup></a>
+un-apply (=pop), and refresh patches easily.  <a href="#ftn.idm2679" class="footnote" id="idm2679"><sup class="footnote">[62]</sup></a>
 </p>
         <p>
 For <a class="xref" href="modify.vi.html" title="Chương 3. Sửa đổi mã nguồn">Chương 3, <em>Sửa đổi mã nguồn</em></a>, we created three patches in
@@ -1262,51 +1263,51 @@ done</code>.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm2008" class="footnote">
-          <p><a href="#idm2008" class="para"><sup class="para">[54] </sup></a>
+        <div id="ftn.idm2006" class="footnote">
+          <p><a href="#idm2006" class="para"><sup class="para">[54] </sup></a>
 Trong chương này, các tệp tin trong thư mục <code class="filename">debian</code> được
 đề cập đến mà không có <code class="filename">debian/</code> để đơn giản hóa bất cứ
 khi nhắc tới.
 </p>
         </div>
-        <div id="ftn.idm2069" class="footnote">
-          <p><a href="#idm2069" class="para"><sup class="para">[55] </sup></a>Xem <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
+        <div id="ftn.idm2067" class="footnote">
+          <p><a href="#idm2067" class="para"><sup class="para">[55] </sup></a>Xem <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
 </p>
         </div>
-        <div id="ftn.idm2265" class="footnote">
-          <p><a href="#idm2265" class="para"><sup class="para">[56] </sup></a> This replaces the deprecated <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> command which is configured by the
-<code class="filename">files</code> file.  </p>
+        <div id="ftn.idm2263" class="footnote">
+          <p><a href="#idm2263" class="para"><sup class="para">[56] </sup></a> Tệp này sẽ thay thế lệnh <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> không được dùng nữa, được cấu hình bởi tệp
+<code class="filename">files</code> .  </p>
         </div>
-        <div id="ftn.idm2413" class="footnote">
-          <p><a href="#idm2413" class="para"><sup class="para">[57] </sup></a> Note that <span class="command"><strong>help2man</strong></span>'s placeholder man page will claim that
-more detailed documentation is available in the info system. If the command
-is missing an <span class="command"><strong>info</strong></span> page, you should manually edit the man
-page created by the <span class="command"><strong>help2man</strong></span> command.  </p>
+        <div id="ftn.idm2411" class="footnote">
+          <p><a href="#idm2411" class="para"><sup class="para">[57] </sup></a> Lưu ý rằng lệnh <span class="command"><strong>help2man</strong></span>sẽ yêu cầu nhiều tài liệu chi
+tiết hơn có sẵn trong hệ thống info. Nếu thiếu lệnh này trong trang
+<span class="command"><strong>info</strong></span>, bạn nên tạo nó bằng cách sử dụng lệnh
+<span class="command"><strong>help2man</strong></span>.  </p>
         </div>
-        <div id="ftn.idm2496" class="footnote">
-          <p><a href="#idm2496" class="para"><sup class="para">[58] </sup></a> Despite this use of the <span class="command"><strong>bash</strong></span> shorthand expression
+        <div id="ftn.idm2494" class="footnote">
+          <p><a href="#idm2494" class="para"><sup class="para">[58] </sup></a> Despite this use of the <span class="command"><strong>bash</strong></span> shorthand expression
 <code class="filename">{pre,post}{inst,rm}</code> to indicate these filenames, you
 should use pure POSIX syntax for these maintainer scripts for compatibility
 with <span class="command"><strong>dash</strong></span> as the system shell.  </p>
         </div>
-        <div id="ftn.idm2597" class="footnote">
-          <p><a href="#idm2597" class="para"><sup class="para">[59] </sup></a> See <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> for a summary on the switch to
+        <div id="ftn.idm2595" class="footnote">
+          <p><a href="#idm2595" class="para"><sup class="para">[59] </sup></a> See <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> for a summary on the switch to
 the new <code class="literal">3.0 (quilt)</code> and <code class="literal">3.0 (native)</code>
 source formats.  </p>
         </div>
-        <div id="ftn.idm2604" class="footnote">
-          <p><a href="#idm2604" class="para"><sup class="para">[60] </sup></a>Actually, this new format also supports multiple upstream tarballs and more
+        <div id="ftn.idm2602" class="footnote">
+          <p><a href="#idm2602" class="para"><sup class="para">[60] </sup></a>Actually, this new format also supports multiple upstream tarballs and more
 compression methods.  These are beyond the scope of this document.</p>
         </div>
-        <div id="ftn.idm2665" class="footnote">
-          <p><a href="#idm2665" class="para"><sup class="para">[61] </sup></a> Several methods of patch set maintenance have been proposed and are in use
+        <div id="ftn.idm2663" class="footnote">
+          <p><a href="#idm2663" class="para"><sup class="para">[61] </sup></a> Several methods of patch set maintenance have been proposed and are in use
 for Debian packages.  The <span class="command"><strong>quilt</strong></span> system is the preferred
 maintenance system in use.  Others include <span class="command"><strong>dpatch</strong></span>,
 <span class="command"><strong>dbs</strong></span>, and <span class="command"><strong>cdbs</strong></span>.  Many of these keep
 such patches as <code class="filename">debian/patches/*</code> files.  </p>
         </div>
-        <div id="ftn.idm2681" class="footnote">
-          <p><a href="#idm2681" class="para"><sup class="para">[62] </sup></a> If you are asking a sponsor to upload your package, this kind of clear
+        <div id="ftn.idm2679" class="footnote">
+          <p><a href="#idm2679" class="para"><sup class="para">[62] </sup></a> If you are asking a sponsor to upload your package, this kind of clear
 separation and documentation of your changes is very important to expedite
 the package review by your sponsor.  </p>
         </div>
