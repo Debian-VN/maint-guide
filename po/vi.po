@@ -6185,7 +6185,11 @@ msgid ""
 "in the original source, you should create it by renaming the <filename>manpage.1.ex</"
 "filename> template to <filename>gentoo.1</filename> and editing it using information "
 "from the example and from the upstream docs."
-msgstr ""
+msgstr "Vì vậy trang man của <systemitem role=\"package\">gentoo</systemitem> nên được "
+"gọi là <filename>gentoo.1</filename>. Nếu không có tệp <filename>gentoo.1</filename> trong "
+"thượng nguồn, bạn nên tạo nó bằng cách đổi tên template <filename>manpage.1.ex</filename> "
+"thành <filename>gentoo.1</filename> và chỉnh sửa nó bằng cách sử dụng thông tin từ "
+"các ví dụ và tài liệu thượng nguồn."
 
 #. type: Content of: <book><chapter><section><section><para><footnote><para>
 msgid ""
@@ -6194,6 +6198,9 @@ msgid ""
 "<command>info</command> page, you should manually edit the man page created by the "
 "<command>help2man</command> command."
 msgstr ""
+"Lưu ý rằng lệnh <command>help2man</command>sẽ yêu cầu nhiều tài liệu chi tiết hơn có "
+"sẵn trong hệ thống info. Nếu thiếu lệnh này trong trang <command>info</command>, "
+"bạn nên tạo nó bằng cách sử dụng lệnh <command>help2man</command>."
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
@@ -6201,36 +6208,45 @@ msgid ""
 "<literal>--help</literal> and <literal>--version</literal> output of each program, "
 "too.  <placeholder type=\"footnote\" id=\"0\"/>"
 msgstr ""
+"Bạn có thể sử dụng lệnh <command>help2man</command> để tạo một manpage mới, help2man"
+" sử dụng các dữ liệu từ tuỳ chọn <literal>--help</literal> và <literal>--version</literal> "
+"của chương trình để tạo ra manpage. <placeholder type=\"footnote\" id=\"0\"/>"
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "<filename>manpage.sgml.ex</filename>"
-msgstr ""
+msgstr "<filename>manpage.sgml.ex</filename>"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "If on the other hand you prefer writing SGML instead of <command>nroff</command>, you "
 "can use the <filename>manpage.sgml.ex</filename> template.  If you do this, you have to:"
 msgstr ""
+"Mặt khác, nếu bạn thích viết SGML thay vì <command>nroff</command>, bạn có thể sử dụng tệp mẫu "
+"<filename>manpage.sgml.ex</filename>.  Nếu bạn làm điều này, bạn phải:"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "rename the file to something like <filename>gentoo.sgml</filename>."
-msgstr ""
+msgstr "đổi tên tệp tin thành <filename>gentoo.sgml</filename>."
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "install the <systemitem role=\"package\">docbook-to-man</systemitem> package"
-msgstr ""
+msgstr "cài đặt gói <systemitem role=\"package\">docbook-to-man</systemitem>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "add <literal>docbook-to-man</literal> to the <literal>Build-Depends</literal> line in "
 "the <filename>control</filename> file"
 msgstr ""
+"thêm <literal>docbook-to-man</literal> vào dòng <literal>Build-Depends</literal> của tệp "
+"<filename>control</filename>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "add an <literal>override_dh_auto_build</literal> target to your <filename>rules</"
 "filename> file:"
 msgstr ""
+"thêm mục target <literal>override_dh_auto_build</literal> vào tệp <filename>rules</"
+"filename>:"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
@@ -6239,26 +6255,33 @@ msgid ""
 "        docbook-to-man debian/gentoo.sgml &gt; debian/gentoo.1\n"
 "        dh_auto_build\n"
 msgstr ""
+"override_dh_auto_build:\n"
+"        docbook-to-man debian/gentoo.sgml &gt; debian/gentoo.1\n"
+"        dh_auto_build\n"
 
 #. type: Content of: <book><chapter><section><section><title>
 msgid "<filename>manpage.xml.ex</filename>"
-msgstr ""
+msgstr "<filename>manpage.xml.ex</filename>"
 
 #. type: Content of: <book><chapter><section><section><para>
 msgid ""
 "If you prefer XML over SGML, you can use the <literal>manpage.xml.ex</literal> "
 "template.  If you do this, you have to:"
 msgstr ""
+"Hoặc nếu bạn yêu thích XML hơn là SGML, bạn có thể sử dụng mẫu <literal>manpage.xml.ex</literal> "
+".  Nếu bạn làm điều này, bạn phải:"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid "rename the source file to something like <literal>gentoo.1.xml</literal>"
-msgstr ""
+msgstr "đổi tên thành <literal>gentoo.1.xml</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
 "install the <systemitem role=\"package\">docbook-xsl</systemitem> package and an XSLT "
 "processor like <systemitem role=\"package\">xsltproc</systemitem> (recommended)"
 msgstr ""
+"cài đặt gói <systemitem role=\"package\">docbook-xsl</systemitem> và một XSLT "
+"processor như <systemitem role=\"package\">xsltproc</systemitem> (khuyên dùng)"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><para>
 msgid ""
@@ -6266,6 +6289,9 @@ msgid ""
 "<literal>xsltproc</literal> packages to the <literal>Build-Depends</literal> line in "
 "the <literal>control</literal> file"
 msgstr ""
+"thêm tên các gói <literal>docbook-xsl</literal>, <literal>docbook-xml</literal>, và "
+"<literal>xsltproc</literal> vào dòng <literal>Build-Depends</literal> trong tệp "
+"<literal>control</literal>"
 
 #. type: Content of: <book><chapter><section><section><itemizedlist><listitem><screen>
 #, no-wrap
@@ -6280,10 +6306,19 @@ msgid ""
 "        debian/gentoo.1.xml\n"
 "        dh_auto_build\n"
 msgstr ""
+"override_dh_auto_build:\n"
+"        xsltproc --nonet \\\n"
+"         --param make.year.ranges 1 \\\n"
+"         --param make.single.year.ranges 1 \\\n"
+"         --param man.charmap.use.subset 0 \\\n"
+"         -o debian/ \\\n"
+"http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl\\\n"
+"        debian/gentoo.1.xml\n"
+"        dh_auto_build\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename><replaceable>package</replaceable>.manpages</filename>"
-msgstr ""
+msgstr "<filename><replaceable>package</replaceable>.manpages</filename>"
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6292,6 +6327,9 @@ msgid ""
 "by listing them in a <filename><replaceable>package</replaceable>.manpages</filename> "
 "file."
 msgstr ""
+"Nếu gói của bạn có các trang hướng dẫn, bạn nên cài đặt chúng bởi <citerefentry> "
+"<refentrytitle>dh_installman</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> "
+"bằng cách liệt kê chúng trong tệp <filename><replaceable>package</replaceable>.manpages</filename>."
 
 #. type: Content of: <book><chapter><section><para>
 msgid ""
@@ -6299,11 +6337,13 @@ msgid ""
 "\"package\">gentoo</systemitem> package, create a <filename>gentoo.manpages</filename> "
 "file as follows:"
 msgstr ""
+"Để cài đặt <filename>docs/gentoo.1</filename> như một tệp manpage cho gói <systemitem role="
+"\"package\">gentoo</systemitem>, hãy tạo tệp <filename>gentoo.manpages</filename> như sau:"
 
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid "docs/gentoo.1\n"
-msgstr ""
+msgstr "docs/gentoo.1\n"
 
 #. type: Content of: <book><chapter><section><title>
 msgid "<filename>NEWS</filename>"
