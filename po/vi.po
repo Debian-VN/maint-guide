@@ -2085,6 +2085,7 @@ msgstr ""
 "thượng nguồn.  Nếu bạn muốn tạo gói Debian mới từ nguồn của một nguồn thượng nguồn "
 "<filename>gentoo-0.9.12.tar.gz</filename>, bạn có thể tạo một gói Debian đầu tiên "
 " bằng cách sử dụng lệnh  <command>dh_make</command> như sau:"
+
 #. type: Content of: <book><chapter><section><screen>
 #, no-wrap
 msgid ""
