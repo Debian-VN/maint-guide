@@ -155,7 +155,7 @@ tới chúng.
 <code class="filename">lib<em class="replaceable"><code>foo</code></em>.so</code>.<em class="replaceable"><code>1</code></em>:
 <code class="literal">objdump -p
 lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em> | grep
-SONAME</code> <a href="#ftn.idm3837" class="footnote" id="idm3837"><sup class="footnote">[88]</sup></a>
+SONAME</code> <a href="#ftn.idm3833" class="footnote" id="idm3833"><sup class="footnote">[88]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -169,7 +169,7 @@ không phải luôn luôn như vậy).
 SONAME của các thư viện chia sẻ được kết nối tới
 <code class="filename"><em class="replaceable"><code>/usr/bin/foo</code></em></code>:
 <code class="literal">objdump -p <em class="replaceable"><code>/usr/bin/foo</code></em> | grep
-NEEDED</code> <a href="#ftn.idm3850" class="footnote" id="idm3850"><sup class="footnote">[89]</sup></a>
+NEEDED</code> <a href="#ftn.idm3846" class="footnote" id="idm3846"><sup class="footnote">[89]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -177,14 +177,14 @@ NEEDED</code> <a href="#ftn.idm3850" class="footnote" id="idm3850"><sup class="f
 <code class="systemitem">lib<em class="replaceable"><code>foo</code></em><em class="replaceable"><code>1</code></em></code>:
 gói phần mềm thư viện cho thư viện chia sẻ
 <code class="filename">lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em></code>
-với phiên bản SONAME ABI <em class="replaceable"><code>1</code></em>.<a href="#ftn.idm3864" class="footnote" id="idm3864"><sup class="footnote">[90]</sup></a>
+với phiên bản SONAME ABI <em class="replaceable"><code>1</code></em>.<a href="#ftn.idm3860" class="footnote" id="idm3860"><sup class="footnote">[90]</sup></a>
 </p>
             </li>
             <li class="listitem">
               <p>
 Các kịch bản bảo trì gói phần mềm của gói phần mềm thư viện phải gọi lệnh
 <span class="command"><strong>ldconfig</strong></span> dưới các tình huống cụ thể để tạo các kết nối
-tượng trưng cho SONAME.<a href="#ftn.idm3870" class="footnote" id="idm3870"><sup class="footnote">[91]</sup></a>
+tượng trưng cho SONAME.<a href="#ftn.idm3866" class="footnote" id="idm3866"><sup class="footnote">[91]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -198,18 +198,18 @@ chia sẻ <code class="systemitem">lib<em class="replaceable"><code>foo</code></
               <p>
 <code class="systemitem">lib<em class="replaceable"><code>foo</code></em>-dev</code>: gói phần
 mềm phát triển chứa những tập tin tiêu đề v.v. cho thư viện chia sẻ
-<code class="filename">lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em></code>.<a href="#ftn.idm3888" class="footnote" id="idm3888"><sup class="footnote">[92]</sup></a>
+<code class="filename">lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em></code>.<a href="#ftn.idm3884" class="footnote" id="idm3884"><sup class="footnote">[92]</sup></a>
 </p>
             </li>
             <li class="listitem">
               <p>
-Gói phần mềm Debian không nên chứa các tập tin lưu trữ
-<code class="filename">*.la</code> nói chung.<a href="#ftn.idm3895" class="footnote" id="idm3895"><sup class="footnote">[93]</sup></a>
+Các gói Debian không nên chứa các tập tin lưu trữ <code class="filename">*.la</code>
+nói chung.<a href="#ftn.idm3891" class="footnote" id="idm3891"><sup class="footnote">[93]</sup></a>
 </p>
             </li>
             <li class="listitem">
               <p>
-Gói phần mềm Debian nói chung không nên sử dụng RPATH.<a href="#ftn.idm3900" class="footnote" id="idm3900"><sup class="footnote">[94]</sup></a>
+Gói phần mềm Debian nói chung không nên sử dụng RPATH.<a href="#ftn.idm3896" class="footnote" id="idm3896"><sup class="footnote">[94]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -236,7 +236,7 @@ Khi bạn đóng gói một thư viện chia sẻ, bạn nên tạo một tập 
 <code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code> để
 quản lý phiên bản thấp nhất liên quan tới từng ký hiệu cho các thay đổi ABI
 tương thích ngược dưới cùng một SONAME của thư viện cho cùng một tên gói
-phần mềm thư viện.<a href="#ftn.idm3913" class="footnote" id="idm3913"><sup class="footnote">[95]</sup></a> Bạn nên đọc những
+phần mềm thư viện.<a href="#ftn.idm3909" class="footnote" id="idm3909"><sup class="footnote">[95]</sup></a> Bạn nên đọc những
 tài liệu liên quan chính thống sau đây một cách chi tiết:
 </p>
         <div class="itemizedlist">
@@ -244,7 +244,7 @@ tài liệu liên quan chính thống sau đây một cách chi tiết:
             <li class="listitem">
               <p>
 <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-symbols">Hướng dẫn Chính sách Debian, 8.6.3 "Hệ
-thống ký hiệu"</a><a href="#ftn.idm3919" class="footnote" id="idm3919"><sup class="footnote">[96]</sup></a>
+thống ký hiệu"</a><a href="#ftn.idm3915" class="footnote" id="idm3915"><sup class="footnote">[96]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -304,7 +304,7 @@ tập tin <code class="filename">debian/libfoo1.symbols</code>, tạo một tậ
 tập tin <code class="filename">symbols</code> từ tất cả các gói phần mềm nhị phân có
 sẵn của một tên gói phần mềm thư viện chứa cùng SONAME của một thư viện, ví
 dụ, các phiên bản <code class="literal">1.1-1</code> và <code class="literal">1.2-1</code>.
-<a href="#ftn.idm3967" class="footnote" id="idm3967"><sup class="footnote">[97]</sup></a>
+<a href="#ftn.idm3963" class="footnote" id="idm3963"><sup class="footnote">[97]</sup></a>
 </p>
                     <pre class="screen">
 $ dpkg-deb -x libfoo1_1.1-1.deb libfoo1_1.1-1
@@ -350,7 +350,7 @@ dpkg-gensymbols: warning: some new symbols appeared in the symbols file: ...
 Nếu bạn thấy sự khác biệt in ra bởi lệnh <span class="command"><strong>dpkg-gensymbols</strong></span>
 như trên, giải nén tập tin <code class="filename">symbols</code> phù hợp cập nhật mới
 nhất từ gói phần mềm nhị phân được tạo ra của thư viện chia sẻ.
-<a href="#ftn.idm3987" class="footnote" id="idm3987"><sup class="footnote">[98]</sup></a>
+<a href="#ftn.idm3983" class="footnote" id="idm3983"><sup class="footnote">[98]</sup></a>
 </p>
               <pre class="screen">
 $ cd ..
@@ -366,7 +366,7 @@ Biên dịch các gói phần mềm phát hành với các công cụ như
 </p>
               <pre class="screen">
 $ cd libfoo-1.3
-$ debuild clean
+$ debuild -- clean
 $ debuild
 ...
 </pre>
@@ -376,7 +376,7 @@ $ debuild
         <p>
 Bên cạnh các ví dụ ở trên, chúng ta cần phải kiểm tra tương thích ABI hơn
 nữa và tăng các phiên bản cho một vài ký hiệu bằng tay nếu cần.
-<a href="#ftn.idm3999" class="footnote" id="idm3999"><sup class="footnote">[99]</sup></a>
+<a href="#ftn.idm3995" class="footnote" id="idm3995"><sup class="footnote">[99]</sup></a>
 </p>
         <p>
 Mặc dù đây chỉ là một tài liệu tham khảo thứ cấp, <a class="ulink" href="http://wiki.debian.org/UsingSymbolsFiles">Debian wiki UsingSymbolsFiles</a> và những
@@ -420,7 +420,7 @@ Nó sử dụng bộ ba như là <code class="literal">i386-linux-gnu</code> và
 chia sẻ. Đường dẫn bộ ba thực sự được đặt giá trị linh động theo tham biến
 <code class="literal">$(DEB_HOST_MULTIARCH)</code> dùng lệnh <span class="citerefentry"><span class="refentrytitle">dpkg-architecture</span>(1)</span>
 cho từng lần biên dịch gói phần mềm nhị phân. Ví dụ, đường dẫn để cài đặt
-các thư viện multiarch được thay đổi như sau:<a href="#ftn.idm4025" class="footnote" id="idm4025"><sup class="footnote">[100]</sup></a>
+các thư viện multiarch được thay đổi như sau:<a href="#ftn.idm4021" class="footnote" id="idm4021"><sup class="footnote">[100]</sup></a>
 </p>
         <div class="informaltable">
           <a id="tripletpaths"/>
@@ -630,8 +630,8 @@ Cập nhật <code class="filename">debian/control</code>.
                 <ul class="itemizedlist">
                   <li class="listitem">
                     <p>
-Thêm <code class="literal">Build-Depends: debhelper (&gt;=9)</code> cho phần gói phần mềm
-nguồn.
+Thêm <code class="literal">Build-Depends: debhelper (&gt;=10)</code> cho phần gói phần
+mềm nguồn.
 </p>
                   </li>
                   <li class="listitem">
@@ -651,7 +651,7 @@ mềm nhị phân.
             </li>
             <li class="listitem">
               <p>
-Đặt giá trị 9 cho  <code class="filename">debian/compat</code>.
+Đặt giá trị 10 cho <code class="filename">debian/compat</code>.
 </p>
             </li>
             <li class="listitem">
@@ -681,7 +681,7 @@ Thay thế <code class="literal">/usr/lib/</code> với
 Nếu <code class="literal">./configure</code> được sử dụng trong một phần của mục tiêu
 <code class="literal">override_dh_auto_configure</code> trong
 <code class="filename">debian/rules</code>, chắc chắn rằng bạn thay thế nó với
-<code class="literal">dh_auto_configure -- </code>.  <a href="#ftn.idm4187" class="footnote" id="idm4187"><sup class="footnote">[101]</sup></a>
+<code class="literal">dh_auto_configure -- </code>.  <a href="#ftn.idm4183" class="footnote" id="idm4183"><sup class="footnote">[101]</sup></a>
 </p>
                   </li>
                   <li class="listitem">
@@ -846,50 +846,50 @@ chỉnh Debian.)
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm3837" class="footnote">
-          <p><a href="#idm3837" class="para"><sup class="para">[88] </sup></a>
+        <div id="ftn.idm3833" class="footnote">
+          <p><a href="#idm3833" class="para"><sup class="para">[88] </sup></a>
 Ngoài ra: <code class="literal">readelf -d
 lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em> | grep
 SONAME</code>
 </p>
         </div>
-        <div id="ftn.idm3850" class="footnote">
-          <p><a href="#idm3850" class="para"><sup class="para">[89] </sup></a>
+        <div id="ftn.idm3846" class="footnote">
+          <p><a href="#idm3846" class="para"><sup class="para">[89] </sup></a>
 Ngoài ra: <code class="literal">readelf -d
 lib<em class="replaceable"><code>foo</code></em>.so.<em class="replaceable"><code>1</code></em> | grep
 NEEDED</code>
 </p>
         </div>
-        <div id="ftn.idm3864" class="footnote">
-          <p><a href="#idm3864" class="para"><sup class="para">[90] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-runtime">Hướng dẫn về Chính sách Debian, 8.1 "Các
+        <div id="ftn.idm3860" class="footnote">
+          <p><a href="#idm3860" class="para"><sup class="para">[90] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-runtime">Hướng dẫn về Chính sách Debian, 8.1 "Các
 Thư viện chia sẻ khi chạy"</a>.</p>
         </div>
-        <div id="ftn.idm3870" class="footnote">
-          <p><a href="#idm3870" class="para"><sup class="para">[91] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-ldconfig">Hướng dẫn về Chính sách Debian, 8.1.1
+        <div id="ftn.idm3866" class="footnote">
+          <p><a href="#idm3866" class="para"><sup class="para">[91] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-ldconfig">Hướng dẫn về Chính sách Debian, 8.1.1
 "ldconfig"</a>.</p>
         </div>
-        <div id="ftn.idm3888" class="footnote">
-          <p><a href="#idm3888" class="para"><sup class="para">[92] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-static">Hướng dẫn Chính sách Debian, 10.2 "Các Thư
+        <div id="ftn.idm3884" class="footnote">
+          <p><a href="#idm3884" class="para"><sup class="para">[92] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-static">Hướng dẫn Chính sách Debian, 10.2 "Các Thư
 viện tĩnh"</a> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-dev">Hướng dẫn về Chính sách
 Debian, 8.4 "Các Tập tin phát triển"</a></p>
         </div>
-        <div id="ftn.idm3895" class="footnote">
-          <p><a href="#idm3895" class="para"><sup class="para">[93] </sup></a>Xem <a class="ulink" href="http://wiki.debian.org/ReleaseGoals/LAFileRemoval">Debian wiki ReleaseGoals/LAFileRemoval</a>.</p>
+        <div id="ftn.idm3891" class="footnote">
+          <p><a href="#idm3891" class="para"><sup class="para">[93] </sup></a>Xem <a class="ulink" href="http://wiki.debian.org/ReleaseGoals/LAFileRemoval">Debian wiki ReleaseGoals/LAFileRemoval</a>.</p>
         </div>
-        <div id="ftn.idm3900" class="footnote">
-          <p><a href="#idm3900" class="para"><sup class="para">[94] </sup></a>Xem <a class="ulink" href="http://wiki.debian.org/RpathIssue">Debian wiki RpathIssue</a>.</p>
+        <div id="ftn.idm3896" class="footnote">
+          <p><a href="#idm3896" class="para"><sup class="para">[94] </sup></a>Xem <a class="ulink" href="http://wiki.debian.org/RpathIssue">Debian wiki RpathIssue</a>.</p>
         </div>
-        <div id="ftn.idm3913" class="footnote">
-          <p><a href="#idm3913" class="para"><sup class="para">[95] </sup></a>Các thay đổi ABI không tương thích ngược thông thường cần bạn phải cập nhật
+        <div id="ftn.idm3909" class="footnote">
+          <p><a href="#idm3909" class="para"><sup class="para">[95] </sup></a>Các thay đổi ABI không tương thích ngược thông thường cần bạn phải cập nhật
 SONAME của thư viện và tên gói phần mềm thư viện chia sẻ sang những tên mới.</p>
         </div>
-        <div id="ftn.idm3919" class="footnote">
-          <p><a href="#idm3919" class="para"><sup class="para">[96] </sup></a>Với các thư viện C++ và các tình huống khác mà theo dõi từng ký hiệu là vô
+        <div id="ftn.idm3915" class="footnote">
+          <p><a href="#idm3915" class="para"><sup class="para">[96] </sup></a>Với các thư viện C++ và các tình huống khác mà theo dõi từng ký hiệu là vô
 cùng khó khăn, thay vì như trên hãy làm theo <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-shlibdeps">Hướng dẫn Chính sách về Debian, 8.6.4 "Hệ
 thống shlibs"</a>,</p>
         </div>
-        <div id="ftn.idm3967" class="footnote">
-          <p><a href="#idm3967" class="para"><sup class="para">[97] </sup></a>
+        <div id="ftn.idm3963" class="footnote">
+          <p><a href="#idm3963" class="para"><sup class="para">[97] </sup></a>
 Tất cả các phiên bản trước đó của các gói phần mềm Debian có sẵn tại <a class="ulink" href="http://snapshot.debian.org/">http://snapshot.debian.org/</a>.  Phiên bản tu chỉnh
 Debian được cắt bỏ khỏi phiên bản để giúp việc backport gói phần mềm (tạo
 gói phần mềm chứa các cập nhật mới cho các bản phân phối Debian cũ) dễ hơn:
@@ -898,26 +898,26 @@ gói phần mềm chứa các cập nhật mới cho các bản phân phối Deb
 <code class="literal">1.2-1~bpo70+1</code> &lt;&lt; <code class="literal">1.2-1</code>
 </p>
         </div>
-        <div id="ftn.idm3987" class="footnote">
-          <p><a href="#idm3987" class="para"><sup class="para">[98] </sup></a>
+        <div id="ftn.idm3983" class="footnote">
+          <p><a href="#idm3983" class="para"><sup class="para">[98] </sup></a>
 Phiên bản tu chỉnh Debian được cắt bỏ khỏi phiên bản để giúp việc backport
 gói phần mềm (tạo gói phần mềm chứa các cập nhật mới cho các bản phân phối
 Debian cũ) dễ hơn: <code class="literal">1.3</code> &lt;&lt;
 <code class="literal">1.3-1~bpo70+1</code> &lt;&lt; <code class="literal">1.3-1</code>
 </p>
         </div>
-        <div id="ftn.idm3999" class="footnote">
-          <p><a href="#idm3999" class="para"><sup class="para">[99] </sup></a>
+        <div id="ftn.idm3995" class="footnote">
+          <p><a href="#idm3995" class="para"><sup class="para">[99] </sup></a>
 Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-sharedlibs.html#s-sharedlibs-updates">Hướng dẫn về Chính sách Debian, 8.6.2
 "Các Thay đổi ABI của Thư viện chia sẻ"</a>
 </p>
         </div>
-        <div id="ftn.idm4025" class="footnote">
-          <p><a href="#idm4025" class="para"><sup class="para">[100] </sup></a>Các đường dẫn thư viện chuyên dụng cũ như <code class="filename">/lib32/</code> và
+        <div id="ftn.idm4021" class="footnote">
+          <p><a href="#idm4021" class="para"><sup class="para">[100] </sup></a>Các đường dẫn thư viện chuyên dụng cũ như <code class="filename">/lib32/</code> và
 <code class="filename">/lib64/</code> không được sử dụng nữa.</p>
         </div>
-        <div id="ftn.idm4187" class="footnote">
-          <p><a href="#idm4187" class="para"><sup class="para">[101] </sup></a>
+        <div id="ftn.idm4183" class="footnote">
+          <p><a href="#idm4183" class="para"><sup class="para">[101] </sup></a>
 Ngoài ra, bạn có thể thêm các đối số
 <code class="literal">--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)</code> và
 <code class="literal">--libexecdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)</code> cho

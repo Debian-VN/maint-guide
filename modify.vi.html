@@ -90,7 +90,7 @@ complete -F _quilt_completion -o filenames dquilt
 Sau đó hãy tạo tệp <code class="filename">~/.quiltrc-dpkg</code> như sau:
 </p>
         <pre class="screen">
-d=. ; while [ ! -d $d/debian -a `readlink -e $d` != / ]; do d=$d/..; done
+d=. ; while [ ! -d $d/debian -a $(readlink -e $d) != / ]; do d=$d/..; done
 if [ -d $d/debian ] &amp;&amp; [ -z $QUILT_PATCHES ]; then
     # if in Debian packaging tree with unset $QUILT_PATCHES
     QUILT_PATCHES="debian/patches"
@@ -116,8 +116,9 @@ Xem <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span
         </div>
         <p>
 Hãy giả sử bạn đã tìm thấy một lỗi trong thượng nguồn
-<code class="filename">Makefile</code> là <code class="literal">install: gentoo</code> nó nên
-được sửa lại thành <code class="literal">install: gentoo-target</code>.
+<code class="filename">Makefile</code> như sau, dòng <code class="literal">install:
+gentoo</code> nên được sửa lại thành <code class="literal">install:
+gentoo-target</code>.
 </p>
         <pre class="screen">
 install: gentoo
@@ -127,7 +128,7 @@ install: gentoo
 </pre>
         <p>
 Hãy sửa và ghi lại nó bằng lệnh <span class="command"><strong>dquilt</strong></span> với bản vá mới là
-<code class="filename">fix-gentoo-target.patch</code>: <a href="#ftn.idm974" class="footnote" id="idm974"><sup class="footnote">[22]</sup></a>
+<code class="filename">fix-gentoo-target.patch</code>: <a href="#ftn.idm972" class="footnote" id="idm972"><sup class="footnote">[22]</sup></a>
 </p>
         <pre class="screen">
 $ mkdir debian/patches
@@ -190,7 +191,7 @@ nếu đáp ứng các điều kiện sau:
             <li class="listitem">
               <p>
 Tệp <code class="filename">Makefile</code> phải tuân theo các quy ước GNU và hỗ trợ
-biến <code class="literal">$(DESTDIR)</code> .  <a href="#ftn.idm1010" class="footnote" id="idm1010"><sup class="footnote">[23]</sup></a>
+biến <code class="literal">$(DESTDIR)</code> .  <a href="#ftn.idm1008" class="footnote" id="idm1008"><sup class="footnote">[23]</sup></a>
 </p>
             </li>
             <li class="listitem">
@@ -218,7 +219,7 @@ tin dể cài đặt chương trình. Kịch bản đóng gói sẽ đặt
 Đối với một gói nguồn tạo ra một gói nhị phân duy nhất, thư mục tạm thời
 được sử dụng bởi lệnh <span class="command"><strong>dh_auto_install</strong></span> sẽ được cài đặt vào
 <code class="filename">debian/<em class="replaceable"><code>package</code></em></code>.
-<a href="#ftn.idm1027" class="footnote" id="idm1027"><sup class="footnote">[24]</sup></a> Tất cả mọi thứ có trong thư mục tạm
+<a href="#ftn.idm1025" class="footnote" id="idm1025"><sup class="footnote">[24]</sup></a> Tất cả mọi thứ có trong thư mục tạm
 thời sẽ được cài đặt trên hệ thống của người dùng khi họ cài đặt gói của
 bạn;  Khác biệt duy nhất là <span class="command"><strong>dpkg</strong></span> sẽ cài đặt các tập tin
 vào đường dẫn liên quan đến thư mục gốc thay vì thư mục làm việc của bạn.
@@ -233,7 +234,7 @@ thư mục gốc. Vì vâỵ bạn không được tạo hệ thống xây dựn
 ở các tệp tin trong gói.
 </p>
         <p>
-Đây là một phần  tệp tin <code class="filename">Makefile</code> của <code class="systemitem">gentoo</code><a href="#ftn.idm1057" class="footnote" id="idm1057"><sup class="footnote">[25]</sup></a>:
+Đây là một phần  tệp tin <code class="filename">Makefile</code> của <code class="systemitem">gentoo</code><a href="#ftn.idm1055" class="footnote" id="idm1055"><sup class="footnote">[25]</sup></a>:
 </p>
         <pre class="screen">
 # Where to put executable commands on 'make install'?
@@ -244,8 +245,8 @@ ICONS   = /usr/local/share/gentoo
         <p>
 Chúng ta thấy rằng các tệp được cài đặt vào
 <code class="filename">/usr/local</code>. Như đã giải thích ở trên, cây thư mục đó
-được dành riêng cho việc sử dụng cục bộ trên Debian, do đó nên thay đổi
-những đường dẫn đó:
+được dành riêng cho việc sử dụng cục bộ trên Debian, do đó cần thay đổi
+những đường dẫn đó như sau:
 </p>
         <pre class="screen">
 # Where to put executable commands on 'make install'?
@@ -382,8 +383,8 @@ Debian như <code class="filename">debian/patches/fix-gentoo-target.patch</code>
 chắc chắn gửi chúng đến người bảo trì thượng nguồn để có thể được áp dụng
 vào trong phiên bản kế tiếp của chương trình, sẽ là hữu ích cho mọi người
 khác. Đồng thời nhớ tránh tạo các bản sửa lỗi cụ thể cứng nhắc cho Debian
-hoặc Linux - hoặc thậm chí là Unix! Hãy làm cho chúng di động. Điều này sẽ
-làm cho các bản sửa lỗi của bạn dễ dàng hơn để áp dụng.
+hoặc Linux — hoặc thậm chí là Unix! Hãy làm cho chúng di động. Điều
+này sẽ làm cho các bản sửa lỗi của bạn dễ dàng hơn để áp dụng.
 </p>
         <p>
 Nhớ rằng bạn không phải gửi toàn bộ tệp <code class="filename">debian/*</code> tới
@@ -417,7 +418,7 @@ Nếu chương trình không biên dịch được khi thư viện <code class="
 không tồn tại và nó tương đương với thư viện <code class="literal">foo2</code> được
 cung cấp trên hệ thống Debian , bạn có thể sửa vấn đề này với
 <code class="filename">debian/patches/foo2.patch</code> bằng cách thay đổi từ
-<code class="literal">foo</code> sang <code class="literal">foo2</code>:<a href="#ftn.idm1142" class="footnote" id="idm1142"><sup class="footnote">[26]</sup></a>
+<code class="literal">foo</code> sang <code class="literal">foo2</code>:<a href="#ftn.idm1140" class="footnote" id="idm1140"><sup class="footnote">[26]</sup></a>
 </p>
         <pre class="screen">
 $ dquilt new foo2.patch
@@ -431,17 +432,17 @@ $ dquilt header -e
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm974" class="footnote">
-          <p><a href="#idm974" class="para"><sup class="para">[22] </sup></a> Thư mục <code class="filename">debian/patches</code> sẽ tồn tại nếu bạn đã chạy
+        <div id="ftn.idm972" class="footnote">
+          <p><a href="#idm972" class="para"><sup class="para">[22] </sup></a> Thư mục <code class="filename">debian/patches</code> sẽ tồn tại nếu bạn đã chạy
 <span class="command"><strong>dh_make</strong></span> như đã mô tả trước. Thao tác ví dụ này cũng tạo
 ra nhưng chỉ trong trường hợp bạn đang cập nhật một gói hiện có.  </p>
         </div>
-        <div id="ftn.idm1010" class="footnote">
-          <p><a href="#idm1010" class="para"><sup class="para">[23] </sup></a> Xem <a class="ulink" href="http://www.gnu.org/prep/standards/html_node/DESTDIR.html#DESTDIR">GNU Coding Standards: 7.2.4 DESTDIR: Support
+        <div id="ftn.idm1008" class="footnote">
+          <p><a href="#idm1008" class="para"><sup class="para">[23] </sup></a> Xem <a class="ulink" href="http://www.gnu.org/prep/standards/html_node/DESTDIR.html#DESTDIR">GNU Coding Standards: 7.2.4 DESTDIR: Support
 for Staged Installs</a>.</p>
         </div>
-        <div id="ftn.idm1027" class="footnote">
-          <p><a href="#idm1027" class="para"><sup class="para">[24] </sup></a> Với một gói mã nguồn tạo ra nhiều gói nhị phân, lệnh
+        <div id="ftn.idm1025" class="footnote">
+          <p><a href="#idm1025" class="para"><sup class="para">[24] </sup></a> Với một gói mã nguồn tạo ra nhiều gói nhị phân, lệnh
 <span class="command"><strong>dh_auto_install</strong></span> sử dụng thư mục
 <code class="filename">debian/tmp</code> như là thư mục tạm thời trong khi lệnh
 <span class="command"><strong>dh_install</strong></span> sẽ tạo ra các kịch bản
@@ -454,16 +455,16 @@ nhị phân <code class="filename"><em class="replaceable"><code>package-1</code
 <code class="filename"><em class="replaceable"><code>package-2</code></em>_*.deb</code>.
 </p>
         </div>
-        <div id="ftn.idm1057" class="footnote">
-          <p><a href="#idm1057" class="para"><sup class="para">[25] </sup></a> Đây chỉ là một ví dụ để xem <code class="filename">Makefile</code> trông như thế
+        <div id="ftn.idm1055" class="footnote">
+          <p><a href="#idm1055" class="para"><sup class="para">[25] </sup></a> Đây chỉ là một ví dụ để xem <code class="filename">Makefile</code> trông như thế
 nào. Nếu <code class="filename">Makefile</code> được tạo bởi lệnh
 <span class="command"><strong>./configure</strong></span>, cách chính xác để sửa lỗi trên
 <code class="filename">Makefile </code> là thực thi <span class="command"><strong>./configure</strong></span> từ
 lệnh <span class="command"><strong>dh_auto_configure</strong></span> với các tùy chọn mặc định bao gồm
 <code class="literal">--prefix =/usr </code>.  </p>
         </div>
-        <div id="ftn.idm1142" class="footnote">
-          <p><a href="#idm1142" class="para"><sup class="para">[26] </sup></a>Nếu có sự thay đổi API từ thư viện <code class="literal">foo</code> sang thư viện
+        <div id="ftn.idm1140" class="footnote">
+          <p><a href="#idm1140" class="para"><sup class="para">[26] </sup></a>Nếu có sự thay đổi API từ thư viện <code class="literal">foo</code> sang thư viện
 <code class="literal">foo2</code>, yêu cầu thay đổi mã nguồn để khớp với API mới.</p>
         </div>
       </div>

@@ -198,7 +198,7 @@ Lệnh <span class="command"><strong>dh_make</strong></span> sẽ tạo một s�
 <code class="filename">debian</code>.  Hầu hết tên các tập tin có hậu tố là
 <code class="literal">.ex</code>.  Một số chúng có các tên tệp bắt đầu bằng tên gói
 nhị phân như <code class="literal"><em class="replaceable"><code>package</code></em></code>. Hãy xem
-tất cả tại. <a href="#ftn.idm2006" class="footnote" id="idm2006"><sup class="footnote">[54]</sup></a>
+tất cả tại. <a href="#ftn.idm2004" class="footnote" id="idm2004"><sup class="footnote">[54]</sup></a>
 </p>
       <p>
 Một số tệp cấu hình mẫu cho <code class="systemitem">debhelper</code> có thể không được tạo bởi lệnh
@@ -293,11 +293,16 @@ Nếu bạn không có gì để ghi chú, hãy xoá tệp này. Xem
         <p>
 Tệp <code class="filename">compat</code> định nghĩa mức độ tương thích với
 <code class="systemitem">debhelper</code>.  Hiện tại, bạn nên để nó
-là <code class="systemitem">debhelper</code> v9 như sau:
+là <code class="systemitem">debhelper</code> v10 như sau:
 </p>
         <pre class="screen">
-$ echo 9 &gt; debian/compat
+$ echo 10 &gt; debian/compat
 </pre>
+        <p>
+Bạn có thể sử dụng mức v9 trong trường hợp nhất định sự tương thích với các
+hệ thống cũ. Tuy nhiên, sử dụng bất kỳ mức nào dưới 9 là không khuyến kích
+và nên là bị chặn cho các gói mới.
+</p>
       </div>
       <div class="section">
         <div class="titlepage">
@@ -311,7 +316,7 @@ $ echo 9 &gt; debian/compat
 Một trong những điều gây phiền phức nhất về phần mềm là khi bạn đã dành rất
 nhiều thời gian và nỗ lực để cấu hình một chương trình, và khi nâng cấp phần
 mềm thì mọi thay đổi của bạn bị đè.  Debian giải quyết vấn đề này bằng cách
-gọi các tập tin cấu hình trong gói là conffiles.  <a href="#ftn.idm2067" class="footnote" id="idm2067"><sup class="footnote">[55]</sup></a> Khi bạn nâng cấp một gói, bạn sẽ được hỏi rằng bạn
+gọi các tập tin cấu hình trong gói là conffiles.  <a href="#ftn.idm2066" class="footnote" id="idm2066"><sup class="footnote">[55]</sup></a> Khi bạn nâng cấp một gói, bạn sẽ được hỏi rằng bạn
 có muốn giữ các tệp cấu hình cũ (hiện tại) hay không.
 </p>
         <p>
@@ -616,7 +621,7 @@ Nếu những tệp tin này cần được cài đặt vào trong gói của b�
 <code class="literal">make install</code> của bạn sẽ không làm điều đó. Vậy hãy đặt
 các tên tập tin và đích của nó vào tệp <code class="filename">install</code> này,
 chúng sẽ được cài đặt bởi
-<span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2263" class="footnote" id="idm2263"><sup class="footnote">[56]</sup></a> Bạn nên kiểm tra có hay không cách khác cụ thể hơn để sử dụng
+<span class="citerefentry"><span class="refentrytitle">dh_install</span>(1)</span>.<a href="#ftn.idm2262" class="footnote" id="idm2262"><sup class="footnote">[56]</sup></a> Bạn nên kiểm tra có hay không cách khác cụ thể hơn để sử dụng
 trước. Ví dụ, các tài liệu nên đặt ở <code class="filename">docs</code> chứ không
 phải trong tệp này.
 </p>
@@ -818,7 +823,7 @@ các ví dụ và tài liệu thượng nguồn.
 Bạn có thể sử dụng lệnh <span class="command"><strong>help2man</strong></span> để tạo một manpage mới,
 help2man sử dụng các dữ liệu từ tuỳ chọn <code class="literal">--help</code> và
 <code class="literal">--version</code> của chương trình để tạo ra
-manpage. <a href="#ftn.idm2411" class="footnote" id="idm2411"><sup class="footnote">[57]</sup></a>
+manpage. <a href="#ftn.idm2410" class="footnote" id="idm2410"><sup class="footnote">[57]</sup></a>
 </p>
         </div>
         <div class="section">
@@ -950,7 +955,7 @@ docs/gentoo.1
           </div>
         </div>
         <p>
-The <span class="citerefentry"><span class="refentrytitle">dh_installchangelogs</span>(1)</span> command installs this.
+Lệnh <span class="citerefentry"><span class="refentrytitle">dh_installchangelogs</span>(1)</span> sẽ cài đặt điều này.
 </p>
       </div>
       <div class="section">
@@ -962,50 +967,48 @@ The <span class="citerefentry"><span class="refentrytitle">dh_installchangelogs<
           </div>
         </div>
         <p>
-These <code class="filename">postinst</code>, <code class="filename">preinst</code>,
-<code class="filename">postrm</code>, and <code class="filename">prerm</code> files
-<a href="#ftn.idm2494" class="footnote" id="idm2494"><sup class="footnote">[58]</sup></a> are called <span class="emphasis"><em>maintainer
-scripts</em></span>.  They are scripts which are put in the control area of
-the package and run by <span class="command"><strong>dpkg</strong></span> when your package is
-installed, upgraded, or removed.
+Các tệp <code class="filename">postinst</code>, <code class="filename">preinst</code>,
+<code class="filename">postrm</code> và <code class="filename">prerm</code> <a href="#ftn.idm2493" class="footnote" id="idm2493"><sup class="footnote">[58]</sup></a> được gọi là <span class="emphasis"><em>maintainer
+scripts</em></span>.  Chúng là các kịch bản được đặt trong vùng điều khiển
+của gói và sẽ được chạy bởi <span class="command"><strong>dpkg</strong></span> khi gói của bạn được cài
+đặt, nâng cấp hoặc xóa.
 </p>
         <p>
-As a novice maintainer, you should avoid any manual editing of maintainer
-scripts because they are problematic.  For more information refer to the
-<a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html">Debian Policy Manual, 6 "Package
-maintainer scripts and installation procedure"</a>, and take a look at
-the example files provided by <span class="command"><strong>dh_make</strong></span>.
+Là một chuyên gia bảo trì, bạn nên tránh bất kỳ chỉnh sửa thủ công các tập
+lệnh bảo trì vì chúng dễ xảy ra vấn đề. Để biết thêm thông tin, hãy tham
+khảo <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html">Debian Policy Manual, 6 "Package
+maintainer scripts and installation procedure"</a>, và xem các tệp ví dụ
+được cung cấp bởi <span class="command"><strong>dh_make</strong></span>.
 </p>
         <p>
-If you did not listen to me and have created custom maintainer scripts for a
-package, you should make sure to test them not only for <span class="strong"><strong>install</strong></span> and <span class="strong"><strong>upgrade</strong></span> but also for <span class="strong"><strong>remove</strong></span> and <span class="strong"><strong>purge</strong></span>.
+Nếu bạn không lắng nghe tôi và đã tạo ra tập lệnh bảo trì tuỳ chỉnh cho một
+gói, bạn nên chắc chắn kiểm tra chúng không chỉ với <span class="strong"><strong>install</strong></span> và <span class="strong"><strong>upgrade</strong></span> mà còn <span class="strong"><strong>remove</strong></span> và <span class="strong"><strong>purge</strong></span>.
 </p>
         <p>
-Upgrades to the new version should be silent and non-intrusive (existing
-users should not notice the upgrade except by discovering that old bugs have
-been fixed and perhaps that there are new features).
+Nâng cấp lên phiên bản mới nên silent (lặng lẽ, ổn định) và không phá vỡ (để
+các người dùng không cần chú ý nâng cấp ngoại trừ việc phát hiện ra rằng lỗi
+cũ đã được khắc phục và có thể có các tính năng mới).
 </p>
         <p>
-When the upgrade is necessarily intrusive (eg., config files scattered
-through various home directories with totally different structure), you may
-consider as the last resort switching the package to a safe fallback state
-(e.g., disabling a service) and providing the proper documentation required
-by policy (<code class="filename">README.Debian</code> and
-<code class="filename">NEWS.Debian</code>).  Don't bother the user with
-<span class="command"><strong>debconf</strong></span> notes invoked from these maintainer scripts for
-upgrades.
+Khi sự nâng cấp cần thiết việc xâm nhập (ví dụ: các tập tin cấu hình rải rác
+thông qua các thư mục chính của người dùng với cấu trúc hoàn toàn khác), và
+bạn có thể coi đây là phương án cuối cùng để chuyển gói sang trạng thái dự
+phòng an toàn (ví dụ như vô hiệu hóa dịch vụ) và cung cấp tài liệu thích hợp
+theo yêu cầu của chính sách (<code class="filename">README.Debian</code> và
+<code class="filename">NEWS.Debian</code>). Đừng làm phiền người dùng với các câu hỏi
+<span class="command"><strong>debconf</strong></span> được gọi từ các tập lệnh bảo trì để nâng cấp.
 </p>
         <p>
-The <code class="systemitem">ucf</code> package provides a
-<span class="emphasis"><em>conffile-like</em></span> handling infrastructure to preserve user
-changes for files that may not be labeled as <span class="emphasis"><em>conffiles</em></span>
-such as those managed by the maintainer scripts.  This should minimize
-issues associated with them.
+Gói <code class="systemitem">ucf</code> cung cấp
+<span class="emphasis"><em>conffile-like</em></span> xử lý hạ tầng để ngăn người dùng thay đổi
+các tệp mà không được gắn nhãn <span class="emphasis"><em>conffiles</em></span> chẳng hạn như
+những tài liệu được quản lý bởi các kịch bản bảo trì. Điều này sẽ giảm thiếu
+các vấn đề phát sinh.
 </p>
         <p>
-These maintainer scripts are among the Debian enhancements that explain
-<span class="strong"><strong>why people choose Debian</strong></span>.  You must be
-very careful not to turn them into a source of annoyance.
+Các kịch bản bảo trì nằm trong số các cải tiến Debian nhằm giải thích
+<span class="strong"><strong>tại sao mọi người chọn Debian</strong></span>. Bạn phải
+thật cẩn thận để không biết chúng thành nguồn gây phiền toái.
 </p>
       </div>
       <div class="section">
@@ -1017,10 +1020,10 @@ very careful not to turn them into a source of annoyance.
           </div>
         </div>
         <p>
-Packaging of library is not easy for a novice maintainer and should be
-avoided.  Having said it, if your package has libraries, you should have
-<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code>
-files. See <a class="xref" href="advanced.vi.html#librarysymbols" title="A.2. Quản lý debian/package.symbols">Phần A.2, “Quản lý
+Việc đóng gói một thư viện là không dễ dàng cho người bảo trì mới làm quen
+và nên tránh. Còn nếu gói của bạn có các thử viện, bạn nên có tệp
+<code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code>. Xem
+<a class="xref" href="advanced.vi.html#librarysymbols" title="A.2. Quản lý debian/package.symbols">Phần A.2, “Quản lý
 <code class="filename">debian/<em class="replaceable"><code>package</code></em>.symbols</code>”</a>.
 </p>
       </div>
@@ -1033,7 +1036,7 @@ files. See <a class="xref" href="advanced.vi.html#librarysymbols" title="A.2. Q
           </div>
         </div>
         <p>
-The <span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span> command installs this.
+Lệnh <span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>(1)</span> cài đặt tệp này.
 </p>
       </div>
       <div class="section">
@@ -1045,13 +1048,13 @@ The <span class="citerefentry"><span class="refentrytitle">dh_installdocs</span>
           </div>
         </div>
         <p>
-The <code class="filename">watch</code> file format is documented in the
-<span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span> manpage.  The <code class="filename">watch</code> file configures the
-<span class="command"><strong>uscan</strong></span> program (in the <code class="systemitem">devscripts</code> package) to watch the site where you
-originally got the source from.  This is also used by the <a class="ulink" href="http://wiki.debian.org/DEHS">Debian External Health Status (DEHS)</a> service.
+Định dạng tệp <code class="filename">watch</code> là tài liệu <span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span>.  Tệp <code class="filename">watch</code> cấu hình chương trình
+<span class="command"><strong>uscan</strong></span> (có trong gói <code class="systemitem">devscripts</code>) để theo dõi trang web mà bạn lấy
+nguồn. Nó cũng được sử dụng bởi dịch vụ <a class="ulink" href="https://tracker.debian.org/">Debian
+Package Tracker</a>.
 </p>
         <p>
-Here are its contents:
+Đây là nội dung của nó:
 </p>
         <pre class="screen">
 # watch control file for uscan
@@ -1059,30 +1062,32 @@ version=3
 http://sf.net/gentoo/gentoo-(.+)\.tar\.gz debian uupdate
 </pre>
         <p>
-Normally with a <code class="filename">watch</code> file, the URL at
-<code class="literal">http://sf.net/gentoo</code> is downloaded and searched for links of
-the form <code class="literal">&lt;a href=...&gt;</code>.  The basename (just the part
-after the final <code class="literal">/</code>) of each linked URL is compared against
-the Perl regular expression pattern (see <span class="citerefentry"><span class="refentrytitle">perlre</span>(1)</span>)  <code class="literal">gentoo-(.+)\.tar\.gz</code>.  Out of the files
-that match, the one with the greatest version number is downloaded and the
-<span class="command"><strong>uupdate</strong></span> program is run to create an updated source tree.
+Thông thường với một tệp <code class="filename">watch</code>, đường dẫn URL tại
+<code class="literal">http://sf.net/gentoo</code> được tải về và tìm kiểm cho các liên kết
+theo biểu mẫu <code class="literal">&lt;a href=...&gt;</code>.  Tên (phần phía sau của
+đường dẫn <code class="literal">/</code>) của mỗi liên kết URL được so sánh với mẫu
+biểu thức chính quy Perl (xem <span class="citerefentry"><span class="refentrytitle">perlre</span>(1)</span>)<code class="literal">gentoo-(.+)\.tar\.gz</code>.  Trong số các tệp
+phù hợp, tệp đượctải xuống có số phiên bản lớn nhất và chương trình
+<span class="command"><strong>uupdate</strong></span>được chạy để tạo một bản nguồn đã được cập nhật.
 </p>
         <p>
-Although this is true for other sites, the SourceForge download service at
-<a class="ulink" href="http://sf.net">http://sf.net</a> is an exception.  When the
-<code class="filename">watch</code> file has an URL matching the Perl regexp
-<code class="literal">^http://sf\.net/</code>, the <span class="command"><strong>uscan</strong></span> program
-replaces it with <code class="literal">http://qa.debian.org/watch/sf.php/</code> and then applies
-this rule.  The URL redirector service at <a class="ulink" href="http://qa.debian.org/">http://qa.debian.org/</a> is designed
-to offer a stable redirect service to the desired file for any
-<code class="filename">watch</code> pattern of the form
+Mặc dù điều này là đúng cho vài trang web, dịch vụ tải của SourceForge tại
+<a class="ulink" href="http://sf.net">http://sf.net</a> là một ngoại lệ. Khi tệp <code class="filename">watch</code>
+chứa một đường dẫn URL khớp với biểu thức chính quy Perl
+<code class="literal">^http://sf\.net/</code>, chương trình <span class="command"><strong>uscan</strong></span>
+thay thế nó với <code class="literal">http://qa.debian.org/watch/sf.php/</code> và sau đó áp dụng
+quy tắc này. Dịch vụ chuyển hướng URL tại <a class="ulink" href="http://qa.debian.org/">http://qa.debian.org/</a> được thiết
+kế  để cung cấp dịch vụ ổn định đến tệp mong muốn với bất kỳ
+<code class="filename">watch</code> mẫu biểu thức
 <code class="literal">http://sf.net/<em class="replaceable"><code>project</code></em>/<em class="replaceable"><code>tar-name</code></em>-(.+)\.tar\.gz</code>.
-This solves issues related to periodically changing SourceForge URLs.
+Điều này giải quyết các vấn đề liên quan đế thay đổi định kỳ các đường dẫn
+SourceForge.
 </p>
         <p>
-If the upstream offers the cryptographic signature of the tarball, it is
-recommended to verify its authenticity using the
-<code class="literal">pgpsigurlmangle</code> option as described in <span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span>.
+Nếu thượng nguồn cung cấp chữ ký mật mã của tarball, bạn nên xác minh tính
+xác thực của nó bằng cách sử dụng tùy chọn
+<code class="literal">pgpsigurlmangle</code> như mô tả trong
+<span class="citerefentry"><span class="refentrytitle">uscan</span>(1)</span>.
 </p>
       </div>
       <div class="section">
@@ -1094,41 +1099,42 @@ recommended to verify its authenticity using the
           </div>
         </div>
         <p>
-In the <code class="filename">debian/source/format</code> file, there should be a
-single line indicating the desired format for the source package (check
-<span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span> for an exhaustive list).  After
-<code class="literal">squeeze</code>, it should say either:
+Trong tệp <code class="filename">debian/source/format</code>, nên có một dòng chỉ
+định định dạng mong muốn cho gói nguồn (kiểm tra
+<span class="citerefentry"><span class="refentrytitle">dpkg-source</span>&gt;
+(1)</span> để có danh sách đầy đủ). Sau phiên
+bản <code class="literal">squeeze</code>, cần chỉ ra rằng:
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
             <li class="listitem">
               <p>
-<code class="literal">3.0 (native)</code> for native Debian packages or
+<code class="literal">3.0 (native)</code> cho các gói Debian native hoặc
 </p>
             </li>
             <li class="listitem">
               <p>
-<code class="literal">3.0 (quilt)</code> for everything else.
+<code class="literal">3.0 (quilt)</code> cho mọi thứ khác.
 </p>
             </li>
           </ul>
         </div>
         <p>
-The newer <code class="literal">3.0 (quilt)</code> source format records modifications
-in a <span class="command"><strong>quilt</strong></span> patch series within
-<code class="filename">debian/patches</code>.  Those changes are then automatically
-applied during extraction of the source package.  <a href="#ftn.idm2595" class="footnote" id="idm2595"><sup class="footnote">[59]</sup></a> The Debian modifications are simply stored in a
-<code class="filename">debian.tar.gz</code> archive containing all files under the
-<code class="filename">debian</code> directory.  This new format supports inclusion
-of binary files such as PNG icons by the package maintainer without
-requiring tricks.  <a href="#ftn.idm2602" class="footnote" id="idm2602"><sup class="footnote">[60]</sup></a>
+Định dạng <code class="literal">3.0 (quilt)</code> mới sẽ ghi lại các sửa đổi trong
+một loạt bản vá lỗi <span class="command"><strong>quilt</strong></span> trong thư mục
+<code class="filename">debian/patches </code>.  Những thay đổi này sau đó sẽ tự động
+được áp dụng trong quá trình giải nén gói nguồn.  <a href="#ftn.idm2593" class="footnote" id="idm2593"><sup class="footnote">[59]</sup></a> Các sửa đổi Debian chỉ đơn giản được lưu trữ trong
+kho lưu trữ <code class="filename">debian.tar.gz</code> chứa tất cả các tệp tin trong
+thư mục <code class="filename">debian</code>. Định dạng mới này hỗ trợ đưa các tệp
+tin nhị phân như các biểu tượng PNG của người bảo trì gói mà không yêu cầu
+thủ thuật. <a href="#ftn.idm2600" class="footnote" id="idm2600"><sup class="footnote">[60]</sup></a>
 </p>
         <p>
-When <span class="command"><strong>dpkg-source</strong></span> extracts a source package in
-<code class="literal">3.0 (quilt)</code> source format, it automatically applies all
-patches listed in <code class="filename">debian/patches/series</code>.  You can avoid
-applying patches at the end of the extraction with the
-<code class="literal">--skip-patches</code> option.
+Khi <span class="command"><strong> dpkg-source </strong></span> giải nén một gói nguồn trong định dạng
+nguồn <code class="literal">3.0 (quilt)</code>, nó sẽ tự động áp dụng tất cả các bản
+vá được liệt kê trong <code class="filename">debian patches/series</code>.  Bạn có
+thể bỏ qua việc áp dụng các bản vá ở cuối quá trình giải nén với tùy chọn
+<code class="literal">--skip-patches</code>.
 </p>
       </div>
       <div class="section">
@@ -1140,23 +1146,23 @@ applying patches at the end of the extraction with the
           </div>
         </div>
         <p>
-When you want to manage Debian packaging activities under a VCS, you
-typically create one branch (e.g.  <code class="literal">upstream</code>) tracking the
-upstream source and another branch (e.g.  typically
-<code class="literal">master</code> for Git)  tracking the Debian package.  For the
-latter, you usually want to have unpatched upstream source with your
-<code class="filename">debian/*</code> files for the Debian packaging to ease merging
-of the new upstream source.
+Khi bạn muốn quản lý các hoạt động đóng gói Debian bằng VCS, bạn thường tạo
+một nhánh (ví dụ. <code class="literal">upstream</code>) để theo dõi thượng nguồn và
+một nhánh khác (thường là <code class="literal">master</code> đối với Git) để theo dõi
+gói Debian. Đối với trường hợp thứ hai, bạn thường xuyên muốn có thượng
+nguồn chưa được vá lỗi với các tệp của bạn <code class="filename">debian/*</code> để
+dễ dàng hợp nhất với mã nguồn mới của thượng nguồn.
 </p>
         <p>
-After you build a package, the source is normally left patched.  You need to
-unpatch it manually by running <code class="literal">dquilt pop -a</code> before
-committing to the <code class="literal">master</code> branch.  You can automate this
-by adding the optional <code class="filename">debian/source/local-options</code> file
-containing <code class="literal">unapply-patches</code>.  This file is not included in
-the generated source package and changes the local build behavior only.
-This file may contain <code class="literal">abort-on-upstream-changes</code>, too (see
-<span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span>).
+Sau khi bạn xây dựng một gói, nguồn thường đã được vá.  Bạn cần phải gỡ vá
+bằng tay bằng cách chạy <code class="literal">dquilt pop -a</code> trước khi đẩy hết
+vào nhánh <code class="literal">master</code>.  Bạn có thể tự động hóa việc này bằng
+cách thêm tệp tin tuỳ chọn <code class="filename">debian/source/local-options</code>
+để chứa các <code class="literal">unapply-patches</code>. Tệp này không được bao gồm
+trong gói nguồn đã tạo và chỉ thay đổi hành vi xây dựng cục bộ. Tệp này có
+thể chứa <code class="literal">abort-on-upstream-changes</code>, (xem thêm
+<span class="citerefentry"><span class="refentrytitle"> dpkg-source </span>( 1
+)</span>).
 </p>
         <pre class="screen">
 unapply-patches
@@ -1172,23 +1178,22 @@ abort-on-upstream-changes
           </div>
         </div>
         <p>
-The autogenerated files in the source tree can be quite annoying for
-packaging since they generate meaningless large patch files.  There are
-custom modules such as <span class="command"><strong>dh_autoreconf</strong></span> to ease this problem
-as described in <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Tuỳ chỉnh tệp rules">Phần 4.4.3, “Tuỳ chỉnh tệp <code class="filename">rules</code>”</a>.
+Các tệp được tự động sinh trong cây nguồn có thể gây khó chịu cho đóng gói
+vì chúng tạo ra các tệp vá lỗi không có ý nghĩa.  Có các mô đun tùy chỉnh
+như <span class="command"><strong>dh_autoreconf</strong></span> nhằm giải quyết các vấn đề này như mô
+tả trong <a class="xref" href="dreq.vi.html#customrules" title="4.4.3. Tuỳ chỉnh tệp rules">Phần 4.4.3, “Tuỳ chỉnh tệp <code class="filename">rules</code>”</a>.
 </p>
         <p>
-You can provide a Perl regular expression to the
-<code class="literal">--extend-diff-ignore</code> option argument of <span class="citerefentry"><span class="refentrytitle">dpkg-source</span>(1)</span> to ignore changes made to the autogenerated files while
-creating the source package.
+Bạn có thể cung cấp một biểu thức chính quy Perl là đối số của tùy chọn
+<code class="literal">--extend-diff-ignore</code> khi chạy <span class="citerefentry"><span class="refentrytitle"> dpkg-source </span>(1)</span> để bỏ qua các thay đổi được thực hiện đối với các tệp được
+tạo tự động trong khi tạo gói nguồn.
 </p>
         <p>
-As a general solution to address this problem of the autogenerated files,
-you can store such a <span class="command"><strong>dpkg-source</strong></span> option argument in the
-<code class="filename">source/options</code> file of the source package.  The
-following will skip creating patch files for
-<code class="filename">config.sub</code>, <code class="filename">config.guess</code>, and
-<code class="filename">Makefile</code>.
+Như một giải pháp chung để giải quyết vấn đề của các tệp tự động tạo mới,
+bạn có thể lưu trữ một đối số tùy chọn <span class="command"><strong>dpkg-source</strong></span> trong
+tệp tin <code class="filename">source/options </code>.  Ví dụ sau sẽ bỏ qua việc tạo
+tệp vá cho <code class="filename">config.sub</code>,
+<code class="filename">config.guess</code> và <code class="filename">Makefile</code>.
 </p>
         <pre class="screen">
 extend-diff-ignore = "(^|/)(config\.sub|config\.guess|Makefile)$"
@@ -1203,46 +1208,45 @@ extend-diff-ignore = "(^|/)(config\.sub|config\.guess|Makefile)$"
           </div>
         </div>
         <p>
-The old <code class="literal">1.0</code> source format created a single large
-<code class="filename">diff.gz</code> file containing package maintenance files in
-<code class="filename">debian</code> and patch files for the source.  Such a package
-is a bit cumbersome to inspect and understand for each source tree
-modification later.  This is not so nice.
+Định dạng nguồn cũ <code class="literal">1.0</code> tạo một tệp
+<code class="filename">diff.gz</code> duy nhất có chứa tệp bảo trì gói trong
+<code class="filename">debian</code> và các tệp vá cho nguồn.  Một gói như vậy hơi
+rườm rà để kiểm tra và hiểu cho mỗi thay đổi cây nguồn sau đó. Vì thế đây
+không phải định dạng tốt.
 </p>
         <p>
-The newer <code class="literal">3.0 (quilt)</code> source format stores patches in
-<code class="filename">debian/patches/*</code> files using the
-<span class="command"><strong>quilt</strong></span> command.  These patches and other package data
-which are all contained under the <code class="filename">debian</code> directory are
-packaged as the <code class="filename">debian.tar.gz</code> file.  Since the
-<span class="command"><strong>dpkg-source</strong></span> command can handle <span class="command"><strong>quilt</strong></span>
-formatted patch data in the <code class="literal">3.0 (quilt)</code> source without
-the <code class="systemitem">quilt</code> package, it does not need
-a <code class="literal">Build-Depends</code> on <code class="systemitem">quilt</code>.  <a href="#ftn.idm2663" class="footnote" id="idm2663"><sup class="footnote">[61]</sup></a>
+Định dạng mới <code class="literal">3.0 (quilt)</code> sẽ lưu các bản vá lỗi vào các
+tệp <code class="filename">debian/patches/*</code> bằng cách sử dụng công cụ
+<span class="command"><strong>quilt</strong></span>. Các bản vá này và các dữ liệu gói khác nằm trong
+thư mục <code class="filename">debian</code> được đóng gói dưới dạng tệp
+<code class="filename">debian.tar.gz</code>. Do lệnh <span class="command"><strong>dpkg-source</strong></span>
+có thể xử lý dữ liệu vá lỗi định dạng của <span class="command"><strong>quilt</strong></span> trong
+định dạng <code class="literal"> 3.0 (quilt) </code> mà không cần tới gói <code class="systemitem">quilt</code>, nó không cần <code class="systemitem">
+quilt </code> ở trong mục
+<code class="literal">Build-Depends</code>. <a href="#ftn.idm2661" class="footnote" id="idm2661"><sup class="footnote">[61]</sup></a>
 </p>
         <p>
-The <span class="command"><strong>quilt</strong></span> command is explained in <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span>.  It records modifications to the source as a stack of
-<code class="literal">-p1</code> patch files in the
-<code class="filename">debian/patches</code> directory and the source tree is
-untouched outside of the <code class="filename">debian</code> directory.  The order
-of these patches is recorded in the
-<code class="filename">debian/patches/series</code> file.  You can apply (=push),
-un-apply (=pop), and refresh patches easily.  <a href="#ftn.idm2679" class="footnote" id="idm2679"><sup class="footnote">[62]</sup></a>
+Lệnh <span class="command"><strong>quilt</strong></span> được giải thích trong <span class="citerefentry"><span class="refentrytitle">quilt</span>(1)</span>.  Nó ghi chép lại các thay đổi của mã nguồn và tạo thành các
+bản vá <code class="literal">-p1</code> trong thư mục
+<code class="filename">debian/patches</code> và cây mã nguồn không bị ảnh hưởng ngoại
+trừ thư mục <code class="filename">debian</code>. Trình tự áp dụng bản vá được ghi
+lại tại tệp <code class="filename">debian/patches/series</code>.  Bạn có thể áp dụng
+(=push), un-apply (=pop), và làm mới một các dễ dàng.  <a href="#ftn.idm2677" class="footnote" id="idm2677"><sup class="footnote">[62]</sup></a>
 </p>
         <p>
-For <a class="xref" href="modify.vi.html" title="Chương 3. Sửa đổi mã nguồn">Chương 3, <em>Sửa đổi mã nguồn</em></a>, we created three patches in
+Đối với <a class="xref" href="modify.vi.html" title="Chương 3. Sửa đổi mã nguồn">Chương 3, <em>Sửa đổi mã nguồn</em></a>, chúng tôi đã tạo ba bản vá lỗi trong
 <code class="filename">debian/patches</code>.
 </p>
         <p>
-Since Debian patches are located in <code class="filename">debian/patches</code>,
-please make sure to set up the <span class="command"><strong>dquilt</strong></span> command properly as
-described in <a class="xref" href="modify.vi.html#quiltrc" title="3.1. Cài đặt quilt">Phần 3.1, “Cài đặt <span class="command"><strong>quilt</strong></span>”</a>.
+Vì các bản vá lỗi của Debian được đặt trong
+<code class="filename">debian/patches</code>, hãy đảm bảo thiết lập lệnh
+<span class="command"><strong>dquilt</strong></span> đúng như mô tả trong <a class="xref" href="modify.vi.html#quiltrc" title="3.1. Cài đặt quilt">Phần 3.1, “Cài đặt <span class="command"><strong>quilt</strong></span>”</a>.
 </p>
         <p>
-When anyone (including yourself) provides a patch
-<code class="filename"><em class="replaceable"><code>foo</code></em>.patch</code> to the source
-later, modifying a <code class="literal">3.0 (quilt)</code> source package is quite
-simple:
+Khi mọi người (kể cả bạn) cung cấp một bản vá lỗi mới
+<code class="filename"><em class="replaceable"><code>foo</code></em>.patch</code> cho mã nguồn, áp
+dụng cho mã nguồn định dạng gói nguồn <code class="filename">3.0 (quilt)</code> khá
+đơn giản:
 </p>
         <pre class="screen">
 $ dpkg-source -x gentoo_0.9.12.dsc
@@ -1254,8 +1258,8 @@ $ dquilt header -e
 ... describe patch
 </pre>
         <p>
-The patches stored in the newer <code class="literal">3.0 (quilt)</code> source format
-must be <span class="emphasis"><em>fuzz</em></span> free.  You can ensure this with
+Các bản vá được lưu trữ trong phiên bản mới <code class="literal">3.0 (quilt)</code>
+phải là <span class="emphasis"><em> fuzz </em></span> tự do. Bạn có thể đảm bảo điều này với
 <code class="literal">dquilt pop -a; while dquilt push; do dquilt refresh;
 done</code>.
 </p>
@@ -1263,53 +1267,54 @@ done</code>.
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm2006" class="footnote">
-          <p><a href="#idm2006" class="para"><sup class="para">[54] </sup></a>
+        <div id="ftn.idm2004" class="footnote">
+          <p><a href="#idm2004" class="para"><sup class="para">[54] </sup></a>
 Trong chương này, các tệp tin trong thư mục <code class="filename">debian</code> được
 đề cập đến mà không có <code class="filename">debian/</code> để đơn giản hóa bất cứ
 khi nhắc tới.
 </p>
         </div>
-        <div id="ftn.idm2067" class="footnote">
-          <p><a href="#idm2067" class="para"><sup class="para">[55] </sup></a>Xem <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
+        <div id="ftn.idm2066" class="footnote">
+          <p><a href="#idm2066" class="para"><sup class="para">[55] </sup></a>Xem <span class="citerefentry"><span class="refentrytitle">dpkg</span>(1)</span> và <a class="ulink" href="http://www.debian.org/doc/debian-policy/ap-pkg-controlfields.html#s-pkg-f-Conffiles">Debian Policy Manual, "D.2.5 Conffiles"</a>.
 </p>
         </div>
-        <div id="ftn.idm2263" class="footnote">
-          <p><a href="#idm2263" class="para"><sup class="para">[56] </sup></a> Tệp này sẽ thay thế lệnh <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> không được dùng nữa, được cấu hình bởi tệp
+        <div id="ftn.idm2262" class="footnote">
+          <p><a href="#idm2262" class="para"><sup class="para">[56] </sup></a> Tệp này sẽ thay thế lệnh <span class="citerefentry"><span class="refentrytitle">dh_movefiles</span>(1)</span> không được dùng nữa, được cấu hình bởi tệp
 <code class="filename">files</code> .  </p>
         </div>
-        <div id="ftn.idm2411" class="footnote">
-          <p><a href="#idm2411" class="para"><sup class="para">[57] </sup></a> Lưu ý rằng lệnh <span class="command"><strong>help2man</strong></span>sẽ yêu cầu nhiều tài liệu chi
+        <div id="ftn.idm2410" class="footnote">
+          <p><a href="#idm2410" class="para"><sup class="para">[57] </sup></a> Lưu ý rằng lệnh <span class="command"><strong>help2man</strong></span>sẽ yêu cầu nhiều tài liệu chi
 tiết hơn có sẵn trong hệ thống info. Nếu thiếu lệnh này trong trang
 <span class="command"><strong>info</strong></span>, bạn nên tạo nó bằng cách sử dụng lệnh
 <span class="command"><strong>help2man</strong></span>.  </p>
         </div>
-        <div id="ftn.idm2494" class="footnote">
-          <p><a href="#idm2494" class="para"><sup class="para">[58] </sup></a> Despite this use of the <span class="command"><strong>bash</strong></span> shorthand expression
-<code class="filename">{pre,post}{inst,rm}</code> to indicate these filenames, you
-should use pure POSIX syntax for these maintainer scripts for compatibility
-with <span class="command"><strong>dash</strong></span> as the system shell.  </p>
+        <div id="ftn.idm2493" class="footnote">
+          <p><a href="#idm2493" class="para"><sup class="para">[58] </sup></a> Mặc dù việc sử dụng biểu thức viết tắt <span class="command"><strong>bash</strong></span>
+<code class="filename">{pre,post}{inst,rm}</code> để chỉ ra các tệp này, bạn nên sử
+dụng cú pháp POSIX cho các maintainer scripts tương thích với dash như trình
+shell của hệ thống  </p>
         </div>
-        <div id="ftn.idm2595" class="footnote">
-          <p><a href="#idm2595" class="para"><sup class="para">[59] </sup></a> See <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> for a summary on the switch to
-the new <code class="literal">3.0 (quilt)</code> and <code class="literal">3.0 (native)</code>
-source formats.  </p>
+        <div id="ftn.idm2593" class="footnote">
+          <p><a href="#idm2593" class="para"><sup class="para">[59] </sup></a> Xem <a class="ulink" href="http://wiki.debian.org/Projects/DebSrc3.0">DebSrc3.0</a> để biết tổng quan việc chuyển
+đổi sang các địng dạng mã nguồn mới <code class="literal">3.0 (quilt)</code> and
+<code class="literal">3.0 (native)</code>.  </p>
         </div>
-        <div id="ftn.idm2602" class="footnote">
-          <p><a href="#idm2602" class="para"><sup class="para">[60] </sup></a>Actually, this new format also supports multiple upstream tarballs and more
-compression methods.  These are beyond the scope of this document.</p>
+        <div id="ftn.idm2600" class="footnote">
+          <p><a href="#idm2600" class="para"><sup class="para">[60] </sup></a>Trên thực tế, định dạng mới này cũng hỗ trợ nhiều tarballs thượng nguồn và
+các phương pháp nén khác.  Những điều này nằm ngoài phạm vi của tài liệu
+này.</p>
         </div>
-        <div id="ftn.idm2663" class="footnote">
-          <p><a href="#idm2663" class="para"><sup class="para">[61] </sup></a> Several methods of patch set maintenance have been proposed and are in use
-for Debian packages.  The <span class="command"><strong>quilt</strong></span> system is the preferred
-maintenance system in use.  Others include <span class="command"><strong>dpatch</strong></span>,
-<span class="command"><strong>dbs</strong></span>, and <span class="command"><strong>cdbs</strong></span>.  Many of these keep
-such patches as <code class="filename">debian/patches/*</code> files.  </p>
+        <div id="ftn.idm2661" class="footnote">
+          <p><a href="#idm2661" class="para"><sup class="para">[61] </sup></a> Một số phương pháp bảo trì bộ vá đã được đề xuất và đang được sử dụng cho
+các gói Debian. Hệ thống <span class="command"><strong>quilt</strong></span> là hệ thống bảo trì được
+ưa thích sử dụng. Các hệ thống khác bao gồm <span class="command"><strong>dpatch</strong></span>,
+<span class="command"><strong>dbs</strong></span>, và <span class="command"><strong>cdbs</strong></span>.  Nhiều trong số này giữ
+các bản vá như các tệp tin <code class="filename">debian/patches/*</code>.  </p>
         </div>
-        <div id="ftn.idm2679" class="footnote">
-          <p><a href="#idm2679" class="para"><sup class="para">[62] </sup></a> If you are asking a sponsor to upload your package, this kind of clear
-separation and documentation of your changes is very important to expedite
-the package review by your sponsor.  </p>
+        <div id="ftn.idm2677" class="footnote">
+          <p><a href="#idm2677" class="para"><sup class="para">[62] </sup></a> Nếu bạn đang yêu cầu một nhà tài trợ để tải lên gói của bạn, cầm làm rõ ràng
+và viết tài liệu của những thay đổi của bạn là rất quan trọng để tiến hành
+xem xét gói bởi nhà tài trợ.  </p>
         </div>
       </div>
     </div>

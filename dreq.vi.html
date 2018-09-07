@@ -85,7 +85,7 @@ Có một thư mục con mới trong thư mục nguồn của chương trình đ
 nên sửa đổi để các tuỳ chỉnh hành vi của gói.  Các tệp quan trọng trong số
 chúng là <code class="filename">control</code>, <code class="filename">changelog</code>,
 <code class="filename">copyright</code>, và <code class="filename">rules</code>, chúng là
-những tệp yêu cầu đối với tất cả các gói <a href="#ftn.idm1156" class="footnote" id="idm1156"><sup class="footnote">[27]</sup></a>
+những tệp yêu cầu đối với tất cả các gói <a href="#ftn.idm1154" class="footnote" id="idm1154"><sup class="footnote">[27]</sup></a>
 </p>
       <div class="section">
         <div class="titlepage">
@@ -109,10 +109,10 @@ cho chúng ta:
         <pre class="screen">
  1 Source: gentoo
  2 Section: unknown
- 3 Priority: extra
+ 3 Priority: optional
  4 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;
- 5 Build-Depends: debhelper (&gt;=9)
- 6 Standards-Version: 3.9.4
+ 5 Build-Depends: debhelper (&gt;=10)
+ 6 Standards-Version: 4.0.0
  7 Homepage: &lt;insert the upstream URL, if relevant&gt;
  8
  9 Package: gentoo
@@ -125,8 +125,8 @@ cho chúng ta:
 (Tôi đã thêm các số dòng.)
 </p>
         <p>
-Dòng 1-7 là thông tin điều khiển cho gói nguồn. Dòng 9-13 là thông tin điều
-khiển cho gói nhị phân.
+Dòng 1–7 là thông tin điều khiển cho gói nguồn. Dòng 9–13 là
+thông tin điều khiển cho gói nhị phân.
 </p>
         <p>
 Dòng 1 là tên của gói nguồn
@@ -144,7 +144,7 @@ mục. Vậy chúng ta có <code class="literal">admin</code> cho các chương 
 cho tài liệu, <code class="literal">libs</code> cho thư viện, <code class="literal">mail</code>
 cho chương trình liên quan thư điện tử, <code class="literal">net</code> cho ứng dụng
 mạng và chaỵ nền, <code class="literal">x11</code> cho các chương trình X11 khác, và
-nhiều nữa.  <a href="#ftn.idm1189" class="footnote" id="idm1189"><sup class="footnote">[28]</sup></a>
+nhiều nữa.  <a href="#ftn.idm1187" class="footnote" id="idm1187"><sup class="footnote">[28]</sup></a>
 </p>
         <p>
 Chúng ta hãy thay đổi nó thành x11. (Tiền tố <code class="literal">main/</code> với
@@ -152,7 +152,7 @@ ngụ ý là chúng ta có thể bỏ qua nó).
 </p>
         <p>
 Dòng 3 miêu tả mức độ quan trọng của việc ngươì dùng cài đặt gói này.
-<a href="#ftn.idm1197" class="footnote" id="idm1197"><sup class="footnote">[29]</sup></a>
+<a href="#ftn.idm1195" class="footnote" id="idm1195"><sup class="footnote">[29]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -161,12 +161,6 @@ Dòng 3 miêu tả mức độ quan trọng của việc ngươì dùng cài đ�
 Ưu tiên <code class="literal">optional</code> thường sẽ làm việc với gói mới mà không
 xung đột với các gói chứa ưu tiên <code class="literal">required</code>,
 <code class="literal">important</code>, hay <code class="literal">standard</code> .
-</p>
-            </li>
-            <li class="listitem">
-              <p>
-Ưu tiên <code class="literal">extra</code> thường sẽ làm việc với gói mới mà xung dột
-với các ưu tiên non-<code class="literal">extra</code> priorities.
 </p>
             </li>
           </ul>
@@ -191,7 +185,7 @@ bạn. Tránh sử dụng dấu phẩy, ký hiệu, hoặc dấu ngoặc đơn.
         <p>
 Dòng 5 là trưởng <code class="literal">Build-Depends</code>  bao gồm danh sách của các
 gói yêu cầu để xây dựng gói của bạn. Bạn cũng có thể  có thêm trường
-<code class="literal">Build-Depends-Indep</code> bổ sung.  <a href="#ftn.idm1220" class="footnote" id="idm1220"><sup class="footnote">[30]</sup></a>. Một số gói như <code class="systemitem">gcc</code> và <code class="systemitem">make</code> là yêu cầu ngầm định bởi gói  <code class="systemitem">build-essential</code> Nếu bạn cần có các công cụ khác
+<code class="literal">Build-Depends-Indep</code> bổ sung.  <a href="#ftn.idm1214" class="footnote" id="idm1214"><sup class="footnote">[30]</sup></a>. Một số gói như <code class="systemitem">gcc</code> và <code class="systemitem">make</code> là yêu cầu ngầm định bởi gói  <code class="systemitem">build-essential</code> Nếu bạn cần có các công cụ khác
 để xây dựng gói của mình, bạn nên thêm chúng vào các trường này. Nhiều mục
 được phân cách bằng dấu phẩy; Hãy đọc tiếp để hiểu rõ hơn về các phụ thuộc
 gói nhị phân.
@@ -232,7 +226,7 @@ thiết trừ khi chúng đã được liệt kê trong trường
         </div>
         <p>
 Nếu bạn không chắc chắn nên sử dụng trường nào, hãy sử dụng trường
-<code class="literal">Build-Depends</code> để an toàn.  <a href="#ftn.idm1250" class="footnote" id="idm1250"><sup class="footnote">[31]</sup></a>
+<code class="literal">Build-Depends</code> để an toàn.  <a href="#ftn.idm1244" class="footnote" id="idm1244"><sup class="footnote">[31]</sup></a>
 </p>
         <p>
 Để tìm ra những gói nào cần để xây dựng chương trình của bạn:
@@ -248,7 +242,7 @@ $ dpkg-depcheck -d ./configure
 $ objdump -p <em class="replaceable"><code>/usr/bin/foo</code></em> | grep NEEDED
 </pre>
         <p>
-và cho mỗi thư viện được liệt kê, ví dụ: <span class="command"><strong>libfoo.so.6</strong></span>,
+và cho mỗi thư viện được liệt kê (ví dụ: <span class="command"><strong>libfoo.so.6</strong></span>),
 thực hiện
 </p>
         <pre class="screen">
@@ -279,7 +273,7 @@ nó không nhất thiết phải giống nhau.
         <p>
 Dòng 10 mô tả các kiến ​​trúc mà gói nhị phân có thể được biên dịch.  Giá
 trị này thường là một trong các tùy chọn sau, tùy thuộc vào loại gói nhị
-phân: <a href="#ftn.idm1282" class="footnote" id="idm1282"><sup class="footnote">[32]</sup></a>
+phân: <a href="#ftn.idm1276" class="footnote" id="idm1276"><sup class="footnote">[32]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -339,7 +333,7 @@ Nếu không, nó sẽ được giải thích. (See <span class="citerefentry"><
 <span class="citerefentry"><span class="refentrytitle">aptitude</span>(1)</span>, etc.)
 </p>
         <p>
-Đây là mô tả đơn giản về các mối quan hệ của gói: <a href="#ftn.idm1330" class="footnote" id="idm1330"><sup class="footnote">[33]</sup></a>
+Đây là mô tả đơn giản về các mối quan hệ của gói: <a href="#ftn.idm1324" class="footnote" id="idm1324"><sup class="footnote">[33]</sup></a>
 </p>
         <div class="itemizedlist">
           <ul class="itemizedlist">
@@ -507,11 +501,11 @@ GUI-configurable, two-pane X file manager</code>
 Dòng 13 là nơi diễn tả dài.  Đây sẽ là một đoạn cho biết thêm chi tiết về
 gói. Cột 1 của mỗi dòng nên để trống.  Không có dòng trắng, nhưng bạn có thể
 đặt một <code class="literal">. </code> (dấu chấm) trong một cột để mô phỏng.  Ngoài
-ra, không có nhiều dòng trống sau mô tả dài.  <a href="#ftn.idm1427" class="footnote" id="idm1427"><sup class="footnote">[34]</sup></a>
+ra, không có nhiều dòng trống sau mô tả dài.  <a href="#ftn.idm1421" class="footnote" id="idm1421"><sup class="footnote">[34]</sup></a>
 </p>
         <p>
 Chúng ta có thể chèn các trường <code class="literal">Vcs-*</code> để ghi lại thông
-tin của VCS trong các dòng 6 và 7. <a href="#ftn.idm1432" class="footnote" id="idm1432"><sup class="footnote">[35]</sup></a> Hãy
+tin của VCS trong các dòng 6 và 7. <a href="#ftn.idm1426" class="footnote" id="idm1426"><sup class="footnote">[35]</sup></a> Hãy
 giả sử rằng gói <code class="systemitem">gentoo</code> có VCS của nó
 nằm trong Debian Alioth Git Service ở
 <code class="literal">git://git.debian.org/git/collab-maint/gentoo.git</code>.
@@ -524,10 +518,10 @@ Cuối cùng, đây là tệp <code class="filename">control</code> đã đượ
  2 Section: x11
  3 Priority: optional
  4 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;
- 5 Build-Depends: debhelper (&gt;=9), xlibs-dev, libgtk1.2-dev, libglib1.2-dev
- 6 Standards-Version: 3.9.4
- 7 Vcs-Git: git://git.debian.org/git/collab-maint/gentoo.git
- 8 Vcs-browser: http://git.debian.org/?p=collab-maint/gentoo.git
+ 5 Build-Depends: debhelper (&gt;=10), xlibs-dev, libgtk1.2-dev, libglib1.2-dev
+ 6 Standards-Version: 4.0.0
+ 7 Vcs-Git: https://anonscm.debian.org/git/collab-maint/gentoo.git
+ 8 Vcs-browser: https://anonscm.debian.org/git/collab-maint/gentoo.git
  9 Homepage: http://www.obsession.se/gentoo/
 10
 11 Package: gentoo
@@ -586,40 +580,41 @@ thống Debian. Nếu không, bạn phải bao gồm giấy phép đầy đủ.
 Tóm lại, tệp <code class="filename">copyright</code> của gói <code class="systemitem">gentoo</code> trông sẽ như sau:
 </p>
         <pre class="screen">
- 1 Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&amp;rev=135
- 2 Name: gentoo
- 3 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;
+ 1 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+ 2 Upstream-Name: gentoo
+ 3 Upstream-Contact: Emil Brink &lt;emil@obsession.se&gt;
  4 Source: http://sourceforge.net/projects/gentoo/files/
  5
- 6 Copyright: 1998-2010 Emil Brink &lt;emil@obsession.se&gt;
- 7 License: GPL-2+
- 8
- 9 Files: icons/*
-10 Copyright: 1998 Johan Hanson &lt;johan@tiq.com&gt;
-11 License: GPL-2+
-12
-13 Files: debian/*
-14 Copyright: 1998-2010 Josip Rodin &lt;joy-mg@debian.org&gt;
-15 License: GPL-2+
-16
-17 License: GPL-2+
-18  This program is free software; you can redistribute it and/or modify
-19  it under the terms of the GNU General Public License as published by
-20  the Free Software Foundation; either version 2 of the License, or
-21  (at your option) any later version. 
-22  .
-23  This program is distributed in the hope that it will be useful,
-24  but WITHOUT ANY WARRANTY; without even the implied warranty of
-25  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-26  GNU General Public License for more details.
-27  .
-28  You should have received a copy of the GNU General Public License along
-29  with this program; if not, write to the Free Software Foundation, Inc.,
-30  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-31  .
-32  On Debian systems, the full text of the GNU General Public
-33  License version 2 can be found in the file
-34  `/usr/share/common-licenses/GPL-2'.
+ 6 Files: *
+ 7 Copyright: 1998-2010 Emil Brink &lt;emil@obsession.se&gt;
+ 8 License: GPL-2+
+ 9
+10 Files: icons/*
+11 Copyright: 1998 Johan Hanson &lt;johan@tiq.com&gt;
+12 License: GPL-2+
+13
+14 Files: debian/*
+15 Copyright: 1998-2010 Josip Rodin &lt;joy-mg@debian.org&gt;
+16 License: GPL-2+
+17
+18 License: GPL-2+
+19  This program is free software; you can redistribute it and/or modify
+20  it under the terms of the GNU General Public License as published by
+21  the Free Software Foundation; either version 2 of the License, or
+22  (at your option) any later version. 
+23  .
+24  This program is distributed in the hope that it will be useful,
+25  but WITHOUT ANY WARRANTY; without even the implied warranty of
+26  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+27  GNU General Public License for more details.
+28  .
+29  You should have received a copy of the GNU General Public License along
+30  with this program; if not, write to the Free Software Foundation, Inc.,
+31  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+32  .
+33  On Debian systems, the full text of the GNU General Public
+34  License version 2 can be found in the file
+35  '/usr/share/common-licenses/GPL-2'.
 </pre>
         <p>
 (Tôi đã thêm các số dòng.)
@@ -654,7 +649,7 @@ phân.
 <span class="command"><strong>dh_make</strong></span> tạo ra tệp mặc định, và nó sẽ trông như sau:
 </p>
         <pre class="screen">
-1  gentoo (0.9.12-1) unstable; urgency=low
+1  gentoo (0.9.12-1) unstable; urgency=medium
 2
 3   * Initial release (Closes: #<em class="replaceable"><code>nnnn</code></em>)  &lt;<em class="replaceable"><code>nnnn</code></em> is the bug number of your ITP&gt;
 4
@@ -666,20 +661,22 @@ phân.
 </p>
         <p>
 Dòng 1 là tên gói, phiên bản, phân phối và mức độ khẩn cấp. Tên phải khớp
-với tên gói nguồn; Phân phối nên là <code class="literal">unstable</code>, và không
-nên thay đổi mức độ khẩn cấp lên bất cứ điều gì cao hơn
-<code class="literal">low</code>.  :-)
+với tên gói nguồn; Phân phối nên là <code class="literal">unstable</code>, và nên cài
+mức độ khẩn cấp lên medidum (trung bình) trừ khi có bất kỳ lý do cụ thể nào
+cho giá trị khác.
 </p>
         <p>
 Dòng 3-5 là một mục thông tin, nơi bạn ghi lại những thay đổi được thực hiện
-trong bản sửa đổi gói này (không phải là những thay đổi ở thượng nguồn - có
-một tệp tin đặc biệt cho mục đích đó được tạo ra bởi các tác giả thượng
-nguồn, mà sau này bạn sẽ cài đặt dưới dạng
+trong bản sửa đổi gói này (không phải là những thay đổi ở thượng nguồn
+— có một tệp tin đặc biệt cho mục đích đó được tạo ra bởi các tác giả
+thượng nguồn, mà sau này bạn sẽ cài đặt dưới dạng
 <code class="filename">/usr/share/doc/gentoo/changelog.gz</code>). Hãy giả sử báo lỗi
 ITP (Intent To Package) của bạn có số là <code class="literal">12345</code>. Các dòng
 mới chèn trên dòng trên cùng nhất của mục nội dung này và bắt đầu với
 <code class="literal">*</code> (dấu sao).  Bạn có thể  thực hiện điều này với
-<span class="citerefentry"><span class="refentrytitle">dch</span>(1)</span>, hoặc bằng tay với một trình soạn thảo
+<span class="citerefentry"><span class="refentrytitle">dch</span>(1)</span>, bạn có thể chỉnh sửa bằng tay với một trình soạn thảo văn
+bản theo quy ước định dạng được sử dụng bởi
+<span class="citerefentry"><span class="refentrytitle">dch</span>(1)</span>.
 </p>
         <p>
 Để ngăn chặn một gói bị vô tình tải lên trước khi hoàn thành gói, bạn nên
@@ -706,7 +703,7 @@ Bạn sẽ kết thúc với một cái gì đó như thế này:
 Khi bạn đã hài lòng với tất cả các thay đổi và ghi lại chúng trong
 <code class="filename">changelog</code>, bạn nên thay đổi giá trị phân phối từ
 <code class="literal">UNRELEASED</code> sang  <code class="literal">unstable</code> (hoặc ngay
-cả <code class="literal">experimental</code>).  <a href="#ftn.idm1496" class="footnote" id="idm1496"><sup class="footnote">[36]</sup></a>
+cả <code class="literal">experimental</code>).  <a href="#ftn.idm1492" class="footnote" id="idm1492"><sup class="footnote">[36]</sup></a>
 </p>
         <p>
 Bạn có thể đọc về cập nhật tệp <code class="filename">changelog</code> tại <a class="xref" href="update.vi.html" title="Chương 8. Cập nhật gói phần mềm">Chương 8, <em>Cập nhật gói phần mềm</em></a>.
@@ -737,10 +734,10 @@ nguồn của thượng nguồn. Và không giống các tệp khác trong thư 
           <p>
 Mọi tệp <code class="filename">rules</code>, giống bất kỳ
 <code class="filename">Makefile</code> khác, bao gồm một vài quy tắc, địng nghĩa nên
-target và cách nó thực hiện như thế nào. <a href="#ftn.idm1518" class="footnote" id="idm1518"><sup class="footnote">[37]</sup></a> Một quy tắc mới bắt đầu với tuyên bố tên target của nó trong cột
+target và cách nó thực hiện như thế nào. <a href="#ftn.idm1514" class="footnote" id="idm1514"><sup class="footnote">[37]</sup></a> Một quy tắc mới bắt đầu với tuyên bố tên target của nó trong cột
 đầu tiên. Các dòng theo sau bắt đầu với phím TAB (ASCII 9) để chỉ định công
 thức thực hiện target đó. Các dòng trống và các dòng bắt đầu với
-<code class="literal">#</code> (thăng) được xem là nhận xét và bị bỏ qua. <a href="#ftn.idm1526" class="footnote" id="idm1526"><sup class="footnote">[38]</sup></a>
+<code class="literal">#</code> (thăng) được xem là nhận xét và bị bỏ qua. <a href="#ftn.idm1522" class="footnote" id="idm1522"><sup class="footnote">[38]</sup></a>
 </p>
           <p>
 Một quy tắc mà bạn muốn thực hiện được gọi bởi tên target của nó như là một
@@ -791,21 +788,21 @@ chọn)
                 <p>
 <code class="literal">binary</code>: tạo tất cả gói nhị phân ( sẽ hiểu quả khi là sự
 kết hợp của <code class="literal">binary-arch</code> và
-<code class="literal">binary-indep</code> .  (Bắt buộc)<a href="#ftn.idm1562" class="footnote" id="idm1562"><sup class="footnote">[39]</sup></a>
+<code class="literal">binary-indep</code> .  (Bắt buộc)<a href="#ftn.idm1558" class="footnote" id="idm1558"><sup class="footnote">[39]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
 <code class="literal">binary-arch</code>: tạo các gói nhị phân phụ thuộc
 (<code class="literal">Architecture: any</code>) trong thụ mục cha.  (Bắt
-buộc)<a href="#ftn.idm1570" class="footnote" id="idm1570"><sup class="footnote">[40]</sup></a>
+buộc)<a href="#ftn.idm1566" class="footnote" id="idm1566"><sup class="footnote">[40]</sup></a>
 </p>
               </li>
               <li class="listitem">
                 <p>
 <code class="literal">binary-indep</code>: để tạo ra các gói nhị phân không phụ thuộc
 (arch-independent)(<code class="literal">Architecture: all</code>) trong thu mục
-cha. (Bắt buộc)<a href="#ftn.idm1578" class="footnote" id="idm1578"><sup class="footnote">[41]</sup></a>
+cha. (Bắt buộc)<a href="#ftn.idm1574" class="footnote" id="idm1574"><sup class="footnote">[41]</sup></a>
 </p>
               </li>
               <li class="listitem">
@@ -837,26 +834,22 @@ Phiên bản <span class="command"><strong>dh_make</strong></span> mới nhất 
 </p>
           <pre class="screen">
  1 #!/usr/bin/make -f
- 2 # Xem debhelper(7) (bỏ chú thích để kích hoạt)
+ 2 # See debhelper(7) (uncomment to enable)
  3 # output every command that modifies files on the build system.
  4 #DH_VERBOSE = 1
  5 
- 6 # see EXAMPLES in dpkg-buildflags(1) and read /usr/share/dpkg/*
- 7 DPKG_EXPORT_BUILDFLAGS = 1
- 8 include /usr/share/dpkg/default.mk
- 9 
-10 # see FEATURE AREAS in dpkg-buildflags(1)
-11 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-12
-13 # see ENVIRONMENT in dpkg-buildflags(1)
-14 # package maintainers to append CFLAGS
-15 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-16 # package maintainers to append LDFLAGS
-17 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
-18 
-19 # main packaging script based on dh7 syntax
-20 %:
-21         dh $@ 
+ 6 # see FEATURE AREAS in dpkg-buildflags(1)
+ 7 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+ 8
+ 9 # see ENVIRONMENT in dpkg-buildflags(1)
+10 # package maintainers to append CFLAGS
+11 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+12 # package maintainers to append LDFLAGS
+13 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+14 
+15
+16 %:
+17         dh $@ 
 </pre>
           <p>
 (Tôi đã thêm các số dòng và thêm một số chú thích. Trong tệp tin
@@ -880,13 +873,13 @@ một phần cốt lõi của công cụ <code class="systemitem">debhelper</cod
 bạn.
 </p>
           <p>
-Các dòng 20 và 21 là nơi mà tất cả công việc được thực hiện với một quy tắc
+Các dòng 16 và 17 là nơi mà tất cả công việc được thực hiện với một quy tắc
 ngầm định sử dụng quy tắc mẫu. Dấu hiệu phần trăm có nghĩa là"bất kỳ mục
 tiêu" nào, sau đó gọi một chương trình duy nhất, <span class="command"><strong>dh</strong></span>, với
-tên mục tiêu.  <a href="#ftn.idm1610" class="footnote" id="idm1610"><sup class="footnote">[42]</sup></a> Lệnh
+tên mục tiêu.  <a href="#ftn.idm1606" class="footnote" id="idm1606"><sup class="footnote">[42]</sup></a> Lệnh
 <span class="command"><strong>dh</strong></span> là một gói tập lệnh bao gồm các trình tự thích hợp của
 các chương trình <span class="command"><strong>dh_*</strong></span> tùy thuộc vào đối số của nó.
-<a href="#ftn.idm1626" class="footnote" id="idm1626"><sup class="footnote">[43]</sup></a>
+<a href="#ftn.idm1622" class="footnote" id="idm1622"><sup class="footnote">[43]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
@@ -916,7 +909,7 @@ dh_auto_test
               <li class="listitem">
                 <p>
 <code class="literal">fakeroot debian/rules binary</code> chạy <code class="literal">fakeroot dh
-binary</code>; chúng bao gồm chạy các lệnh sau<a href="#ftn.idm1650" class="footnote" id="idm1650"><sup class="footnote">[44]</sup></a>:
+binary</code>; chúng bao gồm chạy các lệnh sau<a href="#ftn.idm1646" class="footnote" id="idm1646"><sup class="footnote">[44]</sup></a>:
 </p>
                 <pre class="screen">
 dh_testroot
@@ -984,9 +977,9 @@ dh binary-indep</code>; chúng bao gồm hầu hết các lệnh tương tự nh
           </div>
           <p>
 Các chức năng của lệnh <span class="command"><strong>dh_*</strong></span> phần lớn chính là tên của
-chúng  <a href="#ftn.idm1670" class="footnote" id="idm1670"><sup class="footnote">[45]</sup></a> Có một vài điểm nổi bật có thể
+chúng  <a href="#ftn.idm1666" class="footnote" id="idm1666"><sup class="footnote">[45]</sup></a> Có một vài điểm nổi bật có thể
 giải thích một cách đơn giản ở đây là giả sử một môi trường xây dựng điển
-hình dựa trên một <code class="filename">Makefile</code>: <a href="#ftn.idm1675" class="footnote" id="idm1675"><sup class="footnote">[46]</sup></a>
+hình dựa trên một <code class="filename">Makefile</code>: <a href="#ftn.idm1671" class="footnote" id="idm1671"><sup class="footnote">[46]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
@@ -994,7 +987,7 @@ hình dựa trên một <code class="filename">Makefile</code>: <a href="#ftn.id
                 <p>
 <span class="command"><strong>dh_auto_clean</strong></span> thường thực hiện như sau nếu một tệp
 <code class="filename">Makefile</code> tồn tại với target là
-<code class="literal">distclean</code>.  <a href="#ftn.idm1685" class="footnote" id="idm1685"><sup class="footnote">[47]</sup></a>
+<code class="literal">distclean</code>.  <a href="#ftn.idm1681" class="footnote" id="idm1681"><sup class="footnote">[47]</sup></a>
 </p>
                 <pre class="screen">
 make distclean
@@ -1023,7 +1016,7 @@ make
                 <p>
 <span class="command"><strong>dh_auto_test</strong></span> thường thực hiện như sau nếu
 <code class="filename">Makefile</code> tồn tại target <code class="literal">test</code>.
-<a href="#ftn.idm1707" class="footnote" id="idm1707"><sup class="footnote">[48]</sup></a>
+<a href="#ftn.idm1703" class="footnote" id="idm1703"><sup class="footnote">[48]</sup></a>
 </p>
                 <pre class="screen">
 make test
@@ -1072,14 +1065,14 @@ Có nhiều cách để tuỳ chỉnh tệp <code class="filename">rules</code> 
 lệnh  <span class="command"><strong>dh</strong></span>
 </p>
           <p>
-Lệnh <code class="literal">dh $@</code> có thể được tuỳ chỉnh như sau: <a href="#ftn.idm1743" class="footnote" id="idm1743"><sup class="footnote">[49]</sup></a>
+Lệnh <code class="literal">dh $@</code> có thể được tuỳ chỉnh như sau: <a href="#ftn.idm1739" class="footnote" id="idm1739"><sup class="footnote">[49]</sup></a>
 </p>
           <div class="itemizedlist">
             <ul class="itemizedlist">
               <li class="listitem">
                 <p>
 Thêm lệnh hỗ trợ <span class="command"><strong>dh_python2</strong></span>.  (Tuỳ chọn tốt nhất cho
-Python.) <a href="#ftn.idm1753" class="footnote" id="idm1753"><sup class="footnote">[50]</sup></a>
+Python.) <a href="#ftn.idm1749" class="footnote" id="idm1749"><sup class="footnote">[50]</sup></a>
 </p>
                 <div class="itemizedlist">
                   <ul class="itemizedlist">
@@ -1365,7 +1358,7 @@ của nó trong tệp <code class="filename">rules</code> địng nghĩa một t
 <code class="literal">override_dh_<em class="replaceable"><code>foo</code></em></code> cho lệnh
 <span class="command"><strong>dh_<em class="replaceable"><code>foo</code></em></strong></span> bạn muốn thay đổi. Về
 cơ bản có nghĩa là <span class="emphasis"><em>chạy tôi thay vì mặc
-định</em></span>. <a href="#ftn.idm1922" class="footnote" id="idm1922"><sup class="footnote">[51]</sup></a>
+định</em></span>. <a href="#ftn.idm1918" class="footnote" id="idm1918"><sup class="footnote">[51]</sup></a>
 </p>
           <p>
 Xin lưu ý rằng các lệnh <span class="command"><strong>dh_auto_*</strong></span> có xu hứng làm nhiều
@@ -1397,7 +1390,7 @@ lệnh <span class="command"><strong>./configure </strong></span>.
 </p>
           <p>
 Nếu tệp <code class="filename">Makefile</code> trong mã nguồn của gói <code class="systemitem">gentoo</code> yêu cầu bạn chỉ định target
-<code class="literal">build</code> là target để xây dựng chương trình đó <a href="#ftn.idm1950" class="footnote" id="idm1950"><sup class="footnote">[52]</sup></a>, bạn có thể tạo một target
+<code class="literal">build</code> là target để xây dựng chương trình đó <a href="#ftn.idm1946" class="footnote" id="idm1946"><sup class="footnote">[52]</sup></a>, bạn có thể tạo một target
 <code class="literal">override_dh_auto_build</code> để kích hoạt điều này.
 </p>
           <pre class="screen">
@@ -1434,7 +1427,7 @@ thượng nguồn khác thường như  tệp <code class="filename">FIXES</code
 <span class="command"><strong>dh_installchangelogs</strong></span> mặc định sẽ không cài đặt tệp
 này. Lệnh <span class="command"><strong>dh_installchangelogs</strong></span> yêu cầu
 <code class="filename">FIXES</code> như là đối số của nó để cài đặt tệp này.
-<a href="#ftn.idm1980" class="footnote" id="idm1980"><sup class="footnote">[53]</sup></a>
+<a href="#ftn.idm1976" class="footnote" id="idm1976"><sup class="footnote">[53]</sup></a>
 </p>
           <pre class="screen">
 override_dh_installchangelogs:
@@ -1452,84 +1445,84 @@ hiệu quả. Vui lòng hạn chế target rõ ràng đối với các target
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm1156" class="footnote">
-          <p><a href="#idm1156" class="para"><sup class="para">[27] </sup></a>
+        <div id="ftn.idm1154" class="footnote">
+          <p><a href="#idm1154" class="para"><sup class="para">[27] </sup></a>
 Trong chương này, các tệp tin trong thư mục <code class="filename">debian</code> được
 đề cập đến mà không có <code class="filename">debian/</code> để đơn giản hóa bất cứ
 khi nhắc tới.
 </p>
         </div>
-        <div id="ftn.idm1189" class="footnote">
-          <p><a href="#idm1189" class="para"><sup class="para">[28] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections">Debian Policy Manual, 2.4
+        <div id="ftn.idm1187" class="footnote">
+          <p><a href="#idm1187" class="para"><sup class="para">[28] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections">Debian Policy Manual, 2.4
 "Sections"</a> và <a class="ulink" href="http://packages.debian.org/unstable/">List of sections in
 <code class="literal">sid</code></a>.</p>
         </div>
-        <div id="ftn.idm1197" class="footnote">
-          <p><a href="#idm1197" class="para"><sup class="para">[29] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities">Debian Policy Manual, 2.5
+        <div id="ftn.idm1195" class="footnote">
+          <p><a href="#idm1195" class="para"><sup class="para">[29] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-archive.html#s-priorities">Debian Policy Manual, 2.5
 "Priorities"</a>.
 </p>
         </div>
-        <div id="ftn.idm1220" class="footnote">
-          <p><a href="#idm1220" class="para"><sup class="para">[30] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html#s-sourcebinarydeps">Debian Policy
+        <div id="ftn.idm1214" class="footnote">
+          <p><a href="#idm1214" class="para"><sup class="para">[30] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html#s-sourcebinarydeps">Debian Policy
 Manual, 7.7 "Relationships between source and binary packages -
 Build-Depends, Build-Depends-Indep, Build-Conflicts,
 Build-Conflicts-Indep"</a>.</p>
         </div>
-        <div id="ftn.idm1250" class="footnote">
-          <p><a href="#idm1250" class="para"><sup class="para">[31] </sup></a> Tình huống này hơi lạ là một tính năng được ghi lại trong  <a class="ulink" href="http://www.debian.org/doc/debian-policy/footnotes.html#f55">Debian Policy Manual, Footnotes
+        <div id="ftn.idm1244" class="footnote">
+          <p><a href="#idm1244" class="para"><sup class="para">[31] </sup></a> Tình huống này hơi lạ là một tính năng được ghi lại trong  <a class="ulink" href="http://www.debian.org/doc/debian-policy/footnotes.html#f55">Debian Policy Manual, Footnotes
 55</a>. Đây không phải là do sử dụng lệnh <span class="command"><strong>dh</strong></span> trong
 tệp tin <code class="filename">debian/rules</code> nhưng do cách
 <span class="command"><strong>dpkg-buildpackage</strong></span> làm việc. Tình huống tương tự cũng áp
 dụng cho <a class="ulink" href="https://bugs.launchpad.net/launchpad-buildd/+bug/238141">hệ thống xây
 dựng tự động cho Ubuntu</a>.  </p>
         </div>
-        <div id="ftn.idm1282" class="footnote">
-          <p><a href="#idm1282" class="para"><sup class="para">[32] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy Manual, 5.6.8
+        <div id="ftn.idm1276" class="footnote">
+          <p><a href="#idm1276" class="para"><sup class="para">[32] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">Debian Policy Manual, 5.6.8
 "Architecture"</a> để biết chi tiết.
 </p>
         </div>
-        <div id="ftn.idm1330" class="footnote">
-          <p><a href="#idm1330" class="para"><sup class="para">[33] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html">Debian Policy Manual, 7 "Declaring
+        <div id="ftn.idm1324" class="footnote">
+          <p><a href="#idm1324" class="para"><sup class="para">[33] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-relationships.html">Debian Policy Manual, 7 "Declaring
 relationships between packages"</a>.
 </p>
         </div>
-        <div id="ftn.idm1427" class="footnote">
-          <p><a href="#idm1427" class="para"><sup class="para">[34] </sup></a>Những mô tả này bằng tiếng Anh. Các bản dịch về các mô tả này được cung cấp
+        <div id="ftn.idm1421" class="footnote">
+          <p><a href="#idm1421" class="para"><sup class="para">[34] </sup></a>Những mô tả này bằng tiếng Anh. Các bản dịch về các mô tả này được cung cấp
 bởi <a class="ulink" href="http://www.debian.org/intl/l10n/ddtp">The Debian Description Translation Project -
 DDTP</a>.</p>
         </div>
-        <div id="ftn.idm1432" class="footnote">
-          <p><a href="#idm1432" class="para"><sup class="para">[35] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/best-pkging-practices.html#bpp-vcs">Debian Developer's Reference,
+        <div id="ftn.idm1426" class="footnote">
+          <p><a href="#idm1426" class="para"><sup class="para">[35] </sup></a>Xem <a class="ulink" href="http://www.debian.org/doc/manuals/developers-reference/best-pkging-practices.html#bpp-vcs">Debian Developer's Reference,
 6.2.5. "Version Control System location"</a>.
 </p>
         </div>
-        <div id="ftn.idm1496" class="footnote">
-          <p><a href="#idm1496" class="para"><sup class="para">[36] </sup></a>Nếu bạn sử dụng lệnh <code class="literal">dch -r</code> để tạo thay đổi cuối này, vui
+        <div id="ftn.idm1492" class="footnote">
+          <p><a href="#idm1492" class="para"><sup class="para">[36] </sup></a>Nếu bạn sử dụng lệnh <code class="literal">dch -r</code> để tạo thay đổi cuối này, vui
 lòng đảm bảo bạn đã lưu tệp <code class="filename">changelog</code> một cách rõ ràng
 bởi trình soạn thảo</p>
         </div>
-        <div id="ftn.idm1518" class="footnote">
-          <p><a href="#idm1518" class="para"><sup class="para">[37] </sup></a>Bạn có thể bắt đầu học cách viết <code class="filename">Makefile</code> từ <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch12#_make">Debian Reference, 12.2. "Make"</a>.  Tài liệu khả
+        <div id="ftn.idm1514" class="footnote">
+          <p><a href="#idm1514" class="para"><sup class="para">[37] </sup></a>Bạn có thể bắt đầu học cách viết <code class="filename">Makefile</code> từ <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/ch12#_make">Debian Reference, 12.2. "Make"</a>.  Tài liệu khả
 dụng như <a class="ulink" href="http://www.gnu.org/software/make/manual/html_node/index.html">http://www.gnu.org/software/make/manual/html_node/index.html</a> hoặc như gói <code class="systemitem">make-doc</code> trong <code class="literal">non-free</code>.
 </p>
         </div>
-        <div id="ftn.idm1526" class="footnote">
-          <p><a href="#idm1526" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
+        <div id="ftn.idm1522" class="footnote">
+          <p><a href="#idm1522" class="para"><sup class="para">[38] </sup></a><a class="ulink" href="http://www.debian.org/doc/debian-policy/ch-source.html#s-debianrules">Debian Policy Manual, 4.9 "Main building
 script: debian/rules"</a> giải thích chi tiết.</p>
         </div>
-        <div id="ftn.idm1562" class="footnote">
-          <p><a href="#idm1562" class="para"><sup class="para">[39] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage</code> như trong
+        <div id="ftn.idm1558" class="footnote">
+          <p><a href="#idm1558" class="para"><sup class="para">[39] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage</code> như trong
 <a class="xref" href="build.vi.html#completebuild" title="6.1. (Tái) biên dịch toàn bộ">Phần 6.1, “(Tái) biên dịch toàn bộ”</a>.  </p>
         </div>
-        <div id="ftn.idm1570" class="footnote">
-          <p><a href="#idm1570" class="para"><sup class="para">[40] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage -B</code> như
+        <div id="ftn.idm1566" class="footnote">
+          <p><a href="#idm1566" class="para"><sup class="para">[40] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage -B</code> như
 trọng <a class="xref" href="build.vi.html#autobuilder" title="6.2. Tự động biên dịch">Phần 6.2, “Tự động biên dịch”</a>.  </p>
         </div>
-        <div id="ftn.idm1578" class="footnote">
-          <p><a href="#idm1578" class="para"><sup class="para">[41] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage -A</code>.  </p>
+        <div id="ftn.idm1574" class="footnote">
+          <p><a href="#idm1574" class="para"><sup class="para">[41] </sup></a> Target này được sử dụng bởi <code class="literal">dpkg-buildpackage -A</code>.  </p>
         </div>
-        <div id="ftn.idm1610" class="footnote">
-          <p><a href="#idm1610" class="para"><sup class="para">[42] </sup></a> Thao tác này sử dụng tính năng mới của <code class="systemitem">debhelper</code> v7+. Các khái niệm thiết kế của nó
+        <div id="ftn.idm1606" class="footnote">
+          <p><a href="#idm1606" class="para"><sup class="para">[42] </sup></a> Thao tác này sử dụng tính năng mới của <code class="systemitem">debhelper</code> v7+. Các khái niệm thiết kế của nó
 được giải thích tại <a class="ulink" href="http://joey.kitenet.net/talks/debhelper/debhelper-slides.pdf">Not Your Grandpa's
 Debhelper</a> được trình bày ở DebConf9 bởi tác giả <code class="systemitem">debhelper</code>.  Từ phiên bản
 <code class="literal">lenny</code>, <span class="command"><strong>dh_make</strong></span> đã tạo ra một tệp
@@ -1542,65 +1535,65 @@ công". Bạn vẫn có đủ sức mạnh để tùy biến quá trình với c
 dựa trên gói <code class="systemitem">debhelper</code> và không làm
 xáo trộn tiến trình xây dựng gói như cách mà gói <code class="systemitem">cdbs</code> có xu hướng.  </p>
         </div>
-        <div id="ftn.idm1626" class="footnote">
-          <p><a href="#idm1626" class="para"><sup class="para">[43] </sup></a> Bạn có thể xác minh trình tự thực tế của các chương trình
+        <div id="ftn.idm1622" class="footnote">
+          <p><a href="#idm1622" class="para"><sup class="para">[43] </sup></a> Bạn có thể xác minh trình tự thực tế của các chương trình
 <span class="command"><strong>dh_*</strong></span> bằng gọi một
 <code class="literal"><em class="replaceable"><code>target</code></em></code> mà không thật sự chạy
 chúng bởi gọi <code class="literal">dh --no-act
 <em class="replaceable"><code>target</code></em></code> hoặc <code class="literal">debian/rules --
 '--no-act <em class="replaceable"><code>target</code></em>'</code>.  </p>
         </div>
-        <div id="ftn.idm1650" class="footnote">
-          <p><a href="#idm1650" class="para"><sup class="para">[44] </sup></a>Ví dụ sau đây giả định tệp <code class="filename">debian/compat</code> của bạn có một
+        <div id="ftn.idm1646" class="footnote">
+          <p><a href="#idm1646" class="para"><sup class="para">[44] </sup></a>Ví dụ sau đây giả định tệp <code class="filename">debian/compat</code> của bạn có một
 giá trị bằng hoặc lớn hơn 9 để tránh gọi bất kỳ câu lệnh hỗ trợ từ python tự
 động.
 </p>
         </div>
-        <div id="ftn.idm1670" class="footnote">
-          <p><a href="#idm1670" class="para"><sup class="para">[45] </sup></a> Để có thông tin đầy đủ về những gì các tập lệnh <span class="command"><strong>dh_*</strong></span> thực
+        <div id="ftn.idm1666" class="footnote">
+          <p><a href="#idm1666" class="para"><sup class="para">[45] </sup></a> Để có thông tin đầy đủ về những gì các tập lệnh <span class="command"><strong>dh_*</strong></span> thực
 hiện chính xác, và các tùy chọn khác của chúng là gì, vui lòng đọc các trang
 hướng dẫn tương ứng và tài liệu <code class="systemitem">debhelper</code>.  </p>
         </div>
-        <div id="ftn.idm1675" class="footnote">
-          <p><a href="#idm1675" class="para"><sup class="para">[46] </sup></a> Các lệnh hỗ trợ các môi trường xây dựng khác như
+        <div id="ftn.idm1671" class="footnote">
+          <p><a href="#idm1671" class="para"><sup class="para">[46] </sup></a> Các lệnh hỗ trợ các môi trường xây dựng khác như
 <code class="filename">setup.py</code> có thể được liệt kê bằng cách thực thi
 <code class="literal">dh_auto_build --list</code> trong thư mục mã nguồn gói.  </p>
         </div>
-        <div id="ftn.idm1685" class="footnote">
-          <p><a href="#idm1685" class="para"><sup class="para">[47] </sup></a> Nó thực sự tìm kiếm target có sẵn đầu tiên trong
+        <div id="ftn.idm1681" class="footnote">
+          <p><a href="#idm1681" class="para"><sup class="para">[47] </sup></a> Nó thực sự tìm kiếm target có sẵn đầu tiên trong
 <code class="filename">Makefile</code> trong số  <code class="literal">distclean</code>,
 <code class="literal">realclean</code>, hoặc <code class="literal">clean</code>, và thực hiện
 điều đó.
 </p>
         </div>
-        <div id="ftn.idm1707" class="footnote">
-          <p><a href="#idm1707" class="para"><sup class="para">[48] </sup></a> Nó thực sự tìm kiếm target đầu tiên có sẵn trong tệp
+        <div id="ftn.idm1703" class="footnote">
+          <p><a href="#idm1703" class="para"><sup class="para">[48] </sup></a> Nó thực sự tìm kiếm target đầu tiên có sẵn trong tệp
 <code class="filename">Makefile</code> trong số <code class="literal">test</code> hoặc
 <code class="literal">check</code>, và thực hiện nó.</p>
         </div>
-        <div id="ftn.idm1743" class="footnote">
-          <p><a href="#idm1743" class="para"><sup class="para">[49] </sup></a> Nếu một gói cài đặt tệp với đường dẫn
+        <div id="ftn.idm1739" class="footnote">
+          <p><a href="#idm1739" class="para"><sup class="para">[49] </sup></a> Nếu một gói cài đặt tệp với đường dẫn
 <code class="filename">/usr/share/perl5/Debian/Debhelper/Sequence/<em class="replaceable"><code>custom_name</code></em>.pm</code>,
 bạn nên kích hoạt chức năng tuỳ chỉnh của nó bằng <code class="literal">dh $@ --with
 <em class="replaceable"><code>custom-name</code></em></code>.  </p>
         </div>
-        <div id="ftn.idm1753" class="footnote">
-          <p><a href="#idm1753" class="para"><sup class="para">[50] </sup></a> Việc sử dụng <span class="command"><strong>dh_python2</strong></span> được yêu thích hơn là sử dụng
+        <div id="ftn.idm1749" class="footnote">
+          <p><a href="#idm1749" class="para"><sup class="para">[50] </sup></a> Việc sử dụng <span class="command"><strong>dh_python2</strong></span> được yêu thích hơn là sử dụng
 <span class="command"><strong>dh_pysupport</strong></span> và <span class="command"><strong>dh_pycentral</strong></span>. Đừng sử
 dụng <span class="command"><strong>dh_python</strong></span>  </p>
         </div>
-        <div id="ftn.idm1922" class="footnote">
-          <p><a href="#idm1922" class="para"><sup class="para">[51] </sup></a> Trong phiên bản <code class="literal">lenny</code>, nếu bạn muốn thay đổi hành vi của
+        <div id="ftn.idm1918" class="footnote">
+          <p><a href="#idm1918" class="para"><sup class="para">[51] </sup></a> Trong phiên bản <code class="literal">lenny</code>, nếu bạn muốn thay đổi hành vi của
 một tập lệnh <span class="command"><strong>dh_*</strong></span>, bạn sẽ phải tìm thấy dòng liên quan
 trong <code class="filename">rules</code> và tự điều chỉnh nó.  </p>
         </div>
-        <div id="ftn.idm1950" class="footnote">
-          <p><a href="#idm1950" class="para"><sup class="para">[52] </sup></a>
+        <div id="ftn.idm1946" class="footnote">
+          <p><a href="#idm1946" class="para"><sup class="para">[52] </sup></a>
 <span class="command"><strong>dh_auto_build</strong></span> với không có đối số sẽ thực hiện target đầu
 tiên trong tệp <code class="filename">Makefile</code>.  </p>
         </div>
-        <div id="ftn.idm1980" class="footnote">
-          <p><a href="#idm1980" class="para"><sup class="para">[53] </sup></a> Các tệp tin <code class="filename">debian/changelog</code> và
+        <div id="ftn.idm1976" class="footnote">
+          <p><a href="#idm1976" class="para"><sup class="para">[53] </sup></a> Các tệp tin <code class="filename">debian/changelog</code> và
 <code class="filename">debian/NEWS</code> luôn luôn được cài đặt tự động. Lịch sử sửa
 đổi của thượng nguồn được tìm thấy được chuyển thành tệp chữ thường
 <code class="filename">changelog</code>, <code class="filename">changes</code>,

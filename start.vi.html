@@ -69,8 +69,14 @@ exempla</em></span> (Đó là một chặng đường dài bởi các quy tắc,
 hiệu quả với các ví dụ).
 </p>
       <p>
+Việc viết lại tài liệu này với các nội dung cập nhật và nhiều các ví dụ thực
+tế hơn đã có ở <a class="ulink" href="https://www.debian.org/doc/devel-manuals#debmake-doc">Guide for Debian
+Maintainers</a>. Vui lòng sử dụng tài liệu mới này như là tài liệu hướng
+dẫn chính.
+</p>
+      <p>
 Tài liệu này đã được cập nhật cho bản phát hành Debian
-<code class="literal">jessie</code>.  <a href="#ftn.idm49" class="footnote" id="idm49"><sup class="footnote">[1]</sup></a>
+<code class="literal">jessie</code>.  <a href="#ftn.idm47" class="footnote" id="idm47"><sup class="footnote">[1]</sup></a>
 </p>
       <p>
 Một trong những điều làm cho Debian trở thành một hệ thống gói phần mềm hàng
@@ -80,7 +86,7 @@ có thể tạo gói cho riêng bạn;  Và có lẽ bạn nghĩ đó là một 
 khăn.  Vâng, nếu bạn là người mới làm quen trên Linux, thật khó, nhưng nếu
 bạn là một tân binh, bạn sẽ không đọc tài liệu này bây giờ  :-) Bạn cần
 biết một chút về lập trình Unix nhưng bạn chắc chắn không cần phải là một
-cao thủ.  <a href="#ftn.idm55" class="footnote" id="idm55"><sup class="footnote">[2]</sup></a>
+cao thủ.  <a href="#ftn.idm53" class="footnote" id="idm53"><sup class="footnote">[2]</sup></a>
 </p>
       <p>
 Tuy nhiên một điều chắc chắn là: để tạo và duy trì đúng các gói Debian phải
@@ -282,7 +288,7 @@ không chứa bất kỳ gói nào được đánh dấu <code class="literal">e
         <p>
 Các gói sau đi kèm với cài đặt Debian tiêu chuẩn, do đó có lẽ bạn đã có
 chúng rồi (cùng với bất kỳ gói bổ sung nào mà chúng phụ thuộc).  Tuy nhiên,
-bạn nên kiểm tra nó bằng gói <code class="literal">aptitude show
+bạn nên kiểm tra chúng bằng gói <code class="literal">aptitude show
 <em class="replaceable"><code>pakage</code></em></code> hoặc với <code class="literal">dpkg -s
 <em class="replaceable"><code>package</code></em></code>.
 </p>
@@ -316,7 +322,7 @@ dụng các tệp đó.
 ví dụ của chúng tôi,  Và nó sẽ sử dụng một số công cụ <code class="systemitem">debhelper</code> để tạo các gói.  Chúng không cần thiết
 cho mục đích này, nhưng được <span class="emphasis"><em>đánh giá cao</em></span> được đề xuất
 cho người bảo trì mới.  Nó làm cho toàn bộ quá trình rất dễ dàng để bắt đầu,
-và để kiểm soát sau đó.  (Xem <span class="citerefentry"><span class="refentrytitle">dh_make</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">debhelper</span>(1)</span>.) <a href="#ftn.idm185" class="footnote" id="idm185"><sup class="footnote">[3]</sup></a>
+và để kiểm soát sau đó.  (Xem <span class="citerefentry"><span class="refentrytitle">dh_make</span>(8)</span>, <span class="citerefentry"><span class="refentrytitle">debhelper</span>(1)</span>.) <a href="#ftn.idm183" class="footnote" id="idm183"><sup class="footnote">[3]</sup></a>
 </p>
               <p>
 Công cụ mới <code class="systemitem">debmake</code> có thể sử dụng
@@ -366,8 +372,8 @@ nhân Linux.  (Xem <span class="citerefentry"><span class="refentrytitle">git</s
               <p>
 <code class="systemitem">gnupg</code> - một công cụ cho phép bạn
 dùng chữ ký số để <span class="emphasis"><em>ký</em></span> gói.  Điều này đặc biệt quan trọng
-nếu bạn muốn phân phối nó cho người khác, và chắc chắn bạn sẽ làm điều đó
-khi tác phẩm của bạn được đưa vào phân phối Debian.  (Xem <span class="citerefentry"><span class="refentrytitle">gpg</span>(1)</span>.)
+nếu bạn muốn phân phối các gói cho người khác, và chắc chắn bạn sẽ làm điều
+đó khi tác phẩm của bạn được đưa vào phân phối Debian.  (Xem <span class="citerefentry"><span class="refentrytitle">gpg</span>(1)</span>.)
 </p>
             </li>
             <li class="listitem">
@@ -382,8 +388,8 @@ Compiler, cũng tốt trong nhiệm vụ này.  (Xem <span class="citerefentry">
             <li class="listitem">
               <p>
 <code class="systemitem">lintian</code> - đây là trình kiểm tra gói
-Debian, có thể cho bạn biết về bất kỳ lỗi phổ biến nào sau khi bạn xây dựng
-gói và giải thích các lỗi được tìm thấy.  (Xem <span class="citerefentry"><span class="refentrytitle">lintian</span>(1)</span>, <a class="ulink" href="https://lintian.debian.org/manual/index.html"> Hướng dẫn sử dụng Lintian
+Debian, để cho bạn biết về bất kỳ lỗi phổ biến nào sau khi bạn xây dựng gói
+và giải thích các lỗi được tìm thấy.  (Xem <span class="citerefentry"><span class="refentrytitle">lintian</span>(1)</span>, <a class="ulink" href="https://lintian.debian.org/manual/index.html"> Hướng dẫn sử dụng Lintian
 </a>.)
 </p>
             </li>
@@ -649,7 +655,7 @@ Ngay cả khi tất cả đều hoạt động tốt, đó là thời gian để
 nguyện.  Tại sao?  Bởi vì chỉ trong vài giờ (hoặc ngày) người dùng từ khắp
 nơi trên thế giới sẽ bắt đầu sử dụng gói của bạn và nếu bạn mắc một số lỗi
 nghiêm trọng, bạn sẽ nhận được mailbombed bởi nhiều người dùng Debian tức
-giận... Đùa thôi :-)
+giận …... Đùa thôi :-)
 </p>
         <p>
 Hãy thư giãn và sẵn sàng cho các báo cáo lỗi, vì còn rất nhiều việc phải làm
@@ -661,21 +667,21 @@ liệu</em></span> thật chi tiết).  Chúc may mắn!
       <div class="footnotes">
         <br/>
         <hr/>
-        <div id="ftn.idm49" class="footnote">
-          <p><a href="#idm49" class="para"><sup class="para">[1] </sup></a> Tài liệu giả định bạn đang sử dụng <code class="literal">jessie</code> hoặc hệ
+        <div id="ftn.idm47" class="footnote">
+          <p><a href="#idm47" class="para"><sup class="para">[1] </sup></a> Tài liệu giả định bạn đang sử dụng <code class="literal">jessie</code> hoặc hệ
 thống mới hơn.  Nếu bạn cần phải làm theo các văn bản này trong một hệ thống
 cũ hơn (bao gồm cả một hệ thống Ubuntu cũ hơn vv), bạn phải cài đặt ít nhất
 các gói <code class="systemitem">dpkg</code> và <code class="systemitem">debhelper</code>.
 </p>
         </div>
-        <div id="ftn.idm55" class="footnote">
-          <p><a href="#idm55" class="para"><sup class="para">[2] </sup></a>
+        <div id="ftn.idm53" class="footnote">
+          <p><a href="#idm53" class="para"><sup class="para">[2] </sup></a>
 Bạn có thể tìm hiểu về cách xử lý cơ bản của một hệ thống Debian từ <a class="ulink" href="http://www.debian.org/doc/manuals/debian-reference/">Debian Reference</a>.  Nó cũng chứa một số gợi ý để tìm
 hiểu về lập trình Unix.
 </p>
         </div>
-        <div id="ftn.idm185" class="footnote">
-          <p><a href="#idm185" class="para"><sup class="para">[3] </sup></a> Ngoài ra còn có một số gói chuyên dụng hơn nhưng tương tự như <code class="systemitem">dh-make-perl</code>, <code class="systemitem">dh-make-php</code>, v.v.  </p>
+        <div id="ftn.idm183" class="footnote">
+          <p><a href="#idm183" class="para"><sup class="para">[3] </sup></a> Ngoài ra còn có một số gói chuyên dụng hơn nhưng tương tự như <code class="systemitem">dh-make-perl</code>, <code class="systemitem">dh-make-php</code>, v.v.  </p>
         </div>
       </div>
     </div>
