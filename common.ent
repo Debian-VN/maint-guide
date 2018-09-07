@@ -69,7 +69,7 @@ Remember, the *first* definition of an entity wins.
 <!ENTITY debref-make "http://www.debian.org/doc/manuals/debian-reference/ch12#_make">
 <!ENTITY debref-vcs "http://www.debian.org/doc/manuals/debian-reference/ch10#_version_control_systems">
 <!ENTITY debsrc3 "http://wiki.debian.org/Projects/DebSrc3.0">
-<!ENTITY dehs "http://wiki.debian.org/DEHS">
+<!ENTITY debtrack "https://tracker.debian.org/">
 <!ENTITY dep "http://dep.debian.net/">
 <!ENTITY dep3 "http://dep.debian.net/deps/dep3/">
 <!ENTITY dep5 "http://dep.debian.net/deps/dep5/">
@@ -101,6 +101,7 @@ Remember, the *first* definition of an entity wins.
 <!ENTITY gnu-make "http://www.gnu.org/software/make/manual/html_node/index.html">
 <!ENTITY gnu-standard "http://www.gnu.org/prep/standards/html_node/index.html">
 <!ENTITY gnu-standard-pdf "/usr/share/doc/gnu-standards/standards.pdf.gz">
+<!ENTITY guidedeb "https://www.debian.org/doc/devel-manuals#debmake-doc">
 <!ENTITY howto-copyright "http://lists.debian.org/debian-devel-announce/2006/03/msg00023.html">
 <!ENTITY irc-debian "http://www.debian.org/support#irc">
 <!ENTITY keycreate "http://keyring.debian.org/creating-key.html">
@@ -121,7 +122,6 @@ Remember, the *first* definition of an entity wins.
 <!ENTITY multiarchspec "https://wiki.ubuntu.com/MultiarchSpec">
 <!ENTITY nm-do "https://nm.debian.org/">
 <!ENTITY packages-do "http://www.debian.org/distrib/packages">
-<!ENTITY packages-qa-do "http://packages.qa.debian.org/common/index.html">
 <!ENTITY pbuilder "http://www.netfort.gr.jp/~dancer/software/pbuilder.html">
 <!ENTITY policy-architecture "http://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-Architecture">
 <!ENTITY policy-build-depends-indep "http://www.debian.org/doc/debian-policy/footnotes.html#f55">

@@ -1,7 +1,7 @@
 <appendix id="advanced"><title>Advanced packaging</title>
-<!-- This is tough topic for me to get into details and track them in good shape. -->
+<!-- This is a tough topic for me to get into details and track them in good shape. -->
 <para>
-Here are some hints and pointers for advanced packaging topics which you are most likely to deal with.
+Here are some hints and pointers for advanced packaging topics that you are most likely to deal with.
 You are strongly advised to read all the references suggested here.
 </para>
 <para>
@@ -54,7 +54,7 @@ Shared libraries are sometimes used to provide multiple plugins to an executable
 </listitem>
 <listitem>
 <para>
-Shared libraries export <ulink url="&symbol;">symbols</ulink> which represent compiled objects such as variables, functions, and classes; and enables access to them from the linked executables. 
+Shared libraries export <ulink url="&symbol;">symbols</ulink>, which represent compiled objects such as variables, functions, and classes; and enable access to them from the linked executables. 
 </para>
 </listitem>
 <listitem>
@@ -94,22 +94,22 @@ The package maintainer scripts of the library package must call <command>ldconfi
 </listitem>
 <listitem>
 <para>
-<systemitem role="package">lib<replaceable>foo</replaceable><replaceable>1</replaceable>-dbg</systemitem>: the debugging symbols package which contains the debugging symbols for the shared library package <systemitem role="package">lib<replaceable>foo</replaceable><replaceable>1</replaceable></systemitem>.
+<systemitem role="package">lib<replaceable>foo</replaceable><replaceable>1</replaceable>-dbg</systemitem>: the debugging symbols package that contains the debugging symbols for the shared library package <systemitem role="package">lib<replaceable>foo</replaceable><replaceable>1</replaceable></systemitem>.
 </para>
 </listitem>
 <listitem>
 <para>
-<systemitem role="package">lib<replaceable>foo</replaceable>-dev</systemitem>: the development package which contains the header files etc. for the shared library <filename>lib<replaceable>foo</replaceable>.so.<replaceable>1</replaceable></filename>.<footnote><para>See <ulink url="&policy-static;">Debian Policy Manual, 8.3 "Static libraries"</ulink> and <ulink url="&policy-dev;">Debian Policy Manual, 8.4 "Development files"</ulink>.</para></footnote>
+<systemitem role="package">lib<replaceable>foo</replaceable>-dev</systemitem>: the development package that contains the header files etc. for the shared library <filename>lib<replaceable>foo</replaceable>.so.<replaceable>1</replaceable></filename>.<footnote><para>See <ulink url="&policy-static;">Debian Policy Manual, 8.3 "Static libraries"</ulink> and <ulink url="&policy-dev;">Debian Policy Manual, 8.4 "Development files"</ulink>.</para></footnote>
 </para>
 </listitem>
 <listitem>
 <para>
-Debian package should not contain <filename>*.la</filename> Libtool archive files in general.<footnote><para>See <ulink url="&removela;">Debian wiki ReleaseGoals/LAFileRemoval</ulink>.</para></footnote>
+Debian packages should not contain <filename>*.la</filename> Libtool archive files in general.<footnote><para>See <ulink url="&removela;">Debian wiki ReleaseGoals/LAFileRemoval</ulink>.</para></footnote>
 </para>
 </listitem>
 <listitem>
 <para>
-Debian package should not use RPATH in general.<footnote><para>See <ulink url="&rpathissues;">Debian wiki RpathIssue</ulink>.</para></footnote>
+Debian packages should not use RPATH in general.<footnote><para>See <ulink url="&rpathissues;">Debian wiki RpathIssue</ulink>.</para></footnote>
 </para>
 </listitem>
 <listitem>
@@ -122,7 +122,7 @@ Although it is somewhat outdated and is only a secondary reference, <ulink url="
 
 <section id="librarysymbols"><title>Managing <filename>debian/<replaceable>package</replaceable>.symbols</filename></title>
 <para>
-When you package a shared library, you should create <filename>debian/<replaceable>package</replaceable>.symbols</filename> file to manage the minimal version associated to each symbol for backward-compatible ABI changes under the same SONAME of the library for the same shared library package name.<footnote><para>Backward-incompatible ABI changes normally require you to update the SONAME of the library and the shared library package name to new ones.</para></footnote>  You should read the following primary references in detail:
+When you package a shared library, you should create a <filename>debian/<replaceable>package</replaceable>.symbols</filename> file to manage the minimal version associated with each symbol for backward-compatible ABI changes under the same SONAME of the library for the same shared library package name.<footnote><para>Backward-incompatible ABI changes normally require you to update the SONAME of the library and the shared library package name to new ones.</para></footnote>  You should read the following primary references in detail:
 </para>
 <itemizedlist>
 <listitem>
@@ -152,7 +152,7 @@ When you package a shared library, you should create <filename>debian/<replaceab
 </listitem>
 </itemizedlist>
 <para>
-Here is a rough example to create the <systemitem role="package">libfoo1</systemitem> package to the upstream version <literal>1.3</literal> with the proper <filename>debian/libfoo1.symbols</filename> file:
+Here is a rough example of how to create the <systemitem role="package">libfoo1</systemitem> package from the upstream version <literal>1.3</literal> with the proper <filename>debian/libfoo1.symbols</filename> file:
 </para>
 
 <itemizedlist>
@@ -173,7 +173,7 @@ If the previous upstream version <literal>1.2</literal> was packaged as the <sys
 </listitem>
 <listitem>
 <para>
-If the previous upstream version <literal>1.2</literal> was not packaged with the <filename>debian/libfoo1.symbols</filename>, create it as the <filename>symbols</filename> file from all available binary packages of the same shared library package name containing the same SONAME of the library, for example, versions <literal>1.1-1</literal> and <literal>1.2-1</literal>.
+If the previous upstream version <literal>1.2</literal> was not packaged with <filename>debian/libfoo1.symbols</filename>, create it as the <filename>symbols</filename> file from all available binary packages of the same shared library package name containing the same SONAME of the library, for example, versions <literal>1.1-1</literal> and <literal>1.2-1</literal>.
 <footnote>
 <para>
 All previous versions of Debian packages are available at <ulink url="&snapshot;">http://snapshot.debian.org/</ulink>.  The Debian revision is dropped from the version to make it easier to backport the package: <literal>1.1</literal> &lt;&lt; <literal>1.1-1~bpo70+1</literal> &lt;&lt; <literal>1.1-1</literal> and  <literal>1.2</literal> &lt;&lt; <literal>1.2-1~bpo70+1</literal> &lt;&lt; <literal>1.2-1</literal>
@@ -192,7 +192,7 @@ $ dpkg-gensymbols -v1.2 -plibfoo1 -Plibfoo1_1.2-1 -Osymbols
 </listitem>
 <listitem>
 <para>
-Make trial builds of the source tree with tools such as <command>debuild</command> and <command>pdebuild</command>.  (If this fails due to missing symbols etc., there were some backward-incompatible ABI changes which require you to bump the shared library package name to something like <systemitem role="package">libfoo1a</systemitem> and you should start over again.)
+Make trial builds of the source tree with tools such as <command>debuild</command> and <command>pdebuild</command>.  (If this fails due to missing symbols etc., there were some backward-incompatible ABI changes that require you to bump the shared library package name to something like <systemitem role="package">libfoo1a</systemitem> and you should start over again.)
 </para>
 <screen>
 $ cd libfoo-1.3
@@ -215,7 +215,7 @@ dpkg-gensymbols: warning: some new symbols appeared in the symbols file: ...
 </listitem>
 <listitem>
 <para>
-If you see the diff printed by the <command>dpkg-gensymbols</command> as above, extract the updated proper <filename>symbols</filename> file from the generated binary package of the shared library.
+If you see the diff printed by the <command>dpkg-gensymbols</command> as above, extract the proper updated <filename>symbols</filename> file from the generated binary package of the shared library.
 <footnote>
 <para>
 The Debian revision is dropped from the version to make it easier to backport the package: <literal>1.3</literal> &lt;&lt; <literal>1.3-1~bpo70+1</literal> &lt;&lt; <literal>1.3-1</literal>
@@ -235,7 +235,7 @@ Build release packages with tools such as <command>debuild</command> and <comman
 </para>
 <screen>
 $ cd libfoo-1.3
-$ debuild clean
+$ debuild -- clean
 $ debuild
 ...
 </screen>
@@ -273,7 +273,7 @@ The multiarch feature introduced to Debian wheezy integrates support for cross-a
 </itemizedlist>
 
 <para>
-It uses the triplet such as <literal>i386-linux-gnu</literal> and <literal>x86_64-linux-gnu</literal> for the install path of shared libraries. The actual triplet path is dynamically set into the <literal>$(DEB_HOST_MULTIARCH)</literal> variable using the <citerefentry> <refentrytitle>dpkg-architecture</refentrytitle><manvolnum>1</manvolnum></citerefentry> command for each binary package build. For example, the path to install multiarch libraries are changed as follows:<footnote><para>Old special purpose library paths such as <filename>/lib32/</filename> and <filename>/lib64/</filename> are not used any more.</para></footnote>
+It uses the triplet such as <literal>i386-linux-gnu</literal> and <literal>x86_64-linux-gnu</literal> for the install path of shared libraries. The actual triplet path is dynamically set into the <literal>$(DEB_HOST_MULTIARCH)</literal> variable using the <citerefentry> <refentrytitle>dpkg-architecture</refentrytitle><manvolnum>1</manvolnum></citerefentry> command for each binary package build. For example, the path to install multiarch libraries are changed as follows:<footnote><para>Old special purpose library paths such as <filename>/lib32/</filename> and <filename>/lib64/</filename> are not used anymore.</para></footnote>
 </para>
 
 <informaltable id="tripletpaths" pgwide="0" frame="topbot" rowsep="1" colsep="1">
@@ -290,7 +290,7 @@ It uses the triplet such as <literal>i386-linux-gnu</literal> and <literal>x86_6
 </informaltable>
 
 <para>
-Here are some typical multiarch package split scenario examples for the followings:
+Here are some typical multiarch package split scenario examples for the following:
 </para>
 <itemizedlist>
 <listitem>
@@ -369,7 +369,7 @@ Please note that the development package should contain a symlink for the associ
 
 <section id="librarypackage"><title>Building a shared library package</title>
 <para>
-You can build a Debian library package enabling the multiarch support using <citerefentry> <refentrytitle>dh</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> as follows: 
+You can build a Debian library package enabling multiarch support using <citerefentry> <refentrytitle>dh</refentrytitle> <manvolnum>1</manvolnum> </citerefentry> as follows: 
 </para>
 <itemizedlist>
 <listitem>
@@ -379,7 +379,7 @@ Update <filename>debian/control</filename>.
 <itemizedlist>
 <listitem>
 <para>
-Add <literal>Build-Depends: debhelper (>=9)</literal> for the source package section.
+Add <literal>Build-Depends: debhelper (>=10)</literal> for the source package section.
 </para>
 </listitem>
 <listitem>
@@ -396,7 +396,7 @@ Add <literal>Multi-Arch:</literal> stanza for each binary package section.
 </listitem>
 <listitem>
 <para>
-Set <filename>debian/compat</filename> to "9".
+Set <filename>debian/compat</filename> to "10".
 </para>
 </listitem>
 <listitem>
@@ -406,7 +406,7 @@ Adjust the path from the normal <literal>/usr/lib/</literal> to the multiarch <l
 <itemizedlist>
 <listitem>
 <para>
-Call <literal>DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)</literal> in <filename>debian/rules</filename> to set <literal>DEB_HOST_MULTIARCH</literal> variable, first.
+Call <literal>DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)</literal> in <filename>debian/rules</filename> to set the <literal>DEB_HOST_MULTIARCH</literal> variable first.
 </para>
 </listitem>
 <listitem>
@@ -416,7 +416,7 @@ Replace <literal>/usr/lib/</literal> with <literal>/usr/lib/$(DEB_HOST_MULTIARCH
 </listitem>
 <listitem>
 <para>
-If <literal>./configure</literal> is used in the part of <literal>override_dh_auto_configure</literal> target in <filename>debian/rules</filename>, make sure to replace it with <literal>dh_auto_configure -- </literal>.
+If <literal>./configure</literal> is used in part of the <literal>override_dh_auto_configure</literal> target in <filename>debian/rules</filename>, make sure to replace it with <literal>dh_auto_configure -- </literal>.
 <footnote>
 <para>
 Alternatively, you can add <literal>--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)</literal> and <literal>--libexecdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)</literal> arguments to <literal>./configure</literal>.  Please note that <literal>--libexecdir</literal> specifies the default path to install executable programs run by other programs rather than by users.  Its Autotools default is <filename>/usr/libexec/</filename> but its Debian default is <filename>/usr/lib/</filename>.
@@ -431,7 +431,7 @@ Replace all occurrences of <literal>/usr/lib/</literal> with <literal>/usr/lib/*
 </listitem>
 <listitem>
 <para>
-Generate files like <filename>debian/<replaceable>foo</replaceable>.links</filename> from <filename>debian/<replaceable>foo</replaceable>.links.in</filename> dynamically by adding a script to <literal>override_dh_auto_configure</literal> target in <filename>debian/rules</filename>.
+Generate files like <filename>debian/<replaceable>foo</replaceable>.links</filename> from <filename>debian/<replaceable>foo</replaceable>.links.in</filename> dynamically by adding a script to the <literal>override_dh_auto_configure</literal> target in <filename>debian/rules</filename>.
 </para>
 <screen>
 override_dh_auto_configure:
@@ -447,7 +447,7 @@ override_dh_auto_configure:
 Please make sure to verify that the shared library package contains only the expected files, and that your -dev package still works.
 </para>
 <para>
-All files installed simultaneously as the multiarch package to the same file path should have exactly the same file content.  You must be careful on differences generated by the data byte order and by the compression algorithm.
+All files installed simultaneously as the multiarch package to the same file path should have exactly the same file content.  You must be careful of differences generated by the data byte order and by the compression algorithm.
 </para>
 </section>
 
@@ -456,7 +456,7 @@ All files installed simultaneously as the multiarch package to the same file pat
 If a package is maintained only for Debian or possibly only for local use, its source may contain all the <filename>debian/*</filename> files in it.  There are 2 ways to package it.
 </para>
 <para>
-You can make the upstream tarball by excluding the <filename>debian/*</filename> files and package it as the non-native Debian package as in <xref linkend="workflow"/>.  This is the normal way which some people encourage to use.
+You can make the upstream tarball by excluding the <filename>debian/*</filename> files and package it as a non-native Debian package as in <xref linkend="workflow"/>.  This is the normal way, which some people encourage using.
 </para>
 <para>
 The alternative is the workflow of the native Debian package.
@@ -484,7 +484,7 @@ Build Debian binary packages from the native Debian source package.
 <para>
 For example, if you have source files in <filename>~/mypackage-1.0</filename>
 without the <filename>debian/*</filename> files, you can create a native Debian
-package for it by issuing the <command>dh_make</command> command as follows:
+package by issuing the <command>dh_make</command> command as follows:
 </para>
 <screen>
 $ cd ~/mypackage-1.0
@@ -492,7 +492,7 @@ $ dh_make --native
 </screen>
 <para>
 Then the <filename>debian</filename> directory and its contents are created
-just like <xref linkend="non-native-dh-make"/>.  This does not create a tarball
+just like in <xref linkend="non-native-dh-make"/>.  This does not create a tarball,
 since this is a native Debian package.  But that is the only difference.
 The rest of the packaging activities are practically the same.
 </para>
@@ -515,7 +515,7 @@ This is the source code tarball created from the
 <filename>mypackage_1.0.dsc</filename>
 </para>
 <para>
-This is a summary of the contents of the source code as in the non-native
+This is a summary of the contents of the source code, as in the non-native
 Debian package. (There is no Debian revision.)
 </para>
 </listitem>
@@ -524,7 +524,7 @@ Debian package. (There is no Debian revision.)
 <filename>mypackage_1.0_i386.deb</filename>
 </para>
 <para>
-This is your completed binary package as in the non-native Debian package.
+This is your completed binary package, as in the non-native Debian package.
 (There is no Debian revision.)
 </para>
 </listitem>

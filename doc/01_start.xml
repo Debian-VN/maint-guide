@@ -8,8 +8,10 @@ exempla</emphasis> (It's a long way by the rules, but short and efficient with
 examples).
 </para>
 <para>
-This document has been updated for the Debian <literal>&base-release;</literal>
-release.
+The rewrite of this tutorial document with updated contents and more practical examples is available as <ulink url="&guidedeb;">Guide for Debian Maintainers</ulink>.  Please use this new tutorial as the primary tutorial document.
+</para>
+<para>
+This document is made available for the Debian <literal>Buster</literal> release since this offers many translations.  This document will be dropped in the following releases since contents are getting outdated.
 <footnote><para> The document assumes you are using a
 <literal>&base-release;</literal> or newer system.  If you need to follow this
 text in an older system (including an older Ubuntu system etc.), you must
@@ -38,7 +40,7 @@ takes many hours.  Make no mistake, for our system to work the maintainers
 need to be both technically competent and diligent.
 </para>
 <para>
-If you need some help on packaging, please read <xref linkend="helpme"/>.
+If you need some help with packaging, please read <xref linkend="helpme"/>.
 </para>
 <para>
 Newer versions of this document should always be available online at 
@@ -169,7 +171,7 @@ doesn't contain any packages marked <literal>essential</literal> or
 <para>
 The following packages come with the standard Debian installation, so you
 probably have them already (along with any additional packages they depend on).
-Still, you should check it with <literal>aptitude show
+Still, you should check them with <literal>aptitude show
 <replaceable>package</replaceable></literal>
 or with <literal>dpkg -s <replaceable>package</replaceable></literal>.
 </para>
@@ -232,7 +234,7 @@ by this package are worth looking into.  (See <filename>&devscripts-readme;</fil
 <listitem>
 <para>
 <systemitem role="package">fakeroot</systemitem> - this utility lets you
-emulate being root which is necessary for some parts of the build process.
+emulate being root, which is necessary for some parts of the build process.
 (See <citerefentry> <refentrytitle>fakeroot</refentrytitle>
 <manvolnum>1</manvolnum> </citerefentry>.)
 </para>
@@ -266,7 +268,7 @@ git Manual (<filename>&git-doc;</filename>).)
 <para>
 <systemitem role="package">gnupg</systemitem> - a tool that enables you to
 digitally <emphasis>sign</emphasis> packages.  This is especially important if
-you want to distribute it to other people, and you will certainly be doing that
+you want to distribute packages to other people, and you will certainly be doing that
 when your work gets included in the Debian distribution.  (See <citerefentry>
 <refentrytitle>gpg</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.)
 </para>
@@ -285,8 +287,8 @@ which is also good at this task.  (See <citerefentry>
 <listitem>
 <para>
 <systemitem role="package">lintian</systemitem> - this is the Debian package
-checker, which can let you know of any common mistakes after you build the
-package, and explains the errors found.  (See <citerefentry>
+checker, which lets you know of any common mistakes after you build the
+package and explains the errors found.  (See <citerefentry>
 <refentrytitle>lintian</refentrytitle> <manvolnum>1</manvolnum>
 </citerefentry>,
 <ulink url="&lintian-doc;">Lintian User's Manual</ulink>.)
@@ -311,9 +313,9 @@ utilities to work with patches such as the <command>lsdiff</command>,
 <listitem>
 <para>
 <systemitem role="package">pbuilder</systemitem> - this package contains
-programs which are used for creating and maintaining <command>chroot</command>
-environment.  Building Debian package in this <command>chroot</command>
-environment verifies the proper build dependency and avoid FTBFS (Fails To
+programs which are used for creating and maintaining a <command>chroot</command>
+environment.  Building a Debian package in this <command>chroot</command>
+environment verifies the proper build dependency and avoids FTBFS (Fails To
 Build From Source) bugs.  (see <citerefentry>
 <refentrytitle>pbuilder</refentrytitle> <manvolnum>8</manvolnum>
 </citerefentry> and <citerefentry> <refentrytitle>pdebuild</refentrytitle>
@@ -390,7 +392,7 @@ satisfy to be included in the distribution. (See the local copies of
 describes all matters not specifically about the technical
 details of packaging, like the structure of the archive, how to rename, orphan,
 or adopt packages, how to do NMUs, how to manage bugs, best packaging practices,
-when and where to upload etc.  (See the local copy of
+when and where to upload, etc.  (See the local copy of
 <filename>&developers-refpdf;</filename>.)
 </para>
 </listitem>
@@ -404,7 +406,7 @@ you should read along with this document:
 <para>
 <ulink url="&autotools-tutorial;">Autotools
 Tutorial</ulink> provides a very good tutorial for <ulink url="&gnu-build-system;">the GNU Build System known
-as the GNU Autotools</ulink> whose most important components are Autoconf,
+as the GNU Autotools</ulink>, whose most important components are Autoconf,
 Automake, Libtool, and gettext.
 </para>
 </listitem>
@@ -429,7 +431,7 @@ are correct.  Please file a bug report on the
 <command>reportbug</command>.
 </para>
 <para>
-The following is an alternative tutorial documentation which you may
+The following is an alternative tutorial document that you may
 read along with this document:
 </para>
 <itemizedlist>
@@ -438,7 +440,7 @@ read along with this document:
 </section>
 <section id="helpme"><title>Where to ask for help</title>
 <para>
-Before you decide to ask your question in some public place, please read the fine documentation:
+Before you decide to ask your question in some public place, please read this fine documentation:
 </para>
 <itemizedlist>
 <listitem>
@@ -524,7 +526,7 @@ deal with the reports efficiently.  I highly recommend reading the
 Even if it all worked well, it's time to start praying.  Why?  Because in just
 a few hours (or days) users from all around the world will start to use your
 package, and if you made some critical error you'll get mailbombed by numerous
-angry Debian users...  Just kidding.  :-)
+angry Debian users&#x2026;  Just kidding.  :-)
 </para>
 <para>
 Relax and be ready for bug reports, because there is a lot more work to be done

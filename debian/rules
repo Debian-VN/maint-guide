@@ -9,11 +9,11 @@ MANUAL		:= maint-guide
 LANGPO		:= ca de es fr it ja ru zh-cn zh-tw
 
 # Override main Makefile to build CJK under sid
-# No PDF build for these lunguages
-LANGNOPDF	:= ja zh-cn zh-tw 
+# No PDF build for these languages
+LANGNOPDF	:=
 
 ## comment out to build with the cleaner log (it slows!)
-#BUILDOPT	:= --parallel
+#BUILDOPT	:= --no-parallel
 BUILDOPT	:=
 
 VERSION		:= $(shell sed -ne '1s/[-a-zA-Z0-9 ]*(\([^()]*\)) .*$$/\1/p' debian/changelog)
@@ -60,4 +60,3 @@ override_dh_auto_clean:
 	-rm -f debian/*.doc-base
 	-rm -f debian/*.lintian-overrides
 	$(MAKE) "LANGPO=$(LANGPO)"  clean
-

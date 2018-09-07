@@ -1,8 +1,65 @@
+maint-guide (1.2.42) unstable; urgency=medium
+
+  * Update translation: de, ja, it, zh-cn 
+
+ -- Osamu Aoki <osamu@debian.org>  Mon, 23 Jul 2018 23:54:13 +0900
+
+maint-guide (1.2.41) unstable; urgency=medium
+
+  * Team upload.
+  * d/control: Apply "wrap-and-sort -abst".
+  * d/control: Use Salsa platform for Vcs fields.
+  * Bump Standards-Version to 4.1.4.
+    + Remove "extra" package priority.
+    + Set all packages as M-A: foreign.
+  * Refresh zh-cn translation.
+  * Remove all backtick characters from text to workaround
+    FTBFS with zh-* PDF files. Closes: #897554.
+  * Apply French translation update. Closes: #895415.
+    Many thanks to Jean-Paul Guillonneau and debian-l10n-french
+    list.
+  * Fix "debuild clean" invocation error by adding double dash
+    before the target. Closes: #879690.
+  * Remove unnecessary inclusion of default.mk files in d/rules
+    example file. Closes: #896154.
+
+  [ Helge Kreutzmann ]
+    * Update translation: de.
+
+ -- Boyuan Yang <073plan@gmail.com>  Mon, 07 May 2018 11:20:06 +0800
+
+maint-guide (1.2.40) unstable; urgency=medium
+
+  [ Osamu Aoki ]
+  * Major English proof reading by Paul Hardy. Closes: #868277
+  * State this is about to be deprecated and point to the debmake-doc
+    package where new practices are well documented.
+    Closes: #858573, #861148, #861150,
+  * Set urgency to medium.  Closes: #833322
+  * Replace old URLs with tracker URL.  Closes: #861149, #864029
+  * Recommend dch convention for debian/changelog.  Closes: #668185
+  * No more priority extra.  Closes: #868281
+  * Replace with --allow-downgrades.  Closes: #868279
+  * Enable PDF build for all languages.
+
+  [ Boyuan Yang ]
+  * Update translation: zh_CN.
+  * Update information about debhelper compat, Standards-Version, etc.
+    + Standards-Version: 4.0.0
+    + Recommend debian/compat: 10.  Closes: #868278
+    + Vcs-*: use canonical form
+  * Refresh all translation po/pot files.
+
+  [ Helge Kreutzmann ]
+  * Update translation: de.
+
+ -- Osamu Aoki <osamu@debian.org>  Mon, 18 Sep 2017 00:11:03 +0900
+
 maint-guide (1.2.39) unstable; urgency=medium
 
   * Fix dquilt bash completion.  Closes: #861084
   * Fix VCS-Browser. Closes: #861144
-  * Drop menu section.  Closes: #861146 
+  * Drop menu section.  Closes: #861146
   * Update translation: de
   * Update translation: zh_CN.  Closes: #645969
   * Trivial update translation: all
@@ -23,7 +80,7 @@ maint-guide (1.2.38) unstable; urgency=medium
 maint-guide (1.2.37) unstable; urgency=medium
 
   * Update to mention debmake-doc.
-  * Update zh-* and others. 
+  * Update zh-* and others.
 
  -- Osamu Aoki <osamu@debian.org>  Wed, 07 Dec 2016 23:44:57 +0900
 
@@ -47,7 +104,7 @@ maint-guide (1.2.34) unstable; urgency=medium
   * Mention wnpp-alert. Closes: #700310
   * Style fix by Helge Kreutzmann. Closes: #753319
   * Update translation: fr, jp. Closes: #755872
-  * Update CSS matching other Debian pages.  Thanks, Stéphane 
+  * Update CSS matching other Debian pages.  Thanks, Stéphane
     Blondon. Closes: #761611
 
  -- Osamu Aoki <osamu@debian.org>  Tue, 14 Oct 2014 21:29:11 +0900
@@ -55,12 +112,12 @@ maint-guide (1.2.34) unstable; urgency=medium
 maint-guide (1.2.33) unstable; urgency=medium
 
   * De-emphasize native package. Closes: #696078
-  * Recommend use of cryptographic signature. Closes: #732446 
+  * Recommend use of cryptographic signature. Closes: #732446
   * Always sign with debsign. Closes: #734270, #695577
-  * Fixed typos. Closes: #740609, #744984 
-  * Add support channel info. Closes: #719926 
-  * Mention hierarchy of build commands. Closes: #703811 
-  * Mention debmake and its packaging examples. Closes: #623477 
+  * Fixed typos. Closes: #740609, #744984
+  * Add support channel info. Closes: #719926
+  * Mention hierarchy of build commands. Closes: #703811
+  * Mention debmake and its packaging examples. Closes: #623477
   * Translation updated for de, it, ja, and ru. Closes: #753086
   * Mention the debmake package and bump version to jessie.
 
@@ -68,9 +125,9 @@ maint-guide (1.2.33) unstable; urgency=medium
 
 maint-guide (1.2.32) unstable; urgency=low
 
-  * Synch with Debian Policy 3.9.4 to introduce build-arch and 
+  * Synch with Debian Policy 3.9.4 to introduce build-arch and
     build-indep targets. Closes: #698717.
-  * Update to current Debian Policy 3.9.5 and debhelper v9.  
+  * Update to current Debian Policy 3.9.5 and debhelper v9.
     Closes: #699168
   * Updated translations: ja, fr, it, es, ca, ru, de.
     Closes: #693706, #696428, #717351
@@ -78,7 +135,7 @@ maint-guide (1.2.32) unstable; urgency=low
   * Updated URL for wnpp-by-tags.  Closes: #701617
   * Add bash completion for dquilt. Closes: #706515
   * Typo fix. Closes: #720759, #731990, #731659
-  * Split the English source in chapters. 
+  * Split the English source in chapters.
   * Add epub build support following the debian-reference method.
 
  -- Osamu Aoki <osamu@debian.org>  Mon, 06 Jan 2014 22:01:12 +0900
@@ -89,7 +146,7 @@ maint-guide (1.2.31) unstable; urgency=low
   * Correct URL links. Closes: #678041, #692210
   * Document dh_link(1) and debian/links debian/symbols, --with gir.
     and shared libraries. Closes: #668935, #691094
-  * Updated translations: ja fr it es ca ru Closes: #688243, #696255 
+  * Updated translations: ja fr it es ca ru Closes: #688243, #696255
 
  -- Osamu Aoki <osamu@debian.org>  Mon, 24 Dec 2012 23:32:31 +0900
 
@@ -99,13 +156,13 @@ maint-guide (1.2.30) unstable; urgency=low
   * Use UTF-8 locale to prepare the text version. See: #658839
 
   [ Osamu Aoki ]
-  * Fixed typo for foo_newversion.orig.tar.gz.  Closes: #688072 
+  * Fixed typo for foo_newversion.orig.tar.gz.  Closes: #688072
 
  -- Osamu Aoki <osamu@debian.org>  Fri, 21 Sep 2012 00:04:00 +0900
 
 maint-guide (1.2.29) unstable; urgency=low
 
-  * Add tipa to build-dep and use xCJK package only for CJK PDF 
+  * Add tipa to build-dep and use xCJK package only for CJK PDF
     documents.  Closes: #666569
   * Updated policy to 3.9.3
   * Fixed manpage section for dh_make. Closes: #663087
@@ -115,7 +172,7 @@ maint-guide (1.2.29) unstable; urgency=low
 
 maint-guide (1.2.28) unstable; urgency=low
 
-  * Lintian touch up 
+  * Lintian touch up
   * Promoted new dh_python2 while deprecating older python-support and
     python-central. Closes: #633112
   * Substituted New Maintainer site with New Member site.  Thanks
@@ -143,7 +200,7 @@ maint-guide (1.2.27) unstable; urgency=low
 maint-guide (1.2.26) unstable; urgency=low
 
   * Converted to DocBook XML format. Closes: #609679
-  * Organized all URL references into common.ent. 
+  * Organized all URL references into common.ent.
   * Complete English style checks and corrections by Justin B Rye.
   * Fixed issues caused by debiandoc-sgml bugs #624099 and #624097 manually.
     Closes: #621817, #623116
@@ -171,7 +228,7 @@ maint-guide (1.2.25) unstable; urgency=low
   * Made text compatible with non-Bash. Closes: #605976
   * Converted Japanese translation to PO (100% translation). Closes: #597594
   * Converted Spanish translation to PO (100% translation). Closes: #604710
-  * Converted German translation to PO (60% translation) and built from 
+  * Converted German translation to PO (60% translation) and built from
     updated SGML for now. Closes: #604767
   * Updated French, Italian, Chinese(cn,tw) translations (100%).
 
@@ -199,7 +256,7 @@ maint-guide (1.2.22) unstable; urgency=low
   * s/git-core/git/g. Closes: #593416
 
   [ Osamu Aoki ]
-  * Converted to use UTF-8 across build. Closes: #593678 
+  * Converted to use UTF-8 across build. Closes: #593678
   * Reactvate ps/pdf for Chinese (zh-cn/zh-tw). Closes: #490161
 
  -- Osamu Aoki <osamu@debian.org>  Sat, 21 Aug 2010 03:54:38 +0900
@@ -210,10 +267,10 @@ maint-guide (1.2.21) unstable; urgency=low
     of Spanish translation. Closes: #588559
   * Clarified that "package" is place holder and added an example.
     following suggestion of David Prévot. Closes: #590033
-  * Encouraged work on already packaged programs following 
+  * Encouraged work on already packaged programs following
     suggestion of Serafeim Zanikolas. Closes: #590162
   * Documented Breaks for policy 3.9.0. Closes: #590185
-  * Removed bashism from Makefile. 
+  * Removed bashism from Makefile.
   * Removed texlive-full from Build-Depends-Indep. Closes: #564241
 
  -- Osamu Aoki <osamu@debian.org>  Sun, 01 Aug 2010 21:27:00 +0900
@@ -238,20 +295,20 @@ maint-guide (1.2.19) unstable; urgency=low
   * Added Homepage in control.
   * Updated Italian translation.
   * Documented dh_installchangelogs description.
-  * Updated Autotools related contents. 
+  * Updated Autotools related contents.
 
  -- Osamu Aoki <osamu@debian.org>  Sat, 29 May 2010 01:57:57 +0900
 
 maint-guide (1.2.18) unstable; urgency=low
 
   * Described URL redirect for http://sf.net. Closes: #578059
-  * Used empty override target instead of :. 
-  * Updated Italian translation by Calogero Lo Leggio et al with po4a. 
-  * Added po4a dependency. 
+  * Used empty override target instead of :.
+  * Updated Italian translation by Calogero Lo Leggio et al with po4a.
+  * Added po4a dependency.
   * Updated .quitrc example inspired by discussion with Ivan Borzenkov.
   * Updated .bashrc to export DEBFULLNAME DEBEMAIL. Closes: #581772
   * Documented dh --no-act as footnote.  Closes: #581814
-  * Added pointer to Debconf9 presentation on debhelper. 
+  * Added pointer to Debconf9 presentation on debhelper.
   * Fixed many minor bugs.
 
  -- Osamu Aoki <osamu@debian.org>  Sun, 16 May 2010 18:29:35 +0900
@@ -259,7 +316,7 @@ maint-guide (1.2.18) unstable; urgency=low
 maint-guide (1.2.17) unstable; urgency=low
 
   [ Osamu Aoki ]
-  * Fixed typos. 
+  * Fixed typos.
   * Updated quilt usage examples.
   * Updated debian/rules to match the recommendation by this documentation.
   * Added lintian-overrides, info, manpages to "Other files under debian
@@ -286,17 +343,17 @@ maint-guide (1.2.17) unstable; urgency=low
     so useful these days and no need to copy the default configuration here.
   * Rewrote and reorganized major parts of "9 Updating the package".
   * Converted Credits to UTF-8.
-  * Harmonized URL references to the Debian Policy Manual. 
+  * Harmonized URL references to the Debian Policy Manual.
   * Explained autobuilder, Build-Depends: and Build-Depends-Indep: fields.
   * Placed a bit more note on dput. Closes: #576424
   * Added dh --with description.
-  * Made many touch-ups and shortened text as much as possible. 
+  * Made many touch-ups and shortened text as much as possible.
 
  -- Osamu Aoki <osamu@debian.org>  Fri, 16 Apr 2010 00:23:01 +0900
 
 maint-guide (1.2.16) unstable; urgency=low
 
-  * Fixed file name of doc-debian for pt-br. 
+  * Fixed file name of doc-debian for pt-br.
   * Fixed changelog typo for bug#. s/544173/554173/.
   * Updated contents to reflect squeeze situation.
   * Updated to autogenerate version from changelog.
@@ -308,7 +365,7 @@ maint-guide (1.2.16) unstable; urgency=low
     migration. Closes: #573730, #573160
   * .quiltrc copied from Adeodato Simó's example.
   * debhelper in examples to >=7.0.50 for correct dh handling.
-  * Updated rule file description for dh. Closes: #573732 
+  * Updated rule file description for dh. Closes: #573732
   * Updated private archive section by the URL pointer. Closes: #573735
   * Updated checksums to use MD5/SHA1/SHA256. Closes: #573856
   * Added Vcs-* fields description to debian/control. Closes: #573990
@@ -329,12 +386,12 @@ maint-guide (1.2.15) unstable; urgency=low
   [ Osamu Aoki ]
   * Removed linda from recommends since is is not used any more.
     Closes: #554173
-  * Fixed the Vcs-Cvs field per James Vega. Closes: #561242 
+  * Fixed the Vcs-Cvs field per James Vega. Closes: #561242
   * Updated this package to debhelper 7 with dh, dpkg source format 3.0
     (native).  Updated dependency and doc-base files.
   * Renamed file and package names to simplify situation by using newer locale
-    support capabilities available in debiandoc-sgml (>=1.2.8). 
-  * Removed freetype2-demos build dependency. 
+    support capabilities available in debiandoc-sgml (>=1.2.8).
+  * Removed freetype2-demos build dependency.
   * "Copyright information" is now in 12.5. Closes: #572857
 
   [ Craig Small ]
@@ -355,12 +412,12 @@ maint-guide (1.2.15) unstable; urgency=low
 
 maint-guide (1.2.14) unstable; urgency=low
 
-  * Fixed old DH_COMPAT=4 examples for all languages and packaging of 
+  * Fixed old DH_COMPAT=4 examples for all languages and packaging of
     this package itself by creating debian/compat.
   * Fixed Italian section 4.1 per Riccardo Brigo. Closes: 436046
   * Fixed versioned dependencies issue. Closes: 438176
   * Fixed maint-guide-pl.doc-base file encoding. Closes: 473166
-  * Removed reference of deprecated 'x' suffix for X manpage for 
+  * Removed reference of deprecated 'x' suffix for X manpage for
     all languages. Closes: 437747
   * Added manpage creation from the XML template. Closes: 437751
   * Fixed Vcs-Svn/Vcs-Browser fields per Jelmer Vernooij. Closes: 492810
@@ -403,10 +460,10 @@ maint-guide (1.2.12) unstable; urgency=low
 
 maint-guide (1.2.11) unstable; urgency=high
 
-  * Fixed bad grep examples for all languages. (closes: Bug#375456) 
+  * Fixed bad grep examples for all languages. (closes: Bug#375456)
   * Updated build date, source version, copyright for the English.
-    I added myself to the copyright since my additions have been more 
-    than minor fixes.  This should make easy to diferentiate old 
+    I added myself to the copyright since my additions have been more
+    than minor fixes.  This should make easy to diferentiate old
     translations based on the old English version.
   * Fixed dpatch example to use Build-Depends: in control.
 
@@ -457,14 +514,14 @@ maint-guide (1.2.7) unstable; urgency=low
   * Updated to DH_COMPAT=4 and changed debian/control .
   * Removed UTF-8 encoded Japanese words from control file.
     Closes: Bug#345947
-  * Made temporary package build directory example only to be 
+  * Made temporary package build directory example only to be
     <file>debian/packagename</file> in line with new debhelper
     behavior.
   * Added section for Official Debian Developer reflecting the
     New Maintainer process.  Closes: Bug#331176
- 
+
  -- Osamu Aoki <osamu@debian.org>  Sat,  7 Jan 2006 18:03:19 +0900
-  
+
 maint-guide (1.2.6) unstable; urgency=low
 
   * Made CVS source tree to build DDP web pages on woody machine.
@@ -474,7 +531,7 @@ maint-guide (1.2.6) unstable; urgency=low
 
 maint-guide (1.2.5) unstable; urgency=low
 
-  * Added me to uploader to stop NMU madness. 
+  * Added me to uploader to stop NMU madness.
   * Adjusted control to match overide (closes: #296702)
   * Updated German (minor).
 
@@ -504,7 +561,7 @@ maint-guide (1.2.3) unstable; urgency=low
     (closes: #216405, #243339)
   * Fixed debian/rules examples. (all lang.) (closes: #244463)
   * Converted debian/control to UTF-8 and fix FR. (closes: #283696)
-  * Fix debian/control description according to developers-reference 
+  * Fix debian/control description according to developers-reference
     6.2.2 (all lang.) (closes: #291943)
   * Listed <package/xutils/  for all but old ES and RU. (closes: #167395)
   * Made script readable for all but old ES and RU. (closes: #285824)
@@ -536,7 +593,7 @@ maint-guide (1.2.2) unstable; urgency=low
     instructions for)
   * Minor changes in maint-guide (version 1.2.2, by Josip)
   * German translation overhaul (update to version 1.2.2 by Erik Schanze
-    <mail@erikschanze.de>, Frank Lichtenheld <frank@lichtenheld.de>, 
+    <mail@erikschanze.de>, Frank Lichtenheld <frank@lichtenheld.de>,
     closes: #241950, #150188)
   * Translation updates (to version 1.2.2): maint-guide-es, maint-guide-fr,
     maint-guide-it, maint-guide-ja, maint-guide-pl, maint-guide-zh

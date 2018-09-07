@@ -96,12 +96,17 @@ If you have nothing to be documented, remove this file.  See <citerefentry>
 <section id="compat"><title><filename>compat</filename></title>
 <para>
 The <filename>compat</filename> file defines the <systemitem role="package">debhelper</systemitem> compatibility level.  Currently, you
-should set it to the <systemitem role="package">debhelper</systemitem> v9 as
+should set it to the <systemitem role="package">debhelper</systemitem> v10 as
 follows:
 </para>
 <screen>
-$ echo 9 &gt; debian/compat
+$ echo 10 &gt; debian/compat
 </screen>
+<para>
+You may use compat level v9 in certain circumstances for compatibility with
+older systems. However, using any level below v9 is not recommended
+and should be avoided for new packages.
+</para>
 </section>
 <section id="conffiles"><title><filename>conffiles</filename></title>
 <para>
@@ -367,7 +372,7 @@ by <citerefentry> <refentrytitle>dh_install</refentrytitle>
 <manvolnum>1</manvolnum> </citerefentry>.<footnote><para> This replaces the
 deprecated <citerefentry> <refentrytitle>dh_movefiles</refentrytitle>
 <manvolnum>1</manvolnum> </citerefentry> command which is configured by the
-<filename>files</filename> file.  </para> </footnote> You should first check
+<filename>files</filename> file.  </para> </footnote> You should first check that
 there is not a more specific tool to use.  For example, documents should be in
 the <filename>docs</filename> file and not in this one.
 </para>
@@ -421,7 +426,7 @@ If <systemitem role="package">lintian</systemitem> reports an erroneous
 diagnostic for a case where Debian policy allows exceptions to some rule, you can
 use <filename><replaceable>package</replaceable>.lintian-overrides</filename>
 or <filename>source/lintian-overrides</filename> to quieten it.  Please read
-Lintian User's Manual (<filename>&lintian-doc;</filename>) and refrain
+the Lintian User's Manual (<filename>&lintian-doc;</filename>) and refrain
 from abusing this.
 </para>
 <para>
@@ -657,7 +662,7 @@ be very careful not to turn them into a source of annoyance.
 </section>
 <section id="symbols"><title><filename><replaceable>package</replaceable>.symbols</filename></title>
 <para>
-Packaging of library is not easy for a novice maintainer and should be avoided.  Having said it, if your package has libraries, you should have <filename>debian/<replaceable>package</replaceable>.symbols</filename> files. See <xref linkend="librarysymbols"/>.
+Packaging of a library is not easy for a novice maintainer and should be avoided.  Having said it, if your package has libraries, you should have <filename>debian/<replaceable>package</replaceable>.symbols</filename> files. See <xref linkend="librarysymbols"/>.
 </para>
 </section>
 <section id="todo"><title><filename>TODO</filename></title>
@@ -672,8 +677,8 @@ The <filename>watch</filename> file format is documented in the <citerefentry>
 <refentrytitle>uscan</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>
 manpage.  The <filename>watch</filename> file configures the
 <command>uscan</command> program (in the <systemitem role="package">devscripts</systemitem> package) to watch the site where you
-originally got the source from.  This is also used by the
-<ulink url="&dehs;">Debian External Health Status (DEHS)</ulink> service.
+originally got the source.  This is also used by the
+<ulink url="&debtrack;">Debian Package Tracker</ulink> service.
 </para>
 <para>
 Here are its contents:
@@ -697,7 +702,7 @@ program is run to create an updated source tree.
 <para>
 Although this is true for other sites, the SourceForge download service at
 <ulink url="&sf-net;"/> is an exception.  When the
-<filename>watch</filename> file has an URL matching the Perl regexp
+<filename>watch</filename> file has a URL matching the Perl regexp
 <literal>^http://sf\.net/</literal>, the <command>uscan</command> program
 replaces it with <literal>&qa-do;watch/sf.php/</literal> and
 then applies this rule.  The URL redirector service at <ulink url="&qa-do;"/> is designed to offer
@@ -758,8 +763,8 @@ the end of the extraction with the <literal>--skip-patches</literal> option.
 <section id="sourcel"><title><filename>source/local-options</filename></title>
 <para>
 When you want to manage Debian packaging activities under a VCS, you typically
-create one branch (e.g.  <literal>upstream</literal>) tracking the upstream
-source and another branch (e.g.  typically <literal>master</literal> for Git)
+create one branch (e.g.,  <literal>upstream</literal>) tracking the upstream
+source and another branch (e.g.,  typically <literal>master</literal> for Git)
 tracking the Debian package.  For the latter, you usually want to have
 unpatched upstream source with your <filename>debian/*</filename> files for the
 Debian packaging to ease merging of the new upstream source.

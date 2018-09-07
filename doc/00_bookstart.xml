@@ -17,18 +17,18 @@ If you want to add extra contents to this document, please do so by
  * adding tag like &othercredit; in English and provide it for each language.
  * add extra content within msgstr but within <footnote>...</footnote>
 
-Please note there will be content checker to match tags of msgid and msgstr.
-The second rule is a way to get exception to this rule.
+Please note there will be a content checker to match tags of msgid and msgstr.
+The second rule is a way to get an exception to this rule.
 
-Please try to correct something in translation.  If you think contents needs fix,
-Let's fix it in the root cause.
+Please try to correct something in translation.  If you think contents need fixing,
+let's fix it in the root cause.
 
 Please do not use TAB in this file.
 
-Please understand to keep this document focused.  Not everything you think important 
+Please remember to keep this document focused.  Not everything you think is important 
 for the new maintainer should be written down.  Something social needs to be elsewhere.
-Some thing should be left to the practice.  Something needs to be left for exercise 
-for people to check official documentations.
+Something should be left to practice.  Something needs to be left for an exercise 
+for people to check official documentation.
 -->
 
 <title>Debian New Maintainers' Guide</title>
@@ -50,7 +50,7 @@ for people to check official documentations.
 <copyright><year>2010</year>      <holder>Raphaël Hertzog</holder></copyright>
 <legalnotice>
 <para>
-This document may be used under the terms the GNU General Public License
+This document may be used under the terms of the GNU General Public License
 version 2 or higher.
 </para>
 <para>

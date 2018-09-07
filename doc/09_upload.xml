@@ -43,7 +43,7 @@ these options means.
 The <literal>$default_host</literal> option determines which of the upload
 queues will be used by default.  <literal>anonymous-ftp-master</literal> is the
 primary one, but it's possible that you will want to use another one.
-<footnote><para>See <ulink url="&devref-upload;">Debian Developer's Reference 5.6. "Uploading a package"</ulink>.</para></footnote>
+<footnote><para>See <ulink url="&devref-upload;">Debian Developer's Reference 5.6, "Uploading a package"</ulink>.</para></footnote>
 </para>
 <para>
 While connected to the Internet, you can upload your package as follows:
@@ -118,7 +118,7 @@ of the original <filename>orig.tar.gz</filename> source.
 <para>
 If you created multiple entries in <filename>debian/changelog</filename> by
 skipping uploads, you must create a proper <filename>*_.changes</filename> file
-which includes all changes since the last upload.
+that includes all changes since the last upload.
 This can be done by specifying the <command>dpkg-buildpackage</command> option
 <literal>-v</literal> with the version, e.g.,
 <literal><replaceable>1.2</replaceable></literal>.

@@ -22,7 +22,7 @@ complete -F _quilt_completion -o filenames dquilt
 Then let's create <filename>~/.quiltrc-dpkg</filename> as follows:
 </para>
 <screen>
-d=. ; while [ ! -d $d/debian -a `readlink -e $d` != / ]; do d=$d/..; done
+d=. ; while [ ! -d $d/debian -a $(readlink -e $d) != / ]; do d=$d/..; done
 if [ -d $d/debian ] &amp;&amp; [ -z $QUILT_PATCHES ]; then
     # if in Debian packaging tree with unset $QUILT_PATCHES
     QUILT_PATCHES="debian/patches"
@@ -43,7 +43,7 @@ See <citerefentry> <refentrytitle>quilt</refentrytitle>
 <section id="fixupstream"><title>Fixing upstream bugs</title>
 <para>
 Let's assume you find an error in the upstream <filename>Makefile</filename>
-as follows where <literal>install: gentoo</literal> should have been
+as follows, where <literal>install: gentoo</literal> should have been
 <literal>install: gentoo-target</literal>.
 </para>
 <screen>
@@ -192,7 +192,7 @@ ICONS   = /usr/local/share/gentoo
 <para>
 We see that the files are set to install under <filename>/usr/local</filename>.
 As explained above, that directory hierarchy is reserved for local use on
-Debian, so change those paths to:
+Debian, so change those paths as follows:
 </para>
 <screen>
 # Where to put executable commands on 'make install'?
@@ -327,7 +327,7 @@ Whenever you make changes that are not specific to the Debian package
 such as <filename>debian/patches/fix-gentoo-target.patch</filename>, be sure to
 send them to the upstream maintainer so they can be included in the next
 version of the program and be useful to everyone else.  Also remember
-to avoid making your fixes specific to Debian or Linux - or even Unix!
+to avoid making your fixes specific to Debian or Linux &#x2014; or even Unix!
 Make them portable.  This will make your fixes much easier to apply.
 </para>
 <para>
@@ -339,8 +339,8 @@ upstream.
 <para>
 There is one other common problem: libraries are often different from platform
 to platform.  For example, a <filename>Makefile</filename> can contain a
-reference to a library which doesn't exist on the Debian system.  In that case, we
-need to change it to a library which does exist in Debian, and serves the same
+reference to a library that doesn't exist on the Debian system.  In that case, we
+need to change it to a library that does exist in Debian, and serves the same
 purpose.
 </para>
 <para>

@@ -22,7 +22,7 @@ fix the root cause with <command>dh-autoreconf</command> as in
 </section>
 <section id="pinstall"><title>Verifying a package's installation</title>
 <para>
-You must test your package for whether it installs without problem.  The <citerefentry>
+You must test your package for whether it installs without problems.  The <citerefentry>
 <refentrytitle>debi</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>
 command helps you to test installing all the generated binary packages.
 </para>
@@ -30,7 +30,7 @@ command helps you to test installing all the generated binary packages.
 $ sudo debi gentoo_0.9.12-1_i386.changes
 </screen>
 <para>
-To prevent installation problem on different systems, you must make
+To prevent installation problems on different systems, you must make
 sure that there are no filenames conflicting with other existing packages,
 using the
 <filename>Contents-<replaceable>i386</replaceable></filename> file downloaded

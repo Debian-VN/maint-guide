@@ -27,10 +27,10 @@ created for us:
 <screen>
  1 Source: gentoo
  2 Section: unknown
- 3 Priority: extra
+ 3 Priority: optional
  4 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;
- 5 Build-Depends: debhelper (&gt;=9)
- 6 Standards-Version: 3.9.4
+ 5 Build-Depends: debhelper (&gt;=10)
+ 6 Standards-Version: 4.0.0
  7 Homepage: &lt;insert the upstream URL, if relevant&gt;
  8
  9 Package: gentoo
@@ -43,8 +43,8 @@ created for us:
 (I've added the line numbers.)
 </para>
 <para>
-Lines 1-7 are the control information for the source package.
-Lines 9-13 are the control information for the binary package.
+Lines 1&#x2013;7 are the control information for the source package.
+Lines 9&#x2013;13 are the control information for the binary package.
 </para>
 <para>
 Line 1 is the name of the source package.
@@ -88,12 +88,6 @@ that do not conflict with others claiming <literal>required</literal>,
 <literal>important</literal>, or <literal>standard</literal> priority.
 </para>
 </listitem>
-<listitem>
-<para>
-The <literal>extra</literal> priority will usually work for new packages that
-conflict with others with non-<literal>extra</literal> priorities.
-</para>
-</listitem>
 </itemizedlist>
 <para>
 Section and priority are used by front-ends like <command>aptitude</command>
@@ -114,7 +108,7 @@ you.  Avoid using commas, ampersands, or parentheses.
 <para>
 Line 5 includes the list of packages required to build your package as
 the <literal>Build-Depends</literal> field.  You can also have the
-<literal>Build-Depends-Indep</literal> field as an additional line, here.
+<literal>Build-Depends-Indep</literal> field as an additional line here.
 <footnote><para>See 
 <ulink url="&policy-relationships;#s-sourcebinarydeps">Debian Policy Manual, 7.7 "Relationships between source and binary packages - Build-Depends, Build-Depends-Indep, Build-Conflicts, Build-Conflicts-Indep"</ulink>.</para></footnote>
 Some packages like 
@@ -142,7 +136,7 @@ procedure installs only the packages listed in the
 <literal>Build-Depends</literal> field before running
 <literal>debian/rules build</literal> (see <xref
 linkend="autobuilder"/>), the <literal>Build-Depends</literal> field
-needs to  list practically all the required packages and
+needs to  list practically all the required packages, and
 <literal>Build-Depends-Indep</literal> is rarely used.
 </para>
 </listitem>
@@ -181,7 +175,7 @@ To manually find exact build dependencies for
 $ objdump -p <replaceable>/usr/bin/foo</replaceable> | grep NEEDED
 </screen>
 <para>
-and for each library listed, e.g., <command>libfoo.so.6</command>, execute
+and for each library listed (e.g., <command>libfoo.so.6</command>), execute
 </para>
 <screen>
 $ dpkg -S libfoo.so.6
@@ -344,7 +338,7 @@ The resolution is generally to use higher-level package management tools to upgr
 <literal>Provides</literal>
 </para>
 <para>
-For some types of packages where there are multiple alternatives virtual names
+For some types of packages where there are multiple alternatives, virtual names
 have been defined.  You can get the full list in the
 <ulink url="&virtual-package;">virtual-package-names-list.txt.gz</ulink>
 file.  Use this if your program provides a function of an existing virtual
@@ -459,10 +453,10 @@ Finally, here is the updated <filename>control</filename> file:
  2 Section: x11
  3 Priority: optional
  4 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;
- 5 Build-Depends: debhelper (&gt;=9), xlibs-dev, libgtk1.2-dev, libglib1.2-dev
- 6 Standards-Version: 3.9.4
- 7 Vcs-Git: git://git.debian.org/git/collab-maint/gentoo.git
- 8 Vcs-browser: http://git.debian.org/?p=collab-maint/gentoo.git
+ 5 Build-Depends: debhelper (&gt;=10), xlibs-dev, libgtk1.2-dev, libglib1.2-dev
+ 6 Standards-Version: 4.0.0
+ 7 Vcs-Git: https://anonscm.debian.org/git/collab-maint/gentoo.git
+ 8 Vcs-browser: https://anonscm.debian.org/git/collab-maint/gentoo.git
  9 Homepage: &gentoo;
 10
 11 Package: gentoo
@@ -515,40 +509,41 @@ In short, here's what <systemitem role="package">gentoo</systemitem>'s
 <filename>copyright</filename> file should look like:
 </para>
 <screen>
- 1 Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&amp;rev=135
- 2 Name: gentoo
- 3 Maintainer: Josip Rodin &lt;joy-mg@debian.org&gt;
+ 1 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+ 2 Upstream-Name: gentoo
+ 3 Upstream-Contact: Emil Brink &lt;emil@obsession.se&gt;
  4 Source: http://sourceforge.net/projects/gentoo/files/
  5
- 6 Copyright: 1998-2010 Emil Brink &lt;emil@obsession.se&gt;
- 7 License: GPL-2+
- 8
- 9 Files: icons/*
-10 Copyright: 1998 Johan Hanson &lt;johan@tiq.com&gt;
-11 License: GPL-2+
-12
-13 Files: debian/*
-14 Copyright: 1998-2010 Josip Rodin &lt;joy-mg@debian.org&gt;
-15 License: GPL-2+
-16
-17 License: GPL-2+
-18  This program is free software; you can redistribute it and/or modify
-19  it under the terms of the GNU General Public License as published by
-20  the Free Software Foundation; either version 2 of the License, or
-21  (at your option) any later version. 
-22  .
-23  This program is distributed in the hope that it will be useful,
-24  but WITHOUT ANY WARRANTY; without even the implied warranty of
-25  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-26  GNU General Public License for more details.
-27  .
-28  You should have received a copy of the GNU General Public License along
-29  with this program; if not, write to the Free Software Foundation, Inc.,
-30  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-31  .
-32  On Debian systems, the full text of the GNU General Public
-33  License version 2 can be found in the file
-34  `/usr/share/common-licenses/GPL-2'.
+ 6 Files: *
+ 7 Copyright: 1998-2010 Emil Brink &lt;emil@obsession.se&gt;
+ 8 License: GPL-2+
+ 9
+10 Files: icons/*
+11 Copyright: 1998 Johan Hanson &lt;johan@tiq.com&gt;
+12 License: GPL-2+
+13
+14 Files: debian/*
+15 Copyright: 1998-2010 Josip Rodin &lt;joy-mg@debian.org&gt;
+16 License: GPL-2+
+17
+18 License: GPL-2+
+19  This program is free software; you can redistribute it and/or modify
+20  it under the terms of the GNU General Public License as published by
+21  the Free Software Foundation; either version 2 of the License, or
+22  (at your option) any later version. 
+23  .
+24  This program is distributed in the hope that it will be useful,
+25  but WITHOUT ANY WARRANTY; without even the implied warranty of
+26  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+27  GNU General Public License for more details.
+28  .
+29  You should have received a copy of the GNU General Public License along
+30  with this program; if not, write to the Free Software Foundation, Inc.,
+31  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+32  .
+33  On Debian systems, the full text of the GNU General Public
+34  License version 2 can be found in the file
+35  '/usr/share/common-licenses/GPL-2'.
 </screen>
 <para>
 (I've added the line numbers.)
@@ -577,7 +572,7 @@ binary package.
 like:
 </para>
 <screen>
-1  gentoo (0.9.12-1) unstable; urgency=low
+1  gentoo (0.9.12-1) unstable; urgency=medium
 2
 3   * Initial release (Closes: #<replaceable>nnnn</replaceable>)  &lt;<replaceable>nnnn</replaceable> is the bug number of your ITP&gt;
 4
@@ -590,24 +585,26 @@ like:
 <para>
 Line 1 is the package name, version, distribution, and urgency.  The name must
 match the source package name; distribution should be
-<literal>unstable</literal>, and urgency
-shouldn't be changed to anything higher than <literal>low</literal>.  :-)
+<literal>unstable</literal>, and urgency should be set to medium unless there
+is any particular reason for other values.
 </para>
 <para>
 Lines 3-5 are a log entry, where you document changes made in this package
-revision (not the upstream changes - there is a special file for that purpose,
+revision (not the upstream changes &#x2014; there is a special file for that purpose,
 created by the upstream authors, which you will later install as
 <filename>/usr/share/doc/gentoo/changelog.gz</filename>).  Let's assume your
 ITP (Intent To Package) bug report number was <literal>12345</literal>.  New
 lines must be inserted just below the uppermost line that begins with
 <literal>*</literal> (asterisk).  You can do it with <citerefentry>
-<refentrytitle>dch</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>, or
-manually with a text editor.
+<refentrytitle>dch</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.
+You can edit this manually with a text editor as long as you follow the
+formatting convention used by the <citerefentry>
+<refentrytitle>dch</refentrytitle> <manvolnum>1</manvolnum> </citerefentry>.
 </para>
 <para>
 In order to prevent a package being accidentally uploaded before completing the
-package, it is good idea to change the distribution value to an invalid
-distribution value <literal>UNRELEASED</literal>.
+package, it is a good idea to change the distribution value to an invalid
+distribution value of <literal>UNRELEASED</literal>.
 </para>
 <para>
 You will end up with something like this:
@@ -641,7 +638,7 @@ in <xref linkend="update"/>.
 </section>
 <section id="rules"><title><filename>rules</filename></title>
 <para>
-Now we need to take a look at the exact rules which <citerefentry>
+Now we need to take a look at the exact rules that <citerefentry>
 <refentrytitle>dpkg-buildpackage</refentrytitle> <manvolnum>1</manvolnum>
 </citerefentry> will use to actually create the package.  This file is in fact
 another <filename>Makefile</filename>, but different from the one(s) in the
@@ -653,7 +650,7 @@ is marked as executable.
 Every <filename>rules</filename> file, like any other
 <filename>Makefile</filename>, consists of several rules, each of
 which defines a target and how it is carried out.
-<footnote><para>You can start learning how to write <filename>Makefile</filename> from 
+<footnote><para>You can start learning how to write a <filename>Makefile</filename> from 
 <ulink url="&debref-make;">Debian Reference, 12.2. "Make"</ulink>.  
 The full documentation is available as 
 <ulink url="&gnu-make;"></ulink> or as the
@@ -673,7 +670,7 @@ A rule that you want to execute is invoked by its target name as a command line 
 example, <literal>debian/rules <replaceable>build</replaceable></literal> and
 <literal>fakeroot make -f debian/rules <replaceable>binary</replaceable></literal>
 execute rules for <literal><replaceable>build</replaceable></literal> and
-<literal><replaceable>binary</replaceable></literal> targets respectively.
+<literal><replaceable>binary</replaceable></literal> targets, respectively.
 </para>
 <para>
 Here is a simplified explanation of the targets:
@@ -759,22 +756,18 @@ Newer <command>dh_make</command> generates a very simple but powerful default
  3 # output every command that modifies files on the build system.
  4 #DH_VERBOSE = 1
  5 
- 6 # see EXAMPLES in dpkg-buildflags(1) and read /usr/share/dpkg/*
- 7 DPKG_EXPORT_BUILDFLAGS = 1
- 8 include /usr/share/dpkg/default.mk
- 9 
-10 # see FEATURE AREAS in dpkg-buildflags(1)
-11 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-12
-13 # see ENVIRONMENT in dpkg-buildflags(1)
-14 # package maintainers to append CFLAGS
-15 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-16 # package maintainers to append LDFLAGS
-17 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
-18 
-19 # main packaging script based on dh7 syntax
-20 %:
-21         dh $@ 
+ 6 # see FEATURE AREAS in dpkg-buildflags(1)
+ 7 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+ 8
+ 9 # see ENVIRONMENT in dpkg-buildflags(1)
+10 # package maintainers to append CFLAGS
+11 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+12 # package maintainers to append LDFLAGS
+13 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+14 
+15
+16 %:
+17         dh $@ 
 </screen>
 <para>
 (I've added the line numbers and trimmed some comments.  In the actual <filename>rules</filename> file,
@@ -798,7 +791,7 @@ to debug its problems.  This new <command>dh</command> is designed to form a cor
 anything from you.
 </para>
 <para>
-Lines 20 and 21 are where all the work is done with an implicit rule using the pattern rule.  The percent sign means "any
+Lines 16 and 17 are where all the work is done with an implicit rule using the pattern rule.  The percent sign means "any
 targets", which then call a single program, <command>dh</command>, with the target
 name.  <footnote><para> This uses the new <systemitem role="package">debhelper</systemitem> v7+ features.  Its design concepts are
 explained in <ulink url="&debhelper-slides;">Not Your
@@ -810,8 +803,8 @@ which are now unnecessary (and show the package's age). The new <command>dh</com
 simpler and frees us from doing the routine work "manually". You still have full power to
 customize the process with <literal>override_dh_*</literal> targets. See <xref linkend="customrules"/>.  It is based only on the <systemitem role="package">debhelper</systemitem> package and does not obfuscate the
 package building process as the <systemitem role="package">cdbs</systemitem>
-package tends to.  </para> </footnote> The <command>dh</command> command is a wrapper
-script which runs appropriate sequences of <command>dh_*</command> programs
+package tends to do.  </para> </footnote> The <command>dh</command> command is a wrapper
+script that runs appropriate sequences of <command>dh_*</command> programs
 depending on its argument.  <footnote><para> You can verify the actual sequences of
 <command>dh_*</command> programs invoked for a given
 <literal><replaceable>target</replaceable></literal> without really running them by invoking <literal>dh --no-act
@@ -832,7 +825,7 @@ dh_clean
 </listitem>
 <listitem>
 <para>
-<literal>debian/rules build</literal> runs <literal>dh build</literal>; which
+<literal>debian/rules build</literal> runs <literal>dh build</literal>, which
 in turn runs the following:
 </para>
 <screen>
@@ -845,7 +838,7 @@ dh_auto_test
 <listitem>
 <para>
 <literal>fakeroot debian/rules binary</literal> runs <literal>fakeroot dh
-binary</literal>; which in turn runs the following<footnote><para>The following
+binary</literal>, which in turn runs the following<footnote><para>The following
 example assumes your <filename>debian/compat</filename> has a value equal or
 more than 9 to avoid invoking any python support commands automatically.
 </para>
@@ -899,7 +892,7 @@ dh_builddeb
 <listitem>
 <para>
 <literal>fakeroot debian/rules binary-arch</literal> runs <literal>fakeroot dh
-binary-arch</literal>; which in turn runs the same sequence as
+binary-arch</literal>, which in turn runs the same sequence as
 <literal>fakeroot dh binary</literal> but with the <literal>-a</literal> option
 appended for each command.
 </para>
@@ -907,7 +900,7 @@ appended for each command.
 <listitem>
 <para>
 <literal>fakeroot debian/rules binary-indep</literal> runs <literal>fakeroot dh
-binary-indep</literal>; which in turn runs almost the same sequence as
+binary-indep</literal>, which in turn runs almost the same sequence as
 <literal>fakeroot dh binary</literal> but excluding
 <command>dh_strip</command>, <command>dh_makeshlibs</command>, and
 <command>dh_shlibdeps</command> with the <literal>-i</literal> option appended
@@ -922,8 +915,8 @@ their names.  <footnote><para> For complete information on what all these
 please read their respective manual pages and the <systemitem role="package">debhelper</systemitem> documentation.  </para> </footnote> There
 are a few notable ones that are worth giving (over)simplified explanations here assuming
 a typical build environment based on a <filename>Makefile</filename>:
-<footnote><para> These commands support other build environments such as
-<filename>setup.py</filename> which can be listed by executing
+<footnote><para> These commands support other build environments, such as
+<filename>setup.py</filename>, which can be listed by executing
 <literal>dh_auto_build --list</literal> in a package source directory.  </para>
 </footnote>
 </para>
@@ -1313,7 +1306,7 @@ The arguments given after <literal>--</literal> are appended to the default
 arguments of the auto-executed program to override them.  Using the
 <command>dh_auto_configure</command> command is better than directly invoking the
 <command>./configure</command> command here since it will only override the
-<literal>--sysconfig</literal> argument and retains any other, benign arguments
+<literal>--sysconfig</literal> argument and retain any other, benign arguments
 to the <command>./configure</command> command.
 </para>
 <para>

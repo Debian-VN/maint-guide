@@ -81,7 +81,7 @@ using the following:
 <para>the <ulink url="&packages-do;">Debian packages</ulink> web page</para>
 </listitem>
 <listitem>
-<para>the <ulink url="&packages-qa-do;">Debian Package Tracking System</ulink> web page</para>
+<para>the <ulink url="&debtrack;">Debian Package Tracker</ulink> web page</para>
 </listitem>
 </itemizedlist>
 <para>
@@ -91,7 +91,7 @@ maintainer is set to <ulink url="&qa-do;">Debian QA Group</ulink>),
 you may be able to pick it up if it's still available.  You may also
 adopt a package whose maintainer has filed a Request for Adoption
 (<emphasis role="strong">RFA</emphasis>).<footnote> <para>See
-<ulink url="&devref-adopt;">Debian Developer's Reference 5.9.5.
+<ulink url="&devref-adopt;">Debian Developer's Reference 5.9.5
 "Adopting a package"</ulink>.</para> </footnote>
 </para>
 <para>
@@ -152,7 +152,7 @@ examine them.  This document unfortunately doesn't include comprehensive
 information about adopting packages.  Thankfully you shouldn't have a hard time
 figuring out how the package works since someone has already done the initial
 setup for you.  Keep reading, though; a lot of the advice below will still be
-applicable for your case.
+applicable to your case.
 </para>
 <para>
 If the package is new, and you decide you'd like to see it in Debian, proceed
@@ -172,7 +172,7 @@ You must check that no one else is already working on the package on the
 If no one else is working on it, file an ITP (Intent
 To Package) bug report to the <systemitem role="package">wnpp</systemitem>
 pseudo-package using <command>reportbug</command>.  If someone's already on it,
-contact them if you feel you need to.  If not - find another interesting
+contact them if you feel you need to.  If not &#x2014; find another interesting
 program that nobody is maintaining.
 </para>
 </listitem>
@@ -216,13 +216,13 @@ and ask for advice.
 <listitem>
 <para>
 The program should <emphasis role="strong">not</emphasis> introduce security
-and maintenance concerns to the Debian system.
+and maintenance concerns into the Debian system.
 </para>
 <itemizedlist>
 <listitem>
 <para>
 The program should be well documented and its code needs to be understandable
-(i.e.  not obfuscated).
+(i.e.,  not obfuscated).
 </para>
 </listitem>
 <listitem>
@@ -249,8 +249,8 @@ The program should not be a daemon, or go in an
 </listitem>
 </itemizedlist>
 <para>
-Of course, the last one is just a safety measures, and intended to save you from
-enraging users if you do something wrong in some setuid daemon...  When you gain
+Of course, the last one is just a safety measure, and is intended to save you from
+enraging users if you do something wrong in some setuid daemon&#x2026;  When you gain
 more experience in packaging, you'll be able to package such software.
 </para>
 <para>
@@ -298,8 +298,8 @@ example, some languages have their own sub-policy documents:
 There is another old Latin saying: <emphasis>fabricando fit faber</emphasis>
 (practice makes perfect).  It is <emphasis>highly</emphasis> recommended to
 practice and experiment with all the steps of Debian packaging with simple packages
-while reading this tutorial.  A trivial upstream tarball
-<filename>hello-sh-1.0.tar.gz</filename> created as followings may offer
+while reading this tutorial.  A trivial upstream tarball,
+<filename>hello-sh-1.0.tar.gz</filename>, created as follows may offer
 a good starting point:<footnote><para>Do not worry about the missing
 <filename>Makefile</filename>.  You can install the <command>hello</command>
 command by simply using <command>debhelper</command> as in
@@ -334,8 +334,8 @@ author's homepage.  Sources for free Unix programs usually come in
 with all the sources inside.
 </para>
 <para>
-If the latest version of the source is available through a VCS such as Git,
-Subversion, or CVS, you need to get it with <literal>git
+If the latest version of the source is available through a Version Control System
+(VCS) such as Git, Subversion, or CVS, you need to get it with <literal>git
 clone</literal>, <literal>svn co</literal>, or <literal>cvs co</literal> and
 repack it into <command>tar</command>+<command>gzip</command> format yourself
 by using the <literal>--exclude-vcs</literal> option.
@@ -400,7 +400,7 @@ or simply with freshly unpacked sources.
 <para>
 Simple programs usually come with a <filename>Makefile</filename> and can
 be compiled just by invoking <literal>make</literal>.<footnote><para>
-Many modern programs come with a script <filename>configure</filename> which
+Many modern programs come with a script named <filename>configure</filename>, which
 when executed creates a <filename>Makefile</filename> customized for
 your system.</para></footnote> Some of them support
 <literal>make check</literal>, which runs included self-tests.  Installation
@@ -435,7 +435,7 @@ system comprising <ulink url="&autoconf;">Autoconf</ulink>,
 <ulink url="&gettext;">gettext</ulink>.  You can recognize
 such sources by the <filename>configure.ac</filename>,
 <filename>Makefile.am</filename>, and <filename>Makefile.in</filename> files.
-<footnote><para>Autotools is too big to deal in this small tutorial. This
+<footnote><para>Autotools is too big to deal with in this small tutorial. This
 section is meant to provide keywords and references only.  Please make sure to read the 
 <ulink url="&autotools-tutorial;">Autotools Tutorial</ulink> and 
 the local copy of <filename>&autotools-readme;</filename>, 
@@ -504,7 +504,7 @@ These are used in the <filename>debian/changelog</filename> file described later
 <xref linkend="changelog"/>, too.
 </para>
 <para>
-Although this simple approach works most of the times, you may need to adjust
+Although this simple approach works most of the time, you may need to adjust
 <emphasis role="strong">package name</emphasis> and 
 <emphasis role="strong">upstream version</emphasis> by renaming the upstream
 source to follow Debian Policy and existing convention.
@@ -515,7 +515,7 @@ to consist only of lower case letters (<literal>a-z</literal>), digits
 (<literal>0-9</literal>), plus (<literal>+</literal>) and minus
 (<literal>-</literal>) signs, and periods (<literal>.</literal>). It must be
 at least two characters long, must start with an alphanumeric character, and
-must not be the same as existing ones.
+must not be the same as existing packages.
 It is a good idea to keep its length within 30 characters.
 <footnote><para>The default package name field length of <command>aptitude</command> is 30.  For more than 90% of packages, the package name is less than 24 characters.</para></footnote>
 </para>
@@ -536,12 +536,12 @@ If upstream uses some generic term such as <literal>test-suite</literal> for
 its name, it is a good idea to rename it to identify its contents explicitly and avoid namespace pollution.
 <footnote><para>If you follow the 
 <ulink url="&devref-newpackage;">Debian Developer's Reference 5.1. "New packages"</ulink>, 
-the ITP process will usually catch this kind of issues.</para></footnote>
+the ITP process will usually catch this kind of issue.</para></footnote>
 </para>
 <para>
 You should choose the <emphasis role="strong">upstream version</emphasis> 
 to consist only of
-alphanumerics (<literal>0-9A-Za-z</literal>), plus (<literal>+</literal>),
+alphanumerics (<literal>0-9A-Za-z</literal>), plus signs (<literal>+</literal>),
 tildes (<literal>~</literal>), and periods (<literal>.</literal>). It must
 start with a digit (<literal>0-9</literal>).  <footnote><para>This stricter
 rule should help you avoid confusing file names.</para></footnote>
@@ -581,8 +581,8 @@ invent a version string, use the <literal>YYYYMMDD</literal> format such as
 <literal>20110429</literal> as upstream version.  This ensures that
 <command>dpkg</command> interprets later versions correctly as upgrades.
 If you need to ensure smooth transition to the normal version scheme such as
-<literal>0.1</literal> in future, use the <literal>0~YYMMDD</literal> format
-such as <literal>0~110429</literal> as upstream version, instead.
+<literal>0.1</literal> in the future, use the <literal>0~YYMMDD</literal> format
+such as <literal>0~110429</literal> as the upstream version.
 </para>
 <para>
 Version strings <footnote><para>Version strings may be
@@ -675,14 +675,14 @@ Of course, replace the filename with the name of your original source archive.
 <command>dh_make</command> command with the extra option
 <literal>--addmissing</literal>.  The new source <literal>3.0 (quilt)</literal> format is
 robust enough not to break even for these packages.  You may need to update the contents
-provided by the upstream for your Debian package.  </para> </footnote> See
+provided by the upstream version for your Debian package.  </para> </footnote> See
 <citerefentry> <refentrytitle>dh_make</refentrytitle> <manvolnum>8</manvolnum>
 </citerefentry> for details.
 </para>
 <para>
 You should see some output asking you what sort of package you want
-to create.  Gentoo is a single binary package - it creates only one binary package, i.e,
-one <filename>.deb</filename> file - so we will select the first option
+to create.  Gentoo is a single binary package &#x2014; it creates only one binary package, i.e.,
+one <filename>.deb</filename> file &#x2014; so we will select the first option
 (with the <literal>s</literal> key), check the information on the screen, and
 confirm by pressing <literal><replaceable>ENTER</replaceable></literal>.
 <footnote><para> There are several choices here: <literal>s</literal> for 
@@ -751,7 +751,7 @@ package; further explanations are given in <xref linkend="update"/>.
 <para>
 Please note that the source file does not need to contain any build system
 discussed in <xref linkend="simplemake"/> and <xref linkend="portable"/>.  It
-could be just a collection of graphical data etc.  Installation of files may be
+could be just a collection of graphical data, etc.  Installation of files may be
 carried out using only <systemitem role="package">debhelper</systemitem> configuration
 files such as <filename>debian/install</filename> (see
 <xref linkend="install"/>).

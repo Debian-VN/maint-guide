@@ -122,19 +122,19 @@ editor.</para></footnote>
 </listitem>
 <listitem>
 <para>
-Upload the package as <xref linkend="upload"/>.  The difference is that
+Upload the package as in <xref linkend="upload"/>.  The difference is that
 this time, the original source archive won't be included, as it hasn't been
 changed and it already exists in the Debian archive.
 </para>
 </listitem>
 </itemizedlist>
 <para>
-One tricky case can occur when you make a local package to experiment with
-the packaging before uploading  the normal version to the official archive,
+One tricky case can occur when you make a local package, to experiment with
+the packaging before uploading the normal version to the official archive,
 e.g.,
 <literal><replaceable>1.0.1</replaceable>-<replaceable>1</replaceable></literal>.
 For smoother upgrades, it is a good idea to create a
-<filename>changelog</filename> entry with a version string as
+<filename>changelog</filename> entry with a version string such as
 <literal><replaceable>1.0.1</replaceable>-<replaceable>1~rc1</replaceable></literal>.
 You may unclutter <filename>changelog</filename>
 by consolidating such local change entries into a single entry for the official package.
@@ -146,7 +146,7 @@ See <xref linkend="namever"/> for the order of version strings.
 <section id="inspectnewupstream"><title>Inspection of the new upstream release</title>
 <para>
 When preparing packages of a new upstream release for the Debian archive, you
-must check the new upstream release, first.
+must check the new upstream release first.
 </para>
 <para>
 Start by reading the upstream <filename>changelog</filename>,
@@ -439,7 +439,7 @@ LC_ALL=en_US.UTF-8 w3m -o display_charset=UTF-8 \
 
 <section id="reminders"><title>Reminders for updating packages</title>
 <para>
-Here are few reminders for updating packages:
+Here are a few reminders for updating packages:
 </para>
 <itemizedlist>
 <listitem>
